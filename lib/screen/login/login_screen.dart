@@ -39,7 +39,6 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
 //    model ?? (model = LoginViewModel(this));
-
     return Scaffold(
       backgroundColor: ColorRes.whiteColor,
       body: LayoutBuilder(
