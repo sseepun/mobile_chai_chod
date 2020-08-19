@@ -60,12 +60,13 @@ class _MainScreenState extends State<MainScreen> {
           alignment: Alignment.topCenter,
           child: Image.asset(Utils.getAssetsImg('logo')),
       ),
+
       /*title: Image(
         image: AssetImage('assets/img/logo.png'),
         width: 110,
       ),*/
-      leading: _currentScreenIndex != 0 
-          ? IconButton(
+
+      leading: _currentScreenIndex != 0 ? IconButton(
           onPressed: () {
             print('Back');
           },
@@ -75,8 +76,7 @@ class _MainScreenState extends State<MainScreen> {
           icon: Icon(Icons.arrow_back),
           iconSize: 28,
           color: ColorRes.greyColor,
-        )
-        : null,
+        ) : null,
       actions: <Widget>[
         IconButton(
           onPressed: () {
