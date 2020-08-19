@@ -3,10 +3,10 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/success_screen.dart';
+import 'file:///C:/live/mobile_chai_chod/lib/screen/success/success_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'login/login_screen.dart';
+import '../login/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -417,30 +417,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   generalUser() {
-    return Expanded(
-      flex: 2,
-      child: InkResponse(
-        onTap: () {
-          setState(() {
-            if (!isDealerDetails) {
-              isGeneralUser = !isGeneralUser;
-            } else {
+    return InkResponse(
+      onTap: () {
+        setState(() {
+          if (!isDealerDetails) {
+            isGeneralUser = !isGeneralUser;
+          } else {
 //              isGeneralUser = false;
-              isDealerDetails = !isDealerDetails;
-            }
-          });
-        },
-        child: Container(
-          height: 50,
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(top: 25),
-          decoration: BoxDecoration(
-              color:
-                  isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
-              border: Border.all(color: ColorRes.blackColor, width: 1)),
-          child: AllText('General user',
-              color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor),
-        ),
+            isDealerDetails = !isDealerDetails;
+          }
+        });
+      },
+      child: Container(
+        height: 50,
+        width: Utils.getDeviceWidth(context) / 1.3,
+        alignment: Alignment.center,
+        margin: EdgeInsets.only(top: 25),
+        decoration: BoxDecoration(
+            color:
+                isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
+            border: Border.all(color: ColorRes.blackColor, width: 1)),
+        child: AllText('General user',
+            color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor),
       ),
     );
   }

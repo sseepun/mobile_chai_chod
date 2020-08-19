@@ -4,11 +4,11 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/login/login_view_model.dart';
-import 'package:ChaiChod/screen/register_screen.dart';
+import 'file:///C:/live/mobile_chai_chod/lib/screen/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../forgot_password_screen.dart';
-import '../main_screen.dart';
+import '../forgot_password/forgot_password_screen.dart';
+import '../home_tab/main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

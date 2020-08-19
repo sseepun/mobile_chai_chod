@@ -1,10 +1,9 @@
-import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/screen/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../config/app_theme.dart';
-import './export.dart';
+import '../export.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key key, this.title}) : super(key: key);

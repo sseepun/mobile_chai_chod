@@ -1,7 +1,8 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/screen/login/login_screen.dart';
 import 'package:flutter/material.dart';
-import './screen/main_screen.dart';
+import 'screen/home_tab/main_screen.dart';
 
 void main() {
   runApp(MyApp());
