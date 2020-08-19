@@ -37,72 +37,73 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorRes.whiteColor,
-      body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints viewportConstraints) {
-          return SingleChildScrollView(
-            padding: EdgeInsets.only(left: 15, right: 15),
-            child: new Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(height: 25),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
-                    },
-                    child: CommonArrow.backArrow(),
-                  ),
-                  CommonView.logoImage(220, 80),
-                  SizedBox(height: 10),
-                  registerTitle(),
-                  SizedBox(height: 10),
-                  Container(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Column(
-                      children: <Widget>[
-                        userNameTextFiled(),
-                        emailTextFiled(),
-                        passwordTextFiled(),
-                        conPasswordTextFiled(),
-                        SizedBox(height: 30),
-                        AllText('Choose user status',
-                            color: ColorRes.blackColor),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            generalUser(),
-                            SizedBox(width: 10),
-                            dealer(),
-                          ],
-                        ),
-                        Visibility(
-                          visible: isDealerDetails,
-                          child: Container(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Column(
-                              children: <Widget>[
-                                dealerPhoneNumber(),
-                                dealerStoreName(),
-                                dealerShopAddress()
-                              ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorRes.whiteColor,
+        body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints viewportConstraints) {
+            return SingleChildScrollView(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: new Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                        );
+                      },
+                      child: CommonArrow.backArrow(),
+                    ),
+                    CommonView.logoImage(220, 80),
+                    SizedBox(height: 25),
+                    registerTitle(),
+                    SizedBox(height: 10),
+                    Container(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Column(
+                        children: <Widget>[
+                          userNameTextFiled(),
+                          emailTextFiled(),
+                          passwordTextFiled(),
+                          conPasswordTextFiled(),
+                          SizedBox(height: 30),
+                          AllText('Choose user status',
+                              color: ColorRes.blackColor),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              generalUser(),
+                              SizedBox(width: 10),
+                              dealer(),
+                            ],
+                          ),
+                          Visibility(
+                            visible: isDealerDetails,
+                            child: Container(
+                              padding: EdgeInsets.only(top: 20),
+                              child: Column(
+                                children: <Widget>[
+                                  dealerPhoneNumber(),
+                                  dealerStoreName(),
+                                  dealerShopAddress()
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        submitButton()
-                      ],
+                          submitButton()
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
@@ -417,35 +418,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   generalUser() {
-    return InkResponse(
-      onTap: () {
-        setState(() {
-          if (!isDealerDetails) {
-            isGeneralUser = !isGeneralUser;
-          } else {
+    return Expanded(
+      flex: 1,
+      child: InkResponse(
+        onTap: () {
+          setState(() {
+            if (!isDealerDetails) {
+              isGeneralUser = !isGeneralUser;
+            } else {
 //              isGeneralUser = false;
-            isDealerDetails = !isDealerDetails;
-          }
-        });
-      },
-      child: Container(
-        height: 50,
-        width: Utils.getDeviceWidth(context) / 1.3,
-        alignment: Alignment.center,
-        margin: EdgeInsets.only(top: 25),
-        decoration: BoxDecoration(
-            color:
-                isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
-            border: Border.all(color: ColorRes.blackColor, width: 1)),
-        child: AllText('General user',
-            color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor),
+              isDealerDetails = !isDealerDetails;
+            }
+          });
+        },
+        child: Container(
+          height: 50,
+//          width: Utils.getDeviceWidth(context) / 2.2,
+          alignment: Alignment.center,
+          margin: EdgeInsets.only(top: 25),
+          decoration: BoxDecoration(
+              color:
+                  isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
+              border: Border.all(color: ColorRes.blackColor, width: 1)),
+          child: AllText('General user',
+              color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor),
+        ),
       ),
     );
   }
 
   dealer() {
     return Expanded(
-      flex: 2,
+      flex: 1,
       child: InkResponse(
         onTap: () {
           setState(() {
@@ -459,6 +463,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         },
         child: Container(
           height: 50,
+//          width: Utils.getDeviceWidth(context) / 2.5,
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: 25),
           decoration: BoxDecoration(

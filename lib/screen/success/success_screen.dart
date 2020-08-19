@@ -2,6 +2,7 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/screen/home_tab/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../forgot_password/forgot_password_screen.dart';
@@ -22,7 +23,6 @@ class _SuccessScreenState extends State<SuccessScreen> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-
   @override
   void initState() {
     super.initState();
@@ -30,62 +30,60 @@ class _SuccessScreenState extends State<SuccessScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorRes.whiteColor,
-      body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.only(top: 200),
-                  alignment: Alignment.center,
-                  child: Image.asset(Utils.getAssetsImg('success'),
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 30),
-                  child: AllText(
-                    StringRes.successMessage,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 20),
-                  child: AllText(
-                        StringRes.reviewAdmin,
-                      fontSize: 18,
-                      color: Colors.black
-                  ),
-                ),
-                SizedBox(height: 50),
-                Container(
-                  padding: EdgeInsets.only(top: 30),
-                  child: Container(
-                    width: Utils.getDeviceWidth(context) / 1.35,
-                    height: 45,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: ColorRes.lightBlur,
-                      child: Text('OK'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  LoginScreen()),
-                        );                                  },
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: ColorRes.whiteColor,
+          body: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(top: 0),
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      Utils.getAssetsImg('success'),
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.fill,
                     ),
                   ),
-                ),
-              ],
+                  Container(
+                    padding: EdgeInsets.only(top: 30),
+                    child: AllText(StringRes.successMessage,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 20),
+                    child: AllText(StringRes.reviewAdmin,
+                        fontSize: 18, color: Colors.black),
+                  ),
+                  SizedBox(height: 50),
+                  Container(
+                    padding: EdgeInsets.only(top: 30),
+                    child: Container(
+                      width: Utils.getDeviceWidth(context) / 1.35,
+                      height: 45,
+                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      child: RaisedButton(
+                        textColor: Colors.white,
+                        color: ColorRes.lightBlur,
+                        child: Text('OK'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MainScreen()),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          )
+          )),
     );
   }
-
 }
