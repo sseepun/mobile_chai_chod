@@ -19,6 +19,11 @@ class StringRes {
   static const enterUserName                 = 'Enter your Username';
 
 
+  //Register Screen
+  static const register                      = 'REGISTER';
+
+
+
   //card common screen
   static const homeFirstRecord               =  "HomeFirstRecord";
   static const userListScreen                =  "UserListScreen";
