@@ -1,3 +1,4 @@
+import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/register_general_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Container(
                         alignment: Alignment.center,
                         child: Image.asset(
-                          'assets/img/logo.png',
+                          Utils.getAssetsImg('logo'),
                           width: 220,
                           height: 80,
                           fit: BoxFit.fill,
