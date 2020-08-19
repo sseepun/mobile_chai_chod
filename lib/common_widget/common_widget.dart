@@ -2,14 +2,14 @@ import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/material.dart';
 
 class CommonView {
-  static logoImage() {
+  static logoImage(double width, double height ) {
     return Container(
       padding: EdgeInsets.only(top: 70),
       alignment: Alignment.center,
       child: Image.asset(Utils.getAssetsImg('logo'),
-//        'assets/img/logo.png',
+//        'assets/img/logo.png', 220 ,80
         width: width,
-        height: 80,
+        height: height,
         fit: BoxFit.fill,
       ),
     );

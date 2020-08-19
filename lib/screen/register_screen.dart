@@ -56,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: CommonArrow.backArrow(),
                     ),
 
-                    CommonView.logoImage(),
+                    CommonView.logoImage(220, 80),
                     SizedBox(height: 10),
 
                     AllText(

@@ -51,7 +51,7 @@ class LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  CommonView.logoImage(),
+                  CommonView.logoImage(220, 80),
                   SizedBox(height: 10),
                   AllText(
                     StringRes.signIn,
