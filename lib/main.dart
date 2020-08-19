@@ -1,3 +1,4 @@
+import 'package:ChaiChod/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import './screen/main_screen.dart';
 
@@ -16,9 +17,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainScreen(
-        title: 'Chai Chod'
-      ),
+      home: new LoginScreen(),
+
     );
   }
 }

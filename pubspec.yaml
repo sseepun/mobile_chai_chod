@@ -51,9 +51,9 @@ flutter:
 
   assets:
     - assets/img/
-    - assets/img/banner/
-    - assets/img/bg/
-    - assets/img/icon/
+#    - assets/img/banner/
+#    - assets/img/bg/
+#    - assets/img/icon/
 
   fonts:
     - family: Roboto
