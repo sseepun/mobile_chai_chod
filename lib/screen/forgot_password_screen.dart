@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'login_screen.dart';
+import 'login/login_screen.dart';
 class ForgotPasswordScreen extends StatefulWidget {
   @override
   _ForgorPasswordScreenState createState() => _ForgorPasswordScreenState();

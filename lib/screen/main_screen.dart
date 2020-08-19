@@ -1,3 +1,4 @@
+import 'package:ChaiChod/config/color_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../config/app_theme.dart';
@@ -37,9 +38,9 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppTheme.greyColor,
+      color: ColorRes.greyColor,
       child: Scaffold(
-        backgroundColor: AppTheme.bgColor,
+        backgroundColor: ColorRes.bgColor,
         appBar: _appBar(),
         body: _screens[_currentScreenIndex],
         bottomNavigationBar: _bottomNavigationBar(),
@@ -66,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           icon: Icon(Icons.arrow_back),
           iconSize: 28,
-          color: AppTheme.greyColor,
+          color: ColorRes.greyColor,
         )
         : null,
       actions: <Widget>[
@@ -79,7 +80,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           icon: Icon(Icons.shopping_basket),
           iconSize: 28,
-          color: AppTheme.primaryColor,
+          color: ColorRes.primaryColor,
         ),
       ],
     );
@@ -106,8 +107,8 @@ class _MainScreenState extends State<MainScreen> {
             data[1],
             size: 25,
             color: _bottomIndex == _currentScreenIndex 
-              ? AppTheme.primaryColor 
-              : AppTheme.greyColor,
+              ? ColorRes.primaryColor
+              : ColorRes.greyColor,
           ),
           title: Column(
             children: <Widget>[
@@ -118,8 +119,8 @@ class _MainScreenState extends State<MainScreen> {
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w600,
                   color: _bottomIndex == _currentScreenIndex 
-                    ? AppTheme.primaryColor 
-                    : AppTheme.greyColor,
+                    ? ColorRes.primaryColor
+                    : ColorRes.greyColor,
                 ),
               ),
             ],

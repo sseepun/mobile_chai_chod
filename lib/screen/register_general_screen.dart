@@ -3,7 +3,7 @@ import 'package:ChaiChod/screen/success_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'forgot_password_screen.dart';
-import 'login_screen.dart';
+import 'login/login_screen.dart';
 
 class RegisterGeneralScreen extends StatefulWidget {
   @override

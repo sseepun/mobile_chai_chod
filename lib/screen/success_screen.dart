@@ -1,4 +1,4 @@
-import 'package:ChaiChod/screen/login_screen.dart';
+import 'file:///C:/live/mobile_chai_chod/lib/screen/login/login_screen.dart';
 import 'package:ChaiChod/screen/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

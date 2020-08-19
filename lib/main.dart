@@ -1,4 +1,5 @@
-import 'package:ChaiChod/screen/login_screen.dart';
+import 'file:///C:/live/mobile_chai_chod/lib/screen/login/login_screen.dart';
+import 'package:ChaiChod/config/string_resources.dart';
 import 'package:flutter/material.dart';
 import './screen/main_screen.dart';
 
@@ -16,9 +17,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: StringRes.fontFamilyRoboto
       ),
       home: new LoginScreen(),
-
     );
   }
 }
