@@ -29,6 +29,8 @@ class LoginScreenState extends State<LoginScreen> {
   String username;
   String password;
 
+
+
   @override
   void initState() {
     super.initState();
@@ -40,48 +42,51 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
 //    model ?? (model = LoginViewModel(this));
 
-    return Scaffold(
-      backgroundColor: ColorRes.whiteColor,
-      body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints viewportConstraints) {
-          return SingleChildScrollView(
-            padding: EdgeInsets.only(left: 15, right: 15),
-            child: new Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  CommonView.logoImage(220, 80),
-                  SizedBox(height: 10),
-                  AllText(
-                    StringRes.signIn,
-                    fontSize: 30.0,
-                    align: TextAlign.left,
-                    color: ColorRes.blackColor,
-                    overflow: TextOverflow.ellipsis,
-                    fontWeight: FontWeight.bold,
-                    letterSpace: 1,
-                  ),
-                  SizedBox(height: 10),
-                  Column(
-                    children: <Widget>[
-                      userNameTextFiled(),
-                      passWordTextFiled(),
-                      SizedBox(height: 10),
-                      forgotPassword(),
-                      accessButton(),
-                      registerTitle(),
-                      SizedBox(height: 7),
-                      orTitle(),
-                      faceBookButton(),
-                      googleButton(),
-                    ],
-                  ),
-                ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorRes.whiteColor,
+        body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints viewportConstraints) {
+            return SingleChildScrollView(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: new Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(height: 50),
+                    CommonView.logoImage(220, 80),
+                    SizedBox(height: 50),
+                    AllText(
+                      StringRes.signIn,
+                      fontSize: 30.0,
+                      align: TextAlign.left,
+                      color: ColorRes.blackColor,
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.bold,
+                      letterSpace: 1,
+                    ),
+                    SizedBox(height: 10),
+                    Column(
+                      children: <Widget>[
+                        userNameTextFiled(),
+                        passWordTextFiled(),
+                        SizedBox(height: 10),
+                        forgotPassword(),
+                        accessButton(),
+                        registerTitle(),
+                        SizedBox(height: 7),
+                        orTitle(),
+                        faceBookButton(),
+                        googleButton(),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

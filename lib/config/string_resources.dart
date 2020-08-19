@@ -28,6 +28,11 @@ class StringRes {
   static const homeFirstRecord               =  "HomeFirstRecord";
   static const userListScreen                =  "UserListScreen";
 
+  //Success screen
+  static const successMessage                =  "Successfully registered!";
+  static const reviewAdmin                   =  "Please wait for the review from  Admin";
+
+
 
 
 }
