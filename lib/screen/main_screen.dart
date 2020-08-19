@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -53,10 +54,14 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.white,
       elevation: 0,
       centerTitle: true,
-      title: Image(
+      title: Align(
+        alignment: Alignment.center,
+        child: CommonView.logoImage(),
+      ),
+      /*title: Image(
         image: AssetImage('assets/img/logo.png'),
         width: 110,
-      ),
+      ),*/
       leading: _currentScreenIndex != 0 
           ? IconButton(
           onPressed: () {

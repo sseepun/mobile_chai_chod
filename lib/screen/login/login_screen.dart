@@ -8,7 +8,7 @@ import 'package:ChaiChod/screen/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../forgot_password_screen.dart';
-
+import '../main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -34,12 +34,10 @@ class LoginScreenState extends State<LoginScreen> {
     super.initState();
   }
 
-
 //  LoginViewModel model;
 
   @override
   Widget build(BuildContext context) {
-
 //    model ?? (model = LoginViewModel(this));
 
     return Scaffold(
@@ -53,28 +51,26 @@ class LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-
                   CommonView.logoImage(),
                   SizedBox(height: 10),
-                  AllText(StringRes.signIn,
-                      fontSize: 30.0, align: TextAlign.left,
-                      color: ColorRes.blackColor, overflow: TextOverflow.ellipsis,
-                      fontWeight: FontWeight.bold,
-                      letterSpace: 1,
+                  AllText(
+                    StringRes.signIn,
+                    fontSize: 30.0,
+                    align: TextAlign.left,
+                    color: ColorRes.blackColor,
+                    overflow: TextOverflow.ellipsis,
+                    fontWeight: FontWeight.bold,
+                    letterSpace: 1,
                   ),
                   SizedBox(height: 10),
-
                   Column(
                     children: <Widget>[
                       userNameTextFiled(),
                       passWordTextFiled(),
-
                       SizedBox(height: 10),
-
                       forgotPassword(),
                       accessButton(),
                       registerTitle(),
-
                       SizedBox(height: 7),
                       orTitle(),
                       faceBookButton(),
@@ -147,8 +143,7 @@ class LoginScreenState extends State<LoginScreen> {
       height: 60,
       decoration: new BoxDecoration(
         border: Border.all(color: Colors.black45),
-        borderRadius:
-        BorderRadius.all(Radius.circular(2)),
+        borderRadius: BorderRadius.all(Radius.circular(2)),
       ),
       child: ListView(
         padding: EdgeInsets.only(top: 5, bottom: 10),
@@ -161,8 +156,7 @@ class LoginScreenState extends State<LoginScreen> {
                 size: 20,
               ),
               Container(
-                padding:
-                EdgeInsets.only(top: 5, left: 10),
+                padding: EdgeInsets.only(top: 5, left: 10),
                 child: AllText(
                   StringRes.userName,
                   fontSize: 12,
@@ -182,20 +176,17 @@ class LoginScreenState extends State<LoginScreen> {
             autofocus: false,
             decoration: InputDecoration(
               enabledBorder: UnderlineInputBorder(
-                borderSide:
-                BorderSide(color: Colors.white70),
+                borderSide: BorderSide(color: Colors.white70),
               ),
               focusedBorder: UnderlineInputBorder(
-                borderSide:
-                BorderSide(color: Colors.white70),
+                borderSide: BorderSide(color: Colors.white70),
               ),
               hintText: StringRes.enterUserName,
               hintStyle: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 13,
               ),
-              contentPadding:
-              EdgeInsets.only(bottom: 20, left: 30),
+              contentPadding: EdgeInsets.only(bottom: 20, left: 30),
             ),
           ),
         ],
@@ -212,8 +203,7 @@ class LoginScreenState extends State<LoginScreen> {
         height: 60,
         decoration: new BoxDecoration(
           border: Border.all(color: Colors.black45),
-          borderRadius:
-          BorderRadius.all(Radius.circular(2)),
+          borderRadius: BorderRadius.all(Radius.circular(2)),
         ),
         child: ListView(
           padding: EdgeInsets.only(top: 5, bottom: 10),
@@ -226,8 +216,7 @@ class LoginScreenState extends State<LoginScreen> {
                   size: 20,
                 ),
                 Container(
-                  padding:
-                  EdgeInsets.only(top: 5, left: 10),
+                  padding: EdgeInsets.only(top: 5, left: 10),
                   child: Text(
                     'Password',
                     style: TextStyle(
@@ -249,20 +238,17 @@ class LoginScreenState extends State<LoginScreen> {
               },
               decoration: InputDecoration(
                 enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                  BorderSide(color: Colors.white70),
+                  borderSide: BorderSide(color: Colors.white70),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide:
-                  BorderSide(color: Colors.white70),
+                  borderSide: BorderSide(color: Colors.white70),
                 ),
                 hintText: 'Enter your Password',
                 hintStyle: TextStyle(
                   fontFamily: 'Roboto',
                   fontSize: 13,
                 ),
-                contentPadding: EdgeInsets.only(
-                    bottom: 20, left: 30),
+                contentPadding: EdgeInsets.only(bottom: 20, left: 30),
               ),
             ),
           ],
@@ -278,12 +264,11 @@ class LoginScreenState extends State<LoginScreen> {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    ForgotPasswordScreen()),
+            MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
           );
         },
-        child: AllText(StringRes.forgotPasswordTitle, color: ColorRes.lightBlur),
+        child:
+            AllText(StringRes.forgotPasswordTitle, color: ColorRes.lightBlur),
       ),
     );
   }
@@ -298,14 +283,19 @@ class LoginScreenState extends State<LoginScreen> {
         color: ColorRes.lightBlur,
         child: Text('Access'),
         onPressed: () {
-          _validateInputs();
-        },
+          if (_validateInputs()) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MainScreen()),
+            );
+          }        },
       ),
     );
   }
 
   registerTitle() {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         AllText(
@@ -316,15 +306,11 @@ class LoginScreenState extends State<LoginScreen> {
         FlatButton(
           padding: EdgeInsets.only(right: 1),
           textColor: ColorRes.lightBlur,
-          child: AllText(
-              StringRes.pleaseRegister, fontSize: 12
-          ),
+          child: AllText(StringRes.pleaseRegister, fontSize: 12),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      RegisterScreen()),
+              MaterialPageRoute(builder: (context) => RegisterScreen()),
             );
           },
         )
@@ -337,8 +323,7 @@ class LoginScreenState extends State<LoginScreen> {
       Row(children: <Widget>[
         Expanded(
           child: new Container(
-              margin: const EdgeInsets.only(
-                  left: 70.0, right: 10.0),
+              margin: const EdgeInsets.only(left: 70.0, right: 10.0),
               child: Divider(
                 color: ColorRes.blackColor,
                 height: 36,
@@ -347,8 +332,7 @@ class LoginScreenState extends State<LoginScreen> {
         AllText("OR", color: ColorRes.greyColor),
         Expanded(
           child: new Container(
-              margin: const EdgeInsets.only(
-                  left: 10.0, right: 70.0),
+              margin: const EdgeInsets.only(left: 10.0, right: 70.0),
               child: Divider(
                 color: ColorRes.blackColor,
                 height: 36,
@@ -377,17 +361,17 @@ class LoginScreenState extends State<LoginScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset( Utils.getAssetsImg('facebook'),
+          Image.asset(
+            Utils.getAssetsImg('facebook'),
             width: 35,
             height: 30,
             fit: BoxFit.fill,
           ),
           Align(
             child: Container(
-              padding:
-              const EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 10),
               child: AllText(
-                StringRes.faceBookLoginTitle              ,
+                StringRes.faceBookLoginTitle,
                 fontSize: 13,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -406,8 +390,7 @@ class LoginScreenState extends State<LoginScreen> {
       height: 45,
       decoration: new BoxDecoration(
         color: Colors.white,
-        borderRadius:
-        BorderRadius.all(Radius.circular(2)),
+        borderRadius: BorderRadius.all(Radius.circular(2)),
         boxShadow: [
           new BoxShadow(
             color: Colors.black12,
@@ -418,15 +401,15 @@ class LoginScreenState extends State<LoginScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(Utils.getAssetsImg('google'),
+          Image.asset(
+            Utils.getAssetsImg('google'),
             width: 45,
             height: 35,
             fit: BoxFit.fill,
           ),
           Align(
             child: Container(
-              padding:
-              const EdgeInsets.only(left: 15),
+              padding: const EdgeInsets.only(left: 15),
               child: AllText(
                 StringRes.googleLoginTitle,
                 fontSize: 13,
@@ -440,6 +423,4 @@ class LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
-
 }
