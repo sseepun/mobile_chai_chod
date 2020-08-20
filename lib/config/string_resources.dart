@@ -32,7 +32,9 @@ class StringRes {
   static const successMessage                =  "Successfully registered!";
   static const reviewAdmin                   =  "Please wait for the review from  Admin";
 
-
+  //Home page
+  static const heading                       =  "Salam, Style, Ory";
+  static const secondHeading                 =  "Promotion Product This Month";
 
 
 }
