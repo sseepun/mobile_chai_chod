@@ -35,6 +35,9 @@ class StringRes {
   //Home page
   static const heading                       =  "Salam, Style, Ory";
   static const secondHeading                 =  "Promotion Product This Month";
+  //Archive Page
+  static const ArchiveHeading                 =  "Track delivery";
+
 
   //Cart Screen
   static const shoppingCart                  =  "Shopping Carts";
