@@ -12,7 +12,7 @@ class StringRes {
   static const signIn                        = 'SIGN IN';
   static const forgotPasswordTitle           = 'Forgot your Password?';
   static const youHaveAccount                = 'If you do not have a account yet,';
-  static const pleaseRegister                = 'Please Register';
+  static const pleaseRegister                = '  Please Register';
   static const googleLoginTitle              = 'Login with Google';
   static const faceBookLoginTitle            = 'Login with Facebook';
   static const userName                      = 'Username';

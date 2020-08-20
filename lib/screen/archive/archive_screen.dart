@@ -20,37 +20,35 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white60,
-      body: Column(
-        children: <Widget>[
-          SingleChildScrollView(
-            child: new Form(
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: 50),
-                  textFiled(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 50),
+            titleText(),
 
-                  SizedBox(height: 20),
-                  tabBar(),
+            SizedBox(height: 20),
+            tabBar(),
 
-                  SizedBox(height: 20),
-                  card1(),
-                ],
-              ),
-            ),
-          ),
-        ],
+            SizedBox(height: 20),
+            ListView.builder(
+                itemCount: 1,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+              return card1();
+            }),
+          ],
+        ),
       ),
     );
   }
-  textFiled() {
-    return Container(
-      alignment: Alignment.center,
-      child: AllText(
-        StringRes.ArchiveHeading,
-        color: ColorRes.blackColor,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
+  titleText() {
+    return AllText(
+      StringRes.ArchiveHeading,
+      color: ColorRes.blackColor,
+      fontSize: 20,
+      align: TextAlign.center,
+      fontWeight: FontWeight.bold,
     );
   }
 
@@ -87,83 +85,84 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
 
   card1(){
     return Container(
-      child: Container(
-          width: 345,
-          height: 75,
-          decoration: new BoxDecoration(
-            boxShadow: [
-              new BoxShadow(
-                offset: Offset(-5.0, 0.0),
-                color: Color(0xffEDEDED),
-                blurRadius: 5.0,
-              ),
-            ],
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(2)),
-          ),
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 15,left: 20),
-                    child: Text(
-                      "Order number",
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.black,
-                        fontSize: 14,
-                      ),
+        height: 75,
+        margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+        decoration: new BoxDecoration(
+          boxShadow: [
+            new BoxShadow(
+              offset: Offset(0.5, 0.5),
+              color: ColorRes.greyColor,
+              blurRadius: 0.5,
+            ),
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(2)),
+        ),
+        child: Column(
+//          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(top: 15,left: 20),
+                  child: Text(
+                    "Order number",
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      color: Colors.black,
+                      fontSize: 14,
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(top: 15,left: 140),
-                    child: Text(
-                      "#1003111124",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                        color: Colors.black,
-                        fontSize: 14,
-                      ),
+                ),
+                Container(
+                  alignment: Alignment.topRight,
+                  padding: EdgeInsets.only(top: 15, right: 15),
+                  child: Text(
+                    "#1003111124",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                      color: Colors.black,
+                      fontSize: 14,
                     ),
                   ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 15,left: 20),
-                    child: Text(
-                      "Order date",
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.black,
-                        fontSize: 14,
-                      ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(top: 15,left: 20),
+                  child: Text(
+                    "Order date",
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      color: Colors.black,
+                      fontSize: 14,
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(top: 15,left: 190),
-                    child: Text(
-                      "30/05/20",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                        color: Colors.black,
-                        fontSize: 14,
-                      ),
+                ),
+                Container(
+                  alignment: Alignment.topRight,
+                  padding: EdgeInsets.only(top: 15, right: 15),
+                  child: Text(
+                    "30/05/20",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                      color: Colors.black,
+                      fontSize: 14,
                     ),
                   ),
-                ],
-              ),
-            ],
-          )
-      ),
+                ),
+              ],
+            ),
+          ],
+        )
     );
   }
 }
