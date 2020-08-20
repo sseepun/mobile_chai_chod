@@ -1,3 +1,5 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -22,6 +24,7 @@ class _HomeScreneState extends State<HomeScrene> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: _appBar(),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints viewportConstraints) {
           return SingleChildScrollView(
@@ -49,6 +52,35 @@ class _HomeScreneState extends State<HomeScrene> {
           );
         },
       ),
+    );
+  }
+
+  Widget _appBar() {
+    return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      centerTitle: true,
+      title: Container(
+        height: 50,
+        alignment: Alignment.topCenter,
+        child: CommonView.logoImage(125,45),
+//        child: Image.asset(Utils.getAssetsImg('logo')),
+      ),
+
+      actions: <Widget>[
+        IconButton(
+          onPressed: () {
+            print('Shopping Cart');
+            cartScreenNavigator(context);
+          },
+          padding: EdgeInsets.only(
+            right: 15,
+          ),
+          icon: Icon(Icons.shopping_basket),
+          iconSize: 28,
+          color: ColorRes.primaryColor,
+        ),
+      ],
     );
   }
 

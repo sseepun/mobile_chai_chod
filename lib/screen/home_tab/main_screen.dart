@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
       color: ColorRes.greyColor,
       child: Scaffold(
         backgroundColor: ColorRes.bgColor,
-        appBar: _appBar(),
+//        appBar: _appBar(),
         body: _screens[_currentScreenIndex],
         bottomNavigationBar: _bottomNavigationBar(),
       ),

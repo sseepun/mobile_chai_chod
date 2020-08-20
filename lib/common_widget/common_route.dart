@@ -1,3 +1,4 @@
+import 'package:ChaiChod/screen/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes{
@@ -11,3 +12,8 @@ class Routes{
   );
 }*/
 
+
+cartScreenNavigator(BuildContext context) {
+//  Navigator.push(context, NavigatePageRoute(context, SoundBiteTrimPage(path, t,from: from, listImages:imageList)));
+  Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));
+}

@@ -14,6 +14,7 @@ class ColorRes {
   static const Color disabledBgColor       = Color(0xFF364A54);
   static const Color spacerColor           = Color(0xFFF2F2F2);
   static const Color lightBlur             = Color(0xFF4298D3);
+  static const Color lightWhite            = Color(0xFFF4F4F5);
 
 }
 

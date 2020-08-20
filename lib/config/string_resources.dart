@@ -36,6 +36,20 @@ class StringRes {
   static const heading                       =  "Salam, Style, Ory";
   static const secondHeading                 =  "Promotion Product This Month";
 
+  //Cart Screen
+  static const shoppingCart                  =  "Shopping Carts";
+  static const continueText                  =  "Continue";
+  static const prices                        =  "Prices";
+  static const discount                      =  "Discount";
+  static const total                         =  "Total";
+  static const brand                         =  "Brand";
+  static const miCheIn                       =  "MICHELIN";
+  static const pageWidth                     =  "pageWidth";
+  static const serialNumber                  =  "Serial number";
+  static const edgeNumber                    =  "Edge number";
+  static const sideWall                      =  "The sidewall";
+  static const numberItem                    =  "The Number of Item";
+
 
 }
 
