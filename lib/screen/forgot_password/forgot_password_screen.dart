@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ChaiChod/config/util.dart';
 
 import '../login/login_screen.dart';
 class ForgotPasswordScreen extends StatefulWidget {
@@ -41,7 +42,8 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                        padding: EdgeInsets.only(right: 350, top: 30),
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(top: 30, left: 0),
                         child: IconButton(
                           onPressed: () {
                             Navigator.push(
@@ -71,7 +73,9 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: 25, right: 205),
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(top: 25),
+                        margin: EdgeInsets.only(left: 10),
                         child: Text(
                           "Enter Your Email",
                           style: TextStyle(
@@ -87,8 +91,8 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                           children: <Widget>[
                             Container(
                               padding: EdgeInsets.only(left: 10),
-                              width: 340,
                               height: 60,
+                              margin: EdgeInsets.only(left: 10, right: 10),
                               decoration: new BoxDecoration(
                                 border: Border.all(color: Colors.black45),
                                 borderRadius:
@@ -148,10 +152,11 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                             ),
                             Container(
                               padding: EdgeInsets.only(top: 40),
+                              margin: EdgeInsets.only(left: 10, right: 10),
+
                               child: Container(
-                                  width: 360,
                                   height: 45,
-                                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                  width: Utils.getDeviceWidth(context),
                                   child: RaisedButton(
                                     textColor: Colors.white,
                                     color: Color(hexColor('#4298D3')),
