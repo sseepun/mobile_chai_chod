@@ -33,8 +33,9 @@ class StringRes {
   static const reviewAdmin                   =  "Please wait for the review from  Admin";
 
   //Home page
-  static const heading                       =  "Salam, Style, Ory";
-  static const secondHeading                 =  "Promotion Product This Month";
+  static const StyleOry                      =  "Salam, Style, Ory";
+  static const promotionTitle                =  "Promotion Product This Month";
+  static const chooseHereTitle               =  "Choose acconding to here";
 
   //Cart Screen
   static const shoppingCart                  =  "Shopping Carts";
