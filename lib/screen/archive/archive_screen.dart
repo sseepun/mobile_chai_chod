@@ -19,6 +19,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white60,
       body: Column(
         children: <Widget>[
           SingleChildScrollView(
@@ -30,6 +31,9 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
 
                   SizedBox(height: 20),
                   tabBar(),
+
+                  SizedBox(height: 20),
+                  card1(),
                 ],
               ),
             ),
@@ -52,27 +56,24 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
 
   tabBar(){
     return Container(
-     child: new DefaultTabController(
+      child: new DefaultTabController(
         length: 2,
         child: new Column(
           children: <Widget>[
             new Container(
               width: 1200.0,
               child: new Container(
-                color: Colors.white,
+                color: Colors.white60,
                 child: new TabBar(
                   indicatorColor: ColorRes.primaryColor,
 //                  indicatorSize:,
                   labelColor: ColorRes.primaryColor,
-                  tabs: [
-                    Tab(
-                      child: new Text("Shipping",
-                          style: new TextStyle(fontSize: 17.0)
-                      ),
+                  tabs: [Tab(
+                    child: new Text("Shipping", style: new TextStyle(fontSize: 17.0)
                     ),
+                  ),
                     Tab(
-                      child: new Text("Successful delivery",
-                          style: new TextStyle(fontSize: 17.0)),
+                      child: new Text("Successful delivery", style: new TextStyle(fontSize: 17.0)),
                     ),
                   ],
                 ),
@@ -80,6 +81,88 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  card1(){
+    return Container(
+      child: Container(
+          width: 345,
+          height: 75,
+          decoration: new BoxDecoration(
+            boxShadow: [
+              new BoxShadow(
+                offset: Offset(-5.0, 0.0),
+                color: Color(0xffEDEDED),
+                blurRadius: 5.0,
+              ),
+            ],
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.topLeft,
+                    padding: EdgeInsets.only(top: 15,left: 20),
+                    child: Text(
+                      "Order number",
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topRight,
+                    padding: EdgeInsets.only(top: 15,left: 140),
+                    child: Text(
+                      "#1003111124",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.topLeft,
+                    padding: EdgeInsets.only(top: 15,left: 20),
+                    child: Text(
+                      "Order date",
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topRight,
+                    padding: EdgeInsets.only(top: 15,left: 190),
+                    child: Text(
+                      "30/05/20",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          )
       ),
     );
   }

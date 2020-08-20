@@ -2,6 +2,7 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/archive/archive_screen.dart';
 import 'package:ChaiChod/screen/home/home_screen.dart';
+import 'package:ChaiChod/screen/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../export.dart';
@@ -29,9 +30,9 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     _screens = [
-      HomeScrene(),
+      HomeScreen(),
       ArchiveScreen(),
-      ProductListScreen(),
+      NotificationScreen(),
       ProductListScreen(),
     ];
     super.initState();
