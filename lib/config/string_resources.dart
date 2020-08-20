@@ -33,6 +33,11 @@ class StringRes {
   static const reviewAdmin                   =  "Please wait for the review from  Admin";
 
   //Home page
+  static const heading                       =  "Salam, Style, Ory";
+  static const secondHeading                 =  "Promotion Product This Month";
+  //Archive Page
+  static const ArchiveHeading                 =  "Track delivery";
+
   static const StyleOry                      =  "Salam, Style, Ory";
   static const promotionTitle                =  "Promotion Product This Month";
   static const chooseHereTitle               =  "Choose acconding to here";
