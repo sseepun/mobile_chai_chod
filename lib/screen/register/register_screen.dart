@@ -22,10 +22,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  var passKey = GlobalKey<FormFieldState>();
+
   TextEditingController usernameContoller;
+  TextEditingController emailContoller;
+  TextEditingController confirmpasswordContoller;
   TextEditingController passwordContoller;
+  TextEditingController numberContoller;
+  TextEditingController storeContoller;
+  TextEditingController shopContoller;
+
   String username;
   String password;
+  String email;
+  String confirmPassword;
+  String number;
+  String store;
+  String shop;
 
   bool isDealerDetails = false;
   bool isGeneralUser = false;
@@ -107,7 +120,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
-
+  String validateName(String value) {
+    if (value.isEmpty)
+      return 'Please enter Your Name';
+    else
+      return null;
+  }
   String validateEmail(String value) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -117,7 +135,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     } else
       return null;
   }
-
   String validatePassword(String value) {
     // ignore: non_constant_identifier_names
     Pattern UPPER = ("[A-Z]");
@@ -150,7 +167,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
         return null;
     }
   }
+  String validatePasswordMatching(String value) {
+    var password = passKey.currentState.value;
 
+    if (value.length == 0) {
+      return "Password is Required";
+    } else if (value != password) {
+      return 'Password is not matching';
+    }
+    return null;
+  }
+  String validateMobile(String value) {
+    if (value.length != 10)
+      return 'Mobile Number must be of 10 digit';
+    else
+      return null;
+  }
   bool _validateInputs() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
@@ -207,8 +239,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             onSaved: (String val) {
               username = val;
             },
-            validator: validateEmail,
-            keyboardType: TextInputType.emailAddress,
+            validator: validateName,
             maxLines: 1,
             autofocus: false,
             decoration: InputDecoration(
@@ -264,13 +295,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ],
             ),
             TextFormField(
-              controller: passwordContoller,
+              controller: emailContoller,
               maxLines: 1,
-              validator: validatePassword,
+              validator: validateEmail,
               autofocus: false,
-              obscureText: true,
               onSaved: (String val) {
-                password = val;
+                email = val;
               },
               decoration: InputDecoration(
                 enabledBorder: UnderlineInputBorder(
@@ -331,6 +361,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               validator: validatePassword,
               autofocus: false,
               obscureText: true,
+              key: passKey,
               onSaved: (String val) {
                 password = val;
               },
@@ -388,13 +419,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ],
             ),
             TextFormField(
-              controller: passwordContoller,
+              controller: confirmpasswordContoller,
               maxLines: 1,
-              validator: validatePassword,
+              validator: validatePasswordMatching,
               autofocus: false,
               obscureText: true,
               onSaved: (String val) {
-                password = val;
+                confirmPassword = val;
               },
               decoration: InputDecoration(
                 enabledBorder: UnderlineInputBorder(
@@ -423,11 +454,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: InkResponse(
         onTap: () {
           setState(() {
-            if (!isDealerDetails) {
-              isGeneralUser = !isGeneralUser;
-            } else {
+            if(!_validateInputs()) {}
+            else{
+              {
+                if (!isDealerDetails) {
+                  isGeneralUser = !isGeneralUser;
+                } else {
 //              isGeneralUser = false;
-              isDealerDetails = !isDealerDetails;
+                  isDealerDetails = !isDealerDetails;
+                }
+              }
             }
           });
         },
@@ -437,11 +473,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: 25),
           decoration: BoxDecoration(
-              color:
-                  isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
+              color:isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
               border: Border.all(color: ColorRes.blackColor, width: 1)),
-          child: AllText('General user',
-              color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor),
+          child: AllText('General user', color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor),
         ),
       ),
     );
@@ -453,11 +487,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: InkResponse(
         onTap: () {
           setState(() {
-            if (!isGeneralUser) {
-              isDealerDetails = !isDealerDetails;
-            } else {
+            if(!_validateInputs()) {}
+            else{
+              {
+                if (!isGeneralUser) {
+                  isDealerDetails = !isDealerDetails;
+                } else {
 //              isDealerDetails = false;
-              isGeneralUser = !isGeneralUser;
+                  isGeneralUser = !isGeneralUser;
+                }
+              }
             }
           });
         },
@@ -509,13 +548,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ],
           ),
           TextFormField(
-            controller: usernameContoller,
+            controller: numberContoller,
             onSaved: (String val) {
-              username = val;
+              number = val;
             },
-            validator: validateEmail,
-            keyboardType: TextInputType.emailAddress,
+            validator: validateMobile,
             maxLines: 1,
+            keyboardType: TextInputType.number,
+
             autofocus: false,
             decoration: InputDecoration(
               enabledBorder: UnderlineInputBorder(
@@ -571,12 +611,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ],
           ),
           TextFormField(
-            controller: usernameContoller,
+            controller: storeContoller,
             onSaved: (String val) {
-              username = val;
+              store = val;
             },
-            validator: validateEmail,
-            keyboardType: TextInputType.emailAddress,
+            validator: validateName,
             maxLines: 1,
             autofocus: false,
             decoration: InputDecoration(
@@ -631,12 +670,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ],
           ),
           TextFormField(
-            controller: usernameContoller,
+            controller: shopContoller,
             onSaved: (String val) {
-              username = val;
+              shop = val;
             },
-            validator: validateEmail,
-            keyboardType: TextInputType.emailAddress,
+            validator: validateName,
             autofocus: false,
             decoration: InputDecoration(
               enabledBorder: UnderlineInputBorder(
