@@ -41,7 +41,8 @@ class StringRes {
   static const StyleOry                      =  "Salam, Style, Ory";
   static const promotionTitle                =  "Promotion Product This Month";
   static const chooseHereTitle               =  "Choose acconding to here";
-
+  //Notification Page
+  static const NotificationHeading           =  "Notification";
   //Cart Screen
   static const shoppingCart                  =  "Shopping Carts";
   static const continueText                  =  "Continue";
