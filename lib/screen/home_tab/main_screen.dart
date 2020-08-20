@@ -29,7 +29,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     _screens = [
-      HomeScrene(),
+      HomeScreen(),
       ArchiveScreen(),
       ProductListScreen(),
       ProductListScreen(),

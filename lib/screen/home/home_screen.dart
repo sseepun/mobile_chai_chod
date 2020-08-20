@@ -85,6 +85,9 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.white,
         child: TextFormField(
           autofocus: false,
+          onTap: () {
+            searchScreenNavigator(context);
+          },
           decoration: InputDecoration(
             enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white),
@@ -93,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderSide: BorderSide(color: Colors.white),
                 borderRadius: BorderRadius.circular(2)),
             filled: true,
-            fillColor: const Color(0xFFFFFFFF),
+            fillColor: ColorRes.lightWhite,
             border:
                 UnderlineInputBorder(borderRadius: BorderRadius.circular(2)),
             hintText: 'Search here...',
@@ -121,14 +124,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   sideImage() {
-   /* return Container(
-      child: Image.asset(
-        Utils.getAssetsImg('car'),
-        width: 370,
-        height: 210,
-        fit: BoxFit.fill,
-      ),
-    );*/
    return Container(
      height: Utils.getDeviceWidth(context) / 1.6,
       child: SizedBox(
@@ -234,57 +229,55 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   gridImage() {
-    return Container(
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        itemCount: listTitle.length,
-        padding: EdgeInsets.only(left: 10, right: 10),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: Utils.getDeviceWidth(context) /
-                (Utils.getDeviceHeight(context) / 1.25)
-        ),
-        itemBuilder: (context, index) {
-          return Container(
-            height: 150,
-            padding: EdgeInsets.only(left: 8, right: 8),
-            color: ColorRes.whiteColor,
-
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Image(image: AssetImage(Utils.getAssetsImg('tiers'))),
-                Column(
-//                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    AllText("GOODYEAR", color: ColorRes.blackColor,),
-                    AllText("Tires 225/45/R17", color: ColorRes.blackColor,),
-                    AllText("\$2,000 /len.", color: ColorRes.blackColor,)
-                  ],
-                )
-              ],
-            ),
-          /*  child:Container(
-
-              color: Colors.white,
-                margin: EdgeInsets.only(bottom: 10),
-                  child:Column(
-                    children: <Widget>[
-                      Image.asset(
-                       Utils.getAssetsImg(listTitle[index]),
-                        width: 300,
-                        height: 170,
-                       ),
-                    ],
-                  ),
-            ),*/
-          );
-        },
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: listTitle.length,
+      padding: EdgeInsets.only(left: 10, right: 10),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: Utils.getDeviceWidth(context) /
+              (Utils.getDeviceHeight(context) / 1.25)
       ),
+      itemBuilder: (context, index) {
+        return Container(
+          height: 150,
+          padding: EdgeInsets.only(left: 8, right: 8),
+          color: ColorRes.whiteColor,
+
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Image(image: AssetImage(Utils.getAssetsImg('tiers'))),
+              Column(
+//                  mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  AllText("GOODYEAR", color: ColorRes.blackColor,),
+                  AllText("Tires 225/45/R17", color: ColorRes.blackColor,),
+                  AllText("\$2,000 /len.", color: ColorRes.blackColor,)
+                ],
+              )
+            ],
+          ),
+        /*  child:Container(
+
+            color: Colors.white,
+              margin: EdgeInsets.only(bottom: 10),
+                child:Column(
+                  children: <Widget>[
+                    Image.asset(
+                     Utils.getAssetsImg(listTitle[index]),
+                      width: 300,
+                      height: 170,
+                     ),
+                  ],
+                ),
+          ),*/
+        );
+      },
     );
   }
 }
