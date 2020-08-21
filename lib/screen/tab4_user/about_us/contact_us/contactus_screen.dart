@@ -6,6 +6,7 @@ import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 import '../aboutus_screen.dart';
 
 class ContactUsScreen extends StatefulWidget {
@@ -137,62 +138,54 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ContactUsScreen()),
-                );
-              },
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(),
-                    child: Container(
-                      margin: EdgeInsets.only(left: 10),
-                      width: 45,
-                      height: 45,
-                      decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(200)),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(),
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10),
+                    width: 45,
+                    height: 45,
+                    decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(200)),
+                    ),
+                    child: Image.asset(images[index], height: 20, width: 20),
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(top: 5, left: 10),
+                        child: Text(
+                          stringList1[index],
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Roboto',
+                            fontSize: 15,
+                          ),
+                        ),
                       ),
-                      child: Image.asset(images[index], height: 20, width: 20),
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10),
-                          child: Text(
-                            stringList1[index],
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Roboto',
-                              fontSize: 15,
-                            ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 5, left: 10),
+                        child: Text(
+                          stringList2[index],
+                          style: TextStyle(
+                            color: ColorRes.primaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Roboto',
+                            fontSize: 13,
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10),
-                          child: Text(
-                            stringList2[index],
-                            style: TextStyle(
-                              color: ColorRes.primaryColor,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Roboto',
-                              fontSize: 13,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            )
+                ),
+              ],
+            ),
           ],
         ));
   }

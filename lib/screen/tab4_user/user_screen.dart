@@ -3,6 +3,7 @@ import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
+import 'package:ChaiChod/screen/tab4_user/set_up/setup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white60,
+        backgroundColor: Colors.white,
         body: Column(
           children: <Widget>[
             CommonView.titleText(StringRes.userHeading),
@@ -65,7 +66,10 @@ class _UserScreenState extends State<UserScreen> {
         } else if(index == 2) {
 
         } else if(index == 3) {
-
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SetUpScreen()),
+          );
         } else if(index == 4) {
           Navigator.push(
             context,
