@@ -68,6 +68,7 @@ class LoginScreenState extends State<LoginScreen> {
                     Column(
                       children: <Widget>[
                         userNameTextFiled(),
+                        SizedBox(height: 5),
                         passWordTextFiled(),
                         SizedBox(height: 10),
                         forgotPassword(),
@@ -77,6 +78,8 @@ class LoginScreenState extends State<LoginScreen> {
                         orTitle(),
                         faceBookButton(),
                         googleButton(),
+                        appleButton(),
+                        SizedBox(height: 7),
                       ],
                     ),
                   ],
@@ -145,94 +148,118 @@ class LoginScreenState extends State<LoginScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left:10,bottom: 20),
+          padding: EdgeInsets.only(left: 4, bottom: 30),
           height: 60,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
           ),
-            child: Row(
-              children: <Widget>[
-                Icon(
-                  Icons.person,
-                  color: ColorRes.primaryColor,
-                  size: 20,
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.person,
+                color: ColorRes.primaryColor,
+                size: 20,
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
+                child: AllText(
+                  StringRes.userName,
+                  fontSize: 12,
+                  color: ColorRes.blackColor,
                 ),
-                Container(
-                  padding: EdgeInsets.only(top: 2, left: 10),
-                  child: AllText(
-                    StringRes.userName,
-                    fontSize: 12,
-                    color: ColorRes.blackColor,
-                  ),
-                )
-              ],
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: 1, top: 11),
+          child: TextFormField(
+            controller: usernameController,
+            validator: validateEmail,
+            autofocus: false,
+            onSaved: (String val) {
+              username = val;
+            },
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              hintText: 'Enter your Password',
+              hintStyle: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 13,
+              ),
+              contentPadding: EdgeInsets.only(top: 8, left: 30),
             ),
+          ),
         ),
       ],
     );
   }
 
   passWordTextFiled() {
-    return Container(
-      padding: EdgeInsets.only(top: 7),
-      child: Container(
-//                          padding: EdgeInsets.only(left: 10),
-//                          width: 340,
-        height: 60,
-        decoration: new BoxDecoration(
-          border: Border.all(color: Colors.black45),
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-        child: ListView(
-          padding: EdgeInsets.only(top: 5, bottom: 10, left: 5),
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.lock,
-                  color: ColorRes.primaryColor,
-                  size: 20,
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 2, left: 10),
-                  child: Text(
-                    'Password',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 12,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            TextFormField(
-              controller: passwordController,
-              maxLines: 1,
-              validator: validatePassword,
-              autofocus: false,
-              obscureText: true,
-              onSaved: (String val) {
-                password = val;
-              },
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70),
-                ),
-                hintText: 'Enter your Password',
-                hintStyle: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 13,
-                ),
-                contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left: 4, bottom: 30),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.lock,
+                color: ColorRes.primaryColor,
+                size: 20,
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
+                child: Text(
+                  'Password',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 12,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
-      ),
+        Padding(
+          padding: EdgeInsets.only(left: 1, top: 11),
+          child: TextFormField(
+            controller: passwordController,
+            validator: validatePassword,
+            autofocus: false,
+            obscureText: true,
+            onSaved: (String val) {
+              password = val;
+            },
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              hintText: 'Enter your Password',
+              hintStyle: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 13,
+              ),
+              contentPadding: EdgeInsets.only(top: 8, left: 30),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -323,7 +350,6 @@ class LoginScreenState extends State<LoginScreen> {
 
   faceBookButton() {
     return Container(
-//                        alignment: Alignment.center,
       margin: EdgeInsets.only(top: 20),
       width: 270,
       height: 45,
@@ -399,6 +425,48 @@ class LoginScreenState extends State<LoginScreen> {
           ),
           SizedBox(width: 10)
         ],
+      ),
+    );
+  }
+
+  appleButton() {
+    return Container(
+      width: 270,
+      height: 45,
+      decoration: new BoxDecoration(
+        color: ColorRes.whiteColor,
+        borderRadius: BorderRadius.all(Radius.circular(2)),
+        boxShadow: [
+          new BoxShadow(
+            color: Colors.black12,
+            blurRadius: 5,
+          ),
+        ],
+      ),
+      child: Container(
+        padding: EdgeInsets.only(right: 18),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              Utils.getAssetsImg('apple'),
+              width: 38,
+              height: 35,
+              fit: BoxFit.fill,
+            ),
+            Align(
+              child: Container(
+                padding: const EdgeInsets.only(left: 7),
+                child: AllText(
+                  StringRes.appleLoginTitle,
+                  fontSize: 13,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

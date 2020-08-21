@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ChaiChod/config/util.dart';
 
 import '../login/login_screen.dart';
+
 class ForgotPasswordScreen extends StatefulWidget {
   @override
   _ForgorPasswordScreenState createState() => _ForgorPasswordScreenState();
@@ -86,74 +87,85 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: 17),
+                        padding: EdgeInsets.only(
+                          top: 17,
+                        ),
                         child: Column(
                           children: <Widget>[
                             Container(
-                              padding: EdgeInsets.only(left: 10),
-                              height: 60,
-                              margin: EdgeInsets.only(left: 10, right: 10),
-                              decoration: new BoxDecoration(
-                                border: Border.all(color: Colors.black45),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(2)),
+                              padding: EdgeInsets.only(
+                                left:10,
+                                right: 10,
                               ),
-                              child: ListView(
-                                padding: EdgeInsets.only(top: 8, bottom: 10),
+                              child:Stack(
                                 children: <Widget>[
-                                  Row(
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.email,
-                                        color: Color(hexColor('#4298D3')),
-                                        size: 20,
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.only(left: 10),
-                                        child: Text(
-                                          'Email',
-                                          style: TextStyle(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 12,
-                                          ),
+                                  Container(
+                                    padding: EdgeInsets.only(
+                                      left: 4,
+                                      bottom: 30,
+                                    ),
+                                    height: 60,
+                                    decoration: new BoxDecoration(
+                                      border: Border.all(color: Colors.black45),
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(2)),
+                                    ),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.email,
+                                          color: Color(hexColor('#4298D3')),
+                                          size: 20,
                                         ),
-                                      )
-                                    ],
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 5, left: 7, bottom: 5),
+                                          child: Text(
+                                            'Email',
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  TextFormField(
-                                    controller: emailContoller,
-                                    onSaved: (String val) {
-                                      email = val;
-                                    },
-                                    validator: validateEmail,
-                                    keyboardType: TextInputType.emailAddress,
-                                    maxLines: 1,
-                                    autofocus: false,
-                                    decoration: InputDecoration(
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.white70),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 1, top: 11),
+                                    child: TextFormField(
+                                      controller: emailContoller,
+                                      validator: validateEmail,
+                                      autofocus: false,
+                                      onSaved: (String val) {
+                                        email = val;
+                                      },
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide:
+                                          BorderSide(color: Colors.white70),
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide:
+                                          BorderSide(color: Colors.white70),
+                                        ),
+                                        hintText: 'Enter your Password',
+                                        hintStyle: TextStyle(
+                                          fontFamily: 'Roboto',
+                                          fontSize: 13,
+                                        ),
+                                        contentPadding:
+                                        EdgeInsets.only(top: 8, left: 30),
                                       ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.white70),
-                                      ),
-                                      hintText: 'Enter your Password',
-                                      hintStyle: TextStyle(
-                                        fontFamily: 'Roboto',
-                                        fontSize: 13,
-                                      ),
-                                      contentPadding:
-                                          EdgeInsets.only(bottom: 30, left: 30),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 40),
-                              margin: EdgeInsets.only(left: 10, right: 10),
-
+                              padding:
+                                  EdgeInsets.only(top: 40, left: 10, right: 10),
                               child: Container(
                                   height: 45,
                                   width: Utils.getDeviceWidth(context),
