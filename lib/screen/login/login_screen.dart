@@ -141,8 +141,68 @@ class LoginScreenState extends State<LoginScreen> {
     }
   }
 
+
   userNameTextFiled() {
     return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:4,bottom: 30),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.person,
+                color: ColorRes.primaryColor,
+                size: 20,
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
+                child: AllText(
+                  StringRes.userName,
+                  fontSize: 12,
+                  color: ColorRes.blackColor,
+                ),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left:1,top:11),
+          child: TextFormField(
+            controller: usernameController,
+            validator: validateEmail,
+            autofocus: false,
+            onSaved: (String val) {
+              username = val;
+            },
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              hintText: 'Enter your Password',
+              hintStyle: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 13,
+              ),
+              contentPadding: EdgeInsets.only(top:8,left: 30),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+/*
+  userNameTextFiled() {
+    */
+/*return Stack(
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(left:10,bottom: 20),
@@ -170,8 +230,11 @@ class LoginScreenState extends State<LoginScreen> {
             ),
         ),
       ],
-    );
+    );*//*
+
+
   }
+*/
 
   passWordTextFiled() {
     return Container(
@@ -262,12 +325,12 @@ class LoginScreenState extends State<LoginScreen> {
         color: ColorRes.lightBlur,
         child: Text('Access'),
         onPressed: () {
-          if (_validateInputs()) {
+//          if (_validateInputs()) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => MainScreen()),
             );
-          }
+//          }
         },
       ),
     );

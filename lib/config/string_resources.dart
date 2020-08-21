@@ -15,6 +15,7 @@ class StringRes {
   static const pleaseRegister                = '  Please Register';
   static const googleLoginTitle              = 'Login with Google';
   static const faceBookLoginTitle            = 'Login with Facebook';
+  static const appleLoginTitle               = 'Sign in with Apple';
   static const userName                      = 'Username';
   static const enterUserName                 = 'Enter your Username';
 
@@ -58,6 +59,23 @@ class StringRes {
   static const edgeNumber                    =  "Edge number";
   static const sideWall                      =  "The sidewall";
   static const numberItem                    =  "The Number of Item";
+
+  // tab 2
+  static const shipping                      =  "Shipping";
+  static const successDelivery               =  "Successful delivery";
+
+  //Tab2 => tab1 shipping
+  static const dayOrder                      =  "Day Order the";
+
+  //tab2 => tab2 success
+  static const orders                        =  "Orders";
+  static const dateOrder                     =  "Date order";
+  static const dateOfReceipt                 =  "Date of receipt of goods";
+
+  //tab3
+  static const all                           =  "All";
+  static const shipment                      =  "Shipment";
+  static const payment                       =  "Payment";
 
 
 }
