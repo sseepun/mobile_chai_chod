@@ -69,9 +69,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           MaterialPageRoute(builder: (context) => LoginScreen()),
                         );
                       },
-                      child: CommonArrow.backArrow(),
+                      child: CommonArrow.backArrow(20,20),
                     ),
-                    CommonView.logoImage(220, 80),
+                    CommonView.logoImage(220, 90),
                     SizedBox(height: 17),
                     registerTitle(),
                     SizedBox(height: 7),

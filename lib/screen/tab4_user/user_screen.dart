@@ -4,6 +4,8 @@ import 'package:ChaiChod/config/string_resources.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'about_us/aboutus_screen.dart';
+
 class UserScreen extends StatefulWidget {
   @override
   _UserScreenState createState() => _UserScreenState();
@@ -65,24 +67,31 @@ class _UserScreenState extends State<UserScreen> {
 
   listData(int index) {
     return Container(
-        height: 55,
-        margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
-        decoration: new BoxDecoration(
-          boxShadow: [
-            new BoxShadow(
-              offset: Offset(0.5, 0.5),
-              color: ColorRes.greyColor,
-              blurRadius: 0.5,
-            ),
-          ],
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(2)),
+      height: 55,
+      margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
+      decoration: new BoxDecoration(
+        boxShadow: [
+        new BoxShadow(
+          offset: Offset(0.5, 0.5),
+          color: ColorRes.greyColor,
+          blurRadius: 0.5,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
+      ],
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(2)),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutUsScreen()),
+              );
+            },
+            child: Row(
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(),
@@ -94,8 +103,7 @@ class _UserScreenState extends State<UserScreen> {
                       color: ColorRes.lightBlur,
                       borderRadius: BorderRadius.all(Radius.circular(200)),
                     ),
-                    child:Icon(icons[index],
-                        size: 20, color: Colors.white),
+                    child: Icon(icons[index], size: 20, color: Colors.white),
                   ),
                 ),
                 Padding(
@@ -111,7 +119,9 @@ class _UserScreenState extends State<UserScreen> {
                 ),
               ],
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }

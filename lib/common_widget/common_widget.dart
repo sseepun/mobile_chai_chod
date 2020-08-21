@@ -16,10 +16,9 @@ class CommonView {
 }
 
 class CommonArrow{
-  static backArrow()
+  static backArrow(double width, double height)
   {
     return Container(
-      padding: EdgeInsets.only(top: 20),
       child: Icon(
         Icons.arrow_back,
         color: Colors.black,
