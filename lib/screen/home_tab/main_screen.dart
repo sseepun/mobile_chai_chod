@@ -3,6 +3,7 @@ import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/archive/archive_screen.dart';
 import 'package:ChaiChod/screen/home/home_screen.dart';
 import 'package:ChaiChod/screen/notification/notification_screen.dart';
+import 'package:ChaiChod/screen/user/user_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../export.dart';
@@ -33,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
       HomeScreen(),
       ArchiveScreen(),
       NotificationScreen(),
-      ProductListScreen(),
+      UserScreen(),
     ];
     super.initState();
   }

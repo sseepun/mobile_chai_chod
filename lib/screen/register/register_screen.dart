@@ -474,7 +474,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           margin: EdgeInsets.only(top: 25),
           decoration: BoxDecoration(
               color:isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
-              border: Border.all(color: ColorRes.blackColor, width: 1)),
+              border: Border.all(color: ColorRes.primaryColor, width: 1)),
           child: AllText('General user', color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor),
         ),
       ),
@@ -508,7 +508,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           decoration: BoxDecoration(
               color:
                   isDealerDetails ? ColorRes.primaryColor : ColorRes.whiteColor,
-              border: Border.all(color: ColorRes.blackColor, width: 1)),
+              border: Border.all(color: ColorRes.primaryColor, width: 1)),
           child: AllText('Dealer',
               color:
                   isDealerDetails ? ColorRes.whiteColor : ColorRes.blackColor),

@@ -21,13 +21,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            SizedBox(height: 50),
+            SizedBox(height: 40),
             textTitle(),
 
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             tabBar(),
 
-            SizedBox(height: 20),
+            SizedBox(height: 5),
 
             ListView.builder(
                 itemCount: 5,
@@ -90,7 +90,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
 
   listData(int index){
     return Container(
-        height: 75,
+        height: 60,
         margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
         decoration: new BoxDecoration(
           boxShadow: [

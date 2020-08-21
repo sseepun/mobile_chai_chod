@@ -29,8 +29,6 @@ class LoginScreenState extends State<LoginScreen> {
   String username;
   String password;
 
-
-
   @override
   void initState() {
     super.initState();
@@ -54,9 +52,9 @@ class LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(height: 50),
+                    SizedBox(height: 20),
                     CommonView.logoImage(220, 80),
-                    SizedBox(height: 50),
+                    SizedBox(height: 40),
                     AllText(
                       StringRes.signIn,
                       fontSize: 30.0,
@@ -144,58 +142,34 @@ class LoginScreenState extends State<LoginScreen> {
   }
 
   userNameTextFiled() {
-    return Container(
-      height: 60,
-      decoration: new BoxDecoration(
-        border: Border.all(color: Colors.black45),
-        borderRadius: BorderRadius.all(Radius.circular(2)),
-      ),
-      child: ListView(
-        padding: EdgeInsets.only(top: 5, bottom: 10),
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Icon(
-                Icons.person,
-                color: ColorRes.primaryColor,
-                size: 20,
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 5, left: 10),
-                child: AllText(
-                  StringRes.userName,
-                  fontSize: 12,
-                  color: ColorRes.blackColor,
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:10,bottom: 20),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.person,
+                  color: ColorRes.primaryColor,
+                  size: 20,
                 ),
-              )
-            ],
-          ),
-          TextFormField(
-            controller: usernameController,
-            onSaved: (String val) {
-              username = val;
-            },
-            validator: validateEmail,
-            keyboardType: TextInputType.emailAddress,
-            maxLines: 1,
-            autofocus: false,
-            decoration: InputDecoration(
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white70),
-              ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white70),
-              ),
-              hintText: StringRes.enterUserName,
-              hintStyle: TextStyle(
-                fontFamily: 'Roboto',
-                fontSize: 13,
-              ),
-              contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+                Container(
+                  padding: EdgeInsets.only(top: 2, left: 10),
+                  child: AllText(
+                    StringRes.userName,
+                    fontSize: 12,
+                    color: ColorRes.blackColor,
+                  ),
+                )
+              ],
             ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -211,7 +185,7 @@ class LoginScreenState extends State<LoginScreen> {
           borderRadius: BorderRadius.all(Radius.circular(2)),
         ),
         child: ListView(
-          padding: EdgeInsets.only(top: 5, bottom: 10),
+          padding: EdgeInsets.only(top: 5, bottom: 10, left: 5),
           children: <Widget>[
             Row(
               children: <Widget>[
@@ -221,7 +195,7 @@ class LoginScreenState extends State<LoginScreen> {
                   size: 20,
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 5, left: 10),
+                  padding: EdgeInsets.only(top: 2, left: 10),
                   child: Text(
                     'Password',
                     style: TextStyle(
@@ -291,10 +265,10 @@ class LoginScreenState extends State<LoginScreen> {
           if (_validateInputs()) {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => MainScreen()),
+              MaterialPageRoute(builder: (context) => MainScreen()),
             );
-          }        },
+          }
+        },
       ),
     );
   }

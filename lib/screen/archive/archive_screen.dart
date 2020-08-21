@@ -23,13 +23,13 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            SizedBox(height: 50),
+            SizedBox(height: 40),
             titleText(),
 
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             tabBar(),
 
-            SizedBox(height: 20),
+            SizedBox(height: 5),
             ListView.builder(
                 itemCount: 1,
                 shrinkWrap: true,
@@ -85,7 +85,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
 
   card1(){
     return Container(
-        height: 75,
+        height: 60,
         margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
         decoration: new BoxDecoration(
           boxShadow: [
@@ -106,7 +106,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
               children: <Widget>[
                 Container(
                   alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(top: 15,left: 20),
+                  padding: EdgeInsets.only(top: 10,left: 20),
                   child: Text(
                     "Order number",
                     style: TextStyle(
@@ -118,7 +118,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
                 ),
                 Container(
                   alignment: Alignment.topRight,
-                  padding: EdgeInsets.only(top: 15, right: 15),
+                  padding: EdgeInsets.only(top: 10, right: 15),
                   child: Text(
                     "#1003111124",
                     style: TextStyle(
@@ -136,7 +136,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
               children: <Widget>[
                 Container(
                   alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(top: 15,left: 20),
+                  padding: EdgeInsets.only(top: 5,left: 20),
                   child: Text(
                     "Order date",
                     style: TextStyle(
@@ -148,7 +148,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
                 ),
                 Container(
                   alignment: Alignment.topRight,
-                  padding: EdgeInsets.only(top: 15, right: 15),
+                  padding: EdgeInsets.only(top: 5, right: 15),
                   child: Text(
                     "30/05/20",
                     style: TextStyle(
