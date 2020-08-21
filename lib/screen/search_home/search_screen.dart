@@ -184,7 +184,7 @@ class _SearchScreenState extends State<SearchScreen> {
             Padding(
                 padding: EdgeInsets.only(left: 0, right: 0, top: 10),
                 child:
-                FilledButton(text: StringRes.continueText, fontSize: 18))
+                FilledButton(text: "Compare(1)", fontSize: 18))
           ],
         );
       },
