@@ -72,20 +72,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: CommonArrow.backArrow(),
                     ),
                     CommonView.logoImage(220, 80),
-                    SizedBox(height: 25),
+                    SizedBox(height: 17),
                     registerTitle(),
-                    SizedBox(height: 10),
+                    SizedBox(height: 7),
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 7),
                       child: Column(
                         children: <Widget>[
                           userNameTextFiled(),
+                          SizedBox(height: 5),
                           emailTextFiled(),
+                          SizedBox(height: 7),
                           passwordTextFiled(),
+                          SizedBox(height: 7),
                           conPasswordTextFiled(),
                           SizedBox(height: 30),
-                          AllText('Choose user status',
-                              color: ColorRes.blackColor),
+                          AllText('Choose user status',color: ColorRes.blackColor),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
@@ -101,7 +103,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               child: Column(
                                 children: <Widget>[
                                   dealerPhoneNumber(),
+                                  SizedBox(height: 7),
                                   dealerStoreName(),
+                                  SizedBox(height: 7),
                                   dealerShopAddress()
                                 ],
                               ),
@@ -122,7 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
   String validateName(String value) {
     if (value.isEmpty)
-      return 'Please enter Your Name';
+      return 'Please enter your Name';
     else
       return null;
   }
@@ -131,7 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regex = new RegExp(pattern);
     if (!regex.hasMatch(value)) {
-      return 'Please enter valid email';
+      return 'Please enter valid emailid';
     } else
       return null;
   }
@@ -169,7 +173,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
   String validatePasswordMatching(String value) {
     var password = passKey.currentState.value;
-
     if (value.length == 0) {
       return "Password is Required";
     } else if (value != password) {
@@ -183,6 +186,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
     else
       return null;
   }
+  String validateStorename(String value) {
+    if (value.isEmpty)
+      return 'Please enter store name';
+    else
+      return null;
+  }
+  String validateShopaddress(String value){
+    if (value.isEmpty)
+      return 'Please enter shop address';
+    else
+      return null;
+  }
+
   bool _validateInputs() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
@@ -205,44 +221,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   userNameTextFiled() {
-    return Container(
-      padding: EdgeInsets.only(left: 10),
-      height: 60,
-      decoration: new BoxDecoration(
-        border: Border.all(color: Colors.black45),
-        borderRadius: BorderRadius.all(Radius.circular(2)),
-      ),
-      child: ListView(
-        padding: EdgeInsets.only(top: 5, bottom: 10),
-        children: <Widget>[
-          Row(
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:4,bottom: 30),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
             children: <Widget>[
               Icon(
                 Icons.person,
-                color: Colors.blue,
+                color: ColorRes.primaryColor,
                 size: 20,
               ),
-              Container(
-                padding: EdgeInsets.only(left: 10),
-                child: Text(
-                  'Username',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 12,
-                  ),
+              Padding(
+                padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
+                child: AllText(
+                  StringRes.userName,
+                  fontSize: 12,
+                  color: ColorRes.blackColor,
                 ),
               )
             ],
           ),
-          TextFormField(
+        ),
+        Padding(
+          padding: EdgeInsets.only(left:1,top:11),
+          child: TextFormField(
             controller: usernameContoller,
+            validator: validateName,
+            autofocus: false,
             onSaved: (String val) {
               username = val;
             },
-            validator: validateName,
-            maxLines: 1,
-            autofocus: false,
             decoration: InputDecoration(
+              border: InputBorder.none,
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white70),
               ),
@@ -254,197 +270,194 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 fontFamily: 'Roboto',
                 fontSize: 13,
               ),
-              contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+              contentPadding: EdgeInsets.only(top:8,left: 30),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   emailTextFiled() {
-    return Container(
-      padding: EdgeInsets.only(top: 7),
-      child: Container(
-        padding: EdgeInsets.only(left: 10),
-        height: 60,
-        decoration: new BoxDecoration(
-          border: Border.all(color: Colors.black45),
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-        child: ListView(
-          padding: EdgeInsets.only(top: 5, bottom: 10),
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.email,
-                  color: Colors.blue,
-                  size: 20,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Email',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 12,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            TextFormField(
-              controller: emailContoller,
-              maxLines: 1,
-              validator: validateEmail,
-              autofocus: false,
-              onSaved: (String val) {
-                email = val;
-              },
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70),
-                ),
-                hintText: 'Enter your Password',
-                hintStyle: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 13,
-                ),
-                contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:4,bottom: 30),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.email,
+                color: ColorRes.primaryColor,
+                size: 20,
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
+                child: Text(
+                  'Email',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 12,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
-      ),
+        Padding(
+          padding: EdgeInsets.only(left:1,top:11),
+          child: TextFormField(
+            controller: emailContoller,
+            validator: validateEmail,
+            autofocus: false,
+            onSaved: (String val) {
+              username = val;
+            },
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              hintText: 'Enter your Emailid',
+              hintStyle: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 13,
+              ),
+              contentPadding: EdgeInsets.only(top:8,left: 30),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
   passwordTextFiled() {
-    return Container(
-      padding: EdgeInsets.only(top: 7),
-      child: Container(
-        padding: EdgeInsets.only(left: 10),
-        height: 60,
-        decoration: new BoxDecoration(
-          border: Border.all(color: Colors.black45),
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-        child: ListView(
-          padding: EdgeInsets.only(top: 5, bottom: 10),
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.lock,
-                  color: Colors.blue,
-                  size: 20,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Password',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 12,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            TextFormField(
-              controller: passwordContoller,
-              maxLines: 1,
-              validator: validatePassword,
-              autofocus: false,
-              obscureText: true,
-              key: passKey,
-              onSaved: (String val) {
-                password = val;
-              },
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70),
-                ),
-                hintText: 'Enter your Password',
-                hintStyle: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 13,
-                ),
-                contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:4,bottom: 30),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.lock,
+                color: ColorRes.primaryColor,
+                size: 20,
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
+                child: Text(
+                  'Password',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 12,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
-      ),
+        Padding(
+          padding: EdgeInsets.only(left:1,top:11),
+          child: TextFormField(
+            key: passKey,
+            obscureText: true,
+            controller: passwordContoller,
+            validator: validatePassword,
+            autofocus: false,
+            onSaved: (String val) {
+              password = val;
+            },
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              hintText: 'Enter your password',
+              hintStyle: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 13,
+              ),
+              contentPadding: EdgeInsets.only(top:8,left: 30),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
   conPasswordTextFiled() {
-    return Container(
-      padding: EdgeInsets.only(top: 7),
-      child: Container(
-        padding: EdgeInsets.only(left: 10),
-        height: 60,
-        decoration: new BoxDecoration(
-          border: Border.all(color: Colors.black45),
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-        child: ListView(
-          padding: EdgeInsets.only(top: 5, bottom: 10),
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.lock,
-                  color: Colors.blue,
-                  size: 20,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Confirm Password',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 12,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            TextFormField(
-              controller: confirmpasswordContoller,
-              maxLines: 1,
-              validator: validatePasswordMatching,
-              autofocus: false,
-              obscureText: true,
-              onSaved: (String val) {
-                confirmPassword = val;
-              },
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70),
-                ),
-                hintText: 'Enter your Password',
-                hintStyle: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 13,
-                ),
-                contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:4,bottom: 30),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.lock,
+                color: ColorRes.primaryColor,
+                size: 20,
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
+                child: Text(
+                  'Confirm Password',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 12,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
-      ),
+        Padding(
+          padding: EdgeInsets.only(left:1,top:11),
+          child: TextFormField(
+            controller: confirmpasswordContoller,
+            obscureText: true,
+            validator: validatePasswordMatching,
+            autofocus: false,
+            onSaved: (String val) {
+              confirmPassword = val;
+            },
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white70),
+              ),
+              hintText: 'Enter your password',
+              hintStyle: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 13,
+              ),
+              contentPadding: EdgeInsets.only(top:8,left: 30),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -518,25 +531,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   dealerPhoneNumber() {
-    return Container(
-      padding: EdgeInsets.only(left: 10),
-      height: 60,
-      decoration: new BoxDecoration(
-        border: Border.all(color: Colors.black45),
-        borderRadius: BorderRadius.all(Radius.circular(2)),
-      ),
-      child: ListView(
-        padding: EdgeInsets.only(top: 5),
-        children: <Widget>[
-          Row(
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:4,bottom: 30),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
             children: <Widget>[
               Icon(
                 Icons.confirmation_number,
                 color: Colors.blue,
                 size: 20,
               ),
-              Container(
-                padding: EdgeInsets.only(left: 10),
+              Padding(
+                padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
                   'My taxpayer number',
                   style: TextStyle(
@@ -547,17 +559,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
               )
             ],
           ),
-          TextFormField(
+        ),
+        Padding(
+          padding: EdgeInsets.only(left:1,top:11),
+          child: TextFormField(
             controller: numberContoller,
             onSaved: (String val) {
               number = val;
             },
             validator: validateMobile,
-            maxLines: 1,
             keyboardType: TextInputType.number,
 
             autofocus: false,
             decoration: InputDecoration(
+              border: InputBorder.none,
+
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white70),
               ),
@@ -571,35 +587,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
               ),
-              contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+              contentPadding: EdgeInsets.only(top:8,left: 30),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   dealerStoreName() {
-    return Container(
-      margin: EdgeInsets.only(top: 7),
-      padding: EdgeInsets.only(left: 10),
-      height: 60,
-      decoration: new BoxDecoration(
-        border: Border.all(color: Colors.black45),
-        borderRadius: BorderRadius.all(Radius.circular(2)),
-      ),
-      child: ListView(
-        padding: EdgeInsets.only(top: 5),
-        children: <Widget>[
-          Row(
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:4,bottom: 30),
+          height: 60,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
             children: <Widget>[
               Icon(
                 Icons.store,
                 color: Colors.blue,
                 size: 20,
               ),
-              Container(
-                padding: EdgeInsets.only(left: 10),
+              Padding(
+                padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
                   'Store name',
                   style: TextStyle(
@@ -610,15 +624,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
               )
             ],
           ),
-          TextFormField(
+        ),
+        Padding(
+          padding: EdgeInsets.only(left:1,top:11),
+          child: TextFormField(
             controller: storeContoller,
             onSaved: (String val) {
               store = val;
             },
-            validator: validateName,
+            validator: validateStorename,
             maxLines: 1,
             autofocus: false,
             decoration: InputDecoration(
+              border: InputBorder.none,
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white70),
               ),
@@ -630,35 +648,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 fontFamily: 'Roboto',
                 fontSize: 14,
               ),
-              contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+              contentPadding: EdgeInsets.only(top:8,left: 30),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   dealerShopAddress() {
-    return Container(
-      margin: EdgeInsets.only(top: 7),
-      padding: EdgeInsets.only(left: 10),
-      height: 110,
-      decoration: new BoxDecoration(
-        border: Border.all(color: Colors.black45),
-        borderRadius: BorderRadius.all(Radius.circular(2)),
-      ),
-      child: ListView(
-        padding: EdgeInsets.only(top: 5),
-        children: <Widget>[
-          Row(
+    return Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left:4,bottom: 80),
+          height: 110,
+          decoration: new BoxDecoration(
+            border: Border.all(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
             children: <Widget>[
               Icon(
                 Icons.location_on,
                 color: Colors.blue,
                 size: 20,
               ),
-              Container(
-                padding: EdgeInsets.only(left: 10),
+              Padding(
+                padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
                   'Shop address',
                   style: TextStyle(
@@ -669,14 +685,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
               )
             ],
           ),
-          TextFormField(
+        ),
+        Padding(
+          padding: EdgeInsets.only(left:1,top:11),
+          child: TextFormField(
             controller: shopContoller,
             onSaved: (String val) {
               shop = val;
             },
-            validator: validateName,
+            validator: validateShopaddress,
             autofocus: false,
             decoration: InputDecoration(
+              border: InputBorder.none,
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white70),
               ),
@@ -688,21 +708,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 fontFamily: 'Roboto',
                 fontSize: 14,
               ),
-              contentPadding: EdgeInsets.only(bottom: 20, left: 30),
+              contentPadding: EdgeInsets.only(top:15,left: 30,bottom: 65),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   submitButton() {
     return InkResponse(
       onTap: () {
-        if (isGeneralUser || isDealerDetails) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => SuccessScreen()));
+        if(!_validateInputs())
+          {
+
+          }
+        else{
+          if (isGeneralUser || isDealerDetails) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SuccessScreen()));
+          }
         }
+
       },
       child: Container(
         margin: EdgeInsets.only(top: 25, bottom: 10),
