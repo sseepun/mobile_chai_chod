@@ -6,6 +6,8 @@ import 'package:ChaiChod/config/string_resources.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'about_us/aboutus_screen.dart';
+
 class UserScreen extends StatefulWidget {
   @override
   _UserScreenState createState() => _UserScreenState();
@@ -65,7 +67,10 @@ class _UserScreenState extends State<UserScreen> {
         } else if(index == 3) {
 
         } else if(index == 4) {
-
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AboutUsScreen()),
+          );
         }
       },
       child: Container(
