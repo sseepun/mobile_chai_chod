@@ -1,32 +1,35 @@
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
+import 'package:ChaiChod/screen/tab4_user/about_us/child_about_us/child_aboutus_screen.dart';
+import 'package:ChaiChod/screen/tab4_user/about_us/contact_us/contactus_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/about_us/privancy_policy/privacy_screen.dart';
+import 'package:ChaiChod/screen/tab4_user/set_up/password/password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../user_screen.dart';
-import 'child_about_us/child_aboutus_screen.dart';
-import 'contact_us/contactus_screen.dart';
+import 'child_setup/child_setup_screen.dart';
+import 'launguage/language.dart';
 
-class AboutUsScreen extends StatefulWidget {
+class SetUpScreen extends StatefulWidget {
   @override
-  _AboutUsScreenState createState() => _AboutUsScreenState();
+  _SetUpScreenState createState() => _SetUpScreenState();
 }
 
-class _AboutUsScreenState extends State<AboutUsScreen> {
+class _SetUpScreenState extends State<SetUpScreen> {
   final controller = PageController();
 
   List<IconData> icons = [
-    Icons.call,
-    Icons.calendar_view_day,
-    Icons.local_printshop
+    Icons.location_on,
+    Icons.translate,
+    Icons.track_changes
   ];
 
   List<String> stringList = [
-    'Contact us',
-    'About us',
-    'Privacy policy',
+    'Address',
+    'Language',
+    'Change password',
   ];
 
   @override
@@ -69,9 +72,9 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                   )),
             ),
             Container(
-              padding: EdgeInsets.only(left: 100),
+              padding: EdgeInsets.only(left: 120),
               child: AllText(
-                StringRes.aboutUs,
+                StringRes.setUp,
                 color: ColorRes.blackColor,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -79,7 +82,6 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
             ),
           ],
         ));
-
   }
 
   listData(int index) {
@@ -88,17 +90,17 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
         if(index == 0) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ContactUsScreen()),
+            MaterialPageRoute(builder: (context) => ChildSetUpScreen()),
           );
         } else if(index == 1) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ChildAboutUsScreen()),
+            MaterialPageRoute(builder: (context) => Language()),
           );
         } else if(index == 2) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) =>PrivacyPolicyScreen
+            MaterialPageRoute(builder: (context) =>ChangePassword
               ()),
           );
         }
