@@ -13,6 +13,9 @@ class ManageProfileScreen extends StatefulWidget {
 }
 
 class _ManageProfileScreenState extends State<ManageProfileScreen> {
+
+  bool isUserLogin = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,7 +24,9 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
         body: Column(
           children: <Widget>[
             titleShow(),
-            logoShow(),
+
+            isUserLogin ? userLogo() : logoShow(),
+
             SizedBox(height: 50),
             AllText(StringRes.youAreNotLogin, fontSize: 28, color: ColorRes.blackColor),
             SizedBox(height: 20),
@@ -29,7 +34,7 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
                 padding: EdgeInsets.only(left: 10, right: 10),
                 child: InkResponse(
                     onTap: () {
-                      logInScreenNavigator(context);
+                      logInScreenNavigator(context, 2);
                     },
                     child: FilledButton(text: StringRes.logIn, fontSize: 18)))
           ],
@@ -62,8 +67,10 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
 
   logoShow() {
     return Container(
-      height: 150,
-      width: 150,
+      height: Utils.getDeviceWidth(context) / 2.3,
+      width: Utils.getDeviceWidth(context) / 2.3,
+
+      alignment: Alignment.center,
       margin: EdgeInsets.only(top: 20),
       padding: EdgeInsets.only(left: 10, right: 10),
       decoration: BoxDecoration(
@@ -71,6 +78,35 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
         shape: BoxShape.circle,
       ),
       child: Image(image:  AssetImage(Utils.getAssetsImg('logo'))),
+    );
+  }
+
+  userLogo() {
+    return Stack(
+//      alignment: Alignment.topCenter
+      children: <Widget>[
+        Center(
+          child: logoShow(),
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: InkResponse(
+            onTap: () {
+
+            },
+            child: Container(
+              height: 40,
+              width: 40,
+              margin: EdgeInsets.only(top: 15, right: 20),
+              decoration: BoxDecoration(
+                color: ColorRes.primaryColor,
+                shape: BoxShape.circle
+              ),
+              child: Icon(Icons.edit, color: Colors.white,),
+            ),
+          ),
+        )
+      ],
     );
   }
 

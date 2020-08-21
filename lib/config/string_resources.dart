@@ -82,7 +82,7 @@ class StringRes {
   static const favorites                     =  "Favorites";
   static const orderHistory                  =  "Order history";
   static const setUp                         =  "Set up";
-  static const aboutUs                       =  "About us";
+//  static const aboutUs                     =  "About us";
 
   //User Profile
   static const accountTheYou                 =  "Account The You";

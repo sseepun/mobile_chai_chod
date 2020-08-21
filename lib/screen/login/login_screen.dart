@@ -1,9 +1,9 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/login/login_view_model.dart';
 import 'package:ChaiChod/screen/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +11,9 @@ import '../forgot_password/forgot_password_screen.dart';
 import '../home_tab/main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
+  final int i;
+  const LoginScreen({Key key, this.i}) : super(key: key);
+
   @override
   LoginScreenState createState() => LoginScreenState();
 }
@@ -290,10 +293,14 @@ class LoginScreenState extends State<LoginScreen> {
         child: Text('Access'),
         onPressed: () {
           if (_validateInputs()) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MainScreen()),
-            );
+            if(widget.i == 2 ) {
+              navigatorPop(context);
+            } else {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MainScreen()),
+              );
+            }
           }
         },
       ),

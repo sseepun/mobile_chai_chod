@@ -19,9 +19,9 @@ navigatorPop(BuildContext context) {
   Navigator.pop(context);
 }
 
-logInScreenNavigator(BuildContext context) {
+logInScreenNavigator(BuildContext context, int i) {
 //  Navigator.push(context, NavigatePageRoute(context, SoundBiteTrimPage(path, t,from: from, listImages:imageList)));
-  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(i: i)));
 }
 
 cartScreenNavigator(BuildContext context) {
