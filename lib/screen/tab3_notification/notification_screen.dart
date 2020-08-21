@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -27,60 +28,47 @@ class _NotificationScreenState extends State<NotificationScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorRes.lightWhite,
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: 40),
-          textTitle(),
-          SizedBox(height: 10),
-//          tabBar(),
-          SizedBox(height: 5),
-          Container(
-            color: ColorRes.lightWhite,
-            height: Utils.getDeviceHeight(context) / 12,
-            child: TabBar(
-              indicatorColor: ColorRes.primaryColor,
-              labelColor: ColorRes.primaryColor,
-              isScrollable: false,
-              labelStyle: TextStyle(color: ColorRes.primaryColor),
-              tabs: <Tab>[
-                Tab(
-                    child: AllText(StringRes.all, fontSize: 17, color: ColorRes.primaryColor)),
-                Tab(
-                    child: AllText(StringRes.shipment, fontSize: 17, color: ColorRes.primaryColor)),
-                Tab(
-                    child: AllText(StringRes.payment, fontSize: 17, color: ColorRes.primaryColor)),
-              ],
-              controller: _tabController,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorRes.lightWhite,
+        body: Column(
+          children: <Widget>[
+            CommonView.titleText(StringRes.notificationHeading),
+            Container(
+              color: ColorRes.lightWhite,
+              height: Utils.getDeviceHeight(context) / 12,
+              child: TabBar(
+                indicatorColor: ColorRes.primaryColor,
+                labelColor: ColorRes.primaryColor,
+                isScrollable: false,
+                labelStyle: TextStyle(color: ColorRes.primaryColor),
+                tabs: <Tab>[
+                  Tab(
+                      child: AllText(StringRes.all, fontSize: 17, color: ColorRes.primaryColor)),
+                  Tab(
+                      child: AllText(StringRes.shipment, fontSize: 17, color: ColorRes.primaryColor)),
+                  Tab(
+                      child: AllText(StringRes.payment, fontSize: 17, color: ColorRes.primaryColor)),
+                ],
+                controller: _tabController,
+              ),
             ),
-          ),
-          Expanded(
-            child: TabBarView(
-              children: [
-                AllNotificationScreen(),
-                ShipmentScreen(),
-                PaymentScreen()
-              ],
-              controller: _tabController,
+            Expanded(
+              child: TabBarView(
+                children: [
+                  AllNotificationScreen(),
+                  ShipmentScreen(),
+                  PaymentScreen()
+                ],
+                controller: _tabController,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
-  textTitle() {
-    return Container(
-      alignment: Alignment.center,
-      child: AllText(
-        StringRes.NotificationHeading,
-        color: ColorRes.blackColor,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
 
   tabBar() {
     return Container(

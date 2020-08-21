@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
@@ -24,13 +25,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   var passKey = GlobalKey<FormFieldState>();
 
-  TextEditingController usernameContoller;
-  TextEditingController emailContoller;
-  TextEditingController confirmpasswordContoller;
-  TextEditingController passwordContoller;
-  TextEditingController numberContoller;
-  TextEditingController storeContoller;
-  TextEditingController shopContoller;
+  TextEditingController usernameController;
+  TextEditingController emailController;
+  TextEditingController conformPasswordController;
+  TextEditingController passwordController;
+  TextEditingController numberController;
+  TextEditingController storeController;
+  TextEditingController shopController;
 
   String username;
   String password;
@@ -53,9 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorRes.whiteColor,
-        body: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints viewportConstraints) {
-            return SingleChildScrollView(
+        body: SingleChildScrollView(
               padding: EdgeInsets.only(left: 15, right: 15),
               child: new Form(
                 key: _formKey,
@@ -64,12 +63,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginScreen()),
-                        );
+                        navigatorPop(context);
                       },
-                      child: CommonArrow.backArrow(),
+                      child: CommonView.backArrow(),
                     ),
                     CommonView.logoImage(220, 80),
                     SizedBox(height: 17),
@@ -118,9 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ],
                 ),
               ),
-            );
-          },
-        ),
+            )
       ),
     );
   }
@@ -251,7 +245,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: EdgeInsets.only(left:1,top:11),
           child: TextFormField(
-            controller: usernameContoller,
+            controller: usernameController,
             validator: validateName,
             autofocus: false,
             onSaved: (String val) {
@@ -311,7 +305,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: EdgeInsets.only(left:1,top:11),
           child: TextFormField(
-            controller: emailContoller,
+            controller: emailController,
             validator: validateEmail,
             autofocus: false,
             onSaved: (String val) {
@@ -373,7 +367,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: TextFormField(
             key: passKey,
             obscureText: true,
-            controller: passwordContoller,
+            controller: passwordController,
             validator: validatePassword,
             autofocus: false,
             onSaved: (String val) {
@@ -433,7 +427,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: EdgeInsets.only(left:1,top:11),
           child: TextFormField(
-            controller: confirmpasswordContoller,
+            controller: conformPasswordController,
             obscureText: true,
             validator: validatePasswordMatching,
             autofocus: false,
@@ -563,7 +557,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: EdgeInsets.only(left:1,top:11),
           child: TextFormField(
-            controller: numberContoller,
+            controller: numberController,
             onSaved: (String val) {
               number = val;
             },
@@ -628,7 +622,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: EdgeInsets.only(left:1,top:11),
           child: TextFormField(
-            controller: storeContoller,
+            controller: storeController,
             onSaved: (String val) {
               store = val;
             },
@@ -689,7 +683,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: EdgeInsets.only(left:1,top:11),
           child: TextFormField(
-            controller: shopContoller,
+            controller: shopController,
             onSaved: (String val) {
               shop = val;
             },

@@ -34,17 +34,17 @@ class StringRes {
   static const heading                       =  "Salam, Style, Ory";
   static const secondHeading                 =  "Promotion Product This Month";
   //Archive Page
-  static const ArchiveHeading                 =  "Track delivery";
+  static const archiveHeading                =  "Track delivery";
 
   static const StyleOry                      =  "Salam, Style, Ory";
   static const promotionTitle                =  "Promotion Product This Month";
   static const chooseHereTitle               =  "Choose acconding to here";
 
   //Notification Page
-  static const NotificationHeading           =  "Notification";
+  static const notificationHeading           =  "Notification";
 
   //Notification Page
-  static const UserHeading                   =  "Your Account";
+  static const userHeading                   =  "Your Account";
 
   //Cart Screen
   static const shoppingCart                  =  "Shopping Carts";
@@ -76,6 +76,19 @@ class StringRes {
   static const all                           =  "All";
   static const shipment                      =  "Shipment";
   static const payment                       =  "Payment";
+
+  //Tab4
+  static const manageProfile                 =  "Manage profile";
+  static const favorites                     =  "Favorites";
+  static const orderHistory                  =  "Order history";
+  static const setUp                         =  "Set up";
+  static const aboutUs                       =  "About us";
+
+  //User Profile
+  static const accountTheYou                 =  "Account The You";
+  static const youAreNotLogin                =  "You Are not logged in";
+  static const logIn                         =  "Log In";
+
 
 
 }

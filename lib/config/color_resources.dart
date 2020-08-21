@@ -15,7 +15,7 @@ class ColorRes {
   static const Color spacerColor           = Color(0xFFF2F2F2);
   static const Color lightBlur             = Color(0xFF4298D3);
   static const Color lightWhite            = Color(0xFFF4F4F5);
-
+  static const Color profileLogoBg         = Color(0xFF858584);
 }
 
 //const Color primaryDark            = Colors.red;

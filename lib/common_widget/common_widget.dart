@@ -1,3 +1,6 @@
+import 'package:ChaiChod/common_widget/text.dart';
+import 'package:ChaiChod/config/color_resources.dart';
+import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/material.dart';
 
@@ -13,12 +16,10 @@ class CommonView {
       ),
     );
   }
-}
 
-class CommonArrow{
   static backArrow()
   {
-    return Container(
+    return Padding(
       padding: EdgeInsets.only(top: 20),
       child: Icon(
         Icons.arrow_back,
@@ -27,5 +28,21 @@ class CommonArrow{
       ),
     );
   }
+
+  static titleText(String title)
+  {
+    return Container(
+      alignment: Alignment.center,
+      margin: EdgeInsets.only(top: 25, bottom: 5),
+      child: AllText(
+        title,
+        color: ColorRes.blackColor,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
 }
+
 

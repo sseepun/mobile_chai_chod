@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -27,50 +28,41 @@ class _ArchiveScreenState extends State<ArchiveScreen> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorRes.lightWhite,
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: 40),
-          titleText(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorRes.lightWhite,
+        body: Column(
+          children: <Widget>[
 
-          SizedBox(height: 10),
+            CommonView.titleText(StringRes.archiveHeading),
 //            tabBar(),
-          Container(
-            color: ColorRes.lightWhite,
-            height: Utils.getDeviceHeight(context)/12,
-            child: TabBar(
-              indicatorColor: ColorRes.primaryColor,
-              labelColor: ColorRes.primaryColor,
-              isScrollable: false,
-              labelStyle: TextStyle(color: ColorRes.primaryColor),
-              tabs: <Tab>[
-                Tab(child: AllText(StringRes.shipping, fontSize: 17,  color: ColorRes.primaryColor)),
-                Tab(child: AllText(StringRes.successDelivery, fontSize: 17, color: ColorRes.primaryColor)),
-              ],
-              controller: _tabController,
+            Container(
+              color: ColorRes.lightWhite,
+              height: Utils.getDeviceHeight(context)/12,
+              child: TabBar(
+                indicatorColor: ColorRes.primaryColor,
+                labelColor: ColorRes.primaryColor,
+                isScrollable: false,
+                labelStyle: TextStyle(color: ColorRes.primaryColor),
+                tabs: <Tab>[
+                  Tab(child: AllText(StringRes.shipping, fontSize: 17,  color: ColorRes.primaryColor)),
+                  Tab(child: AllText(StringRes.successDelivery, fontSize: 17, color: ColorRes.primaryColor)),
+                ],
+                controller: _tabController,
+              ),
             ),
-          ),
-          Expanded(
-            child: TabBarView(
-              children: [
-                ShippingScreen(),
-                SuccessfulDeliveryScreen(),
-              ],
-              controller: _tabController,
+            Expanded(
+              child: TabBarView(
+                children: [
+                  ShippingScreen(),
+                  SuccessfulDeliveryScreen(),
+                ],
+                controller: _tabController,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    );
-  }
-  titleText() {
-    return AllText(
-      StringRes.ArchiveHeading,
-      color: ColorRes.blackColor,
-      fontSize: 20,
-      align: TextAlign.center,
-      fontWeight: FontWeight.bold,
     );
   }
 
