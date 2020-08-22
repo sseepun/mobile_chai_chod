@@ -6,6 +6,7 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/material.dart';
+import 'edit_profile/edit_profile_screen.dart';
 
 class ManageProfileScreen extends StatefulWidget {
   @override
@@ -93,6 +94,10 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
           child: InkResponse(
             onTap: () {
 
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EditProfileScreen()),
+              );
             },
             child: Container(
               height: 40,

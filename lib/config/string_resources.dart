@@ -107,9 +107,15 @@ class StringRes {
   static const PrivacyTitle2                    =  "Log Data";
 
 //About Us
-  static const setup                        =  "Set Up";
+  static const setup                        = "Set Up";
+  static const deSetup                      =  "Current address";
 
-  static const deSetup                        =  "Current address";
+  //Change Password
+  static const passwordTitle                =  "Change Password";
+
+  //Edit Profile
+  static const editProfile                        =  "Edit Profile";
+
 
 }
 
