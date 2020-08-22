@@ -16,6 +16,9 @@ class ColorRes {
   static const Color lightBlur             = Color(0xFF4298D3);
   static const Color lightWhite            = Color(0xFFF4F4F5);
   static const Color profileLogoBg         = Color(0xFF858584);
+  static const Color lightOrangeTxt        = Color(0xFFF2B176);
+  static const Color lightGreenTxt         = Color(0xFF44BB7B);
+
 }
 
 //const Color primaryDark            = Colors.red;

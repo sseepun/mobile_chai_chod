@@ -1,15 +1,13 @@
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
-import 'package:ChaiChod/screen/tab4_user/about_us/child_about_us/child_aboutus_screen.dart';
-import 'package:ChaiChod/screen/tab4_user/about_us/contact_us/contactus_screen.dart';
-import 'package:ChaiChod/screen/tab4_user/about_us/privancy_policy/privacy_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/set_up/password/password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../user_screen.dart';
-import 'child_setup/child_setup_screen.dart';
+import 'child_setup/address_screen.dart';
 import 'launguage/language.dart';
 
 class SetUpScreen extends StatefulWidget {
@@ -34,22 +32,26 @@ class _SetUpScreenState extends State<SetUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 40),
-            textTitle(),
-            SizedBox(height: 10),
-            ListView.builder(
-                itemCount: 3,
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return listData(index);
-                }),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+
+              CommonView.backArrowAndTitle(context, StringRes.setUp, ColorRes.blackColor),
+
+              SizedBox(height: 20),
+
+              ListView.builder(
+                  itemCount: 3,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return listData(index);
+                  }),
+            ],
+          ),
         ),
       ),
     );
@@ -91,7 +93,7 @@ class _SetUpScreenState extends State<SetUpScreen> {
         if(index == 0) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ChildSetUpScreen()),
+            MaterialPageRoute(builder: (context) => AddressScreen()),
           );
         } else if(index == 1) {
           Navigator.push(

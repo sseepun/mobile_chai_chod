@@ -44,12 +44,12 @@ class FilledButton extends StatelessWidget {
       focusNode: focusNode,
 
       disabledColor: disabledColor ?? ColorRes.lightBlur,
-      disabledTextColor: disabledTextColor ??Colors.white ,
+      disabledTextColor: disabledTextColor ?? Colors.white,
       highlightElevation: 0,
       onPressed: onPressed,
       textColor: textColor ?? Colors.white,
       child: child ?? Text(text, style: TextStyle(fontSize: fontSize)),
-      color: color ?? Colors.red,
+      color: color ?? ColorRes.primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(2.0),
       ),

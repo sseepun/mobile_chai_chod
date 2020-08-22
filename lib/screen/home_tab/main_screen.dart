@@ -33,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
     _screens = [
       HomeScreen(),
       ArchiveScreen(),
-      NotificationScreen(),
+      NotificationScreen(i: 1),
       UserScreen(),
     ];
     super.initState();

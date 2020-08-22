@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -35,16 +36,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 40),
-            textTitle(),
-            SizedBox(height: 20),
-            uploadImage()
-          ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+//              textTitle(),
+              CommonView.backArrowAndTitle(context, StringRes.editProfile, ColorRes.blackColor),
+
+              SizedBox(height: 20),
+              uploadImage()
+            ],
+          ),
         ),
       ),
     );

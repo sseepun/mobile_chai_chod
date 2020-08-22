@@ -33,7 +33,7 @@ class CommonView {
   static titleText(String title) {
     return Container(
       alignment: Alignment.center,
-      margin: EdgeInsets.only(top: 25, bottom: 5),
+      margin: EdgeInsets.only(top: 20),
       child: AllText(
         title,
         color: ColorRes.blackColor,

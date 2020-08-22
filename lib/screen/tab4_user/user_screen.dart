@@ -63,22 +63,13 @@ class _UserScreenState extends State<UserScreen> {
         if(index == 0) {
           manageProfileScreenNavigator(context);
         } else if(index == 1) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => FavoriteScreen()),
-          );
+          favoriteScreenNavigator(context);
         } else if(index == 2) {
-
+          notificationScreenNavigator(context, 2);
         } else if(index == 3) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SetUpScreen()),
-          );
+          setUpScreenNavigator(context);
         } else if(index == 4) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AboutUsScreen()),
-          );
+          aboutScreenNavigator(context);
         }
       },
       child: Container(

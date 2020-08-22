@@ -5,9 +5,7 @@ import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/screen/tab4_user/about_us/privancy_policy/privacy_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../user_screen.dart';
-import 'child_about_us/child_aboutus_screen.dart';
+import 'about_us/aboutus_screen.dart';
 import 'contact_us/contactus_screen.dart';
 
 class AboutUsScreen extends StatefulWidget {

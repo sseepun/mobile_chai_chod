@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -18,6 +19,7 @@ class _SuccessfulDeliveryScreenState extends State<SuccessfulDeliveryScreen> {
         child: ListView.builder(
             itemCount: 10,
             shrinkWrap: true,
+            padding: EdgeInsets.only(top: 10),
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return successFullCard();
@@ -27,28 +29,33 @@ class _SuccessfulDeliveryScreenState extends State<SuccessfulDeliveryScreen> {
   }
 
   successFullCard() {
-    return Container(
-        height: 90,
-        margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-        decoration: new BoxDecoration(
-          boxShadow: [
-            new BoxShadow(
-                offset: Offset(0.5, 0.5),
-                color: ColorRes.greyColor,
-                blurRadius: 0.5)
-          ],
-          color: ColorRes.whiteColor,
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            cardTextShow(StringRes.orders, "#1003111124"),
-            cardTextShow(StringRes.dateOrder, "30/05/20"),
-            cardTextShow(StringRes.dateOfReceipt, "31/05/20")
+    return InkResponse(
+      onTap: () {
+        orderDetailsScreenNavigator(context, 2);
+      },
+      child: Container(
+          height: 90,
+          margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+          decoration: new BoxDecoration(
+            boxShadow: [
+              new BoxShadow(
+                  offset: Offset(0.5, 0.5),
+                  color: ColorRes.greyColor,
+                  blurRadius: 0.5)
+            ],
+            color: ColorRes.whiteColor,
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              cardTextShow(StringRes.orders, "#1003111124"),
+              cardTextShow(StringRes.dateOrder, "30/05/20"),
+              cardTextShow(StringRes.dateOfReceipt, "31/05/20")
 
-          ],
-        ));
+            ],
+          )),
+    );
   }
 
   cardTextShow(String leftText, String rightText) {

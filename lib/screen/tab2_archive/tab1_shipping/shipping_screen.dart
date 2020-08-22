@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -17,6 +18,7 @@ class _ShippingScreenState extends State<ShippingScreen> {
       body: SingleChildScrollView(
         child: ListView.builder(
             itemCount: 2,
+            padding: EdgeInsets.only(top: 10),
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
@@ -27,27 +29,32 @@ class _ShippingScreenState extends State<ShippingScreen> {
   }
 
   shippingCard(){
-    return Container(
-        height: 60,
-        margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-        decoration: new BoxDecoration(
-          boxShadow: [
-            new BoxShadow(
-              offset: Offset(0.5, 0.5),
-              color: ColorRes.greyColor,
-              blurRadius: 0.5,
-            ),
-          ],
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            cardTextShow(StringRes.orders, "#1003111124"),
-            cardTextShow(StringRes.dayOrder, "30/05/20")
-          ],
-        )
+    return InkResponse(
+      onTap: () {
+        orderDetailsScreenNavigator(context, 1);
+      },
+      child: Container(
+          height: 60,
+          margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+          decoration: new BoxDecoration(
+            boxShadow: [
+              new BoxShadow(
+                offset: Offset(0.5, 0.5),
+                color: ColorRes.greyColor,
+                blurRadius: 0.5,
+              ),
+            ],
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              cardTextShow(StringRes.orders, "#1003111124"),
+              cardTextShow(StringRes.dayOrder, "30/05/20")
+            ],
+          )
+      ),
     );
   }
 

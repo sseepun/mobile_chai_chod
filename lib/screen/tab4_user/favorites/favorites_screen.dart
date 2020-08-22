@@ -20,50 +20,23 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: ColorRes.lightWhite,
-        body: SingleChildScrollView(
-          child: Column(
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: ColorRes.lightWhite,
+          body: SingleChildScrollView(
+            child: Column(
 //              mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: 30),
-              titleText(),
-              SizedBox(height: 20),
-              gridImage(),
-              SizedBox(height: 20),
-            ],
-          ),
-        ));
-  }
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
 
-  titleText() {
-    return Row(
-      children: <Widget>[
-        Container(
-          alignment: Alignment.topLeft,
-          child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => UserScreen()),
-                );
-              },
-              child: Icon(
-                Icons.arrow_back,
-                size: 25,
-                color: Colors.black,
-              )),
-        ),
-        Container(
-          padding: EdgeInsets.only(left: 120),
-          child: Text(
-            'Favorites',
-            style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-          ),
-        ),
-      ],
+                CommonView.backArrowAndTitle(context, StringRes.favorites, ColorRes.blackColor),
+                SizedBox(height: 20),
+
+                gridImage(),
+                SizedBox(height: 20),
+              ],
+            ),
+          )),
     );
   }
 
@@ -78,7 +51,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.25)),
+              (Utils.getDeviceHeight(context) / 1.35)),
       itemBuilder: (context, index) {
         return Container(
           height: 150,

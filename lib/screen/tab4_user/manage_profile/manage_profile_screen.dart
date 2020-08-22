@@ -28,16 +28,14 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
 
             isUserLogin ? userLogo() : logoShow(),
 
-            SizedBox(height: 50),
-            AllText(StringRes.youAreNotLogin, fontSize: 28, color: ColorRes.blackColor),
+            SizedBox(height: isUserLogin ? 25 : 50),
+
+            isUserLogin ? AllText("Your Name", fontSize: 20, color: ColorRes.blackColor): Container(),
+
+            isUserLogin ? Container() : AllText(StringRes.youAreNotLogin, fontSize: 28, color: ColorRes.blackColor),
             SizedBox(height: 20),
-            Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: InkResponse(
-                    onTap: () {
-                      logInScreenNavigator(context, 2);
-                    },
-                    child: FilledButton(text: StringRes.logIn, fontSize: 18)))
+
+            isUserLogin ? userDetails() : loginButton()
           ],
         ),
       ),
@@ -94,5 +92,54 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
       ],
     );
   }
+
+  userDetails() {
+    return Container(
+      width: Utils.getDeviceWidth(context),
+      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      decoration: BoxDecoration(
+        color: ColorRes.whiteColor,
+        borderRadius: BorderRadius.all(Radius.circular(5))
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          titleText(StringRes.storeName, "nutchatya.cha"),
+          Divider(height: 1, color: ColorRes.greyColor),
+
+          titleText(StringRes.hTax, "98765431215988"),
+          Divider(height: 1, color: ColorRes.greyColor),
+
+          titleText(StringRes.currentAddress, "999/9 nawamin, bueng kum, post 10330"),
+        ],
+      ),
+    );
+  }
+
+  titleText(String title, String subTitle) {
+    return Container(
+      color: ColorRes.whiteColor,
+      margin: EdgeInsets.only(bottom: 10, top: 10),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(title),
+          SizedBox(height: 2),
+          Text(subTitle)
+        ],
+      ),
+    );
+  }
+
+  loginButton() {
+    return Padding(
+        padding: EdgeInsets.only(left: 10, right: 10),
+        child: InkResponse(
+            onTap: () {
+              logInScreenNavigator(context, 2);
+            },
+            child: FilledButton(text: StringRes.logIn, fontSize: 18)));
+  }
+
 
 }

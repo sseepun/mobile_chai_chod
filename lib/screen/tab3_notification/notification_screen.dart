@@ -10,6 +10,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatefulWidget {
+
+  final int i;
+  const NotificationScreen({Key key, this.i}) : super(key: key);
+
   @override
   _NotificationScreenState createState() => _NotificationScreenState();
 }
@@ -33,10 +37,13 @@ class _NotificationScreenState extends State<NotificationScreen>
         backgroundColor: ColorRes.lightWhite,
         body: Column(
           children: <Widget>[
-            CommonView.titleText(StringRes.notificationHeading),
+            widget.i == 2 ?
+            CommonView.backArrowAndTitle(context, StringRes.notificationHeading, ColorRes.blackColor)
+            : CommonView.titleText(StringRes.notificationHeading),
             Container(
               color: ColorRes.lightWhite,
               height: Utils.getDeviceHeight(context) / 12,
+              margin: EdgeInsets.only(top: 15, bottom: 15),
               child: TabBar(
                 indicatorColor: ColorRes.primaryColor,
                 labelColor: ColorRes.primaryColor,
