@@ -120,11 +120,10 @@ class StringRes {
   static const editProfile                   =  "Edit Profile";
 
 //category Profile
-  static const categoryTitle = "Pickup truck tires, super cars";
-  static const Breand = "Brand";
+  static const categoryTitle                 = "Pickup truck tires, super cars";
 
 //Product Profile
-  static const ProductTitle = "Product Details";
+  static const ProductTitle                  = "Product Details";
   //Order Details Screen
   static const orderDetailsTitle             =  "Order Details";
   static const status                        = "Status";

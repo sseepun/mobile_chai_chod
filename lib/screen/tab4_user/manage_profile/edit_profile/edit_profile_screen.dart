@@ -58,7 +58,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+ /*   return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -70,7 +70,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               SizedBox(height: 20),
               uploadImage()
             ],
-          ),
+          ),*/
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
