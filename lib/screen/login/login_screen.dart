@@ -143,7 +143,7 @@ class LoginScreenState extends State<LoginScreen> {
       _formKey.currentState.save();
       return true;
     } else {
-      return true;
+      return false;
     }
   }
 
