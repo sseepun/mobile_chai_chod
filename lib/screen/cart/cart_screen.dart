@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/filled_button.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
@@ -15,24 +16,27 @@ class _CartScreenState extends State<CartScreen> {
   bool isCheckValue = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar(),
-      bottomNavigationBar: bottomBar(),
-      body: SingleChildScrollView(
-        child: listViewData(),
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: bottomBar(),
+        body: Column(
+          children: <Widget>[
+
+            CommonView.backArrowAndTitle(context, StringRes.shoppingCart, ColorRes.blackColor),
+
+            SizedBox(height: 20),
+
+            Expanded(
+              child: SingleChildScrollView(
+                child: listViewData(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  appBar() {
-    return AppBar(
-      centerTitle: true,
-      iconTheme: IconThemeData(color: ColorRes.blackColor),
-      backgroundColor: ColorRes.whiteColor,
-      title: AllText(StringRes.shoppingCart,
-          color: ColorRes.blackColor, fontSize: 20, align: TextAlign.center),
-    );
-  }
 
   bottomBar() {
     return Container(

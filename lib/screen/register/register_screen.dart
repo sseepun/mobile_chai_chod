@@ -65,7 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       onTap: () {
                         navigatorPop(context);
                       },
-                      child: CommonView.backArrow(),
+                      child: CommonView.backArrow(context),
                     ),
                     CommonView.logoImage(220, 80),
                     SizedBox(height: 17),

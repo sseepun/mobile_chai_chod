@@ -19,13 +19,18 @@ class CommonView {
     );
   }
 
-  static backArrow() {
+  static backArrow(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 20),
-      child: Icon(
-        Icons.arrow_back,
-        color: Colors.black,
-        size: 25,
+      padding: EdgeInsets.only(top: 15,left: 10),
+      child: InkResponse(
+        onTap: () {
+          navigatorPop(context);
+        },
+        child: Icon(
+          Icons.arrow_back,
+          color: Colors.black,
+          size: 25,
+        ),
       ),
     );
   }
