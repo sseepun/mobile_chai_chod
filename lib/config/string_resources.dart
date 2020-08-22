@@ -1,4 +1,3 @@
-
 import 'package:ChaiChod/config/app_theme.dart';
 
 AppState appState = AppState();
@@ -120,7 +119,12 @@ class StringRes {
   //Edit Profile
   static const editProfile                   =  "Edit Profile";
 
+//category Profile
+  static const categoryTitle = "Pickup truck tires, super cars";
+  static const Breand = "Brand";
 
+//Product Profile
+  static const ProductTitle = "Product Details";
   //Order Details Screen
   static const orderDetailsTitle             =  "Order Details";
   static const status                        = "Status";
