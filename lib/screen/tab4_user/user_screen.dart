@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'about_us/aboutus_screen.dart';
+import 'favorites/favorites_screen.dart';
 
 class UserScreen extends StatefulWidget {
   @override
@@ -62,7 +63,10 @@ class _UserScreenState extends State<UserScreen> {
         if(index == 0) {
           manageProfileScreenNavigator(context);
         } else if(index == 1) {
-
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => FavoriteScreen()),
+          );
         } else if(index == 2) {
 
         } else if(index == 3) {

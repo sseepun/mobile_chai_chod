@@ -81,7 +81,8 @@ class _SetUpScreenState extends State<SetUpScreen> {
               ),
             ),
           ],
-        ));
+        ),
+    );
   }
 
   listData(int index) {
