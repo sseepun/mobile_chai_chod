@@ -27,8 +27,8 @@ class LoginScreenState extends State<LoginScreen> {
   }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController usernameController;
-  TextEditingController passwordController;
+  TextEditingController usernameController = TextEditingController(text: 'Testting@gmail.com');
+  TextEditingController passwordController = TextEditingController(text: "TEst@1234565");
   String username;
   String password;
 

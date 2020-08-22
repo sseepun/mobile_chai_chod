@@ -17,21 +17,26 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Stack(
-              children: <Widget>[
-                textTitle(),
-                Container(
-                  padding: EdgeInsets.only(top: 70),
-                  child:listData()
-                ),
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Stack(
+                children: <Widget>[
+//                textTitle(),
 
-              ],
-            )
-          ],
+                  CommonView.backArrowAndTitle(context, StringRes.privacyPolicy, ColorRes.blackColor),
+
+                  Container(
+                    padding: EdgeInsets.only(top: 70),
+                    child:listData()
+                  ),
+
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -79,13 +84,10 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
             Container(
               alignment: Alignment.center,
               padding: EdgeInsets.only(left: 10, right: 10),
-              child: Text(
+              child: AllText(
                 StringRes.PrivacyDescription1,
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.black,
-                  fontSize: 14,
-                ),
+                color: Colors.black,
+                fontSize: 14,
               ),
             ),
             Container(

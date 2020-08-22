@@ -27,27 +27,35 @@ class _ChildAboutUsScreenState extends State<ChildAboutUsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Stack(
-              children: <Widget>[
-                textTitle(),
-               Container(
-                 padding: EdgeInsets.only(top: 50),
-                 child:ListView.builder(
-                     itemCount: 2,
-                     shrinkWrap: true,
-                     physics: NeverScrollableScrollPhysics(),
-                     itemBuilder: (context, index) {
-                       return listData(index);
-                     }),
-               ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorRes.lightWhite,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: <Widget>[
+//                  textTitle(),
+              Container(
+                height: Utils.getDeviceHeight(context) / 3.3,
+                color: ColorRes.lightBlur,
+              ),
 
-              ],
-            )
-          ],
+              Column(
+                children: <Widget>[
+                  CommonView.backArrowAndTitle(context, StringRes.aboutUs, ColorRes.whiteColor),
+
+                  ListView.builder(
+                      itemCount: 2,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return listData(index);
+                      }),
+                ],
+              )
+
+
+            ],
+          ),
         ),
       ),
     );
@@ -96,19 +104,17 @@ class _ChildAboutUsScreenState extends State<ChildAboutUsScreen> {
           children: <Widget>[
             Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 10,bottom: 10),
-              child: Image.asset(images[index], height: 160, width: 330,fit: BoxFit.fill),
+              padding: EdgeInsets.only(top: 15,bottom: 10),
+              child: Image.asset(images[index], height: 200, width: 330,fit: BoxFit.fill),
             ),
             Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Text(
+              padding: EdgeInsets.only(left: 10, right: 10, bottom: 25),
+              child: AllText(
                 stringList1[index],
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.black,
-                  fontSize: 15,
-                ),
+                color: ColorRes.blackColor,
+                fontSize: 15,
+
               ),
             ),
           ],

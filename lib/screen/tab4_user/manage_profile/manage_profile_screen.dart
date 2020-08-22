@@ -23,7 +23,7 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
         backgroundColor: ColorRes.lightWhite,
         body: Column(
           children: <Widget>[
-            titleShow(),
+            CommonView.backArrowAndTitle(context, StringRes.accountTheYou, ColorRes.blackColor),
 
             isUserLogin ? userLogo() : logoShow(),
 
@@ -43,27 +43,7 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
     );
   }
 
-  titleShow() {
-    return  Stack(
-      alignment: Alignment.center,
-//      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        InkResponse(
-          onTap: () {
-            navigatorPop(context);
-          },
-          child: Container(
-            alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 15),
-            child: CommonView.backArrow(),
-          ),
-        ),
-        Center(
-          child: CommonView.titleText(StringRes.accountTheYou),
-        )
-      ],
-    );
-  }
+
 
   logoShow() {
     return Container(
