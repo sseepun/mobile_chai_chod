@@ -119,11 +119,29 @@ class StringRes {
   //Edit Profile
   static const editProfile                   =  "Edit Profile";
 
-//category Profile
+  //category Profile
   static const categoryTitle                 = "Pickup truck tires, super cars";
 
-//Product Profile
+  //Product Profile
   static const ProductTitle                  = "Product Details";
+  static const brandName                     = "Brand";
+  static const buttonName                    = "Tire specification";
+  static const ProductTitle1                 = "More product details";
+  static const tab1                          = "Details";
+  static const tab2                          = "Reviews";
+  static const ProductTitle3                 = "Related Products";
+  static const btn1                          = "Transparent trolley";
+  static const btn2                          = "Buy now";
+
+  //Details Screen
+  static const Title1                        = "Lorem properties";
+  static const Description                   = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut";
+  static const Description1                  = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua . Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute inure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui officia deserunt mollit anim id est laborum . Lorem ipsum dolor sit amet , consectetur adipiscing elit . sed do eiusmod tempor incididunt ut labore et dolore magna aliqua .                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                             Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui";
+
+
+
+
+
   //Order Details Screen
   static const orderDetailsTitle             =  "Order Details";
   static const status                        = "Status";
