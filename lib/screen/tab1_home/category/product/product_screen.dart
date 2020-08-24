@@ -237,7 +237,7 @@ class _ProductScreenState extends State<ProductScreen>
                   child: AllText(StringRes.tab2,
                       fontSize: 17, color: ColorRes.primaryColor)),
             ],
-            controller: _tabController,
+            controller: tabController,
           ),
           Expanded(
             child: TabBarView(
@@ -247,7 +247,7 @@ class _ProductScreenState extends State<ProductScreen>
 //                  DetailsScreen(),
 //                ReviewScreen(),
               ],
-              controller: _tabController,
+              controller: tabController,
             ),
           ),
         ],
@@ -531,5 +531,569 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+
+  void _showModalSheet1() {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          return new Container(
+            color: Colors.white,
+            child: new Center(
+                child: ListView(
+                  children: <Widget>[
+                    Container(
+                        margin: EdgeInsets.only(left: 10,right: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding:
+                                  EdgeInsets.only(top: 10, left: 5, right: 115),
+                                  child: AllText(
+                                    "NANKANG AS-2+ -205/55R16",
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                  EdgeInsets.only(top: 10, left: 5, right: 281),
+                                  child: AllText(
+                                    "B2,500",
+                                    color: ColorRes.primaryColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 5, left: 5, right: 282, bottom: 15),
+                                  child: AllText(
+                                    "Per line",
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )),
+                    Container(
+                        color: Colors.white,
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Container(
+                                  alignment: Alignment.topRight,
+                                  padding: EdgeInsets.only(left: 20),
+                                  child: Row(
+                                    children: <Widget>[
+                                      AllText(
+                                        StringRes.brandName,
+                                        color: ColorRes.blackColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 185),
+                                        child: Image.asset(
+                                          Utils.getAssetsImg('michelin'),
+                                          height: 25,
+                                          width: 100,
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 230, top: 5),
+                                child: FilledButton(
+                                    height: 30,
+                                    text: StringRes.buttonName,
+                                    fontSize: 12,
+                                    onPressed: () {}),
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    height: 30,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'Width',
+                                          style: TextStyle(
+                                            color: ColorRes.blackColor,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 240),
+                                          child: Text(
+                                            '195 mm.',
+                                            style: TextStyle(
+                                              color: ColorRes.blackColor,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    height: 30,
+                                    color: ColorRes.lightWhite,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'Rubber Series',
+                                          style: TextStyle(
+                                            color: ColorRes.blackColor,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 225),
+                                          child: Text(
+                                            '55',
+                                            style: TextStyle(
+                                              color: ColorRes.blackColor,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    height: 30,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'Rubber edge',
+                                          style: TextStyle(
+                                            color: ColorRes.blackColor,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 232),
+                                          child: Text(
+                                            '15"',
+                                            style: TextStyle(
+                                              color: ColorRes.blackColor,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    height: 30,
+                                    color: ColorRes.lightWhite,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'Sidewall',
+                                          style: TextStyle(
+                                            color: ColorRes.blackColor,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 220),
+                                          child: Text(
+                                            '10.72 cm.',
+                                            style: TextStyle(
+                                              color: ColorRes.blackColor,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                    Container(
+                      child: new Center(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new FlatButton(
+                              onPressed: minus,
+                              child: new Icon(
+                                  const IconData(0xe15b,
+                                      fontFamily: 'MaterialIcons'),
+                                  color: Colors.black),
+                            ),
+                            new Text('$_n', style: new TextStyle(fontSize: 20.0)),
+                            new FlatButton(
+                              onPressed: add,
+                              child: new Icon(
+                                Icons.add,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            left: 10, right: 10, bottom: 5),
+                        child: FilledButton(
+                            text: StringRes.btn1details,
+                            fontSize: 18,
+                            onPressed: () {
+                              dialogBoxShow();
+                            }),
+                      ),
+                    ),
+                  ],
+                )),
+          );
+        });
+  }
+  void dialogBoxShow() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(2),
+              ),
+              elevation: 0.0,
+              backgroundColor:Colors.white,
+              content: SingleChildScrollView(
+                child:Column(
+                  children: <Widget>[
+                    Container(
+                        margin: EdgeInsets.only(top: 20),
+                        child:Image.asset(
+                          Utils.getAssetsImg('dialogimg'),
+                          width: 100,
+                          height: 100,
+                          fit: BoxFit.fill,
+                        )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 25,bottom: 30),
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            'Added to cart',
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              letterSpacing: 1.0,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ));
+        });
+  }
+
+  void _showModalSheet2() {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          return new Container(
+            color: Colors.white,
+            child: new Center(
+                child: ListView(
+                  children: <Widget>[
+                    Container(
+                        margin: EdgeInsets.only(left: 10,right: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding:
+                                  EdgeInsets.only(top: 10, left: 5, right: 115),
+                                  child: AllText(
+                                    "NANKANG AS-2+ -205/55R16",
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                  EdgeInsets.only(top: 10, left: 5, right: 281),
+                                  child: AllText(
+                                    "B2,500",
+                                    color: ColorRes.primaryColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 5, left: 5, right: 282, bottom: 15),
+                                  child: AllText(
+                                    "Per line",
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )),
+                    Container(
+                        color: Colors.white,
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Container(
+                                  alignment: Alignment.topRight,
+                                  padding: EdgeInsets.only(left: 20),
+                                  child: Row(
+                                    children: <Widget>[
+                                      AllText(
+                                        StringRes.brandName,
+                                        color: ColorRes.blackColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 185),
+                                        child: Image.asset(
+                                          Utils.getAssetsImg('michelin'),
+                                          height: 25,
+                                          width: 100,
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 230, top: 5),
+                                child: FilledButton(
+                                    height: 30,
+                                    text: StringRes.buttonName,
+                                    fontSize: 12,
+                                    onPressed: () {}),
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    height: 30,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'Width',
+                                          style: TextStyle(
+                                            color: ColorRes.blackColor,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 240),
+                                          child: Text(
+                                            '195 mm.',
+                                            style: TextStyle(
+                                              color: ColorRes.blackColor,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    height: 30,
+                                    color: ColorRes.lightWhite,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'Rubber Series',
+                                          style: TextStyle(
+                                            color: ColorRes.blackColor,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 225),
+                                          child: Text(
+                                            '55',
+                                            style: TextStyle(
+                                              color: ColorRes.blackColor,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    height: 30,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'Rubber edge',
+                                          style: TextStyle(
+                                            color: ColorRes.blackColor,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 232),
+                                          child: Text(
+                                            '15"',
+                                            style: TextStyle(
+                                              color: ColorRes.blackColor,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    height: 30,
+                                    color: ColorRes.lightWhite,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'Sidewall',
+                                          style: TextStyle(
+                                            color: ColorRes.blackColor,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 220),
+                                          child: Text(
+                                            '10.72 cm.',
+                                            style: TextStyle(
+                                              color: ColorRes.blackColor,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                    Container(
+                      child: new Center(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new FlatButton(
+                              onPressed: minus,
+                              child: new Icon(
+                                  const IconData(0xe15b,
+                                      fontFamily: 'MaterialIcons'),
+                                  color: Colors.black),
+                            ),
+                            new Text('$_n', style: new TextStyle(fontSize: 20.0)),
+                            new FlatButton(
+                              onPressed: add,
+                              child: new Icon(
+                                Icons.add,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            left: 10, right: 10, bottom: 5),
+                        child: FilledButton(
+                            text: StringRes.btn2details,
+                            fontSize: 18,
+                            onPressed: () {
+                              Navigator.push(
+                                  context, MaterialPageRoute(builder: (context) => OrderSummaryScreen()));                            }),
+                      ),
+                    ),
+                  ],
+                )),
+          );
+        });
+  }
 
 }
