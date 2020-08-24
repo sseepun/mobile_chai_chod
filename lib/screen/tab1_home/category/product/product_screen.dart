@@ -300,7 +300,7 @@ class _ProductScreenState extends State<ProductScreen>
                   height: 175,
 //                  width: 125,
 //            width: 100,
-                  padding: EdgeInsets.only(left: 8, right: 8),
+                padding: EdgeInsets.only(left: 8, right: 8),
                   margin: EdgeInsets.only(left: 10, right: 10),
 
                   color: ColorRes.whiteColor,
@@ -363,7 +363,9 @@ class _ProductScreenState extends State<ProductScreen>
                     align: TextAlign.center,
                     color: ColorRes.primaryColor,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                     _showModalSheet1();
+                  },
                 )),
           ),
           Expanded(
@@ -379,7 +381,9 @@ class _ProductScreenState extends State<ProductScreen>
                     fontSize: 15,
                     color: ColorRes.whiteColor,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    _showModalSheet2();
+                  },
                 )),
           ),
         ],
