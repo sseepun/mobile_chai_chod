@@ -54,6 +54,7 @@ class StringRes {
   static const brand                         =  "Brand";
   static const miCheIn                       =  "MICHELIN";
   static const pageWidth                     =  "pageWidth";
+  static const width                         =  "Width";
   static const serialNumber                  =  "Serial number";
   static const edgeNumber                    =  "Edge number";
   static const sideWall                      =  "The sidewall";
@@ -132,6 +133,9 @@ class StringRes {
   static const ProductTitle3                 = "Related Products";
   static const btn1                          = "Transparent trolley";
   static const btn2                          = "Buy now";
+  static const rubberSeries                  = "Rubber Series";
+  static const rubberEdge                    = "Rubber edge";
+  static const sidewallTxt                   = "Sidewall";
 
   //Details Screen
   static const Title1                        = "Lorem properties";

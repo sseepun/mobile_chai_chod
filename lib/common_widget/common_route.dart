@@ -1,5 +1,6 @@
 import 'package:ChaiChod/screen/cart/cart_screen.dart';
 import 'package:ChaiChod/screen/login/login_screen.dart';
+import 'package:ChaiChod/screen/order_details/order_history/orderhistory.dart';
 import 'package:ChaiChod/screen/order_details/orderdetailscreen.dart';
 import 'package:ChaiChod/screen/search_home/search_screen.dart';
 import 'package:ChaiChod/screen/tab3_notification/notification_screen.dart';
@@ -68,4 +69,9 @@ aboutScreenNavigator(BuildContext context) {
 orderDetailsScreenNavigator(BuildContext context, int i) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => OrderDetailsScreen(i: i)));
+}
+
+orderHistoryScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => OrderHistoryScreen()));
 }

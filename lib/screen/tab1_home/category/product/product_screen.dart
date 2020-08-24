@@ -1,15 +1,10 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/filled_button.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/tab1_home/category/category_screen.dart';
-import 'package:ChaiChod/screen/tab1_home/category/product/tab1_details/details_screen.dart';
-import 'package:ChaiChod/screen/tab1_home/category/product/tab2_reviews/review_screen.dart';
-import 'package:ChaiChod/screen/tab2_archive/tab1_shipping/shipping_screen.dart';
-import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/successful_delivery_screen.dart';
-import 'package:ChaiChod/screen/tab4_user/manage_profile/edit_profile/edit_profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -36,30 +31,26 @@ class _ProductScreenState extends State<ProductScreen>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
+        backgroundColor: ColorRes.whiteColor,
         body: SingleChildScrollView(
-          child: Stack(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: _appBar(),
-              ),
-              Container(
-                  margin: EdgeInsets.only(top: 70),
-                  child: Column(
-                    children: <Widget>[
-                      userLogo(),
-                      listData(),
-                      brandTable(),
-                      relatedProducts(),
-                      SizedBox(height: 20),
-                      gridImage(),
-                      SizedBox(height: 20),
-                      button(),
-                      SizedBox(height: 20),
+              appBar(),
 
-                    ],
-                  )),
+              userLogo(),
+
+              tireNumberShow(),
+              SizedBox(height: 10),
+              Divider(height: 1, color: ColorRes.greyColor),
+
+              productDetails(),
+              tabBarShow(),
+
+              listProductData(),
+              SizedBox(height: 20),
+              twoButton(),
+              SizedBox(height: 20),
             ],
           ),
         ),
@@ -67,62 +58,27 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-  Widget _appBar() {
+  Widget appBar() {
     return Container(
-        height: 410,
+        height: 60,
         color: Colors.white,
-        child: Column(
+        child: Stack(
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(top: 17),
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CategoryScreen()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 25,
-                        color: Colors.black,
-                      )),
-//        child: Image.asset(Utils.getAssetsImg('logo')),
+            CommonView.backArrowAndTitle(context,  StringRes.ProductTitle, ColorRes.blackColor),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: EdgeInsets.only(top: 15),
+                child: IconButton(
+                  onPressed: () {
+                    cartScreenNavigator(context);
+                  },
+                  icon: Icon(Icons.shopping_basket),
+                  iconSize: 28,
+                  color: ColorRes.primaryColor,
                 ),
-                Container(
-                  alignment: Alignment.topRight,
-                  padding: EdgeInsets.only(left: 80, top: 10),
-                  child: Row(
-                    children: <Widget>[
-                      AllText(
-                        StringRes.ProductTitle,
-                        color: ColorRes.blackColor,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          print('Shopping Cart');
-                          cartScreenNavigator(context);
-                        },
-                        padding: EdgeInsets.only(
-                          bottom: 5,
-                          left: 80,
-                        ),
-                        icon: Icon(Icons.shopping_basket),
-                        iconSize: 28,
-                        color: ColorRes.primaryColor,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            )
           ],
         ));
   }
@@ -134,439 +90,431 @@ class _ProductScreenState extends State<ProductScreen>
         Center(
           child: Image.asset(
             Utils.getAssetsImg('productimg'),
-            height: 250,
-            width: 250,
+            height: Utils.getDeviceHeight(context) / 2.3,
+//            width: 250,
             fit: BoxFit.fill,
           ),
         ),
         Align(
           alignment: Alignment.topRight,
-          child: InkResponse(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EditProfileScreen()),
-                );
-              },
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: 35,
-                    width: 35,
-                    margin: EdgeInsets.only(top: 10, right: 7),
-                    decoration: BoxDecoration(boxShadow: [
-                      new BoxShadow(
-                        offset: Offset(0.5, 0.5),
-                        color: ColorRes.greyColor,
-                        blurRadius: 0.5,
-                      ),
-                    ], color: ColorRes.whiteColor, shape: BoxShape.circle),
-                    child: Icon(
-                      Icons.favorite,
-                      size: 20,
-                      color: ColorRes.primaryColor,
-                    ),
-                  ),
-                  Container(
-                    height: 35,
-                    width: 35,
-                    margin: EdgeInsets.only(top: 10, right: 7),
-                    decoration: BoxDecoration(boxShadow: [
-                      new BoxShadow(
-                        offset: Offset(0.5, 0.5),
-                        color: ColorRes.greyColor,
-                        blurRadius: 0.5,
-                      ),
-                    ], color: ColorRes.whiteColor, shape: BoxShape.circle),
-                    child: Icon(
-                      Icons.share,
-                      size: 20,
-                      color: ColorRes.primaryColor,
-                    ),
-                  ),
-                ],
-              )),
+          child: Column(
+            children: <Widget>[
+              iconShow(Icons.favorite,1),
+              iconShow(Icons.share,2),
+            ],
+          ),
         )
       ],
     );
   }
 
-  listData() {
-    return Container(
-        margin: EdgeInsets.only(left: 10, top: 10, right: 10),
+  tireNumberShow() {
+    return Padding(
+        padding: EdgeInsets.only(left: 10, top: 10, right: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Column(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 10, left: 5, right: 115),
-                  child: AllText(
-                    "NANKANG AS-2+ -205/55R16",
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+            AllText(
+              "NANKANG AS-2+ -205/55R16",
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+            SizedBox(height: 8),
+            AllText(
+              "B2,500",
+              color: ColorRes.primaryColor,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+            AllText(
+              "Per line",
+              color: Colors.black,
+              fontSize: 14,
+            ),
+          ],
+        ));
+  }
+
+  productDetails() {
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Container(
+              alignment: Alignment.topRight,
+              padding: EdgeInsets.only(left: 20, top: 5),
+              child: Row(
+                children: <Widget>[
+                  AllText(
+                    StringRes.brandName,
+                    color: ColorRes.blackColor,
                     fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10, left: 5, right: 281),
+                  Container(
+                    padding: EdgeInsets.only(left: 185),
+                    child: Image.asset(
+                      Utils.getAssetsImg('michelin'),
+                      height: 25,
+                      width: 100,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        Container(
+          child: Padding(
+            padding: EdgeInsets.only(right: 230, top: 5),
+            child: FilledButton(
+                height: 30,
+                text: StringRes.buttonName,
+                fontSize: 12,
+                onPressed: () {}),
+          ),
+        ),
+
+        Container(
+          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          color: ColorRes.whiteColor,
+          child: CommonView.productDetailsLeftRightData(StringRes.width, "195 mm."),
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          color: ColorRes.lightWhite,
+          child: CommonView.productDetailsLeftRightData(StringRes.rubberSeries, "55"),
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          color: ColorRes.whiteColor,
+          child: CommonView.productDetailsLeftRightData(StringRes.rubberEdge, "15"),
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          color: ColorRes.lightWhite,
+          child: CommonView.productDetailsLeftRightData(StringRes.sidewallTxt, "10.72 cm."),
+        ),
+      ],
+    );
+  }
+
+  tabBarShow() {
+    return Container(
+      height: 750,
+      child: Column(
+        children: <Widget>[
+          CommonView.titleText(StringRes.ProductTitle1),
+          SizedBox(height: 5),
+
+          TabBar(
+            indicatorColor: ColorRes.primaryColor,
+            labelColor: ColorRes.primaryColor,
+            isScrollable: false,
+            labelStyle: TextStyle(color: ColorRes.primaryColor),
+            tabs: <Tab>[
+              Tab(
+                  child: AllText(StringRes.tab1,
+                      fontSize: 17, color: ColorRes.primaryColor)),
+              Tab(
+                  child: AllText(StringRes.tab2,
+                      fontSize: 17, color: ColorRes.primaryColor)),
+            ],
+            controller: _tabController,
+          ),
+          Expanded(
+            child: TabBarView(
+              children: [
+                listData(),
+                listData(),
+//                  DetailsScreen(),
+//                ReviewScreen(),
+              ],
+              controller: _tabController,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  relatedProducts() {
+    return Padding(
+      padding: EdgeInsets.only(top: 20, left: 15),
+      child: AllText(
+        StringRes.ProductTitle3,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        fontSize: 16,
+      ),
+    );
+  }
+
+  listProductData() {
+    return Container(
+      height: 275,
+      alignment: Alignment.topLeft,
+      color: ColorRes.lightWhite,
+      width: Utils.getDeviceWidth(context),
+      margin: EdgeInsets.only(top: 20, bottom: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+
+          relatedProducts(),
+          SizedBox(height: 20),
+
+          Container(
+            height: 200,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+//        physics: NeverScrollableScrollPhysics(),
+              itemCount: listTitle.length,
+              padding: EdgeInsets.only(left: 10, right: 10),
+            /*  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: Utils.getDeviceWidth(context) /
+                      (Utils.getDeviceHeight(context) / 1.25)),*/
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 175,
+//                  width: 125,
+//            width: 100,
+                  padding: EdgeInsets.only(left: 8, right: 8),
+                  margin: EdgeInsets.only(left: 10, right: 10),
+
+                  color: ColorRes.whiteColor,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Image(height: 130, image: AssetImage(Utils.getAssetsImg('tiers')), fit: BoxFit.fill),
+                      Column(
+//                  mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          AllText(
+                            "GOODYEAR",
+                            color: ColorRes.blackColor,
+                          ),
+                          AllText(
+                            "Tires 225/45/R17",
+                            color: ColorRes.blackColor,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          AllText(
+                            "\$2,000 /len.",
+                            color: ColorRes.blackColor,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  twoButton() {
+    return Container(
+      padding: EdgeInsets.only(left: 10,right: 10),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 3,
+            child: Container(
+            height: 50,
+//              width: 160,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                  color: ColorRes.primaryColor,
+                )),
+                child: FlatButton(
+                  color: ColorRes.whiteColor,
                   child: AllText(
-                    "B2,500",
+                    StringRes.btn1,
+                    fontSize: 15,
+                    align: TextAlign.center,
                     color: ColorRes.primaryColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
                   ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.only(top: 5, left: 5, right: 282, bottom: 15),
+                  onPressed: () {},
+                )),
+          ),
+          Expanded(
+            flex: 5,
+            child: Container(
+            height: 50,
+//              width: 180,
+                padding: EdgeInsets.only(left:10),
+                child: FlatButton(
+                  color: ColorRes.primaryColor,
                   child: AllText(
-                    "Per line",
+                    StringRes.btn2,
+                    fontSize: 15,
+                    color: ColorRes.whiteColor,
+                  ),
+                  onPressed: () {},
+                )),
+          ),
+        ],
+      ),
+    );
+  }
+
+  iconShow(IconData icons, int i) {
+    return InkResponse(
+      onTap: () {
+        if(i == 1) {
+
+        } else {
+
+        }
+      },
+      child: Container(
+        height: 40,
+        width: 40,
+        margin: EdgeInsets.only(top: 10, right: 7),
+        decoration: BoxDecoration(boxShadow: [
+          new BoxShadow(
+            offset: Offset(0.5, 0.5),
+            color: ColorRes.greyColor,
+            blurRadius: 0.5,
+          ),
+        ], color: ColorRes.whiteColor, shape: BoxShape.circle),
+        child: Icon(
+          icons,
+          size: 25,
+          color: ColorRes.primaryColor,
+        ),
+      ),
+    );
+  }
+
+  listData() {
+    return SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
+      child: Column(
+        children: <Widget>[
+          Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.only(top:20,left: 10),
+            child: Text(
+              StringRes.Title1,
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(top:10,left: 10, right: 10),
+            child: Text(
+              StringRes.Description,
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                color: Colors.black,
+                fontSize: 14,
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top:10,left: 7),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.check_circle,
+                  size: 25,
+                  color: ColorRes.primaryColor,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 7),
+                  child:AllText(
+                    "Qualifications",
                     color: Colors.black,
                     fontSize: 14,
                   ),
                 ),
               ],
             ),
-          ],
-        ));
-  }
-
-  brandTable() {
-    return Container(
-        height: 940,
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Row(
+          ),
+          Container(
+            padding: EdgeInsets.only(top:10,left: 7),
+            child: Row(
               children: <Widget>[
+                Icon(
+                  Icons.check_circle,
+                  size: 25,
+                  color: ColorRes.primaryColor,
+                ),
                 Container(
-                  alignment: Alignment.topRight,
-                  padding: EdgeInsets.only(left: 20, top: 5),
-                  child: Row(
-                    children: <Widget>[
-                      AllText(
-                        StringRes.brandName,
-                        color: ColorRes.blackColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 185),
-                        child: Image.asset(
-                          Utils.getAssetsImg('michelin'),
-                          height: 25,
-                          width: 100,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ],
+                  padding: EdgeInsets.only(left: 7),
+                  child:AllText(
+                    "Qualifications",
+                    color: Colors.black,
+                    fontSize: 14,
                   ),
                 ),
               ],
             ),
-            Container(
-              child: Padding(
-                padding: EdgeInsets.only(right: 230, top: 5),
-                child: FilledButton(
-                    height: 30,
-                    text: StringRes.buttonName,
-                    fontSize: 12,
-                    onPressed: () {}),
-              ),
-            ),
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    height: 30,
-                    child: Row(
-                      children: <Widget>[
-                        Text(
-                          'Width',
-                          style: TextStyle(
-                            color: ColorRes.blackColor,
-                            fontSize: 14,
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(left: 240),
-                          child: Text(
-                            '195 mm.',
-                            style: TextStyle(
-                              color: ColorRes.blackColor,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    height: 30,
-                    color: ColorRes.lightWhite,
-                    child: Row(
-                      children: <Widget>[
-                        Text(
-                          'Rubber Series',
-                          style: TextStyle(
-                            color: ColorRes.blackColor,
-                            fontSize: 14,
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(left: 225),
-                          child: Text(
-                            '55',
-                            style: TextStyle(
-                              color: ColorRes.blackColor,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    height: 30,
-                    child: Row(
-                      children: <Widget>[
-                        Text(
-                          'Rubber edge',
-                          style: TextStyle(
-                            color: ColorRes.blackColor,
-                            fontSize: 14,
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(left: 232),
-                          child: Text(
-                            '15"',
-                            style: TextStyle(
-                              color: ColorRes.blackColor,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    height: 30,
-                    color: ColorRes.lightWhite,
-                    child: Row(
-                      children: <Widget>[
-                        Text(
-                          'Sidewall',
-                          style: TextStyle(
-                            color: ColorRes.blackColor,
-                            fontSize: 14,
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(left: 220),
-                          child: Text(
-                            '10.72 cm.',
-                            style: TextStyle(
-                              color: ColorRes.blackColor,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  AllText(
-                    StringRes.ProductTitle1,
-                    color: ColorRes.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 10),
-              child: TabBar(
-                indicatorColor: ColorRes.primaryColor,
-                labelColor: ColorRes.primaryColor,
-                isScrollable: false,
-                labelStyle: TextStyle(color: ColorRes.primaryColor),
-                tabs: <Tab>[
-                  Tab(
-                      child: AllText(StringRes.tab1,
-                          fontSize: 17, color: ColorRes.primaryColor)),
-                  Tab(
-                      child: AllText(StringRes.tab2,
-                          fontSize: 17, color: ColorRes.primaryColor)),
-                ],
-                controller: _tabController,
-              ),
-            ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  DetailsScreen(),
-                  ReviewScreen(),
-                ],
-                controller: _tabController,
-              ),
-            ),
-          ],
-        ));
-  }
-
-  relatedProducts() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Column(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(top: 20, left: 10),
-              child: Text(
-                StringRes.ProductTitle3,
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  gridImage() {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: listTitle.length,
-      padding: EdgeInsets.only(left: 10, right: 10),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.25)),
-      itemBuilder: (context, index) {
-        return Container(
-          height: 150,
-          padding: EdgeInsets.only(left: 8, right: 8),
-          color: ColorRes.whiteColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Image(image: AssetImage(Utils.getAssetsImg('tiers'))),
-              Column(
-//                  mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  AllText(
-                    "GOODYEAR",
-                    color: ColorRes.blackColor,
-                  ),
-                  AllText(
-                    "Tires 225/45/R17",
-                    color: ColorRes.blackColor,
-                  ),
-                  AllText(
-                    "\$2,000 /len.",
-                    color: ColorRes.blackColor,
-                  )
-                ],
-              )
-            ],
           ),
-          /*  child:Container(
-
-            color: Colors.white,
-              margin: EdgeInsets.only(bottom: 10),
-                child:Column(
-                  children: <Widget>[
-                    Image.asset(
-                     Utils.getAssetsImg(listTitle[index]),
-                      width: 300,
-                      height: 170,
-                     ),
-                  ],
-                ),
-          ),*/
-        );
-      },
-    );
-  }
-
-  button() {
-    return Container(
-      padding: EdgeInsets.only(left: 10,right: 10),
-      child: Row(
-        children: <Widget>[
           Container(
-            height: 40,
-              width: 160,
-              decoration: BoxDecoration(
-                  border: Border.all(
-                color: ColorRes.primaryColor,
-              )),
-              child: FlatButton(
-                color: ColorRes.whiteColor,
-                child: AllText(
-                  StringRes.btn1,
-                  fontSize: 15,
+            padding: EdgeInsets.only(top:10,left: 7),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.check_circle,
+                  size: 25,
                   color: ColorRes.primaryColor,
                 ),
-                onPressed: () {},
-              )),
-          Container(
-            height: 40,
-              width: 180,
-              padding: EdgeInsets.only(left:10),
-              child: FlatButton(
-                color: ColorRes.primaryColor,
-                child: AllText(
-                  StringRes.btn2,
-                  fontSize: 15,
-                  color: ColorRes.whiteColor,
+                Container(
+                  padding: EdgeInsets.only(left: 7),
+                  child:AllText(
+                    "Qualifications",
+                    color: Colors.black,
+                    fontSize: 14,
+                  ),
                 ),
-                onPressed: () {},
-              )),
+              ],
+            ),
+          ),
+          Center(
+            child: Image.asset(
+              Utils.getAssetsImg('productimge2'),
+              height: 200,
+              width: 300,
+              fit: BoxFit.fill,
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(top:10,left: 10, right: 10, bottom: 30),
+            child: Text(
+              StringRes.Description1,
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                color: Colors.black,
+                fontSize: 13,
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
+
+
 }

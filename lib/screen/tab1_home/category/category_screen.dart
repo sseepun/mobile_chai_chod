@@ -64,7 +64,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 6),
+                  padding: EdgeInsets.only(top: 12),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
@@ -166,7 +166,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.30)),
+              (Utils.getDeviceHeight(context) / 1.20)),
       itemBuilder: (context, index) {
         return InkResponse(
           onTap: () {

@@ -18,6 +18,7 @@ class ColorRes {
   static const Color profileLogoBg         = Color(0xFF858584);
   static const Color lightOrangeTxt        = Color(0xFFF2B176);
   static const Color lightGreenTxt         = Color(0xFF44BB7B);
+  static const Color lightRedTxt           = Color(0xFFEF9D9D);
 
 }
 

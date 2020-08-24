@@ -19,19 +19,15 @@ class _CartScreenState extends State<CartScreen> {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: bottomBar(),
-        body: Column(
-          children: <Widget>[
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              CommonView.backArrowAndTitle(context, StringRes.shoppingCart, ColorRes.blackColor),
+              SizedBox(height: 15),
 
-            CommonView.backArrowAndTitle(context, StringRes.shoppingCart, ColorRes.blackColor),
-
-            SizedBox(height: 20),
-
-            Expanded(
-              child: SingleChildScrollView(
-                child: listViewData(),
-              ),
-            ),
-          ],
+              listViewData(),
+            ],
+          ),
         ),
       ),
     );
@@ -48,9 +44,9 @@ class _CartScreenState extends State<CartScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          productDetailsShow(StringRes.prices, "\$2,000"),
-          productDetailsShow(StringRes.discount, "\$0"),
-          productDetailsShow(StringRes.total, "\$2,000"),
+          CommonView.productDetailsLeftRightData(StringRes.prices, "\$2,000"),
+          CommonView.productDetailsLeftRightData(StringRes.discount, "\$0"),
+          CommonView.productDetailsLeftRightData(StringRes.total, "\$2,000"),
           Padding(
               padding: EdgeInsets.only(left: 10, right: 10),
               child: FilledButton(text: StringRes.continueText, fontSize: 18))
@@ -59,7 +55,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
-  productDetailsShow(String title, String price) {
+ /* productDetailsShow(String title, String price) {
     return Padding(
       padding: EdgeInsets.only(left: 10, right: 10),
       child: Row(
@@ -82,7 +78,7 @@ class _CartScreenState extends State<CartScreen> {
         ],
       ),
     );
-  }
+  }*/
 
   listViewData() {
     return ListView.builder(
@@ -136,13 +132,13 @@ class _CartScreenState extends State<CartScreen> {
                             child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            productDetailsShow(
+                            CommonView.productDetailsLeftRightData(
                                 StringRes.brand, StringRes.miCheIn),
-                            productDetailsShow(StringRes.pageWidth, "195 mm."),
-                            productDetailsShow(
+                            CommonView.productDetailsLeftRightData(StringRes.pageWidth, "195 mm."),
+                            CommonView.productDetailsLeftRightData(
                                 StringRes.serialNumber, "Fifty five"),
-                            productDetailsShow(StringRes.edgeNumber, "Fifteen"),
-                            productDetailsShow(StringRes.sideWall, "10.72 cm."),
+                            CommonView.productDetailsLeftRightData(StringRes.edgeNumber, "Fifteen"),
+                            CommonView.productDetailsLeftRightData(StringRes.sideWall, "10.72 cm."),
                             Divider(
                               height: 1,
                               color: ColorRes.greyColor,

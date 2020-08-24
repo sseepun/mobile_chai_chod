@@ -21,7 +21,7 @@ class CommonView {
 
   static backArrow(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 15,left: 10),
+      padding: EdgeInsets.only(top: 20,left: 15),
       child: InkResponse(
         onTap: () {
           navigatorPop(context);
@@ -59,14 +59,12 @@ class CommonView {
           },
           child: Container(
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 15),
-            child: Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Icon(
-                  Icons.arrow_back,
-                  color: color,
-                  size: 25,
-                )),
+            padding: EdgeInsets.only(left: 15,top: 20),
+            child: Icon(
+              Icons.arrow_back,
+              color: color,
+              size: 25,
+            ),
           ),
         ),
         Center(
@@ -82,6 +80,31 @@ class CommonView {
           ),
         )
       ],
+    );
+  }
+
+  static productDetailsLeftRightData(String title, String price, {Color showColor}) {
+    return Padding(
+      padding: EdgeInsets.only(left: 0, right: 0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Expanded(
+              flex: 1,
+              child: AllText(title,
+                  color: ColorRes.blackColor,
+                  overflow: TextOverflow.ellipsis,
+                  maxLine: 1,
+                  align: TextAlign.left)),
+          Expanded(
+              flex: 1,
+              child: AllText(price,
+                  color: showColor != null ? showColor :ColorRes.blackColor,
+                  overflow: TextOverflow.ellipsis,
+                  maxLine: 1,
+                  align: TextAlign.right)),
+        ],
+      ),
     );
   }
 }

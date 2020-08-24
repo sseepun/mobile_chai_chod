@@ -34,7 +34,7 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                titleTextShow(),
+                CommonView.backArrowAndTitle(context, StringRes.orderDetailsTitle, ColorRes.blackColor),
                 orderNumberShow(),
                 statusShow(),
                 productDetailsView(),
@@ -51,13 +51,6 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
     );
   }
 
-  titleTextShow() {
-    return Container(
-      color: ColorRes.whiteColor,
-      child: CommonView.backArrowAndTitle(
-          context, StringRes.orderDetailsTitle, ColorRes.blackColor),
-    );
-  }
 
   orderNumberShow() {
     return Container(
@@ -72,13 +65,14 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
     return Container(
 //      height: 50,
       color: ColorRes.lightWhite,
-      padding: EdgeInsets.only(left: 15, right: 15, bottom: 15),
+      padding: EdgeInsets.only(left: 15, right: 10, bottom: 10, top: 10),
       alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          productPriceShow(StringRes.status, "Are shopping", showColor: widget.i == 2 ? ColorRes.lightGreenTxt : ColorRes.lightOrangeTxt),
-          widget.i == 2 ? productPriceShow(StringRes.dateReceipt, "30/05/20") : Container()
+          CommonView.productDetailsLeftRightData(StringRes.status, "Are shopping", showColor: widget.i == 2 ? ColorRes.lightGreenTxt : ColorRes.lightOrangeTxt),
+          widget.i == 2 ? CommonView.productDetailsLeftRightData(StringRes.dateReceipt, "30/05/20") : Container()
         ],
       ),
     );
@@ -86,7 +80,7 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
   productDetails(String leftTile, String rightSide) {
     return Container(
-      margin: EdgeInsets.only(top: 7, bottom: 7, right: 7),
+      margin: EdgeInsets.only(top: 10, bottom: 7, right: 7),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -106,7 +100,7 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
   productDetailsView() {
     return Container(
-      padding: EdgeInsets.only(top: 10, bottom: 10),
+      padding: EdgeInsets.only(top: 10, bottom: 10, right: 10),
       color: Colors.white,
       child: Column(
         children: <Widget>[
@@ -125,11 +119,17 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
               Expanded(
                 child: Column(
                   children: <Widget>[
-                    productDetails(StringRes.brand, "Micheline"),
-                    productDetails(StringRes.pageWidth, "199mm"),
-                    productDetails(StringRes.seriesNumber, "Fifty Five"),
-                    productDetails(StringRes.edgeRubber, "Fifteen"),
-                    productDetails(StringRes.sidewall, "10.72 cm"),
+                    CommonView.productDetailsLeftRightData(StringRes.brand, "Micheline"),
+                    SizedBox(height: 2),
+                    CommonView.productDetailsLeftRightData(StringRes.pageWidth, "199mm"),
+                    SizedBox(height: 2),
+                    CommonView.productDetailsLeftRightData(StringRes.seriesNumber, "Fifty Five"),
+                    SizedBox(height: 2),
+                    CommonView.productDetailsLeftRightData(StringRes.edgeRubber, "Fifteen"),
+                    SizedBox(height: 2),
+                    CommonView.productDetailsLeftRightData(StringRes.sidewall, "10.72 cm"),
+                    SizedBox(height: 10),
+
                     Divider(
                       height: 1,
                       color: ColorRes.greyColor,
@@ -180,10 +180,10 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           AllText("Summery", fontSize: 17, color: ColorRes.blackColor),
-          productPriceShow(StringRes.payment, 'World Bank of Thailand'),
-          productPriceShow(StringRes.price, 'B2,000'),
-          productPriceShow(StringRes.sectionAA, 'B0'),
-          productPriceShow(StringRes.shipping, 'B50'),
+          CommonView.productDetailsLeftRightData(StringRes.payment, 'World Bank of Thailand'),
+          CommonView.productDetailsLeftRightData(StringRes.price, 'B2,000'),
+          CommonView.productDetailsLeftRightData(StringRes.sectionAA, 'B0'),
+          CommonView.productDetailsLeftRightData(StringRes.shipping, 'B50'),
           Padding(
             padding: EdgeInsets.only(top: 10),
             child: Row(
@@ -198,19 +198,6 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
               ],
             ),
           )
-        ],
-      ),
-    );
-  }
-
-  productPriceShow(String title, String details, {Color showColor}) {
-    return Padding(
-      padding: EdgeInsets.only(top: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          AllText(title, color: ColorRes.blackColor ),
-          AllText(details, align: TextAlign.right, color: showColor != null ? showColor :ColorRes.blackColor  ),
         ],
       ),
     );
