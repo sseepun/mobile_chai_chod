@@ -8,6 +8,8 @@ import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'order_summary/order_summary_screen.dart';
+
 class ProductScreen extends StatefulWidget {
   @override
   _ProductScreenState createState() => _ProductScreenState();
@@ -16,15 +18,28 @@ class ProductScreen extends StatefulWidget {
 class _ProductScreenState extends State<ProductScreen>
     with SingleTickerProviderStateMixin {
   final controller = PageController();
-
-  TabController _tabController;
+  final scaffoldKey = new GlobalKey<ScaffoldState>();
+  VoidCallback showPerBottomSheetCallBack;
+  TabController tabController;
   List<String> listTitle = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
+  int _n = 1;
+  void add() {
+    setState(() {
+      _n++;
+    });
+  }
+  void minus() {
+    setState(() {
+      if (_n != 0) _n--;
+    });
+  }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _tabController = new TabController(length: 2, vsync: this);
+    showPerBottomSheetCallBack = _showModalSheet1;
+    showPerBottomSheetCallBack = _showModalSheet2;
+    tabController = new TabController(length: 2, vsync: this);
   }
 
   @override

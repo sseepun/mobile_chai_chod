@@ -8,6 +8,8 @@ import 'package:ChaiChod/screen/tab1_home/category/product/product_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'goodyear/goodyear_screen.dart';
+
 class CategoryScreen extends StatefulWidget {
   @override
   _CategoryScreenState createState() => _CategoryScreenState();
@@ -124,6 +126,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
             return InkResponse(
               onTap: () {
                 if (index == 0) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GoodYearScreen()),
+                  );
                 } else if (index == 1) {
                 } else if (index == 2) {
                 } else if (index == 3) {
