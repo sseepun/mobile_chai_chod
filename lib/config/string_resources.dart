@@ -132,12 +132,33 @@ class StringRes {
   static const ProductTitle3                 = "Related Products";
   static const btn1                          = "Transparent trolley";
   static const btn2                          = "Buy now";
+  static const btn1details                   = "Add to cart";
+  static const btn2details                   = "Continue";
+
+  //OrderSummary
+  static const OrderSummaryTitle             = "Order Summary";
+  static const OrderSummaryDescription       = "Order now at wipost124 30/05/20";
+  static const serviceDetails                = "Delivery and installation service";
+  static const serviceDetails1               = "Please select an address and delivery service.";
+  static const discountDetails               = "Discount coupons";
+  static const discountDetailsBtn1           = "Coupon Code";
+  static const discountDetailsBtn2           = "Take";
 
   //Details Screen
   static const Title1                        = "Lorem properties";
   static const Description                   = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut";
   static const Description1                  = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua . Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute inure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui officia deserunt mollit anim id est laborum . Lorem ipsum dolor sit amet , consectetur adipiscing elit . sed do eiusmod tempor incididunt ut labore et dolore magna aliqua .                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                             Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui";
 
+
+
+  //GoodYear
+  static const goodyear                      = "GOODYEAR";
+
+  //Service Screen
+  static const serviceTitle                  = "Delivery and installation service";
+  static const serviceTitle1                 = "Buy Now Order 4 1003I124 30/05/20";
+  static const serviceDes1                 = "Name and shipping address";
+  static const serviceDes2                 = "Please select an address";
 
 
 
