@@ -1,4 +1,5 @@
 import 'package:ChaiChod/common_widget/common_widget.dart';
+import 'package:ChaiChod/common_widget/filled_button.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -33,11 +34,15 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
             child: Column(
               children: <Widget>[
 //                  appBarDesign(),
-                CommonView.backArrowAndTitle(context, StringRes.orderHistory, ColorRes.blackColor),
+                CommonView.backArrowAndTitle(
+                    context, StringRes.orderHistory, ColorRes.blackColor),
                 orderIdDesign(),
                 statusView(),
                 productDetailsList(),
-                paymentDesign()
+                paymentDesign(),
+                Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                    child: FilledButton(text: StringRes.continueText, fontSize: 18))
               ],
             ),
           ),
@@ -45,8 +50,6 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
       ),
     );
   }
-
-
 
   appBarDesign() {
     return Container(
@@ -86,41 +89,32 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
   paymentDesign() {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.only(top: 10, bottom: 10),
+      padding: EdgeInsets.only(top: 10, bottom: 10,left: 10, right: 10),
       margin: EdgeInsets.only(top: 5, bottom: 5),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(10),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "Summery",
-              style: TextStyle(
-                fontSize: 17,
-              ),
-            ),
+          AllText(
+            "Summery",
+            fontSize: 17,
+            color: ColorRes.blackColor,
           ),
-          Container(
-            margin: EdgeInsets.only(top: 7, bottom: 7),
-            alignment: Alignment.centerLeft,
-            child: Column(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(model.payment),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 10),
-                  child: Text('Laid off. (credit to 30 days)',
-                      textAlign: TextAlign.end),
-                ),
-              ],
-            ),
-          ),
+          SizedBox(height: 10),
+          AllText(model.payment, color: ColorRes.blackColor),
+          SizedBox(height: 5),
+          AllText('Laid off. (credit to 30 days)',
+              align: TextAlign.end, color: ColorRes.blackColor),
+          SizedBox(height: 10),
+
           CommonView.productDetailsLeftRightData(model.price, "B2,000"),
+          SizedBox(height: 5),
           CommonView.productDetailsLeftRightData(model.section, "Section AA"),
+          SizedBox(height: 5),
           CommonView.productDetailsLeftRightData(model.shipping, "B50"),
+          SizedBox(height: 5),
           CommonView.productDetailsLeftRightData(model.total, "B2,050"),
+          SizedBox(height: 10),
         ],
       ),
     );
@@ -135,9 +129,11 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          CommonView.productDetailsLeftRightData(model.status, "Are shopping", showColor: ColorRes.lightGreenTxt),
+          CommonView.productDetailsLeftRightData(model.status, "Are shopping",
+              showColor: ColorRes.lightGreenTxt),
           CommonView.productDetailsLeftRightData(model.dorg, "30/05/2020"),
-          CommonView.productDetailsLeftRightData(model.due, "30/06/2020", showColor: ColorRes.lightRedTxt),
+          CommonView.productDetailsLeftRightData(model.due, "30/06/2020",
+              showColor: ColorRes.lightRedTxt),
         ],
       ),
     );
@@ -167,21 +163,24 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
           Row(
             children: <Widget>[
               Container(
-                margin: EdgeInsets.all(20),
-                width: Utils.getDeviceWidth(context) / 3.3,
-                child: Image.asset(Utils.getAssetsImg('tiers'), fit: BoxFit.fill)
-              ),
+                  margin: EdgeInsets.all(20),
+                  width: Utils.getDeviceWidth(context) / 3.3,
+                  child: Image.asset(Utils.getAssetsImg('tiers'),
+                      fit: BoxFit.fill)),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-
-                    CommonView.productDetailsLeftRightData(model.brand,"Micheline"),
-                    CommonView.productDetailsLeftRightData(model.pageWidth,"199mm"),
-                    CommonView.productDetailsLeftRightData(model.seriesNumber,"Fifty Five"),
-                    CommonView.productDetailsLeftRightData(model.edgeRubber,"Fifteen"),
-                    CommonView.productDetailsLeftRightData(model.sidewall,"10.72 cm"),
-
+                    CommonView.productDetailsLeftRightData(
+                        model.brand, "Micheline"),
+                    CommonView.productDetailsLeftRightData(
+                        model.pageWidth, "199mm"),
+                    CommonView.productDetailsLeftRightData(
+                        model.seriesNumber, "Fifty Five"),
+                    CommonView.productDetailsLeftRightData(
+                        model.edgeRubber, "Fifteen"),
+                    CommonView.productDetailsLeftRightData(
+                        model.sidewall, "10.72 cm"),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Divider(
@@ -195,7 +194,8 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
                         Expanded(
                             flex: 1,
                             child: Padding(
-                              padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                              padding: EdgeInsets.only(
+                                  left: 10, right: 10, top: 10, bottom: 10),
                               child: AllText(model.quantity,
                                   maxLine: 1,
                                   align: TextAlign.left,
@@ -216,7 +216,9 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
                                   child: AllText(
                                     "-",
                                     fontSize: 25,
-                                    color: quant > 1 ? ColorRes.primaryColor : ColorRes.greyColor,
+                                    color: quant > 1
+                                        ? ColorRes.primaryColor
+                                        : ColorRes.greyColor,
                                   ),
                                 ),
                                 AllText(
@@ -266,6 +268,5 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
 //      ),
 //    );
 //  }
-
 
 }

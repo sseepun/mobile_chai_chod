@@ -168,7 +168,7 @@ class StringRes {
 
 
   //Order Details Screen
-  static const orderDetailsTitle             =  "Order Details";
+  static const orderDetailsTitle             = "Order Details";
   static const status                        = "Status";
   static const seriesNumber                  = "Series Number";
   static const edgeRubber                    = "Edge Rubber";

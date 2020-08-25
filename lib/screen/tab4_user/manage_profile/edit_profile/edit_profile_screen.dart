@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
@@ -71,45 +72,48 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               uploadImage()
             ],
           ),*/
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: new Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 40),
-              textTitle(),
-              uploadImage(),
-              Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(height: 10),
-                    nameTextFiled(),
-                    SizedBox(height: 5),
-                    shopNameTextFiled(),
-                    SizedBox(height: 5),
-                    taxIdTextFiled(),
-                    SizedBox(height: 5),
-                    addressTextFiled(),
-                    SizedBox(height: 5),
-                    soiTextFiled(),
-                    SizedBox(height: 5),
-                    provinceTextFiled(),
-                    SizedBox(height: 5),
-                    districtTextFiled(),
-                    SizedBox(height: 5),
-                    subDistrictTextFiled(),
-                    SizedBox(height: 5),
-                    postalCodeTextFiled(),
-                    SizedBox(height: 20),
-                    recordButton(),
-                    SizedBox(height: 10),
-                  ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: new Form(
+            key: _formKey,
+            child: Column(
+              children: <Widget>[
+//              textTitle(),
+                CommonView.backArrowAndTitle(context, StringRes.editProfile, ColorRes.blackColor),
+
+                uploadImage(),
+                Container(
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 10),
+                      nameTextFiled(),
+                      SizedBox(height: 5),
+                      shopNameTextFiled(),
+                      SizedBox(height: 5),
+                      taxIdTextFiled(),
+                      SizedBox(height: 5),
+                      addressTextFiled(),
+                      SizedBox(height: 5),
+                      soiTextFiled(),
+                      SizedBox(height: 5),
+                      provinceTextFiled(),
+                      SizedBox(height: 5),
+                      districtTextFiled(),
+                      SizedBox(height: 5),
+                      subDistrictTextFiled(),
+                      SizedBox(height: 5),
+                      postalCodeTextFiled(),
+                      SizedBox(height: 20),
+                      recordButton(),
+                      SizedBox(height: 10),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -124,10 +128,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             padding: EdgeInsets.only(left: 10),
             child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ManageProfileScreen()),
-                  );
+                  navigatorPop(context);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -534,6 +535,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             borderRadius: BorderRadius.all(Radius.circular(2)),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
@@ -601,6 +603,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             borderRadius: BorderRadius.all(Radius.circular(2)),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
@@ -669,6 +672,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             borderRadius: BorderRadius.all(Radius.circular(2)),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(

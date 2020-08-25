@@ -867,8 +867,7 @@ class _ProductScreenState extends State<ProductScreen>
                                   ),
                                 ),
                                 Padding(
-                                  padding:
-                                  EdgeInsets.only(top: 10, left: 5, right: 281),
+                                  padding: EdgeInsets.only(top: 10, left: 5, right: 281),
                                   child: AllText(
                                     "B2,500",
                                     color: ColorRes.primaryColor,
