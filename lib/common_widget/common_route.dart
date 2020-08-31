@@ -3,6 +3,7 @@ import 'package:ChaiChod/screen/login/login_screen.dart';
 import 'package:ChaiChod/screen/order_details/order_history/orderhistory.dart';
 import 'package:ChaiChod/screen/order_details/orderdetailscreen.dart';
 import 'package:ChaiChod/screen/search_home/search_screen.dart';
+import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/rate_product_screen.dart';
 import 'package:ChaiChod/screen/tab3_notification/notification_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/about_us/aboutus_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/favorites/favorites_screen.dart';
@@ -70,7 +71,10 @@ orderDetailsScreenNavigator(BuildContext context, int i) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => OrderDetailsScreen(i: i)));
 }
-
+rateProductScreenNavigator(BuildContext context, int i) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => RateProductScreen(i: i)));
+}
 orderHistoryScreenNavigator(BuildContext context) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => OrderHistoryScreen()));

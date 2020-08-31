@@ -154,18 +154,30 @@ class StringRes {
   static const Description1                  = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua . Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute inure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui officia deserunt mollit anim id est laborum . Lorem ipsum dolor sit amet , consectetur adipiscing elit . sed do eiusmod tempor incididunt ut labore et dolore magna aliqua .                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                             Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui";
 
 
-
   //GoodYear
   static const goodyear                      = "GOODYEAR";
 
   //Service Screen
   static const serviceTitle                  = "Delivery and installation service";
   static const serviceTitle1                 = "Buy Now Order 4 1003I124 30/05/20";
-  static const serviceDes1                 = "Name and shipping address";
-  static const serviceDes2                 = "Please select an address";
+  static const serviceDes1                   = "Name and shipping address";
+  static const serviceDes2                   = "Please select an address";
+  static const discountServiceBtn1           = "Choose an appointment date";
+  static const serviceDescription            = "Choose an appointment date";
 
 
+  //Shipping Screen
+  static const shippingTitle                  = "Shipping address details";
+  static const shippingTitle1                 = "Order No. 81003I124 30/05/20";
+  static const shippingDes1                   = "Recipient name";
+  static const shippingDes2                   = "Contact phone number";
+  static const shippingDescription1           = "Delivery address";
+  static const shippingDescription2           = "Choose a shipping address";
+  static const shippingServiceBtn1            = "Continue";
 
+  //Delivery Address Screen
+  static const DeliveryAddressTitle           = "Delivery Address";
+  static const DeliveryAddressDescription1    = "Choose new address";
 
   //Order Details Screen
   static const orderDetailsTitle             =  "Order Details";
@@ -180,7 +192,12 @@ class StringRes {
   static const rated                         = "Rated Applications";
   static const dateReceipt                   = "Date Of Receipt";
 
-
+  //Rate Screen
+  static const RateTitle                  = "Rate your satisfaction with the product.";
+  static const RateDes1                   = "More Details";
+  static const RateDes2                   = "pin #Not";
+  static const RateBtn1                   = "Small lift";
+  static const RateBtn2                   = "Confirm";
 
 }
 

@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
@@ -209,7 +210,9 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
         child: MaterialButton(
           minWidth: Utils.getDeviceWidth(context),
           height: 50,
-          onPressed: () {},
+          onPressed: () {
+            rateProductScreenNavigator(context,2);
+          },
           child: AllText(StringRes.rated),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(0.0),

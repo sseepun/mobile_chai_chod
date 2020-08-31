@@ -11,7 +11,6 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorRes.lightWhite,
-
       body: Center(
         child: Text("Shipment"),
       ),
