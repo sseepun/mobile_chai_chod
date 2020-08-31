@@ -52,47 +52,32 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
         padding: EdgeInsets.only(bottom: 15),
         child: Stack(
           children: <Widget>[
-            CommonView.backArrow(context),
-            Column(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(left: 130, top: 5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      AllText(
-                        StringRes.goodyear,
-                        color: ColorRes.blackColor,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 30),
-                        child: Row(
-                          children: <Widget>[
-                            IconButton(
-                              onPressed: () {},
-                              padding: EdgeInsets.only(right: 5),
-                              icon: Icon(Icons.search),
-                              iconSize: 28,
-                              color: ColorRes.primaryColor,
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                cartScreenNavigator(context);
-                              },
-                              padding: EdgeInsets.only(right: 20),
-                              icon: Icon(Icons.shopping_basket),
-                              iconSize: 28,
-                              color: ColorRes.primaryColor,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+//            CommonView.backArrow(context),
+            CommonView.backArrowAndTitle(context, StringRes.goodyear, ColorRes.blackColor),
+
+            Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  IconButton(
+                    onPressed: () {},
+                    padding: EdgeInsets.only(right: 5),
+                    icon: Icon(Icons.search),
+                    iconSize: 28,
+                    color: ColorRes.primaryColor,
                   ),
-                ),
-              ],
+                  IconButton(
+                    onPressed: () {
+                      cartScreenNavigator(context);
+                    },
+                    padding: EdgeInsets.only(right: 20),
+                    icon: Icon(Icons.shopping_basket),
+                    iconSize: 28,
+                    color: ColorRes.primaryColor,
+                  ),
+                ],
+              ),
             ),
           ],
         ));
@@ -109,7 +94,7 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.30)),
+              (Utils.getDeviceHeight(context) / 1.25)),
       itemBuilder: (context, index) {
         return InkResponse(
           onTap: () {
@@ -143,7 +128,7 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
                       "Tires 225/45/R17",
                       color: ColorRes.blackColor,
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 5),
                     AllText(
                       "\$2,000 /len.",
                       color: ColorRes.blackColor,
