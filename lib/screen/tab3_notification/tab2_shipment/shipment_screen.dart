@@ -83,33 +83,71 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
                       ),
                     ),
                   ),
-
                 ],
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(left: 15,),
-                  child: Column(
+                  padding: EdgeInsets.only(top:10,left: 15,),
+                  child: Row(
                     children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.only(bottom: 5),
-                        child:
-                        AllText(
-                          "Order number #9138123",
-                          color: Colors.black,
-                          fontSize: 14,
-                          maxLine: 1,
-                          overflow: TextOverflow.ellipsis,
-                          align: TextAlign.left,
-                        ),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.only(bottom: 5),
+                            child:
+                            AllText(
+                              "Order number #9138123",
+                              color: Colors.black,
+                              fontSize: 14,
+                              maxLine: 1,
+                              overflow: TextOverflow.ellipsis,
+                              align: TextAlign.left,
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(bottom: 5),
+                            child:
+                            AllText(
+                              "Order number #9138123",
+                              color: Colors.black,
+                              fontSize: 14,
+                              maxLine: 1,
+                              overflow: TextOverflow.ellipsis,
+                              align: TextAlign.left,
+                            ),
+                          ),
+                        ],
                       ),
-                      AllText(
-                        "Order number #9138123",
-                        color: Colors.black,
-                        fontSize: 14,
-                        maxLine: 1,
-                        overflow: TextOverflow.ellipsis,
-                        align: TextAlign.left,
+                      Container(
+                        margin: EdgeInsets.only(left: 100),
+                        child:Column(
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.only(bottom: 5),
+                              child:
+                              AllText(
+                                "30/05/20",
+                                color: Colors.black,
+                                fontSize: 14,
+                                maxLine: 1,
+                                overflow: TextOverflow.ellipsis,
+                                align: TextAlign.left,
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(bottom: 5),
+                              child:
+                              AllText(
+                                "31/05/20",
+                                color: Colors.black,
+                                fontSize: 14,
+                                maxLine: 1,
+                                overflow: TextOverflow.ellipsis,
+                                align: TextAlign.left,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   )
@@ -120,9 +158,6 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
       ),
     );
   }
-
-
-
   colorShow(int index) {
     if(index == 0) {
       return Colors.pink;
