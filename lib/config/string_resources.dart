@@ -153,6 +153,9 @@ class StringRes {
   static const Description                   = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut";
   static const Description1                  = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua . Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute inure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui officia deserunt mollit anim id est laborum . Lorem ipsum dolor sit amet , consectetur adipiscing elit . sed do eiusmod tempor incididunt ut labore et dolore magna aliqua .                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                             Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui";
 
+  //payment transfer Screen
+  static const paymentTitle                  =  "Pay by bank account";
+  static const paymentTitle2                  =  "Order no.410031124 30/05/20";
 
   //GoodYear
   static const goodyear                      = "GOODYEAR";
@@ -193,11 +196,33 @@ class StringRes {
   static const dateReceipt                   = "Date Of Receipt";
 
   //Rate Screen
-  static const RateTitle                  = "Rate your satisfaction with the product.";
-  static const RateDes1                   = "More Details";
-  static const RateDes2                   = "pin #Not";
-  static const RateBtn1                   = "Small lift";
-  static const RateBtn2                   = "Confirm";
+  static const RateTitle                     = "Rate your satisfaction with the product.";
+  static const RateDes1                      = "More Details";
+  static const RateDes2                      = "pin #Not";
+  static const RateBtn1                      = "Small lift";
+  static const RateBtn2                      = "Confirm";
+
+
+  //Complete Screen
+  static const CompleteTitle                  = "Completed";
+  static const CompleteTitle1                 = "Thank you for Rating                                                                                                                      \t        and 555";
+  static const CompleteBtn1                   = "Back to homepage";
+
+
+  //BottomSheetButton Screen
+  static const continueButton                 =" Continue";
+  static const paymentChannel                 = "Select the payment channel";
+
+
+  //PaymentSuccess screen
+  static const PaymentSuccessTitle            =  "Order was successful, thank you.";
+  static const PaymentSuccessDec1             =  "   Thank you for shopping with us,\nyou can track the delivery status at";
+  static const PaymentSuccessDec2             =  "Track Delivery";
+  static const PaymentSuccessDec3             =  "Find udarauni 10031124";
+
+  //DebitCard Screen
+  static const DebitCardTitle                  =  "Scan to pay";
+  static const DebitCardTitle2                 =  "Order no.410031124 30/05/20";
 
 }
 
