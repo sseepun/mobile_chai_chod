@@ -135,7 +135,7 @@ class _SearchScreenState extends State<SearchScreen> {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.1)),
+              (Utils.getDeviceHeight(context) / 1.0)),
       itemBuilder: (context, index) {
         return Column(
           children: <Widget>[

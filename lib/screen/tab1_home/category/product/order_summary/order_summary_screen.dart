@@ -1,3 +1,4 @@
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -21,25 +22,20 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
-          child: Stack(
+          child: Column(
             children: <Widget>[
-              Container(
-                child: _appBar(),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 102),
-                child: Column(
-                  children: <Widget>[
-                    productDetailsView(),
-                    Divider(height: 1, color: ColorRes.greyColor),
-                    serviceDetails(),
-                    Divider(height: 1, color: ColorRes.greyColor),
-                    discountDetails(),
-                    Divider(height: 1, color: ColorRes.greyColor),
-                    productPriceView(),
-                    bottomButton(),
-                  ],
-                ),
+              _appBar(),
+              Column(
+                children: <Widget>[
+                  productDetailsView(),
+                  Divider(height: 1, color: ColorRes.greyColor),
+                  serviceDetails(),
+                  Divider(height: 1, color: ColorRes.greyColor),
+                  discountDetails(),
+                  Divider(height: 1, color: ColorRes.greyColor),
+                  productPriceView(),
+                  bottomButton(),
+                ],
               ),
 
             ],
@@ -50,54 +46,20 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
   }
   Widget _appBar() {
     return Container(
-      height: 100,
+//      height: 100,
         color: Colors.white,
         child: Column(
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(top: 17),
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ProductScreen()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 25,
-                        color: Colors.black,
-                      )),
-                ),
-                Container(
-                  alignment: Alignment.topRight,
-                  padding: EdgeInsets.only(left: 80, top: 10),
-                  child:AllText(
-                    StringRes.OrderSummaryTitle,
-                    color: ColorRes.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
+            CommonView.backArrowAndTitle(context, StringRes.OrderSummaryTitle, ColorRes.blackColor),
             Container(
               alignment: Alignment.topCenter,
-              padding: EdgeInsets.only( top: 10),
+              padding: EdgeInsets.only(top: 0),
               child:AllText(
                 StringRes.OrderSummaryDescription,
                 color: ColorRes.blackColor,
                 fontSize: 17,
               ),
             ),
-
-
-
           ],
         ));
   }
@@ -164,54 +126,52 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
   }
 
   serviceDetails(){
-    return Container(
-        height: 100,
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Container(
-
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left: 10, top: 10),
-              child:AllText(
+    return InkResponse(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => ServiceScreen()));
+      },
+      child: Container(
+          height: 100,
+          padding: EdgeInsets.only(left: 10, top: 10),
+          color: Colors.white,
+          child: Column(
+//          mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              AllText(
                 StringRes.serviceDetails,
                 color: ColorRes.blackColor,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.topRight,
-                  padding: EdgeInsets.only(left: 10, top: 10),
-                  child:AllText(
-                    StringRes.serviceDetails1,
-                    color: ColorRes.blackColor,
-                    fontSize: 15,
+              Row(
+                children: <Widget>[
+                  Flexible(
+                    child: AllText(
+                      StringRes.serviceDetails1,
+                      color: ColorRes.blackColor,
+                      fontSize: 15,
+                      maxLine: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
-                ),
-                Container(
-                  height: 50,
-                  padding: EdgeInsets.only(left:15,top: 17),
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ServiceScreen()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_forward_ios,
-                        size: 25,
-                        color: ColorRes.primaryColor,
-                      )),
-                ),],
-            ),
+                  Container(
+                    height: 50,
+                    padding: EdgeInsets.only(left:15,top: 17),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 25,
+                      color: ColorRes.primaryColor,
+                    ),
+                  ),],
+              ),
 
-          ],
-        ));
+            ],
+          )),
+    );
   }
 
   discountDetails(){
@@ -222,7 +182,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
           children: <Widget>[
             Container(
               alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left: 10, top: 10),
+              padding: EdgeInsets.only(left: 10, top: 15),
               child:AllText(
                 StringRes.discountDetails,
                 color: ColorRes.blackColor,
@@ -234,25 +194,26 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
               padding: EdgeInsets.only(top:5,left: 10, right: 10),
               child: Row(
                 children: <Widget>[
-                  Container(
-                      height: 40,
-                      width: 260,
-                      decoration: BoxDecoration(
-                          border: Border.all(
+                  Expanded(
+                    child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: ColorRes.primaryColor,
+                            )),
+                        child: FlatButton(
+                          color: ColorRes.whiteColor,
+                          child: AllText(
+                            StringRes.discountDetailsBtn1,
+                            fontSize: 15,
                             color: ColorRes.primaryColor,
-                          )),
-                      child: FlatButton(
-                        color: ColorRes.whiteColor,
-                        child: AllText(
-                          StringRes.discountDetailsBtn1,
-                          fontSize: 15,
-                          color: ColorRes.primaryColor,
-                        ),
-                        onPressed: () {
-                        },
-                      )),
+                          ),
+                          onPressed: () {
+                          },
+                        )),
+                  ),
                   Container(
-                      height: 40,
+                      height: 50,
                       width: 80,
                       padding: EdgeInsets.only(left: 10),
                       child: FlatButton(
