@@ -5,6 +5,8 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/screen/search_home/search_tabs_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -97,12 +99,30 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                       ],
                     ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Padding(
-                          padding: EdgeInsets.only(top: 20, right: 40),
-                          child: AllText("More Option")),
-                    )
+                    GestureDetector(
+                         // textColor: ColorRes.lightBlur,
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 20,right:40),
+                          child: AllText("More Option",align: TextAlign.right,color: ColorRes.lightBlur)),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SearchTabsScreen()),
+                            );
+                          },
+                        ),
+//                    Container(
+//                      alignment: Alignment.centerRight,
+//                      child: Padding(
+//                          padding: EdgeInsets.only(top: 20, right: 40),
+//                          child: AllText("More Option"),
+//                          onPressed: () {
+//                            Navigator.push(
+//                              context,
+//                              MaterialPageRoute(builder: (context) => SearchTabsScreen()),
+//                            );
+//                          },),
+//                    )
                   ],
                 ),
               ),

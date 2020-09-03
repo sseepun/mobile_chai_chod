@@ -199,5 +199,10 @@ class StringRes {
   static const RateBtn1                   = "Small lift";
   static const RateBtn2                   = "Confirm";
 
+ // Search Screen
+
+ static const Searchtab1                         = "tab1";
+  static const Searchtab2                         = "tab2";
+  static const Searchtab3                         = "tab3";
 }
 

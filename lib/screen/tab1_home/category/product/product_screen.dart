@@ -289,7 +289,7 @@ class _ProductScreenState extends State<ProductScreen>
 //        physics: NeverScrollableScrollPhysics(),
               itemCount: listTitle.length,
               padding: EdgeInsets.only(left: 10, right: 10),
-            /*  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              /*  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
@@ -300,7 +300,7 @@ class _ProductScreenState extends State<ProductScreen>
                   height: 175,
 //                  width: 125,
 //            width: 100,
-                padding: EdgeInsets.only(left: 8, right: 8),
+                  padding: EdgeInsets.only(left: 8, right: 8),
                   margin: EdgeInsets.only(left: 10, right: 10),
 
                   color: ColorRes.whiteColor,
@@ -349,12 +349,12 @@ class _ProductScreenState extends State<ProductScreen>
           Expanded(
             flex: 3,
             child: Container(
-            height: 50,
+                height: 50,
 //              width: 160,
                 decoration: BoxDecoration(
                     border: Border.all(
-                  color: ColorRes.primaryColor,
-                )),
+                      color: ColorRes.primaryColor,
+                    )),
                 child: FlatButton(
                   color: ColorRes.whiteColor,
                   child: AllText(
@@ -364,15 +364,15 @@ class _ProductScreenState extends State<ProductScreen>
                     color: ColorRes.primaryColor,
                   ),
                   onPressed: () {
-                     _showModalSheet1();
+                    _showModalSheet1();
                   },
                 )),
           ),
           Expanded(
             flex: 5,
             child: Container(
-            height: 50,
-//              width: 180,
+                height: 50,
+                //width: 180,
                 padding: EdgeInsets.only(left:10),
                 child: FlatButton(
                   color: ColorRes.primaryColor,
