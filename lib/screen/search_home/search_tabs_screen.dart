@@ -19,6 +19,13 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
   var currentSelectedValue;
   String _dropDownValue;
   final deviceTypes = ["Mac", "Windows", "Mobile"];
+  final deviceTypes1= ["Mac2", "Windows2", "Mobile2"];
+  final deviceTypes2= ["Mac3", "Windows3", "Mobile3"];
+
+  String _mySelection;
+ // final deviceTypes = [{"id":0,"name":"<New>"},{"id":1,"name":"Test Practice"}];
+
+
 
   @override
   void initState() {
@@ -131,9 +138,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                   ],
                 ),
               ),
-
               Container(
-                height: 250,
+                height: 320,
                 color: ColorRes.whiteColor,
                 child: Column(
                   children: <Widget>[
@@ -161,26 +167,20 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                           listDataTab1(),
                           listDatatab2(),
                           listDatatab3(),
-//                  DetailsScreen(),
-//                ReviewScreen(),
-                        ],
+                         ],
                         controller: tabController,
                       ),
                     ),
                   ],
                 ),
               ),
-
               Padding(
                   padding: EdgeInsets.only(left: 10, top: 25),
                   child: AllText("Search results", color: ColorRes.blackColor)),
               Padding(
                   padding: EdgeInsets.only(left: 10, top: 5, bottom: 25),
                   child: AllText("225/45/R17", color: ColorRes.blackColor)),
-
               gridImage(),
-
-//          Expanded(child: )
             ],
           ),
         ),
@@ -188,13 +188,13 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
     );
   }
 
+  //-------------------------------Tab1-----------------------------------------//
   listDataTab1() {
     return Container(
       height: 300,
       alignment: Alignment.centerLeft,
       child: new Column(
         children: <Widget>[
-
           new Padding(
             padding:
                 new EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
@@ -212,14 +212,62 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
               height: 50,
               width: 180,
               child: FilledButton(text: "submit", fontSize: 18))
- ],
+        ],
       ),
     );
   }
 
+  //-------------------------------Tab2-----------------------------------------//
+  listDatatab2() {
+    return Container(
+     // height: 200,
+      alignment: Alignment.center,
+      child: new Column(
+        children: <Widget>[
+          new Padding(
+              padding:
+              new EdgeInsets.all(0.0),
+              child: new Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  tabs(),
+                  tabs(),
+                ],
+              )),
+          new Expanded(
+            child: new Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                tabs(),
+                tabs(),
+              ],
+            ),
+          ),
+          new Expanded(
+            child: Container(
+              height: 50,
+              width: 180,
+              child: new Column(
+                children: <Widget>[
+                  new Padding(
+                      padding: new EdgeInsets.only(
+                          left: 10, right: 10, top: 10, bottom: 10),
+                      child: FilledButton(text: "submit", fontSize: 18)),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //-------------------------------Tab3-----------------------------------------//
   listDatatab3() {
     return Container(
-      height: 300,
+      // height: 300,
       alignment: Alignment.center,
       child: new Column(
         children: <Widget>[
@@ -246,135 +294,16 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
     );
   }
 
-  listDatatab2() {
-    return Container(
-      height: 2000,
-      alignment: Alignment.center,
-      child: new Column(
-        children: <Widget>[
-          new Padding(
-            padding:
-                new EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-            child: new Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Padding(
-                  padding: new EdgeInsets.only(left: 10, right: 10),
-                  child: Column(
-                    children: <Widget>[
-                      tabs(),
-
-                      tabs(),
-                    ],
-                  ),
-                ),
-                new Padding(
-                  padding: new EdgeInsets.only(left: 10, right: 10),
-                  child: Column(
-                    children: <Widget>[
-                      tabs(),
-                      tabs(),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-              height: 50,
-              width: 180,
-              child: FilledButton(text: "submit", fontSize: 18))
-       ],
-      ),
-    );
-  }
-
-  Widget dropDownButtonsColumn(List<String> list, String hint) {
-    return Padding(
-      padding: new EdgeInsets.all(0.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          new Padding(
-            padding: new EdgeInsets.only(left: 8, top: 8),
-            child: Text(
-              'XYZ',
-              style: new TextStyle(
-                  color: Colors.black,
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              height: 45,
-              //width:50,//gives the height of the dropdown button
-              width: MediaQuery.of(context)
-                  .size
-                  .width, //gives the width of the dropdown button
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(3)),
-                  color: Color(0xFFF2F2F2)),
-              // padding: const EdgeInsets.symmetric(horizontal: 13), //you can include padding to control the menu items
-              child: Theme(
-                  data: Theme.of(context).copyWith(
-                      // canvasColor: Colors.yellowAccent, // background color for the dropdown items
-                      buttonTheme: ButtonTheme.of(context).copyWith(
-                    alignedDropdown:
-                        true, //If false (the default), then the dropdown's menu will be wider than its button.
-                  )),
-                  child: DropdownButtonHideUnderline(
-                    // to hide the default underline of the dropdown button
-                    child: DropdownButton<String>(
-                      icon: Container(
-                        color: Colors.white,
-                        child: Icon(
-                          Icons.keyboard_arrow_down,
-                          size: 32,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      //   iconEnabledColor: Color(0xFF595959),  // icon color of the dropdown button
-                      items: list.map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(
-                            value,
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        );
-                      }).toList(),
-                      hint: Text(
-                        hint,
-                        style:
-                            TextStyle(color: Color(0xFF8B8B8B), fontSize: 15),
-                      ), // setting hint
-                      onChanged: (String value) {
-                        setState(() {
-                          currentSelectedValue =
-                              value; // saving the selected value
-                        });
-                      },
-                      value:
-                          currentSelectedValue, // displaying the selected value
-                    ),
-                  )),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
   //-------------------------------tabs method----------------------------------//
 
   tabs() {
+
     return Container(
       padding: new EdgeInsets.all(0.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+       // mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           new Padding(
             padding: new EdgeInsets.only(left: 8, top: 8),
@@ -392,6 +321,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
             child: DropdownButtonHideUnderline(
               child: Container(
                 height: 45,
+                
+                //width: MediaQuery.of(context).size.width,
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
@@ -404,8 +335,12 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                   ),
                 ),
                 child: DropdownButton<String>(
+                 // pring(currentSelectedValue),
                   // hint: Text("Select Device"),
-                  underline: SizedBox(),
+                 // itemHeight: 10,
+                  underline: SizedBox(
+
+                  ),
                   value: currentSelectedValue,
                   isDense: true,
                   // isExpanded: true,
@@ -430,14 +365,19 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                     });
                     print(currentSelectedValue);
                   },
-                  items: deviceTypes.map((String value) {
+                  items: deviceTypes.map(( String value) {
+                   // print(value);
+
                     return DropdownMenuItem<String>(
-                      value: value,
+
+                      value:value,
                       child: Padding(
                         //Ma:const EdgeInsets.all(8.0),
+
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          value,
+                           value,
+
                           style:
                               new TextStyle(color: Colors.black, fontSize: 13),
                         ),
@@ -519,3 +459,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
     );
   }
 }
+
+
+
+
