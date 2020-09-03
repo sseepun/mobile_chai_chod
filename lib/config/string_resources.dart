@@ -162,7 +162,7 @@ class StringRes {
   static const goodyear                      = "GOODYEAR";
 
   //Service Screen
-  static const serviceTitle                  = "Delivery and installation service fhhdgbhfvbhcvbcb";
+  static const serviceTitle                  = "Delivery and installation service";
   static const serviceTitle1                 = "Buy Now Order 4 1003I124 30/05/20";
   static const serviceDes1                   = "Name and shipping address";
   static const serviceDes2                   = "Please select an address";
@@ -228,5 +228,14 @@ class StringRes {
  static const Searchtab1                         = "tab1";
   static const Searchtab2                        = "tab2";
   static const Searchtab3                        = "tab3";
+
+  //payment Billing screen
+  static const paymentBillingTitle1            =  "Drop the bill";
+  static const paymentBillingTitle2            =  "(30 credit days)";
+  static const paymentBillingTitle3            =  "Order now #10031124 30/05/20";
+  static const paymentBillingBtn               =  "Completed";
+  static const Amount                          =  "Amount to be paid";
+  static const price1                         =  "Amount to be paid";
+
 }
 

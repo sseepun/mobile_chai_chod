@@ -308,7 +308,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
           } else if (_radioItem == 2) {
             orderHistoryScreenNavigator(context);
           } else if (_radioItem == 3) {
-            orderHistoryScreenNavigator(context);
+            paymentBillingScreenNavigator(context);
           }
         },
         child: Text(
