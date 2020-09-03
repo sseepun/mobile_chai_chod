@@ -155,11 +155,13 @@ class _ServiceScreenState extends State<ServiceScreen> {
             Column(
               children: <Widget>[
                 RadioListTile(
+
                   groupValue: radioItem,
                   title: Text('Free installation (C Service Area)',style: TextStyle(fontSize: 14),),
                   value: 'Item 1',
                   onChanged: (val) {
                     setState(() {
+
                       radioItem = val;
                     });
                   },

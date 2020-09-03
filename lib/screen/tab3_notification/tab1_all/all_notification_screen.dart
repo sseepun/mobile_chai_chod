@@ -17,7 +17,6 @@ class _AllNotificationScreenState extends State<AllNotificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorRes.lightWhite,
-
       body:  SingleChildScrollView(
         child: ListView.builder(
             itemCount: 5,
@@ -36,8 +35,16 @@ class _AllNotificationScreenState extends State<AllNotificationScreen> {
         if(index == 0) {
           orderHistoryScreenNavigator(context);
         } else if(index == 1) {
-
+          orderDetailsScreenNavigator(context,index);
         } else if(index == 2) {
+          orderDetailsScreenNavigator(context,index);
+        }
+        else if(index == 3) {
+          orderDetailsScreenNavigator(context,index);
+
+        }
+        else if(index == 4) {
+          orderDetailsScreenNavigator(context,index);
 
         }
       },

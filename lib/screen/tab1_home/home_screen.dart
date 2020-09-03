@@ -91,6 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: TextFormField(
           autofocus: false,
           onTap: () {
+            FocusScope.of(context).unfocus();
             searchScreenNavigator(context);
           },
           decoration: InputDecoration(

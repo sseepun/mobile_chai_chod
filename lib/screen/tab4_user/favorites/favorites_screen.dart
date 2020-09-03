@@ -51,7 +51,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.35)),
+              (Utils.getDeviceHeight(context) / 1.27)),
       itemBuilder: (context, index) {
         return Container(
           height: 150,

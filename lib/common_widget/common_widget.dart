@@ -107,4 +107,32 @@ class CommonView {
       ),
     );
   }
+  static productDetailsLeftRight1Data(String title, String price, {Color showColor}) {
+    return Padding(
+      padding: EdgeInsets.only(left: 0, right: 0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Expanded(
+              flex: 1,
+              child: AllText(title,
+                  color: ColorRes.blackColor,
+                  overflow: TextOverflow.ellipsis,
+                  maxLine: 1,
+                  align: TextAlign.left)),
+          Expanded(
+              flex: 1,
+              child: AllText(price,
+                  color: showColor != null ? showColor :ColorRes.blackColor,
+                  overflow: TextOverflow.ellipsis,
+                  maxLine: 1,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  align: TextAlign.right)),
+        ],
+      ),
+    );
+  }
+
+
 }

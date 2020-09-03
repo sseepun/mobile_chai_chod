@@ -1,10 +1,14 @@
 import 'package:ChaiChod/screen/cart/cart_screen.dart';
 import 'package:ChaiChod/screen/login/login_screen.dart';
+import 'package:ChaiChod/screen/order_details/order_history/debit_card/debit_card_screen.dart';
 import 'package:ChaiChod/screen/order_details/order_history/orderhistory.dart';
+import 'package:ChaiChod/screen/order_details/order_history/payment_transfer/payment_transfer_screen.dart';
 import 'package:ChaiChod/screen/order_details/orderdetailscreen.dart';
 import 'package:ChaiChod/screen/search_home/search_screen.dart';
+import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/complete/complete.dart';
 import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/rate_product_screen.dart';
 import 'package:ChaiChod/screen/tab3_notification/notification_screen.dart';
+import 'package:ChaiChod/screen/tab3_notification/tab2_shipment/order/order_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/about_us/aboutus_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/favorites/favorites_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/manage_profile/manage_profile_screen.dart';
@@ -78,4 +82,21 @@ rateProductScreenNavigator(BuildContext context, int i) {
 orderHistoryScreenNavigator(BuildContext context) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => OrderHistoryScreen()));
+}
+orderScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => OrderScreen()));
+}
+paymentTransferScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => PaymentTransferScreen()));
+}
+
+debitCardScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => DebitCardScreen()));
+}
+completeScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => CompleteScreen()));
 }

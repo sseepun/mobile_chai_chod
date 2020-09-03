@@ -107,7 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                             ),
                           ),
-                          submitButton()
+                          submitButton(),
                         ],
                       ),
                     ),

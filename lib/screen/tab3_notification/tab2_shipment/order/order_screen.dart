@@ -5,16 +5,16 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/screen/order_details/order_history/orderhistorymodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'orderhistorymodel.dart';
 
-class OrderHistoryScreen extends StatefulWidget {
+class OrderScreen extends StatefulWidget {
   @override
-  OrderHistoryScreenState createState() => OrderHistoryScreenState();
+  OrderScreenState createState() => OrderScreenState();
 }
 
-class OrderHistoryScreenState extends State<OrderHistoryScreen> {
+class OrderScreenState extends State<OrderScreen> {
   OrderHistoryModel model;
   int quant = 1;
 
@@ -263,22 +263,22 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
         builder: (BuildContext bc) {
           return StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
-            return Container(
-              height: MediaQuery.of(context).size.height * 0.85,
-              child: new Column(
-                children: <Widget>[
-                  Container(
-                      padding: EdgeInsets.only(top: 10),
-                      height: 2.0,
-                      width: 40,
-                      color: Colors.blue),
-                  selectPaymentChannel(),
-                  selectRadioPayment(setState),
-                  continueBtn(),
-                ],
-              ),
-            );
-          });
+                return Container(
+                  height: MediaQuery.of(context).size.height * 0.85,
+                  child: new Column(
+                    children: <Widget>[
+                      Container(
+                          padding: EdgeInsets.only(top: 10),
+                          height: 2.0,
+                          width: 40,
+                          color: Colors.blue),
+                      selectPaymentChannel(),
+                      selectRadioPayment(setState),
+                      continueBtn(),
+                    ],
+                  ),
+                );
+              });
         });
   }
 
@@ -297,7 +297,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     return Container(
       color: ColorRes.primaryColor,
       height: 50,
-      margin: EdgeInsets.only(left: 5, right: 5, top: 230),
+      margin: EdgeInsets.only(left: 5, right: 5, top: 300),
       width: MediaQuery.of(context).size.width,
       child: FlatButton(
         onPressed: () {
@@ -325,7 +325,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
         RadioListTile(
           groupValue: _radioItem,
           title: Text(
-            'Payment through bank account',
+            'Pay by bank account',
             style: TextStyle(fontSize: 14),
           ),
           value: 0,
@@ -338,7 +338,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
         RadioListTile(
           groupValue: _radioItem,
           title: Text(
-            'Debit Card',
+            'Prompt pay',
             style: TextStyle(fontSize: 14),
           ),
           value: 1,
@@ -351,26 +351,13 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
         RadioListTile(
           groupValue: _radioItem,
           title: Text(
-            'Credit Card',
+            'Credit card',
             style: TextStyle(fontSize: 14),
           ),
           value: 2,
           onChanged: (value) {
             setState(() {
               _radioItem = 2;
-            });
-          },
-        ),
-        RadioListTile(
-          groupValue: _radioItem,
-          title: Text(
-            'Laid off:(credit to 30 days)',
-            style: TextStyle(fontSize: 14),
-          ),
-          value: 3,
-          onChanged: (value) {
-            setState(() {
-              _radioItem = 3;
             });
           },
         ),
