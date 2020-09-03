@@ -1,3 +1,5 @@
+import 'package:ChaiChod/common_widget/common_route.dart';
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -22,7 +24,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
+        backgroundColor: ColorRes.whiteColor,
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -42,53 +44,60 @@ class _ServiceScreenState extends State<ServiceScreen> {
   }
 
   Widget _appBar() {
-    return Container(
-        height: 100,
-        color: Colors.white,
-        child: Column(
+    return Column(
+      children: <Widget>[
+       Stack(
+          alignment: Alignment.center,
+//      mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(top: 17),
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OrderSummaryScreen()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 25,
-                        color: Colors.black,
-                      )),
+            InkResponse(
+              onTap: () {
+                navigatorPop(context);
+              },
+              child: Container(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 15,top: 20),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: ColorRes.blackColor,
+                  size: 25,
                 ),
-                Container(
-                  padding: EdgeInsets.only(left: 20, top: 10),
+              ),
+            ),
+            Center(
+              child: Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(top: 25, bottom: 5,left: 45),
+                child: Flexible(
                   child: AllText(
                     StringRes.serviceTitle,
+                    maxLine: 1,
+                    overflow: TextOverflow.ellipsis,
                     color: ColorRes.blackColor,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              ],
-            ),
-            Container(
-              alignment: Alignment.topCenter,
-              padding: EdgeInsets.only(top: 10),
-              child: AllText(
-                StringRes.serviceTitle1,
-                color: ColorRes.blackColor,
-                fontSize: 15,
               ),
-            ),
+            )
           ],
-        ));
+        ),
+
+        Container(
+          alignment: Alignment.topCenter,
+          padding: EdgeInsets.only(top: 5, bottom: 15),
+          child: AllText(
+            StringRes.serviceTitle1,
+            color: ColorRes.blackColor,
+            fontSize: 15,
+          ),
+        ),
+        Divider(
+          color: ColorRes.greyColor,
+          height: 5,
+        )
+      ],
+    );
   }
 
   serviceDetails() {

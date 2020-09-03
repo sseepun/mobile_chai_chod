@@ -6,7 +6,7 @@ import 'package:ChaiChod/screen/tab3_notification/notification_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/user_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../export.dart';
+import '../../export.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key key, this.title}) : super(key: key);

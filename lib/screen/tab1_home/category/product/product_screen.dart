@@ -929,132 +929,28 @@ class _ProductScreenState extends State<ProductScreen>
                                     onPressed: () {}),
                               ),
                             ),
+
                             Container(
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    padding: EdgeInsets.only(left: 20),
-                                    height: 30,
-                                    child: Row(
-                                      children: <Widget>[
-                                        Text(
-                                          'Width',
-                                          style: TextStyle(
-                                            color: ColorRes.blackColor,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 240),
-                                          child: Text(
-                                            '195 mm.',
-                                            style: TextStyle(
-                                              color: ColorRes.blackColor,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                              color: ColorRes.whiteColor,
+                              child: CommonView.productDetailsLeftRightData(StringRes.width, "195 mm."),
                             ),
                             Container(
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    padding: EdgeInsets.only(left: 20),
-                                    height: 30,
-                                    color: ColorRes.lightWhite,
-                                    child: Row(
-                                      children: <Widget>[
-                                        Text(
-                                          'Rubber Series',
-                                          style: TextStyle(
-                                            color: ColorRes.blackColor,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 225),
-                                          child: Text(
-                                            '55',
-                                            style: TextStyle(
-                                              color: ColorRes.blackColor,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                              color: ColorRes.lightWhite,
+                              child: CommonView.productDetailsLeftRightData(StringRes.rubberSeries, "55"),
                             ),
                             Container(
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    padding: EdgeInsets.only(left: 20),
-                                    height: 30,
-                                    child: Row(
-                                      children: <Widget>[
-                                        Text(
-                                          'Rubber edge',
-                                          style: TextStyle(
-                                            color: ColorRes.blackColor,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 232),
-                                          child: Text(
-                                            '15"',
-                                            style: TextStyle(
-                                              color: ColorRes.blackColor,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                              color: ColorRes.whiteColor,
+                              child: CommonView.productDetailsLeftRightData(StringRes.rubberEdge, "15"),
                             ),
                             Container(
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    padding: EdgeInsets.only(left: 20),
-                                    height: 30,
-                                    color: ColorRes.lightWhite,
-                                    child: Row(
-                                      children: <Widget>[
-                                        Text(
-                                          'Sidewall',
-                                          style: TextStyle(
-                                            color: ColorRes.blackColor,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 220),
-                                          child: Text(
-                                            '10.72 cm.',
-                                            style: TextStyle(
-                                              color: ColorRes.blackColor,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                              color: ColorRes.lightWhite,
+                              child: CommonView.productDetailsLeftRightData(StringRes.sidewallTxt, "10.72 cm."),
                             ),
+
                           ],
                         )),
                     Container(
@@ -1086,7 +982,7 @@ class _ProductScreenState extends State<ProductScreen>
                         padding: EdgeInsets.only(
                             left: 10, right: 10, bottom: 5),
                         child: FilledButton(
-                            text: StringRes.btn2details,
+                            text: StringRes.continueText,
                             fontSize: 18,
                             onPressed: () {
                               Navigator.push(

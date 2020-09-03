@@ -1,14 +1,5 @@
-import 'package:ChaiChod/common_widget/common_widget.dart';
-import 'package:ChaiChod/common_widget/text.dart';
-import 'package:ChaiChod/config/color_resources.dart';
-import 'package:ChaiChod/config/string_resources.dart';
-import 'package:ChaiChod/screen/tab4_user/set_up/password/password.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:ChaiChod/export.dart';
 
-import '../user_screen.dart';
-import 'child_setup/address_screen.dart';
-import 'launguage/language.dart';
 
 class SetUpScreen extends StatefulWidget {
   @override

@@ -1,12 +1,4 @@
-import 'package:ChaiChod/common_widget/common_route.dart';
-import 'package:ChaiChod/common_widget/common_widget.dart';
-import 'package:ChaiChod/common_widget/filled_button.dart';
-import 'package:ChaiChod/common_widget/text.dart';
-import 'package:ChaiChod/config/color_resources.dart';
-import 'package:ChaiChod/config/string_resources.dart';
-import 'package:ChaiChod/config/util.dart';
-import 'package:flutter/material.dart';
-import 'edit_profile/edit_profile_screen.dart';
+import 'package:ChaiChod/export.dart';
 
 class ManageProfileScreen extends StatefulWidget {
   @override

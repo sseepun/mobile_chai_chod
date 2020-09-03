@@ -137,7 +137,8 @@ class StringRes {
   static const rubberEdge                    = "Rubber edge";
   static const sidewallTxt                   = "Sidewall";
   static const btn1details                   = "Add to cart";
-  static const btn2details                   = "Continue";
+
+
 
   //OrderSummary
   static const OrderSummaryTitle             = "Order Summary";
@@ -161,7 +162,7 @@ class StringRes {
   static const goodyear                      = "GOODYEAR";
 
   //Service Screen
-  static const serviceTitle                  = "Delivery and installation service";
+  static const serviceTitle                  = "Delivery and installation service fhhdgbhfvbhcvbcb";
   static const serviceTitle1                 = "Buy Now Order 4 1003I124 30/05/20";
   static const serviceDes1                   = "Name and shipping address";
   static const serviceDes2                   = "Please select an address";
@@ -176,7 +177,6 @@ class StringRes {
   static const shippingDes2                   = "Contact phone number";
   static const shippingDescription1           = "Delivery address";
   static const shippingDescription2           = "Choose a shipping address";
-  static const shippingServiceBtn1            = "Continue";
 
   //Delivery Address Screen
   static const DeliveryAddressTitle           = "Delivery Address";
@@ -210,7 +210,6 @@ class StringRes {
 
 
   //BottomSheetButton Screen
-  static const continueButton                 =" Continue";
   static const paymentChannel                 = "Select the payment channel";
 
 
@@ -227,7 +226,7 @@ class StringRes {
  // Search Screen
 
  static const Searchtab1                         = "tab1";
-  static const Searchtab2                         = "tab2";
-  static const Searchtab3                         = "tab3";
+  static const Searchtab2                        = "tab2";
+  static const Searchtab3                        = "tab3";
 }
 

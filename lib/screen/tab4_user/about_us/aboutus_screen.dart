@@ -1,12 +1,5 @@
-import 'package:ChaiChod/common_widget/common_widget.dart';
-import 'package:ChaiChod/common_widget/text.dart';
-import 'package:ChaiChod/config/color_resources.dart';
-import 'package:ChaiChod/config/string_resources.dart';
-import 'package:ChaiChod/screen/tab4_user/about_us/privancy_policy/privacy_screen.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'about_us/aboutus_screen.dart';
-import 'contact_us/contactus_screen.dart';
+//import 'package:flutter/cupertino.dart';
+import 'package:ChaiChod/export.dart';
 
 class AboutUsScreen extends StatefulWidget {
   @override

@@ -312,7 +312,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
           }
         },
         child: Text(
-          StringRes.continueButton,
+          StringRes.continueText,
           style: TextStyle(color: Colors.white),
         ),
       ),

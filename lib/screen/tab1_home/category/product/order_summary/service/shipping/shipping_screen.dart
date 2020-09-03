@@ -233,7 +233,7 @@ class _ShippingScreenState extends State<ShippingScreen>
         ],
       ),
       child: AllText(
-        StringRes.shippingServiceBtn1,
+        StringRes.continueText,
         fontSize: 15,
         align: TextAlign.center,
         color: Colors.white,
