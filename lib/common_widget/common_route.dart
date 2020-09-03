@@ -2,8 +2,10 @@ import 'package:ChaiChod/screen/cart/cart_screen.dart';
 import 'package:ChaiChod/screen/login/login_screen.dart';
 import 'package:ChaiChod/screen/order_details/order_history/debit_card/debit_card_screen.dart';
 import 'package:ChaiChod/screen/order_details/order_history/orderhistory.dart';
+import 'package:ChaiChod/screen/order_details/order_history/payment_transfer/payment_success/payment_sccess_screen.dart';
 import 'package:ChaiChod/screen/order_details/order_history/payment_transfer/payment_transfer_screen.dart';
 import 'package:ChaiChod/screen/order_details/orderdetailscreen.dart';
+import 'package:ChaiChod/screen/order_details/payment_billing/payment_billing_screen.dart';
 import 'package:ChaiChod/screen/search_home/search_screen.dart';
 import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/complete/complete.dart';
 import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/rate_product_screen.dart';
@@ -91,7 +93,10 @@ paymentTransferScreenNavigator(BuildContext context) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => PaymentTransferScreen()));
 }
-
+paymentBillingScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => PaymentBillingScreen()));
+}
 debitCardScreenNavigator(BuildContext context) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => DebitCardScreen()));
@@ -99,4 +104,8 @@ debitCardScreenNavigator(BuildContext context) {
 completeScreenNavigator(BuildContext context) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => CompleteScreen()));
+}
+paymentSuccessScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => PaymentSuccessScreen()));
 }
