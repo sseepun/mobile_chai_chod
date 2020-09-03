@@ -109,10 +109,11 @@ class _SearchScreenState extends State<SearchScreen> {
                               child: Padding(
                                 padding: EdgeInsets.only(top: 20,right: 15),
                           child: AllText("More Option",align: TextAlign.right,color: ColorRes.lightBlur)),
-                          onTap: () {
-                            searchScreensNavigator(context);
-                          },
                         ),
+                      onTap: () {
+                        searchScreensNavigator(context);
+                      },
+                    )
                   ],
                 ),
               ),
