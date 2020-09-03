@@ -115,7 +115,7 @@ class _PaymentBillingScreenState extends State<PaymentBillingScreen> {
                 margin: EdgeInsets.all(20),
                 width: Utils.getDeviceWidth(context) / 3.3,
                 child:
-                    Image.asset(Utils.getAssetsImg('tiers'), fit: BoxFit.fill),
+                Image.asset(Utils.getAssetsImg('tiers'), fit: BoxFit.fill),
               ),
               Expanded(
                 child: Column(
@@ -205,7 +205,7 @@ class _PaymentBillingScreenState extends State<PaymentBillingScreen> {
                 margin: EdgeInsets.all(20),
                 width: Utils.getDeviceWidth(context) / 3.3,
                 child:
-                    Image.asset(Utils.getAssetsImg('tiers'), fit: BoxFit.fill),
+                Image.asset(Utils.getAssetsImg('tiers'), fit: BoxFit.fill),
               ),
               Expanded(
                 child: Column(
@@ -299,20 +299,20 @@ class _PaymentBillingScreenState extends State<PaymentBillingScreen> {
                           fontWeight: FontWeight.bold),
                     ],
                   ),
-                 Padding(
-                   padding: EdgeInsets.only(top: 5),
-                   child:  Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: <Widget>[
-                       AllText('', color: ColorRes.blackColor),
-                       AllText('Payment due: 30/6/20',
-                           align: TextAlign.right,
-                           color: ColorRes.lightRedTxt,
-                           fontSize: 14,
-                           fontWeight: FontWeight.bold),
-                     ],
-                   ),
-                 ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 5),
+                    child:  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        AllText('', color: ColorRes.blackColor),
+                        AllText('Payment due: 30/6/20',
+                            align: TextAlign.right,
+                            color: ColorRes.lightRedTxt,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold),
+                      ],
+                    ),
+                  ),
                 ],
               ))
         ],

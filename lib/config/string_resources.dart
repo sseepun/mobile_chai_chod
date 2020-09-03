@@ -229,5 +229,14 @@ class StringRes {
  static const Searchtab1                         = "tab1";
   static const Searchtab2                         = "tab2";
   static const Searchtab3                         = "tab3";
+
+  //payment Billing screen
+  static const paymentBillingTitle1            =  "Drop the bill";
+  static const paymentBillingTitle2            =  "(30 credit days)";
+  static const paymentBillingTitle3            =  "Order now #10031124 30/05/20";
+  static const paymentBillingBtn               =  "Completed";
+  static const Amount                          =  "Amount to be paid";
+  static const price1                         =  "Amount to be paid";
+
 }
 
