@@ -7,6 +7,7 @@ import 'package:ChaiChod/screen/order_details/order_history/payment_transfer/pay
 import 'package:ChaiChod/screen/order_details/orderdetailscreen.dart';
 import 'package:ChaiChod/screen/order_details/payment_billing/payment_billing_screen.dart';
 import 'package:ChaiChod/screen/search_home/search_screen.dart';
+import 'package:ChaiChod/screen/search_home/search_tabs_screen.dart';
 import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/complete/complete.dart';
 import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/rate_product_screen.dart';
 import 'package:ChaiChod/screen/tab3_notification/notification_screen.dart';
@@ -108,4 +109,13 @@ completeScreenNavigator(BuildContext context) {
 paymentSuccessScreenNavigator(BuildContext context) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => PaymentSuccessScreen()));
+}
+
+searchScreensNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => SearchTabsScreen()));
+}
+searchTabsScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => SearchScreen()));
 }
