@@ -1,11 +1,5 @@
-import 'package:ChaiChod/common_widget/common_widget.dart';
-import 'package:ChaiChod/common_widget/filled_button.dart';
-import 'package:ChaiChod/config/color_resources.dart';
-import 'package:ChaiChod/config/string_resources.dart';
-import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/tab4_user/set_up/setup_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:ChaiChod/export.dart';
 
 class Model {
   String name;

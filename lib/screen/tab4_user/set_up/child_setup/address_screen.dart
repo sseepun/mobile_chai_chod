@@ -1,9 +1,6 @@
-import 'package:ChaiChod/common_widget/common_widget.dart';
-import 'package:ChaiChod/common_widget/text.dart';
-import 'package:ChaiChod/config/color_resources.dart';
-import 'package:ChaiChod/config/string_resources.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:ChaiChod/export.dart';
+
 
 class AddressScreen extends StatefulWidget {
   @override

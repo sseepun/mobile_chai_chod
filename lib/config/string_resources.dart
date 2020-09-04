@@ -137,7 +137,6 @@ class StringRes {
   static const rubberEdge                    = "Rubber edge";
   static const sidewallTxt                   = "Sidewall";
   static const btn1details                   = "Add to cart";
-  static const btn2details                   = "Continue";
   static const DateFormat                   = "12 DEC 2019";
 
   //OrderSummary
@@ -177,7 +176,6 @@ class StringRes {
   static const shippingDes2                   = "Contact phone number";
   static const shippingDescription1           = "Delivery address";
   static const shippingDescription2           = "Choose a shipping address";
-  static const shippingServiceBtn1            = "Continue";
 
   //Delivery Address Screen
   static const DeliveryAddressTitle           = "Delivery Address";
@@ -211,7 +209,6 @@ class StringRes {
 
 
   //BottomSheetButton Screen
-  static const continueButton                 =" Continue";
   static const paymentChannel                 = "Select the payment channel";
 
 
@@ -228,7 +225,16 @@ class StringRes {
  // Search Screen
 
  static const Searchtab1                         = "tab1";
-  static const Searchtab2                         = "tab2";
-  static const Searchtab3                         = "tab3";
+  static const Searchtab2                        = "tab2";
+  static const Searchtab3                        = "tab3";
+
+  //payment Billing screen
+  static const paymentBillingTitle1            =  "Drop the bill";
+  static const paymentBillingTitle2            =  "(30 credit days)";
+  static const paymentBillingTitle3            =  "Order now #10031124 30/05/20";
+  static const paymentBillingBtn               =  "Completed";
+  static const Amount                          =  "Amount to be paid";
+  static const price1                         =  "Amount to be paid";
+
 }
 

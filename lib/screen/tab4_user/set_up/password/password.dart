@@ -1,8 +1,4 @@
-import 'package:ChaiChod/common_widget/common_widget.dart';
-import 'package:ChaiChod/common_widget/filled_button.dart';
-import 'package:ChaiChod/config/color_resources.dart';
-import 'package:ChaiChod/config/string_resources.dart';
-import 'package:flutter/material.dart';
+import 'package:ChaiChod/export.dart';
 
 class ChangePassword extends StatefulWidget {
   @override

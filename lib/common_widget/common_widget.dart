@@ -71,11 +71,15 @@ class CommonView {
           child: Container(
             alignment: Alignment.center,
             margin: EdgeInsets.only(top: 25, bottom: 5),
-            child: AllText(
-              title,
-              color: color,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+            child: Flexible(
+              child: AllText(
+                title,
+                maxLine: 1,
+                overflow: TextOverflow.ellipsis,
+                color: color,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         )

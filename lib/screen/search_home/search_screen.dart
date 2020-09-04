@@ -10,6 +10,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
+  final int i;
+  const SearchScreen({Key key, this.i}) : super(key: key);
+
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }
@@ -80,19 +83,19 @@ class _SearchScreenState extends State<SearchScreen> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(2)),
                                 borderSide: BorderSide(
-                                    width: 1, color: ColorRes.blackColor),
+                                    width: 1, color: ColorRes.greyColor),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(2)),
                                 borderSide: BorderSide(
-                                    width: 1, color: ColorRes.blackColor),
+                                    width: 1, color: ColorRes.greyColor),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(4)),
                                 borderSide: BorderSide(
-                                    width: 1, color: ColorRes.blackColor),
+                                    width: 1, color: ColorRes.greyColor),
                               ),
                             ),
                           ),
@@ -101,35 +104,23 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     GestureDetector(
                          // textColor: ColorRes.lightBlur,
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 20,right:40),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 20,right: 15),
                           child: AllText("More Option",align: TextAlign.right,color: ColorRes.lightBlur)),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => SearchTabsScreen()),
-                            );
-                          },
                         ),
-//                    Container(
-//                      alignment: Alignment.centerRight,
-//                      child: Padding(
-//                          padding: EdgeInsets.only(top: 20, right: 40),
-//                          child: AllText("More Option"),
-//                          onPressed: () {
-//                            Navigator.push(
-//                              context,
-//                              MaterialPageRoute(builder: (context) => SearchTabsScreen()),
-//                            );
-//                          },),
-//                    )
+                      onTap: () {
+                        searchScreensNavigator(context);
+                      },
+                    )
                   ],
                 ),
               ),
 
               Padding(
                   padding: EdgeInsets.only(left: 10, top: 25),
-                  child: AllText("Search results", color: ColorRes.blackColor)),
+                  child: AllText("Search results", fontSize:17,color: ColorRes.blackColor,fontWeight: FontWeight.bold,)),
               Padding(
                   padding: EdgeInsets.only(left: 10, top: 5, bottom: 25),
                   child: AllText("225/45/R17", color: ColorRes.blackColor)),

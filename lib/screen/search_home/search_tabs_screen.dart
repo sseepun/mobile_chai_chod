@@ -103,19 +103,19 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(2)),
                                 borderSide: BorderSide(
-                                    width: 1, color: ColorRes.blackColor),
+                                    width: 1, color: ColorRes.greyColor),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(2)),
                                 borderSide: BorderSide(
-                                    width: 1, color: ColorRes.blackColor),
+                                    width: 1, color: ColorRes.greyColor),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(4)),
                                 borderSide: BorderSide(
-                                    width: 1, color: ColorRes.blackColor),
+                                    width: 1, color: ColorRes.greyColor),
                               ),
                             ),
                           ),
@@ -124,15 +124,13 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                     ),
 //                    Align(
 //                      alignment: Alignment.centerRight,
-                    FlatButton(
-                      padding: EdgeInsets.only(right: 1),
-                      textColor: ColorRes.lightBlur,
-                      child: AllText("More Options", fontSize: 12),
-                      onPressed: () {
-//                        Navigator.push(
-//                          context,
-//                          MaterialPageRoute(builder: (context) => RegisterScreen()),
-//                        );
+                    GestureDetector(
+                      // textColor: ColorRes.lightBlur,
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 20,left: 250),
+                          child: AllText("More Option",align: TextAlign.right,color: ColorRes.lightBlur)),
+                      onTap: () {
+                        searchTabsScreenNavigator(context);
                       },
                     ),
                   ],
@@ -191,16 +189,12 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
   //-------------------------------Tab1-----------------------------------------//
   listDataTab1() {
     return Container(
-      height: 300,
-      alignment: Alignment.centerLeft,
+      height: 100,
       child: new Column(
         children: <Widget>[
-          new Padding(
-            padding:
-                new EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          Container(
+            padding: new EdgeInsets.only(left: 5, right: 5, top: 10, bottom: 10),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 tabs(),
                 tabs(),
@@ -231,17 +225,371 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  tabs(),
-                  tabs(),
+                  Container(
+                    padding: new EdgeInsets.all(0.0),
+                    child: Column(
+                      children: <Widget>[
+                        new Container(
+                          padding: new EdgeInsets.only(left:10, top: 8,right: 130),
+                          child: Text(
+                            'XYZ',
+                            style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        new Padding(
+                          padding:
+                          new EdgeInsets.only(left: 10, right:5, top: 10, bottom: 10),
+                          child: DropdownButtonHideUnderline(
+                            child: Container(
+                              height: 45,
+                              width: 165,
+                              //width: MediaQuery.of(context).size.width,
+                              decoration: ShapeDecoration(
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    width: 2.0,
+                                    style: BorderStyle.solid,
+                                    //#eceef0
+                                    color: Color(hexColor('#f0f2f3')),
+                                  ),
+                                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                                ),
+                              ),
+                              child: DropdownButton<String>(
+                                // pring(currentSelectedValue),
+                                // hint: Text("Select Device"),
+                                // itemHeight: 10,
+                                underline: SizedBox(
+
+                                ),
+                                value: currentSelectedValue,
+                                isDense: true,
+                                // isExpanded: true,
+                                icon: Container(
+                                  color: Colors.white,
+                                  child: Icon(
+                                    Icons.keyboard_arrow_down,
+                                    size: 32,
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                                hint: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Select",
+                                    style: TextStyle(color: Colors.black, fontSize: 13),
+                                  ),
+                                ),
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    currentSelectedValue = newValue;
+                                  });
+                                  print(currentSelectedValue);
+                                },
+                                items: deviceTypes.map(( String value) {
+                                  // print(value);
+
+                                  return DropdownMenuItem<String>(
+
+                                    value:value,
+                                    child: Padding(
+                                      //Ma:const EdgeInsets.all(8.0),
+
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        value,
+
+                                        style:
+                                        new TextStyle(color: Colors.black, fontSize: 13),
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: new EdgeInsets.all(0.0),
+                    child: Column(
+                      children: <Widget>[
+                        new Container(
+                          padding: new EdgeInsets.only( top: 8,right: 130),
+                          child: Text(
+                            'XYZ',
+                            style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        new Padding(
+                          padding:
+                          new EdgeInsets.only(left:2, right: 5, top: 10, bottom: 10),
+                          child: DropdownButtonHideUnderline(
+                            child: Container(
+                              height: 45,
+                              width: 165,
+                              //width: MediaQuery.of(context).size.width,
+                              decoration: ShapeDecoration(
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    width: 2.0,
+                                    style: BorderStyle.solid,
+                                    //#eceef0
+                                    color: Color(hexColor('#f0f2f3')),
+                                  ),
+                                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                                ),
+                              ),
+                              child: DropdownButton<String>(
+                                // pring(currentSelectedValue),
+                                // hint: Text("Select Device"),
+                                // itemHeight: 10,
+                                underline: SizedBox(
+
+                                ),
+                                value: currentSelectedValue,
+                                isDense: true,
+                                // isExpanded: true,
+                                icon: Container(
+                                  color: Colors.white,
+                                  child: Icon(
+                                    Icons.keyboard_arrow_down,
+                                    size: 32,
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                                hint: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Select",
+                                    style: TextStyle(color: Colors.black, fontSize: 13),
+                                  ),
+                                ),
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    currentSelectedValue = newValue;
+                                  });
+                                  print(currentSelectedValue);
+                                },
+                                items: deviceTypes.map(( String value) {
+                                  // print(value);
+
+                                  return DropdownMenuItem<String>(
+
+                                    value:value,
+                                    child: Padding(
+                                      //Ma:const EdgeInsets.all(8.0),
+
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        value,
+
+                                        style:
+                                        new TextStyle(color: Colors.black, fontSize: 13),
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               )),
           new Expanded(
             child: new Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                tabs(),
-                tabs(),
+                Container(
+                  padding: new EdgeInsets.all(0.0),
+                  child: Column(
+                    children: <Widget>[
+                      new Container(
+                        padding: new EdgeInsets.only(left:10, top: 8,right: 130),
+                        child: Text(
+                          'XYZ',
+                          style: new TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      new Padding(
+                        padding:
+                        new EdgeInsets.only(left: 10, right:5, top: 10, bottom: 10),
+                        child: DropdownButtonHideUnderline(
+                          child: Container(
+                            height: 45,
+                            width: 165,
+                            //width: MediaQuery.of(context).size.width,
+                            decoration: ShapeDecoration(
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  width: 2.0,
+                                  style: BorderStyle.solid,
+                                  //#eceef0
+                                  color: Color(hexColor('#f0f2f3')),
+                                ),
+                                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                              ),
+                            ),
+                            child: DropdownButton<String>(
+                              // pring(currentSelectedValue),
+                              // hint: Text("Select Device"),
+                              // itemHeight: 10,
+                              underline: SizedBox(
+
+                              ),
+                              value: currentSelectedValue,
+                              isDense: true,
+                              // isExpanded: true,
+                              icon: Container(
+                                color: Colors.white,
+                                child: Icon(
+                                  Icons.keyboard_arrow_down,
+                                  size: 32,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              hint: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Select",
+                                  style: TextStyle(color: Colors.black, fontSize: 13),
+                                ),
+                              ),
+                              onChanged: (newValue) {
+                                setState(() {
+                                  currentSelectedValue = newValue;
+                                });
+                                print(currentSelectedValue);
+                              },
+                              items: deviceTypes.map(( String value) {
+                                // print(value);
+
+                                return DropdownMenuItem<String>(
+
+                                  value:value,
+                                  child: Padding(
+                                    //Ma:const EdgeInsets.all(8.0),
+
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      value,
+
+                                      style:
+                                      new TextStyle(color: Colors.black, fontSize: 13),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: new EdgeInsets.all(0.0),
+                  child: Column(
+                    children: <Widget>[
+                      new Container(
+                        padding: new EdgeInsets.only( top: 8,right: 130),
+                        child: Text(
+                          'XYZ',
+                          style: new TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      new Padding(
+                        padding:
+                        new EdgeInsets.only(left:2, right: 5, top: 10, bottom: 10),
+                        child: DropdownButtonHideUnderline(
+                          child: Container(
+                            height: 45,
+                            width: 165,
+                            //width: MediaQuery.of(context).size.width,
+                            decoration: ShapeDecoration(
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  width: 2.0,
+                                  style: BorderStyle.solid,
+                                  //#eceef0
+                                  color: Color(hexColor('#f0f2f3')),
+                                ),
+                                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                              ),
+                            ),
+                            child: DropdownButton<String>(
+                              // pring(currentSelectedValue),
+                              // hint: Text("Select Device"),
+                              // itemHeight: 10,
+                              underline: SizedBox(
+
+                              ),
+                              value: currentSelectedValue,
+                              isDense: true,
+                              // isExpanded: true,
+                              icon: Container(
+                                color: Colors.white,
+                                child: Icon(
+                                  Icons.keyboard_arrow_down,
+                                  size: 32,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              hint: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Select",
+                                  style: TextStyle(color: Colors.black, fontSize: 13),
+                                ),
+                              ),
+                              onChanged: (newValue) {
+                                setState(() {
+                                  currentSelectedValue = newValue;
+                                });
+                                print(currentSelectedValue);
+                              },
+                              items: deviceTypes.map(( String value) {
+                                // print(value);
+
+                                return DropdownMenuItem<String>(
+
+                                  value:value,
+                                  child: Padding(
+                                    //Ma:const EdgeInsets.all(8.0),
+
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      value,
+
+                                      style:
+                                      new TextStyle(color: Colors.black, fontSize: 13),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -278,7 +626,96 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                tabs(),
+                Container(
+                  padding: new EdgeInsets.all(0.0),
+                  child: Column(
+                    children: <Widget>[
+                      new Container(
+                        padding: new EdgeInsets.only(left:5, top: 8,right: 300),
+                        child: Text(
+                          'XYZ',
+                          style: new TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      new Padding(
+                        padding:EdgeInsets.only( top: 10, bottom: 10),
+                        child: DropdownButtonHideUnderline(
+                          child: Container(
+                            height: 45,
+                            width: 330,
+                            //width: MediaQuery.of(context).size.width,
+                            decoration: ShapeDecoration(
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  width: 2.0,
+                                  style: BorderStyle.solid,
+                                  //#eceef0
+                                  color: Color(hexColor('#f0f2f3')),
+                                ),
+                                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                              ),
+                            ),
+                            child: DropdownButton<String>(
+                              // pring(currentSelectedValue),
+                              // hint: Text("Select Device"),
+                              // itemHeight: 10,
+                              underline: SizedBox(
+
+                              ),
+                              value: currentSelectedValue,
+                              isDense: true,
+                              // isExpanded: true,
+                              icon: Container(
+                                color: Colors.white,
+                                child: Icon(
+                                  Icons.keyboard_arrow_down,
+                                  size: 32,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              hint: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Select",
+                                  style: TextStyle(color: Colors.black, fontSize: 13),
+                                ),
+                              ),
+                              onChanged: (newValue) {
+                                setState(() {
+                                  currentSelectedValue = newValue;
+                                });
+                                print(currentSelectedValue);
+                              },
+                              items: deviceTypes.map(( String value) {
+                                // print(value);
+
+                                return DropdownMenuItem<String>(
+
+                                  value:value,
+                                  child: Padding(
+                                    //Ma:const EdgeInsets.all(8.0),
+
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      value,
+
+                                      style:
+                                      new TextStyle(color: Colors.black, fontSize: 13),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
               ],
             ),
           ),
@@ -297,16 +734,12 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
   //-------------------------------tabs method----------------------------------//
 
   tabs() {
-
     return Container(
-      padding: new EdgeInsets.all(0.0),
+      padding: new EdgeInsets.only(left: 5),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-       // mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           new Padding(
-            padding: new EdgeInsets.only(left: 8, top: 8),
+            padding: new EdgeInsets.only( top: 8,right: 85),
             child: Text(
               'XYZ',
               style: new TextStyle(
@@ -317,7 +750,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
           ),
           new Padding(
             padding:
-                new EdgeInsets.only(left: 0, right: 10, top: 10, bottom: 10),
+                new EdgeInsets.only(left: 0, right: 5, top: 10, bottom: 10),
             child: DropdownButtonHideUnderline(
               child: Container(
                 height: 45,
@@ -355,7 +788,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                   hint: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "Select",
+                      "100",
                       style: TextStyle(color: Colors.black, fontSize: 13),
                     ),
                   ),
