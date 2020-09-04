@@ -1430,7 +1430,7 @@ class _ProductScreenState extends State<ProductScreen>
                   child: Padding(
                     padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
                     child: FilledButton(
-                        text: StringRes.continueText,
+                        text: StringRes.btn2details,
                         fontSize: 18,
                         onPressed: () {
                           Navigator.push(
