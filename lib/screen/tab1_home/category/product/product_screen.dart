@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'order_summary/order_summary_screen.dart';
 
 class ProductScreen extends StatefulWidget {
+  final int i;
+  const ProductScreen({Key key, this.i}) : super(key: key);
   @override
   _ProductScreenState createState() => _ProductScreenState();
 }

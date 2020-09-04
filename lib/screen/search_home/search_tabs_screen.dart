@@ -8,6 +8,9 @@ import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/material.dart';
 
 class SearchTabsScreen extends StatefulWidget {
+  final int i;
+
+  const SearchTabsScreen({Key key, this.i}) : super(key: key);
   @override
   _SearchTabsScreenState createState() => _SearchTabsScreenState();
 }
@@ -19,13 +22,12 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
   var currentSelectedValue;
   String _dropDownValue;
   final deviceTypes = ["Mac", "Windows", "Mobile"];
-  final deviceTypes1= ["Mac2", "Windows2", "Mobile2"];
-  final deviceTypes2= ["Mac3", "Windows3", "Mobile3"];
+  final deviceTypes1 = ["Mac2", "Windows2", "Mobile2"];
+  final deviceTypes2 = ["Mac3", "Windows3", "Mobile3"];
 
   String _mySelection;
- // final deviceTypes = [{"id":0,"name":"<New>"},{"id":1,"name":"Test Practice"}];
 
-
+  // final deviceTypes = [{"id":0,"name":"<New>"},{"id":1,"name":"Test Practice"}];
 
   @override
   void initState() {
@@ -49,7 +51,13 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
           height: 60,
           child: Padding(
               padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-              child: FilledButton(text: StringRes.continueText, fontSize: 18)),
+              child: FilledButton(
+                text: StringRes.continueText,
+                fontSize: 18,
+                onPressed: () {
+                  selectTireScreenNavigator(context);
+                },
+              )),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -127,8 +135,10 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                     GestureDetector(
                       // textColor: ColorRes.lightBlur,
                       child: Padding(
-                          padding: EdgeInsets.only(top: 20,left: 250),
-                          child: AllText("More Option",align: TextAlign.right,color: ColorRes.lightBlur)),
+                          padding: EdgeInsets.only(top: 20, left: 250),
+                          child: AllText("More Option",
+                              align: TextAlign.right,
+                              color: ColorRes.lightBlur)),
                       onTap: () {
                         searchTabsScreenNavigator(context);
                       },
@@ -165,7 +175,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                           listDataTab1(),
                           listDatatab2(),
                           listDatatab3(),
-                         ],
+                        ],
                         controller: tabController,
                       ),
                     ),
@@ -193,7 +203,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
       child: new Column(
         children: <Widget>[
           Container(
-            padding: new EdgeInsets.only(left: 5, right: 5, top: 10, bottom: 10),
+            padding:
+                new EdgeInsets.only(left: 5, right: 5, top: 10, bottom: 10),
             child: Row(
               children: <Widget>[
                 tabs(),
@@ -214,13 +225,12 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
   //-------------------------------Tab2-----------------------------------------//
   listDatatab2() {
     return Container(
-     // height: 200,
+      // height: 200,
       alignment: Alignment.center,
       child: new Column(
         children: <Widget>[
           new Padding(
-              padding:
-              new EdgeInsets.all(0.0),
+              padding: new EdgeInsets.all(0.0),
               child: new Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -230,7 +240,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                     child: Column(
                       children: <Widget>[
                         new Container(
-                          padding: new EdgeInsets.only(left:10, top: 8,right: 130),
+                          padding:
+                              new EdgeInsets.only(left: 10, top: 8, right: 130),
                           child: Text(
                             'XYZ',
                             style: new TextStyle(
@@ -240,8 +251,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                           ),
                         ),
                         new Padding(
-                          padding:
-                          new EdgeInsets.only(left: 10, right:5, top: 10, bottom: 10),
+                          padding: new EdgeInsets.only(
+                              left: 10, right: 5, top: 10, bottom: 10),
                           child: DropdownButtonHideUnderline(
                             child: Container(
                               height: 45,
@@ -255,16 +266,15 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                     //#eceef0
                                     color: Color(hexColor('#f0f2f3')),
                                   ),
-                                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(4.0)),
                                 ),
                               ),
                               child: DropdownButton<String>(
                                 // pring(currentSelectedValue),
                                 // hint: Text("Select Device"),
                                 // itemHeight: 10,
-                                underline: SizedBox(
-
-                                ),
+                                underline: SizedBox(),
                                 value: currentSelectedValue,
                                 isDense: true,
                                 // isExpanded: true,
@@ -280,7 +290,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     "Select",
-                                    style: TextStyle(color: Colors.black, fontSize: 13),
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 13),
                                   ),
                                 ),
                                 onChanged: (newValue) {
@@ -289,21 +300,19 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                   });
                                   print(currentSelectedValue);
                                 },
-                                items: deviceTypes.map(( String value) {
+                                items: deviceTypes.map((String value) {
                                   // print(value);
 
                                   return DropdownMenuItem<String>(
-
-                                    value:value,
+                                    value: value,
                                     child: Padding(
                                       //Ma:const EdgeInsets.all(8.0),
 
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         value,
-
-                                        style:
-                                        new TextStyle(color: Colors.black, fontSize: 13),
+                                        style: new TextStyle(
+                                            color: Colors.black, fontSize: 13),
                                       ),
                                     ),
                                   );
@@ -320,7 +329,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                     child: Column(
                       children: <Widget>[
                         new Container(
-                          padding: new EdgeInsets.only( top: 8,right: 130),
+                          padding: new EdgeInsets.only(top: 8, right: 130),
                           child: Text(
                             'XYZ',
                             style: new TextStyle(
@@ -330,8 +339,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                           ),
                         ),
                         new Padding(
-                          padding:
-                          new EdgeInsets.only(left:2, right: 5, top: 10, bottom: 10),
+                          padding: new EdgeInsets.only(
+                              left: 2, right: 5, top: 10, bottom: 10),
                           child: DropdownButtonHideUnderline(
                             child: Container(
                               height: 45,
@@ -345,16 +354,15 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                     //#eceef0
                                     color: Color(hexColor('#f0f2f3')),
                                   ),
-                                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(4.0)),
                                 ),
                               ),
                               child: DropdownButton<String>(
                                 // pring(currentSelectedValue),
                                 // hint: Text("Select Device"),
                                 // itemHeight: 10,
-                                underline: SizedBox(
-
-                                ),
+                                underline: SizedBox(),
                                 value: currentSelectedValue,
                                 isDense: true,
                                 // isExpanded: true,
@@ -370,7 +378,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     "Select",
-                                    style: TextStyle(color: Colors.black, fontSize: 13),
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 13),
                                   ),
                                 ),
                                 onChanged: (newValue) {
@@ -379,21 +388,19 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                   });
                                   print(currentSelectedValue);
                                 },
-                                items: deviceTypes.map(( String value) {
+                                items: deviceTypes.map((String value) {
                                   // print(value);
 
                                   return DropdownMenuItem<String>(
-
-                                    value:value,
+                                    value: value,
                                     child: Padding(
                                       //Ma:const EdgeInsets.all(8.0),
 
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         value,
-
-                                        style:
-                                        new TextStyle(color: Colors.black, fontSize: 13),
+                                        style: new TextStyle(
+                                            color: Colors.black, fontSize: 13),
                                       ),
                                     ),
                                   );
@@ -415,7 +422,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                   child: Column(
                     children: <Widget>[
                       new Container(
-                        padding: new EdgeInsets.only(left:10, top: 8,right: 130),
+                        padding:
+                            new EdgeInsets.only(left: 10, top: 8, right: 130),
                         child: Text(
                           'XYZ',
                           style: new TextStyle(
@@ -425,8 +433,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                         ),
                       ),
                       new Padding(
-                        padding:
-                        new EdgeInsets.only(left: 10, right:5, top: 10, bottom: 10),
+                        padding: new EdgeInsets.only(
+                            left: 10, right: 5, top: 10, bottom: 10),
                         child: DropdownButtonHideUnderline(
                           child: Container(
                             height: 45,
@@ -440,16 +448,15 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                   //#eceef0
                                   color: Color(hexColor('#f0f2f3')),
                                 ),
-                                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(4.0)),
                               ),
                             ),
                             child: DropdownButton<String>(
                               // pring(currentSelectedValue),
                               // hint: Text("Select Device"),
                               // itemHeight: 10,
-                              underline: SizedBox(
-
-                              ),
+                              underline: SizedBox(),
                               value: currentSelectedValue,
                               isDense: true,
                               // isExpanded: true,
@@ -465,7 +472,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   "Select",
-                                  style: TextStyle(color: Colors.black, fontSize: 13),
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 13),
                                 ),
                               ),
                               onChanged: (newValue) {
@@ -474,21 +482,19 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                 });
                                 print(currentSelectedValue);
                               },
-                              items: deviceTypes.map(( String value) {
+                              items: deviceTypes.map((String value) {
                                 // print(value);
 
                                 return DropdownMenuItem<String>(
-
-                                  value:value,
+                                  value: value,
                                   child: Padding(
                                     //Ma:const EdgeInsets.all(8.0),
 
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
                                       value,
-
-                                      style:
-                                      new TextStyle(color: Colors.black, fontSize: 13),
+                                      style: new TextStyle(
+                                          color: Colors.black, fontSize: 13),
                                     ),
                                   ),
                                 );
@@ -505,7 +511,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                   child: Column(
                     children: <Widget>[
                       new Container(
-                        padding: new EdgeInsets.only( top: 8,right: 130),
+                        padding: new EdgeInsets.only(top: 8, right: 130),
                         child: Text(
                           'XYZ',
                           style: new TextStyle(
@@ -515,8 +521,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                         ),
                       ),
                       new Padding(
-                        padding:
-                        new EdgeInsets.only(left:2, right: 5, top: 10, bottom: 10),
+                        padding: new EdgeInsets.only(
+                            left: 2, right: 5, top: 10, bottom: 10),
                         child: DropdownButtonHideUnderline(
                           child: Container(
                             height: 45,
@@ -530,16 +536,15 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                   //#eceef0
                                   color: Color(hexColor('#f0f2f3')),
                                 ),
-                                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(4.0)),
                               ),
                             ),
                             child: DropdownButton<String>(
                               // pring(currentSelectedValue),
                               // hint: Text("Select Device"),
                               // itemHeight: 10,
-                              underline: SizedBox(
-
-                              ),
+                              underline: SizedBox(),
                               value: currentSelectedValue,
                               isDense: true,
                               // isExpanded: true,
@@ -555,7 +560,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   "Select",
-                                  style: TextStyle(color: Colors.black, fontSize: 13),
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 13),
                                 ),
                               ),
                               onChanged: (newValue) {
@@ -564,21 +570,19 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                 });
                                 print(currentSelectedValue);
                               },
-                              items: deviceTypes.map(( String value) {
+                              items: deviceTypes.map((String value) {
                                 // print(value);
 
                                 return DropdownMenuItem<String>(
-
-                                  value:value,
+                                  value: value,
                                   child: Padding(
                                     //Ma:const EdgeInsets.all(8.0),
 
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
                                       value,
-
-                                      style:
-                                      new TextStyle(color: Colors.black, fontSize: 13),
+                                      style: new TextStyle(
+                                          color: Colors.black, fontSize: 13),
                                     ),
                                   ),
                                 );
@@ -631,7 +635,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                   child: Column(
                     children: <Widget>[
                       new Container(
-                        padding: new EdgeInsets.only(left:5, top: 8,right: 300),
+                        padding:
+                            new EdgeInsets.only(left: 5, top: 8, right: 300),
                         child: Text(
                           'XYZ',
                           style: new TextStyle(
@@ -641,7 +646,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                         ),
                       ),
                       new Padding(
-                        padding:EdgeInsets.only( top: 10, bottom: 10),
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
                         child: DropdownButtonHideUnderline(
                           child: Container(
                             height: 45,
@@ -655,16 +660,15 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                   //#eceef0
                                   color: Color(hexColor('#f0f2f3')),
                                 ),
-                                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(4.0)),
                               ),
                             ),
                             child: DropdownButton<String>(
                               // pring(currentSelectedValue),
                               // hint: Text("Select Device"),
                               // itemHeight: 10,
-                              underline: SizedBox(
-
-                              ),
+                              underline: SizedBox(),
                               value: currentSelectedValue,
                               isDense: true,
                               // isExpanded: true,
@@ -680,7 +684,8 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   "Select",
-                                  style: TextStyle(color: Colors.black, fontSize: 13),
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 13),
                                 ),
                               ),
                               onChanged: (newValue) {
@@ -689,21 +694,19 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                 });
                                 print(currentSelectedValue);
                               },
-                              items: deviceTypes.map(( String value) {
+                              items: deviceTypes.map((String value) {
                                 // print(value);
 
                                 return DropdownMenuItem<String>(
-
-                                  value:value,
+                                  value: value,
                                   child: Padding(
                                     //Ma:const EdgeInsets.all(8.0),
 
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
                                       value,
-
-                                      style:
-                                      new TextStyle(color: Colors.black, fontSize: 13),
+                                      style: new TextStyle(
+                                          color: Colors.black, fontSize: 13),
                                     ),
                                   ),
                                 );
@@ -715,7 +718,6 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                     ],
                   ),
                 ),
-
               ],
             ),
           ),
@@ -739,7 +741,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
       child: Column(
         children: <Widget>[
           new Padding(
-            padding: new EdgeInsets.only( top: 8,right: 85),
+            padding: new EdgeInsets.only(top: 8, right: 85),
             child: Text(
               'XYZ',
               style: new TextStyle(
@@ -768,12 +770,10 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                   ),
                 ),
                 child: DropdownButton<String>(
-                 // pring(currentSelectedValue),
+                  // pring(currentSelectedValue),
                   // hint: Text("Select Device"),
-                 // itemHeight: 10,
-                  underline: SizedBox(
-
-                  ),
+                  // itemHeight: 10,
+                  underline: SizedBox(),
                   value: currentSelectedValue,
                   isDense: true,
                   // isExpanded: true,
@@ -798,19 +798,17 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                     });
                     print(currentSelectedValue);
                   },
-                  items: deviceTypes.map(( String value) {
-                   // print(value);
+                  items: deviceTypes.map((String value) {
+                    // print(value);
 
                     return DropdownMenuItem<String>(
-
-                      value:value,
+                      value: value,
                       child: Padding(
                         //Ma:const EdgeInsets.all(8.0),
 
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                           value,
-
+                          value,
                           style:
                               new TextStyle(color: Colors.black, fontSize: 13),
                         ),
@@ -885,14 +883,10 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
             ),
             Padding(
                 padding: EdgeInsets.only(left: 0, right: 0, top: 10),
-                child: FilledButton(text: "Compare(1)", fontSize: 18))
+                child: FilledButton(text: "Compare(1)", fontSize: 18)),
           ],
         );
       },
     );
   }
 }
-
-
-
-

@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
   final int i;
+
   const SearchScreen({Key key, this.i}) : super(key: key);
 
   @override
@@ -29,7 +30,13 @@ class _SearchScreenState extends State<SearchScreen> {
           height: 60,
           child: Padding(
               padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-              child: FilledButton(text: StringRes.continueText, fontSize: 18)),
+              child: FilledButton(
+                text: StringRes.continueText,
+                fontSize: 18,
+                onPressed: () {
+                  selectTireScreenNavigator(context);
+                },
+              )),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -103,13 +110,15 @@ class _SearchScreenState extends State<SearchScreen> {
                       ],
                     ),
                     GestureDetector(
-                         // textColor: ColorRes.lightBlur,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 20,right: 15),
-                          child: AllText("More Option",align: TextAlign.right,color: ColorRes.lightBlur)),
-                        ),
+                      // textColor: ColorRes.lightBlur,
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                            padding: EdgeInsets.only(top: 20, right: 15),
+                            child: AllText("More Option",
+                                align: TextAlign.right,
+                                color: ColorRes.lightBlur)),
+                      ),
                       onTap: () {
                         searchScreensNavigator(context);
                       },
@@ -120,7 +129,12 @@ class _SearchScreenState extends State<SearchScreen> {
 
               Padding(
                   padding: EdgeInsets.only(left: 10, top: 25),
-                  child: AllText("Search results", fontSize:17,color: ColorRes.blackColor,fontWeight: FontWeight.bold,)),
+                  child: AllText(
+                    "Search results",
+                    fontSize: 17,
+                    color: ColorRes.blackColor,
+                    fontWeight: FontWeight.bold,
+                  )),
               Padding(
                   padding: EdgeInsets.only(left: 10, top: 5, bottom: 25),
                   child: AllText("225/45/R17", color: ColorRes.blackColor)),
@@ -194,8 +208,7 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Padding(
                 padding: EdgeInsets.only(left: 0, right: 0, top: 10),
-                child:
-                FilledButton(text: "Compare(1)", fontSize: 18))
+                child: FilledButton(text: "Compare(1)", fontSize: 18))
           ],
         );
       },

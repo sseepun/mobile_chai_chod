@@ -2,8 +2,7 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'file:///C:/live/mobile_chai_chod/lib/export.dart';
-import 'package:ChaiChod/screen/home_tab/main_screen.dart';
+import 'package:ChaiChod/screen/tab1_home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

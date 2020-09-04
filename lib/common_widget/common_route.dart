@@ -8,6 +8,8 @@ import 'package:ChaiChod/screen/order_details/orderdetailscreen.dart';
 import 'package:ChaiChod/screen/order_details/payment_billing/payment_billing_screen.dart';
 import 'package:ChaiChod/screen/search_home/search_screen.dart';
 import 'package:ChaiChod/screen/search_home/search_tabs_screen.dart';
+import 'package:ChaiChod/screen/search_home/select_tire/select_tire_screen.dart';
+import 'package:ChaiChod/screen/tab1_home/category/product/product_screen.dart';
 import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/complete/complete.dart';
 import 'package:ChaiChod/screen/tab2_archive/tab2_successfully/rate_product/rate_product_screen.dart';
 import 'package:ChaiChod/screen/tab3_notification/notification_screen.dart';
@@ -118,4 +120,13 @@ searchScreensNavigator(BuildContext context) {
 searchTabsScreenNavigator(BuildContext context) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => SearchScreen()));
+}
+selectTireScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => SelectTireScreen()));
+}
+
+productScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => ProductScreen()));
 }
