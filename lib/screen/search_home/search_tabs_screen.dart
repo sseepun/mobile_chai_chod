@@ -321,7 +321,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
             child: DropdownButtonHideUnderline(
               child: Container(
                 height: 45,
-                
+
                 //width: MediaQuery.of(context).size.width,
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(

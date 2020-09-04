@@ -138,6 +138,7 @@ class StringRes {
   static const sidewallTxt                   = "Sidewall";
   static const btn1details                   = "Add to cart";
   static const btn2details                   = "Continue";
+  static const DateFormat                   = "12 DEC 2019";
 
   //OrderSummary
   static const OrderSummaryTitle             = "Order Summary";
