@@ -234,7 +234,26 @@ class StringRes {
   static const paymentBillingTitle3            =  "Order now #10031124 30/05/20";
   static const paymentBillingBtn               =  "Completed";
   static const Amount                          =  "Amount to be paid";
-  static const price1                         =  "Amount to be paid";
+  static const price1                          =  "Amount to be paid";
+
+
+  // SelectTire Screen
+  static const SelectTireTitle                  = "Compare Selected Tires";
+  static const SelectTireTitle1                 = "Product Name";
+  static const SelectTireDes1                   = "Special sale tire model\nSP2030, new tires\nproduced in 2020";
+  static const SelectTireTitle2                 = "Brand";
+  static const SelectTireDes2                   = "Good Year";
+  static const SelectTireTitle3                 = "price";
+  static const SelectTireDes3                   = "B10,000/n Line";
+  static const SelectTireTitle4                 = "property";
+  static const SelectTireDes4                   = "Luxury Performance\nTouring";
+  static const SelectTireDes5                   = "All Season Tire";
+  static const SelectTireDes6                   = "Qualification";
+  static const SelectTireTitle7                 = "More Details";
+  static const SelectTireDes7                   = "Lorem ipsum dolor sit\narnet, consectetur\nadipicsing elit.";
+  static const SelectTireBtn1                   = "More Details";
+  static const SelectTireBtn2                   = "More Details";
+
 
 }
 
