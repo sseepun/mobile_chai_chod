@@ -31,9 +31,7 @@ class _AddressScreenState extends State<AddressScreen> {
             children: <Widget>[
               CommonView.backArrowAndTitle(context, StringRes.address, ColorRes.blackColor),
               SizedBox(height: 20),
-
               listData(),
-
             ],
           ),
         ),

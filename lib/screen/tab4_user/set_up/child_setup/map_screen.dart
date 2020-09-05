@@ -12,13 +12,16 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
-
+  BitmapDescriptor pinLocationIcon;
   final LatLng _center = const LatLng(23.022505, 72.571365);
-
   void _onMapCreated(GoogleMapController controller) {
 //    mapController = controller;
-  _controller.complete(controller);
+    _controller.complete(controller);
   }
+  void initState() {
+    super.initState();
+  }
+
 
   map() {
     return Container(
@@ -28,12 +31,16 @@ class _MapScreenState extends State<MapScreen> {
         mapType: MapType.normal,
         onMapCreated: _onMapCreated,
         zoomGesturesEnabled: true,
-        tiltGesturesEnabled: false,
+        tiltGesturesEnabled: true,
+        scrollGesturesEnabled: true,
         rotateGesturesEnabled: true,
+        myLocationEnabled: true,
         minMaxZoomPreference: MinMaxZoomPreference(6, 19),
         initialCameraPosition: CameraPosition(
           target: _center,
-         zoom: 11.0,
+          zoom: 11,
+          tilt: 59.440717697143555,
+          bearing: 192.8334901395799,
         ),
       ),
     );
@@ -42,22 +49,21 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
-        body: SingleChildScrollView(
-  child: Column(
-  children: <Widget>[
-  CommonView.backArrowAndTitle(
-  context, StringRes.address, ColorRes.blackColor),
-  SizedBox(height: 20),
-  searchData(),
-  map(),
-  //listData(),
-  ],
-  ),
-  ),
-        )
-    );
+        child: Scaffold(
+      backgroundColor: ColorRes.lightWhite,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            CommonView.backArrowAndTitle(
+                context, StringRes.address, ColorRes.blackColor),
+            SizedBox(height: 20),
+            searchData(),
+            map(),
+            //listData(),
+          ],
+        ),
+      ),
+    ));
   }
 
 //  SingleChildScrollView(
