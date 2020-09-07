@@ -19,6 +19,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
+  // hex color code
   hexColor(String colorhexcode) {
     String colornew = '0xff' + colorhexcode;
     colornew = colornew.replaceAll('#', '');
@@ -27,6 +28,7 @@ class LoginScreenState extends State<LoginScreen> {
   }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  // Text Controller
   TextEditingController usernameController = TextEditingController(text: 'Testting@gmail.com');
   TextEditingController passwordController = TextEditingController(text: "TEst@1234565");
   String username;
@@ -56,8 +58,10 @@ class LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     SizedBox(height: 20),
+                    // heading Image logo
                     CommonView.logoImage(220, 80),
                     SizedBox(height: 40),
+                    // heading title
                     AllText(
                       StringRes.signIn,
                       fontSize: 30.0,
@@ -68,6 +72,7 @@ class LoginScreenState extends State<LoginScreen> {
                       letterSpace: 1,
                     ),
                     SizedBox(height: 10),
+                    //All method call in this column
                     Column(
                       children: <Widget>[
                         userNameTextFiled(),
@@ -95,6 +100,7 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  // Email Validation
   String validateEmail(String value) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -105,6 +111,7 @@ class LoginScreenState extends State<LoginScreen> {
       return null;
   }
 
+  // Password Validation
   String validatePassword(String value) {
     // ignore: non_constant_identifier_names
     Pattern UPPER = ("[A-Z]");
@@ -138,6 +145,7 @@ class LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  // Validation true or false
   bool _validateInputs() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
@@ -147,6 +155,7 @@ class LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  // User name text filed
   userNameTextFiled() {
     return Stack(
       children: <Widget>[
@@ -205,6 +214,7 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //Password text filed
   passWordTextFiled() {
     return Stack(
       children: <Widget>[
@@ -266,6 +276,7 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //forgotPassword text filed
   forgotPassword() {
     return Align(
       alignment: Alignment.centerRight,
@@ -282,6 +293,7 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //Access Button are use in move to main screen
   accessButton() {
     return Container(
       height: 45,
@@ -307,6 +319,7 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //register text filed and its use to move the registration screen
   registerTitle() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -331,6 +344,7 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //orTitle Divider
   orTitle() {
     return Column(children: <Widget>[
       Row(children: <Widget>[
@@ -355,6 +369,7 @@ class LoginScreenState extends State<LoginScreen> {
     ]);
   }
 
+  //faceBookButton
   faceBookButton() {
     return Container(
       margin: EdgeInsets.only(top: 20),
@@ -395,6 +410,7 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //googleButton
   googleButton() {
     return Container(
       margin: EdgeInsets.only(top: 13, bottom: 10),
@@ -436,6 +452,7 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //appleButton
   appleButton() {
     return Container(
       width: 270,

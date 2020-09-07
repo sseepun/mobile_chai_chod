@@ -1,9 +1,10 @@
+
+// order history model screen
 class OrderHistoryModel{
   String status = 'Status';
   String dorg = 'Date of receipt goods';
   String due = 'Due';
   String payment = 'Payment';
-
   String brand = 'Brand';
   String pageWidth = 'PageWidth';
   String seriesNumber = 'Series Number';

@@ -1,5 +1,6 @@
 import 'orderdetailscreen.dart';
 
+//order details model
 class OrderDetailsModel{
   OrderDetailsScreenState state;
 

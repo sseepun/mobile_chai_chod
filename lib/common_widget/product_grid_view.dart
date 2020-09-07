@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+//product grid data screen
 class ProductGridData extends StatefulWidget {
   @override
   _ProductGridDataState createState() => _ProductGridDataState();

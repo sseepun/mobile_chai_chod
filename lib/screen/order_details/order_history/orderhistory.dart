@@ -37,8 +37,11 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
             child: Column(
               children: <Widget>[
 //                  appBarDesign(),
+                // Heading back arrow and title
                 CommonView.backArrowAndTitle(
                     context, StringRes.orderHistory, ColorRes.blackColor),
+
+                // all method are call
                 orderIdDesign(),
                 statusView(),
                 productDetailsList(),
@@ -61,6 +64,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     );
   }
 
+/*
   appBarDesign() {
     return Container(
       alignment: Alignment.center,
@@ -86,7 +90,9 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
       ),
     );
   }
+*/
 
+  //order history screen is used to order id
   orderIdDesign() {
     return Container(
       alignment: Alignment.center,
@@ -96,6 +102,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     );
   }
 
+  // payment design are use product details and price
   paymentDesign() {
     return Container(
       color: Colors.white,
@@ -129,6 +136,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     );
   }
 
+ // status view use are order history screen in status, and date show
   statusView() {
     return Container(
       height: 80,
@@ -148,6 +156,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     );
   }
 
+  //product details list are use in list view builder and this list are build list child
   productDetailsList() {
     return Container(
       child: ListView.builder(
@@ -160,6 +169,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     );
   }
 
+  // build list child are using text ,image, number count, price details
   buildListChild(int index) {
     return Container(
       padding: EdgeInsets.only(top: 10, bottom: 10),
@@ -256,6 +266,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     );
   }
 
+  //bottom sheet is using bottom sheet are selectPaymentChannel ,selectRadioPayment ,continueBtn method call
   void bottomSheet(context) {
     showModalBottomSheet(
         isScrollControlled: true,
@@ -282,6 +293,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
         });
   }
 
+  //select payment channel are using paymentChannel
   selectPaymentChannel() {
     return Container(
       padding: EdgeInsets.only(top: 20, left: 30, bottom: 10),
@@ -293,6 +305,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     );
   }
 
+  // continue button are use in radio button are select then the next screen show
   continueBtn() {
     return Container(
       color: ColorRes.primaryColor,
@@ -319,6 +332,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     );
   }
 
+  //select radio payment are using radio list title list
   selectRadioPayment(setState) {
     return Column(
       children: <Widget>[

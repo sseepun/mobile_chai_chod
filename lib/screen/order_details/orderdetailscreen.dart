@@ -35,6 +35,7 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+
                 CommonView.backArrowAndTitle(context, StringRes.orderDetailsTitle, ColorRes.blackColor),
                 orderNumberShow(),
                 statusShow(),

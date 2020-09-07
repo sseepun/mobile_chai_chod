@@ -18,7 +18,16 @@ class _ServiceScreenState extends State<ServiceScreen> {
   final controller = PageController();
   String radioItem = '';
 
+  hexColor(String colorhexcode) {
+    String colornew = '0xff' + colorhexcode;
+    colornew = colornew.replaceAll('#', '');
+    int colorint = int.parse(colornew);
+    return colorint;
+  }
+
   bool isSelected = true;
+  bool isDealerDetails = false;
+  bool isGeneralUser = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +39,15 @@ class _ServiceScreenState extends State<ServiceScreen> {
             children: <Widget>[
               _appBar(),
               SizedBox(height: 2),
-              serviceDetails(),
+              Visibility(
+                visible: true,
+                child: serviceDetails(),
+              ),
+              Divider(height: 1, color: ColorRes.greyColor),
+              Visibility(
+                visible: true,
+                child: service(),
+              ),
               Divider(height: 1, color: ColorRes.greyColor),
               discountDetails(),
               Divider(height: 1, color: ColorRes.greyColor),
@@ -46,7 +63,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
   Widget _appBar() {
     return Column(
       children: <Widget>[
-       Stack(
+        Stack(
           alignment: Alignment.center,
 //      mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -56,7 +73,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
               },
               child: Container(
                 alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: 15,top: 20),
+                padding: EdgeInsets.only(left: 15, top: 20),
                 child: Icon(
                   Icons.arrow_back,
                   color: ColorRes.blackColor,
@@ -67,7 +84,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
             Center(
               child: Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 25, bottom: 5,left: 45),
+                margin: EdgeInsets.only(top: 25, bottom: 5, left: 45),
                 child: Flexible(
                   child: AllText(
                     StringRes.serviceTitle,
@@ -82,7 +99,6 @@ class _ServiceScreenState extends State<ServiceScreen> {
             )
           ],
         ),
-
         Container(
           alignment: Alignment.topCenter,
           padding: EdgeInsets.only(top: 5, bottom: 15),
@@ -163,46 +179,73 @@ class _ServiceScreenState extends State<ServiceScreen> {
             ),
             Column(
               children: <Widget>[
-                RadioListTile(
-
-                  groupValue: radioItem,
-                  title: Text('Free installation (C Service Area)',style: TextStyle(fontSize: 14),),
-                  value: 'Item 1',
-                  onChanged: (val) {
-                    setState(() {
-
-                      radioItem = val;
-                    });
+                GestureDetector(
+                  onTap: () {
+                    setState(
+                      () {
+                        if (!isGeneralUser) {
+                          isGeneralUser = !isGeneralUser;
+                        } else {
+                          isDealerDetails = !isDealerDetails;
+                        }
+                      },
+                    );
                   },
+                  child: RadioListTile(
+                    groupValue: radioItem,
+                    title: Text(
+                      'Free installation (C Service Area)',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    value: 'Item 1',
+                    onChanged: (val) {
+                      setState(() {
+                        radioItem = val;
+                      });
+                    },
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.only(left: 70),
-                  child: Text('Bangkok, Maha Sarakham, Samut Prakan, Pathum Thani, Nonthaburi, Nakhon Pathom and Samut Sakhon',style: TextStyle(fontSize: 12),),
+                  child: Text(
+                    'Bangkok, Maha Sarakham, Samut Prakan, Pathum Thani, Nonthaburi, Nakhon Pathom and Samut Sakhon',
+                    style: TextStyle(fontSize: 12),
+                  ),
                 ),
-                RadioListTile(
-                  groupValue: radioItem,
-                  title: Text('Free private transport (not installed)',style: TextStyle(fontSize: 14),),
-                  value: 'Item 2',
-                  onChanged: (val) {
-                    setState(() {
-                      radioItem = val;
-                    });
-                  },
+                GestureDetector(
+                  child: RadioListTile(
+                    groupValue: radioItem,
+                    title: Text(
+                      'Free private transport (not installed)',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    value: 'Item 2',
+                    onChanged: (val) {
+                      setState(() {
+                        radioItem = val;
+                      });
+                    },
+                  ),
                 ),
-
-                RadioListTile(
-                  groupValue: radioItem,
-                  title: Text('Delivery outside the area, installation service free)',style: TextStyle(fontSize: 14),),
-                  value: 'Item 3',
-                  onChanged: (val) {
-                    setState(() {
-                      radioItem = val;
-                    });
-                  },
+                GestureDetector(
+                  child: RadioListTile(
+                    groupValue: radioItem,
+                    title: Text(
+                      'Delivery outside the area, installation service free)',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    value: 'Item 3',
+                    onChanged: (val) {
+                      setState(() {
+                        radioItem = val;
+                      });
+                    },
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.only(right: 30),
-                  child: Text('* There is a transportation fee.',style: TextStyle(fontSize: 14,color: Colors.red)),
+                  child: Text('* There is a transportation fee.',
+                      style: TextStyle(fontSize: 14, color: Colors.red)),
                 ),
               ],
             ),
@@ -210,7 +253,157 @@ class _ServiceScreenState extends State<ServiceScreen> {
         ));
   }
 
-  discountDetails(){
+  service() {
+    return Container(
+        height: 400,
+        color: Colors.white,
+        child: Column(
+          children: <Widget>[
+            Container(
+                height: 120,
+                margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    new BoxShadow(
+                      offset: Offset(0.5, 0.5),
+                      color: ColorRes.greyColor,
+                      blurRadius: 0.9,
+                    ),
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(2)),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.only(left: 10, top: 10),
+                      child: AllText(
+                        StringRes.serviceVisible1,
+                        color: ColorRes.blackColor,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.only(left: 10, top: 10),
+                      child: AllText(
+                        StringRes.serviceVisible2,
+                        color: ColorRes.blackColor,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          alignment: Alignment.topRight,
+                          padding: EdgeInsets.only(left: 10, top: 10),
+                          child: AllText(
+                            StringRes.serviceVisible3,
+                            color: ColorRes.blackColor,
+                            fontSize: 15,
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          padding: EdgeInsets.only(left: 5),
+                          child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ShippingScreen()),
+                                );
+                              },
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                size: 25,
+                                color: ColorRes.primaryColor,
+                              )),
+                        ),
+                      ],
+                    ),
+                  ],
+                )),
+            Column(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    setState(
+                      () {
+                        if (!isGeneralUser) {
+                          isGeneralUser = !isGeneralUser;
+                        } else {
+                          isDealerDetails = !isDealerDetails;
+                        }
+                      },
+                    );
+                  },
+                  child: RadioListTile(
+                    groupValue: radioItem,
+                    title: Text(
+                      'Free installation (C Service Area)',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    value: 'Item 1',
+                    onChanged: (val) {
+                      setState(
+                        () {
+                          radioItem = val;
+                        },
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 70),
+                  child: Text(
+                    'Bangkok, Maha Sarakham, Samut Prakan, Pathum Thani, Nonthaburi, Nakhon Pathom and Samut Sakhon',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
+                GestureDetector(
+                  child: RadioListTile(
+                    groupValue: radioItem,
+                    title: Text(
+                      'Free private transport (not installed)',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    value: 'Item 2',
+                    onChanged: (val) {
+                      setState(() {
+                        radioItem = val;
+                      });
+                    },
+                  ),
+                ),
+                GestureDetector(
+                  child: RadioListTile(
+                    groupValue: radioItem,
+                    title: Text(
+                      'Delivery outside the area, installation service free)',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    value: 'Item 3',
+                    onChanged: (val) {
+                      setState(() {
+                        radioItem = val;
+                      });
+                    },
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(right: 30),
+                  child: Text('* There is a transportation fee.',
+                      style: TextStyle(fontSize: 14, color: Colors.red)),
+                ),
+              ],
+            ),
+          ],
+        ));
+  }
+
+  discountDetails() {
     return Container(
         height: 110,
         color: Colors.white,
@@ -219,7 +412,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
             Container(
               alignment: Alignment.topLeft,
               padding: EdgeInsets.only(left: 10, top: 10),
-              child:AllText(
+              child: AllText(
                 StringRes.serviceDescription,
                 color: ColorRes.blackColor,
                 fontSize: 20,
@@ -227,7 +420,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top:10,left: 10),
+              padding: EdgeInsets.only(top: 10, left: 10),
               child: Row(
                 children: <Widget>[
                   Container(
@@ -235,18 +428,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                       width: 290,
                       decoration: BoxDecoration(
                           border: Border.all(
-                            color: ColorRes.primaryColor,
-                          )),
+                        color: ColorRes.primaryColor,
+                      )),
                       child: FlatButton(
-                       padding: EdgeInsets.only(right: 80),
+                        padding: EdgeInsets.only(right: 80),
                         color: ColorRes.whiteColor,
                         child: AllText(
                           StringRes.discountServiceBtn1,
                           fontSize: 15,
                           color: ColorRes.primaryColor,
                         ),
-                        onPressed: () {
-                        },
+                        onPressed: () {},
                       )),
                   Container(
                       height: 50,
@@ -259,8 +451,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           Icons.calendar_today,
                           color: ColorRes.whiteColor,
                         ),
-                        onPressed: () {
-                        },
+                        onPressed: () {},
                       )),
                 ],
               ),
@@ -305,29 +496,40 @@ class _ServiceScreenState extends State<ServiceScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          AllText(title, color: ColorRes.blackColor ),
-          AllText(details, align: TextAlign.right, color: showColor != null ? showColor :ColorRes.blackColor  ),
+          AllText(title, color: ColorRes.blackColor),
+          AllText(details,
+              align: TextAlign.right,
+              color: showColor != null ? showColor : ColorRes.blackColor),
         ],
       ),
     );
   }
 
   bottomButton() {
-    return Container(
-      color: Colors.white,
-      child:Padding(
-          padding: EdgeInsets.only(left: 10, right: 10, bottom: 15),
-          child: MaterialButton(
-            minWidth: Utils.getDeviceWidth(context),
-            height: 50,
-            onPressed: () {},
-            child: AllText(StringRes.rated),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0.0),
-                side: BorderSide(color: ColorRes.primaryColor)),
-            color: ColorRes.whiteColor,
-          )),
+    return InkResponse(
+      onTap: () {},
+      child: Container(
+        margin: EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 10),
+        alignment: Alignment.center,
+        width: Utils.getDeviceWidth(context),
+        height: 45,
+        decoration: new BoxDecoration(
+          color: isGeneralUser || isDealerDetails
+              ? ColorRes.primaryColor
+              : Color(hexColor('#E0E0E0')),
+          borderRadius: BorderRadius.all(Radius.circular(2)),
+          boxShadow: [
+            new BoxShadow(
+              color: Colors.black12,
+              blurRadius: 5,
+            ),
+          ],
+        ),
+        child: AllText(
+          StringRes.rated,
+          color: Colors.white,
+        ),
+      ),
     );
-
   }
 }

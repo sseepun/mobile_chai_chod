@@ -64,6 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             onPressed: () {
                               navigatorPop(context);
                             }),
+                        // search text filed
                         Container(
                           height: 50,
                           width: Utils.getDeviceWidth(context) / 1.2,
@@ -149,6 +150,9 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
+
+
+  //grid image are using image and text are grid view
   gridImage() {
     return GridView.builder(
       shrinkWrap: true,

@@ -2,6 +2,7 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:flutter/material.dart';
 
+// all screen text style
 class AllText extends StatelessWidget {
   final String title;
   final FontWeight fontWeight;

@@ -552,6 +552,7 @@ class _ProductScreenState extends State<ProductScreen>
       child: Column(
         children: <Widget>[
           Container(
+            color:Colors.white,
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.only(top: 20, left: 10,bottom: 10),
             child: Text(
@@ -565,7 +566,6 @@ class _ProductScreenState extends State<ProductScreen>
             ),
           ),
           Row(children: <Widget>[
-
             Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -580,9 +580,9 @@ class _ProductScreenState extends State<ProductScreen>
                     child: Padding(
                       padding: EdgeInsets.all(5.0),
                       child: new LinearPercentIndicator(
-                        width: 200.0,
+                        width: 150.0,
                         lineHeight: 10.0,
-                        percent: 0.5,
+                        percent: 0.8,
                         linearStrokeCap: LinearStrokeCap.roundAll,
                         backgroundColor: Colors.black12,
                         progressColor: Colors.blue,
@@ -599,7 +599,7 @@ class _ProductScreenState extends State<ProductScreen>
                     // padding: EdgeInsets.only(top:10,left: 10, right: 10),
                     child: Padding(
                       padding: EdgeInsets.all(5),
-                      child: Text("5000"),
+                      child: Text("2022"),
                     ),
                   ),
                 ])
@@ -619,7 +619,7 @@ class _ProductScreenState extends State<ProductScreen>
                     child: Padding(
                       padding: EdgeInsets.all(5.0),
                       child: new LinearPercentIndicator(
-                        width: 200.0,
+                        width: 150.0,
                         lineHeight: 10.0,
                         percent: 0.5,
                         linearStrokeCap: LinearStrokeCap.roundAll,
@@ -638,7 +638,7 @@ class _ProductScreenState extends State<ProductScreen>
                     // padding: EdgeInsets.only(top:10,left: 10, right: 10),
                     child: Padding(
                       padding: EdgeInsets.all(5),
-                      child: Text("5000"),
+                      child: Text("544"),
                     ),
                   ),
                 ])
@@ -658,9 +658,9 @@ class _ProductScreenState extends State<ProductScreen>
                     child: Padding(
                       padding: EdgeInsets.all(5.0),
                       child: new LinearPercentIndicator(
-                        width: 200.0,
+                        width: 150.0,
                         lineHeight: 10.0,
-                        percent: 0.5,
+                        percent: 0.6,
                         linearStrokeCap: LinearStrokeCap.roundAll,
                         backgroundColor: Colors.black12,
                         progressColor: Colors.blue,
@@ -677,7 +677,7 @@ class _ProductScreenState extends State<ProductScreen>
                     // padding: EdgeInsets.only(top:10,left: 10, right: 10),
                     child: Padding(
                       padding: EdgeInsets.all(5),
-                      child: Text("5000"),
+                      child: Text("122"),
                     ),
                   ),
                 ])
@@ -697,9 +697,9 @@ class _ProductScreenState extends State<ProductScreen>
                     child: Padding(
                       padding: EdgeInsets.all(5.0),
                       child: new LinearPercentIndicator(
-                        width: 200.0,
+                        width: 150.0,
                         lineHeight: 10.0,
-                        percent: 0.5,
+                        percent: 0.7,
                         linearStrokeCap: LinearStrokeCap.roundAll,
                         backgroundColor: Colors.black12,
                         progressColor: Colors.blue,
@@ -716,7 +716,7 @@ class _ProductScreenState extends State<ProductScreen>
                     // padding: EdgeInsets.only(top:10,left: 10, right: 10),
                     child: Padding(
                       padding: EdgeInsets.all(5),
-                      child: Text("5000"),
+                      child: Text("89"),
                     ),
                   ),
                 ])
@@ -736,9 +736,9 @@ class _ProductScreenState extends State<ProductScreen>
                     child: Padding(
                       padding: EdgeInsets.all(5.0),
                       child: new LinearPercentIndicator(
-                        width: 200.0,
+                        width: 150.0,
                         lineHeight: 10.0,
-                        percent: 0.5,
+                        percent: 0.9,
                         linearStrokeCap: LinearStrokeCap.roundAll,
                         backgroundColor: Colors.black12,
                         progressColor: Colors.blue,
@@ -755,7 +755,7 @@ class _ProductScreenState extends State<ProductScreen>
                     // padding: EdgeInsets.only(top:10,left: 10, right: 10),
                     child: Padding(
                       padding: EdgeInsets.all(5),
-                      child: Text("5000"),
+                      child: Text("12"),
                     ),
                   ),
                 ])
@@ -1430,7 +1430,7 @@ class _ProductScreenState extends State<ProductScreen>
                   child: Padding(
                     padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
                     child: FilledButton(
-                        text: StringRes.btn2details,
+                        text: StringRes.continueText,
                         fontSize: 18,
                         onPressed: () {
                           Navigator.push(

@@ -7,19 +7,17 @@ import 'package:ChaiChod/screen/order_details/order_history/payment_transfer/pay
 import 'package:ChaiChod/screen/success/success_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+//Model class
 class Model {
   String name;
   String image;
   String name1;
   String company;
-
   Model(this.image, this.name, this.name1, this.company);
 }
 
 class PaymentTransferScreen extends StatefulWidget {
   final int i;
-
   const PaymentTransferScreen({Key key, this.i}) : super(key: key);
 
   @override
@@ -29,6 +27,7 @@ class PaymentTransferScreen extends StatefulWidget {
 class PaymentTransferScreenState extends State<PaymentTransferScreen> {
   List<Model> list = List();
   int isSelectedIndex = 0;
+  // isDealerDetails and isGeneralUser are use in button color change
   bool isDealerDetails = false;
   bool isGeneralUser = false;
 
@@ -36,6 +35,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
   void initState() {
     // TODO: implement initState
     setState(() {
+      //list of image ,Description ,Number ,and company name
       list.add(Model(
         Utils.getAssetsImg('i1'),
         "Kasikorn Thai",
@@ -67,16 +67,20 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-//                  appBarDesign(),
-                CommonView.backArrowAndTitle(
-                    context, StringRes.paymentTitle, ColorRes.blackColor),
+                // Heading back arrow and title
+                CommonView.backArrowAndTitle(context, StringRes.paymentTitle, ColorRes.blackColor),
+
                 orderIdDesign(),
                 Divider(height: 1, color: ColorRes.greyColor),
+
                 paymentDesign(),
                 Divider(height: 1, color: ColorRes.greyColor),
                 SizedBox(height: 10),
+
                 title1(),
+
                 title2(),
+
                 ListView.builder(
                     itemCount: list.length,
                     shrinkWrap: true,
@@ -88,14 +92,20 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
 
                 Divider(height: 1, color: ColorRes.greyColor),
                 SizedBox(height: 10),
+
                 payment(),
                 SizedBox(height: 10),
+
+
                 button(),
                 SizedBox(height: 20),
+
+
                 Visibility(
                   visible: isGeneralUser,
                 child: img(),
                 ),
+
                 submitButton(),
               ],
             ),
@@ -105,32 +115,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
-  appBarDesign() {
-    return Container(
-      alignment: Alignment.center,
-      height: 50,
-      color: Colors.white,
-      child: Stack(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(10),
-            child: InkWell(
-              child: Icon(Icons.arrow_back, size: 25),
-              onTap: () {},
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text(
-              "",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
+  //Payment transfer screen in order id title
   orderIdDesign() {
     return Container(
       alignment: Alignment.center,
@@ -140,6 +125,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+  //Payment transfer screen in payment Design and product details , price
   paymentDesign() {
     return Container(
       color: Colors.white,
@@ -172,6 +158,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+  //Payment transfer screen in title 1
   title1() {
     return Container(
       alignment: Alignment.topLeft,
@@ -184,6 +171,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+  //Payment transfer screen in title 2
   title2() {
     return Container(
       alignment: Alignment.topLeft,
@@ -196,6 +184,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+  //Payment transfer screen in card in image , company name , name design
   Widget languageData(int index) {
     return InkResponse(
       onTap: () {
@@ -275,6 +264,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+  //Payment transfer screen in Attach proof of payment title
   payment() {
     return Container(
       alignment: Alignment.topLeft,
@@ -287,6 +277,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+  //Payment transfer screen in RC A Upload button and its use the click this button and change color in submit button color
   button() {
     return InkWell(
       onTap: () {
@@ -327,6 +318,8 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+
+  //this image are show the button click
   img() {
     return InkResponse(
       child:Row(
@@ -382,6 +375,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+  //submit button name is Complete and this button color change and this button are click then next screen move
   submitButton() {
     return InkResponse(
       onTap: () {
@@ -418,6 +412,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
     );
   }
 
+ // color show are use in color change in index
   colorShow(int index) {
     if (index == 0) {
       return Colors.green;

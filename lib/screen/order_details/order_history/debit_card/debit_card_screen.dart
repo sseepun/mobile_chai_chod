@@ -4,29 +4,24 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/order_details/order_history/payment_transfer/payment_success/payment_sccess_screen.dart';
-import 'package:ChaiChod/screen/success/success_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DebitCardScreen extends StatefulWidget {
   final int i;
-
   const DebitCardScreen({Key key, this.i}) : super(key: key);
-
   @override
   DebitCardScreenState createState() => DebitCardScreenState();
 }
 
 class DebitCardScreenState extends State<DebitCardScreen> {
   int isSelectedIndex = 0;
+
+  // isDealerDetails and isGeneralUser are use in button color change
   bool isDealerDetails = false;
   bool isGeneralUser = false;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-  }
-
+  // hex color code
   hexColor(String colorhexcode) {
     String colornew = '0xff' + colorhexcode;
     colornew = colornew.replaceAll('#', '');
@@ -43,25 +38,39 @@ class DebitCardScreenState extends State<DebitCardScreen> {
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-//                  appBarDesign(),
-                CommonView.backArrowAndTitle(
-                    context, StringRes.DebitCardTitle, ColorRes.blackColor),
+
+                // Heading back arrow and title
+                CommonView.backArrowAndTitle(context, StringRes.DebitCardTitle, ColorRes.blackColor),
+
+                //debit card screen in order id title method call
                 orderIdDesign(),
                 Divider(height: 1, color: ColorRes.greyColor),
+
+                //debit card screen in payment design method call
                 paymentDesign(),
                 Divider(height: 1, color: ColorRes.greyColor),
                 SizedBox(height: 10),
+
+                //debit card screen in barcode use method call
                 barcode(),
                 Divider(height: 1, color: ColorRes.greyColor),
                 SizedBox(height: 10),
+
+                //debit card screen in payment title method call
                 payment(),
                 SizedBox(height: 10),
+
+                //debit card screen in upload button method call
                 button(),
                 SizedBox(height: 20),
+
+                //debit card screen in hide image are visible method call
                 Visibility(
                   visible: isGeneralUser,
                   child: img(),
                 ),
+
+                //debit card screen in submit button method call
                 submitButton(),
               ],
             ),
@@ -71,32 +80,7 @@ class DebitCardScreenState extends State<DebitCardScreen> {
     );
   }
 
-  appBarDesign() {
-    return Container(
-      alignment: Alignment.center,
-      height: 50,
-      color: Colors.white,
-      child: Stack(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(10),
-            child: InkWell(
-              child: Icon(Icons.arrow_back, size: 25),
-              onTap: () {},
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text(
-              "",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
+ //debit card screen in order id title 1
   orderIdDesign() {
     return Container(
       alignment: Alignment.center,
@@ -106,6 +90,7 @@ class DebitCardScreenState extends State<DebitCardScreen> {
     );
   }
 
+ //debit card screen in payment design its use are product details name ane price
   paymentDesign() {
     return Container(
       color: Colors.white,
@@ -137,12 +122,15 @@ class DebitCardScreenState extends State<DebitCardScreen> {
       ),
     );
   }
-   barcode() {
+
+  //debit card screen in barcode use
+  barcode() {
     return Container(
         child:Image.asset(Utils.getAssetsImg('barcode'),),
     );
   }
 
+  //debit card screen in payment title
   payment() {
     return Container(
       alignment: Alignment.topLeft,
@@ -155,6 +143,7 @@ class DebitCardScreenState extends State<DebitCardScreen> {
     );
   }
 
+  //debit card screen in upload button and its use the click button and change submit button color and show image
   button() {
     return InkWell(
       onTap: () {
@@ -199,6 +188,7 @@ class DebitCardScreenState extends State<DebitCardScreen> {
     );
   }
 
+  //debit card screen in hide image this image are show the upload button are click
   img() {
     return InkResponse(
       child: Row(
@@ -262,6 +252,7 @@ class DebitCardScreenState extends State<DebitCardScreen> {
     );
   }
 
+  //debit card screen in submit button this button color change in the upload button are click and the
   submitButton() {
     return InkResponse(
       onTap: () {
@@ -296,15 +287,5 @@ class DebitCardScreenState extends State<DebitCardScreen> {
         ),
       ),
     );
-  }
-
-  colorShow(int index) {
-    if (index == 0) {
-      return Colors.green;
-    } else if (index == 1) {
-      return Colors.deepPurple;
-    } else {
-      return ColorRes.blackColor;
-    }
   }
 }

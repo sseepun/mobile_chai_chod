@@ -14,6 +14,7 @@ class PaymentSuccessScreen extends StatefulWidget {
 }
 
 class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
+  // hex color code
   hexColor(String colorhexcode) {
     String colornew = '0xff' + colorhexcode;
     colornew = colornew.replaceAll('#', '');
@@ -35,6 +36,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
+                  //payment success screen success image
                   Container(
                     padding: EdgeInsets.only(top: 0),
                     alignment: Alignment.center,
@@ -45,6 +47,8 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
                       fit: BoxFit.fill,
                     ),
                   ),
+
+                  //payment success screen Payment Success Title
                   Container(
                     padding: EdgeInsets.only(top: 30),
                     child: AllText(StringRes.PaymentSuccessTitle,
@@ -52,6 +56,8 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
+
+                  //payment success screen Payment Success Description
                   Align(
                     alignment: Alignment.center,
                     child:Container(
@@ -63,6 +69,8 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
                     ),
 
                   ),
+
+                  //payment success screen Payment Success Description
                   Container(
                     padding: EdgeInsets.only(top: 20),
                     child: AllText(
@@ -72,6 +80,8 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
                       color: ColorRes.primaryColor,
                     ),
                   ),
+
+                  //payment success screen Payment Success Description
                   Container(
                     padding: EdgeInsets.only(top: 10),
                     child: AllText(
@@ -80,6 +90,8 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
                         color: Colors.black),
                   ),
                   SizedBox(height: 30),
+
+                  //payment success screen Homepage button
                   Container(
                     child: Container(
                       width: Utils.getDeviceWidth(context) / 1.35,

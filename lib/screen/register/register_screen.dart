@@ -92,6 +92,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               dealer(),
                             ],
                           ),
+                          //visible method are click button
                           Visibility(
                             visible: isDealerDetails,
                             child: Container(
@@ -118,12 +119,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
+  //name validation
   String validateName(String value) {
     if (value.isEmpty)
       return 'Please enter your Name';
     else
       return null;
   }
+  //email validation
   String validateEmail(String value) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -133,6 +136,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     } else
       return null;
   }
+  //password validation
   String validatePassword(String value) {
     // ignore: non_constant_identifier_names
     Pattern UPPER = ("[A-Z]");
@@ -165,6 +169,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         return null;
     }
   }
+  //confirm password validation
   String validatePasswordMatching(String value) {
     var password = passKey.currentState.value;
     if (value.length == 0) {
@@ -174,12 +179,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
     return null;
   }
+  //mobile  number validation
   String validateMobile(String value) {
     if (value.length != 10)
       return 'Mobile Number must be of 10 digit';
     else
       return null;
   }
+
   String validateStorename(String value) {
     if (value.isEmpty)
       return 'Please enter store name';
@@ -488,6 +495,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
+  //dealer button are use in validation are true then color are change in this button
   dealer() {
     return Expanded(
       flex: 1,
@@ -710,6 +718,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
+  // submit button are use the all validation are true then the button color change and the next filed are show
   submitButton() {
     return InkResponse(
       onTap: () {

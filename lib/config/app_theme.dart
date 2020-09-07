@@ -2,7 +2,7 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:flutter/material.dart';
 
-
+//app theme display, headline, title, subtitle,body are style design
 class AppState {
   static final AppState _singleton = AppState._internal();
   factory AppState() {

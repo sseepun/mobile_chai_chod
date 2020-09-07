@@ -4,14 +4,17 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils{
 
+  //width
   static double getDeviceWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }
 
+  //height
   static double getDeviceHeight(BuildContext context) {
     return MediaQuery.of(context).size.height;
   }
 
+  //common image style and this use only image name in all screen
   static getAssetsImg(String name) {
     return "assets/images/" + name + ".png";
   }

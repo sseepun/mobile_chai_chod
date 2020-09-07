@@ -20,7 +20,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentScreenIndex = 0;
   List<Widget> _screens;
-
+// list of bottom tab bar
   List<List> _bottomData = <List>[
     [ 0, FontAwesomeIcons.home, 'หน้าหลัก' ],
     [ 1, FontAwesomeIcons.archive, 'ติดตามพัสดุ' ],
@@ -30,6 +30,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
+    // bottom tab bar screen
     _screens = [
       HomeScreen(),
       ArchiveScreen(),
@@ -45,56 +46,14 @@ class _MainScreenState extends State<MainScreen> {
       color: ColorRes.greyColor,
       child: Scaffold(
         backgroundColor: ColorRes.bgColor,
-//        appBar: _appBar(),
         body: _screens[_currentScreenIndex],
+        // bottomNavigationBar
         bottomNavigationBar: _bottomNavigationBar(),
       ),
     );
   }
 
-  Widget _appBar() {
-    return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 0,
-      centerTitle: true,
-      title: Container(
-        height: 50,
-          alignment: Alignment.topCenter,
-          child: Image.asset(Utils.getAssetsImg('logo')),
-      ),
-
-      /*title: Image(
-        image: AssetImage('assets/img/logo.png'),
-        width: 110,
-      ),*/
-
-      leading: _currentScreenIndex != 0 ? IconButton(
-          onPressed: () {
-            print('Back');
-          },
-          padding: EdgeInsets.only(
-            left: 10,
-          ),
-          icon: Icon(Icons.arrow_back),
-          iconSize: 28,
-          color: ColorRes.greyColor,
-        ) : null,
-      actions: <Widget>[
-        IconButton(
-          onPressed: () {
-            print('Shopping Cart');
-          },
-          padding: EdgeInsets.only(
-            right: 15,
-          ),
-          icon: Icon(Icons.shopping_basket),
-          iconSize: 28,
-          color: ColorRes.primaryColor,
-        ),
-      ],
-    );
-  }
-
+// bottom tab bar navigator and its use are bottom tab bar
   Widget _bottomNavigationBar() {
     return BottomNavigationBar(
       currentIndex: _currentScreenIndex,

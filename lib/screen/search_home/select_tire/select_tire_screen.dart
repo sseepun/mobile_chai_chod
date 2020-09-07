@@ -29,12 +29,14 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
                 color: Colors.white,
                 child: Column(
                   children: <Widget>[
+                    //back arrow and title
                     CommonView.backArrowAndTitle(context,
                         StringRes.SelectTireTitle, ColorRes.blackColor),
                     appBar(),
                   ],
                 ),
               ),
+              //all methods are call
               productName(),
               productDes(),
               productName1(),
@@ -81,6 +83,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
         ));
   }
 
+  // title name
   productName() {
   return Container(
       child: Column(
@@ -98,6 +101,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
       ));
 }
 
+//title description
   productDes() {
     return Container(
       height: 70,

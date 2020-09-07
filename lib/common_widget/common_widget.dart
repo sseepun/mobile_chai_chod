@@ -5,6 +5,7 @@ import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/material.dart';
 
+//all screen use  common image logo
 class CommonView {
   static logoImage(double width, double height) {
     return Container(
@@ -19,6 +20,8 @@ class CommonView {
     );
   }
 
+
+  //all screen common back arrow use
   static backArrow(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 20,left: 15),
@@ -35,6 +38,8 @@ class CommonView {
     );
   }
 
+
+  //all screen use common text style
   static titleText(String title) {
     return Container(
       alignment: Alignment.center,
@@ -48,6 +53,7 @@ class CommonView {
     );
   }
 
+  //all screen common back arrow and title use
   static backArrowAndTitle(BuildContext context, String title, Color color) {
     return Stack(
       alignment: Alignment.center,
@@ -87,6 +93,7 @@ class CommonView {
     );
   }
 
+  // product details left data design
   static productDetailsLeftRightData(String title, String price, {Color showColor}) {
     return Padding(
       padding: EdgeInsets.only(left: 0, right: 0),
@@ -111,6 +118,7 @@ class CommonView {
       ),
     );
   }
+  // product details right data design
   static productDetailsLeftRight1Data(String title, String price, {Color showColor}) {
     return Padding(
       padding: EdgeInsets.only(left: 0, right: 0),

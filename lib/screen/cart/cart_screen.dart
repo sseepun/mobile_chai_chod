@@ -22,9 +22,13 @@ class _CartScreenState extends State<CartScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+
+              // Heading back arrow and title
               CommonView.backArrowAndTitle(context, StringRes.shoppingCart, ColorRes.blackColor),
+
               SizedBox(height: 15),
 
+              // method call in list of cart design
               listViewData(),
             ],
           ),
@@ -33,7 +37,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
-
+// Cart screen in Bottom bar Continue button
   bottomBar() {
     return Container(
       height: 150,
@@ -55,31 +59,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
- /* productDetailsShow(String title, String price) {
-    return Padding(
-      padding: EdgeInsets.only(left: 10, right: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Expanded(
-              flex: 1,
-              child: AllText(title,
-                  color: ColorRes.blackColor,
-                  overflow: TextOverflow.ellipsis,
-                  maxLine: 1,
-                  align: TextAlign.left)),
-          Expanded(
-              flex: 1,
-              child: AllText(price,
-                  color: ColorRes.blackColor,
-                  overflow: TextOverflow.ellipsis,
-                  maxLine: 1,
-                  align: TextAlign.right)),
-        ],
-      ),
-    );
-  }*/
-
+// List of Cart Design
   listViewData() {
     return ListView.builder(
         itemCount: 10,
@@ -168,9 +148,9 @@ class _CartScreenState extends State<CartScreen> {
         });
   }
 
+// Number are increment and decrement
   incrementRow() {
     return Row(
-//      mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         Expanded(
             flex: 1,
