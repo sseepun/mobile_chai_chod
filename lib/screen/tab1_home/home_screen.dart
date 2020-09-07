@@ -129,6 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+
+  // car images side images
   sideImage() {
     return Container(
       height: Utils.getDeviceWidth(context) / 1.6,
@@ -182,6 +184,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+
+  //images text are show in category list method and horizontal scroll
   categoryList(int index) {
     return InkResponse(
       onTap: () {

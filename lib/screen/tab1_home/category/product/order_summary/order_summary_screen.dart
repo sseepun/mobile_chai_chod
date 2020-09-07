@@ -25,6 +25,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
           child: Column(
             children: <Widget>[
               _appBar(),
+              //product details method are call
               Column(
                 children: <Widget>[
                   productDetailsView(),

@@ -45,7 +45,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
     );
   }
 
-
+//list data use in list of icon and strings and click the other screen
   listData(int index) {
     return InkResponse(
       onTap: () {

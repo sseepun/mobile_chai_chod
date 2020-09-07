@@ -9,12 +9,14 @@ class SetUpScreen extends StatefulWidget {
 class _SetUpScreenState extends State<SetUpScreen> {
   final controller = PageController();
 
+  //list of icons
   List<IconData> icons = [
     Icons.location_on,
     Icons.translate,
     Icons.track_changes
   ];
 
+  //list of string List
   List<String> stringList = [
     'Address',
     'Language',

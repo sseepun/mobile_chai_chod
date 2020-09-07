@@ -9,6 +9,7 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
   final controller = PageController();
 
+  //list of icons
   List<IconData> icons = [
     Icons.person_outline,
     Icons.favorite_border,
@@ -17,6 +18,7 @@ class _UserScreenState extends State<UserScreen> {
     Icons.view_day
   ];
 
+  //list of strings
   List<String> stringList = [
     StringRes.manageProfile,
     StringRes.favorites,
@@ -48,6 +50,7 @@ class _UserScreenState extends State<UserScreen> {
   }
 
 
+  //list data are use in list of icons and list og strings design
   listData(int index) {
     return InkResponse(
       onTap: () {

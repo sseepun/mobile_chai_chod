@@ -77,6 +77,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
         ));
   }
 
+  //list data use in list of privacy screen details
   listData() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -22,7 +22,7 @@ class _MapScreenState extends State<MapScreen> {
     super.initState();
   }
 
-
+  // map are use in map in screen
   map() {
     return Container(
       height: MediaQuery.of(context).size.height,
@@ -79,6 +79,7 @@ class _MapScreenState extends State<MapScreen> {
 //  ),
 //  ),
 
+  //search field
   searchData() {
     return Container(
       height: 50,

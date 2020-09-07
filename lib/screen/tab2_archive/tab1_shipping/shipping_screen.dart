@@ -28,6 +28,7 @@ class _ShippingScreenState extends State<ShippingScreen> {
     );
   }
 
+  //shipping card show the text and date
   shippingCard(){
     return InkResponse(
       onTap: () {
@@ -58,6 +59,7 @@ class _ShippingScreenState extends State<ShippingScreen> {
     );
   }
 
+  //card text show are use in design in shipping card
   cardTextShow(String leftText, String rightText) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

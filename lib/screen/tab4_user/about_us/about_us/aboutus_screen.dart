@@ -90,6 +90,7 @@ class _ChildAboutUsScreenState extends State<ChildAboutUsScreen> {
         ));
   }
 
+  //list data are list view design
   listData(int index) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -109,6 +109,7 @@ class _ProductScreenState extends State<ProductScreen>
         ));
   }
 
+  //user logo show in this method
   userLogo() {
     return Stack(
 //      alignment: Alignment.topCenter
@@ -230,6 +231,8 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+
+  //tab bar heading
   tabBarShow() {
     return Container(
       height: 750,
@@ -269,6 +272,7 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+
   relatedProducts() {
     return Padding(
       padding: EdgeInsets.only(top: 20, left: 15),
@@ -281,6 +285,7 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+  //
   listProductData() {
     return Container(
       height: 275,
@@ -546,6 +551,8 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+
+  //review tab in using rating this screen
   ReviewsTab() {
     return SingleChildScrollView(
       physics: NeverScrollableScrollPhysics(),
@@ -1141,6 +1148,7 @@ class _ProductScreenState extends State<ProductScreen>
         });
   }
 
+  //dialog box show in image
   void dialogBoxShow() {
     showDialog(
         context: context,

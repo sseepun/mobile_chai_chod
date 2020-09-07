@@ -116,6 +116,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
     );
   }
 
+  //service details are use in radio list tile and change color bottom button
   serviceDetails() {
     return Container(
         height: 350,

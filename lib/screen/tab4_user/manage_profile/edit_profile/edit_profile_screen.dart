@@ -20,6 +20,7 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   File _image;
 
+  //image picker use in get the images in gallery
   void _openGallery() async {
     var i = await ImagePicker.pickImage(source: ImageSource.gallery);
     if (i != null) {
@@ -28,6 +29,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       });
     }
   }
+
+  //image picker use in get the images in camera
   void _openCamera() async {
     var i = await ImagePicker.pickImage(source: ImageSource.camera);
     if (i != null) {
@@ -152,6 +155,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
 
+
+  //upload image use in set the images are gallery and camera
   uploadImage() {
     return Container(
       child: Column(
@@ -204,6 +209,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       ),
     );
   }
+  //_showSelectionDialog are use in click edit profile and show dialog
   void _showSelectionDialog() {
     BuildContext dialogContext;
     showDialog(
