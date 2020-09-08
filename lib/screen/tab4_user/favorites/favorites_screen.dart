@@ -32,6 +32,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     );
   }
 
+  //grid image are show grid view in details
   gridImage() {
     return GridView.builder(
       shrinkWrap: true,

@@ -293,6 +293,7 @@ class OrderScreenState extends State<OrderScreen> {
     );
   }
 
+  //continue btn method are use in radio list tile button click and then next screen show
   continueBtn() {
     return Container(
       color: ColorRes.primaryColor,
@@ -319,6 +320,7 @@ class OrderScreenState extends State<OrderScreen> {
     );
   }
 
+  // select radio payment are use in radio list tile
   selectRadioPayment(setState) {
     return Column(
       children: <Widget>[

@@ -28,6 +28,7 @@ class _SuccessfulDeliveryScreenState extends State<SuccessfulDeliveryScreen> {
     );
   }
 
+  //success full card in order , date order , date Of Receipt
   successFullCard() {
     return InkResponse(
       onTap: () {
@@ -57,6 +58,8 @@ class _SuccessfulDeliveryScreenState extends State<SuccessfulDeliveryScreen> {
           )),
     );
   }
+
+
 
   cardTextShow(String leftText, String rightText) {
     return Row(

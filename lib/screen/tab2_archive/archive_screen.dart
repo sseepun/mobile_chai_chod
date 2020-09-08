@@ -51,6 +51,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> with SingleTickerProvider
                 controller: _tabController,
               ),
             ),
+            //show the tab bar
             Expanded(
               child: TabBarView(
                 children: [
@@ -66,6 +67,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> with SingleTickerProvider
     );
   }
 
+  //tab bar heading
   tabBar(){
     return DefaultTabController(
         length: 2,

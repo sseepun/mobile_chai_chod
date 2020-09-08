@@ -14,6 +14,7 @@ class GoodYearScreen extends StatefulWidget {
 }
 
 class _GoodYearScreenState extends State<GoodYearScreen> {
+  //list of title name
   List<String> listTitle = [
     'goodyear1',
     'goodyear2',
@@ -45,6 +46,7 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
     );
   }
 
+  // app bar method are use in back arrow , search icon and shopping basket icon
   Widget appBar() {
     return Container(
         color: Colors.white,

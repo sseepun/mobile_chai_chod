@@ -60,6 +60,8 @@ class _NotificationScreenState extends State<NotificationScreen>
                 controller: _tabController,
               ),
             ),
+
+            // tab bar view are use in other screen
             Expanded(
               child: TabBarView(
                 children: [
@@ -76,7 +78,7 @@ class _NotificationScreenState extends State<NotificationScreen>
     );
   }
 
-
+// tab bar name
   tabBar() {
     return Container(
       child: new DefaultTabController(

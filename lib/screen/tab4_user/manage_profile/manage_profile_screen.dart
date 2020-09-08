@@ -36,6 +36,7 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
 
 
 
+  //show the image logo
   logoShow() {
     return Container(
       height: Utils.getDeviceWidth(context) / 2.3,
@@ -52,6 +53,7 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
     );
   }
 
+  // user logo is use the move to edit profile screen
   userLogo() {
     return Stack(
 //      alignment: Alignment.topCenter

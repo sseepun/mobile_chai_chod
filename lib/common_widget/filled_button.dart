@@ -4,6 +4,7 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class FilledButton extends StatelessWidget {
   final double height;
   final double width;
@@ -39,10 +40,10 @@ class FilledButton extends StatelessWidget {
         child: _button());
   }
 
+  //raise button design
   Widget _button() {
     return RaisedButton(
       focusNode: focusNode,
-
       disabledColor: disabledColor ?? ColorRes.lightBlur,
       disabledTextColor: disabledTextColor ?? Colors.white,
       highlightElevation: 0,

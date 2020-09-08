@@ -16,6 +16,7 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
+  //list if images
   List<String> images = [
     Utils.getAssetsImg('slide_goodyear'),
     Utils.getAssetsImg('deeston'),
@@ -23,6 +24,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     Utils.getAssetsImg('toyo'),
   ];
 
+  //list of string List
   List<String> stringList1 = [
     'GOODYEAR',
     'DEESTONE',
@@ -161,6 +163,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 
+// grid image  are using grid view image and text
   gridImage() {
     return GridView.builder(
       shrinkWrap: true,

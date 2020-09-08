@@ -79,6 +79,7 @@ class _CompleteScreenState extends State<CompleteScreen> {
     );
   }
 
+  //rate card design in method
   rateCard() {
     return Container(
       child: Row(

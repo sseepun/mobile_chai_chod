@@ -1,3 +1,4 @@
+import 'package:ChaiChod/screen/tab4_user/set_up/child_setup/map_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ChaiChod/export.dart';
 
@@ -17,7 +18,12 @@ class _AddressScreenState extends State<AddressScreen> {
         backgroundColor: ColorRes.lightWhite,
         floatingActionButton: FloatingActionButton(
           backgroundColor: ColorRes.primaryColor,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MapScreen()),
+            );
+ },
           child: Icon(Icons.add,size: 40,),
         ),
         body: SingleChildScrollView(
@@ -25,9 +31,7 @@ class _AddressScreenState extends State<AddressScreen> {
             children: <Widget>[
               CommonView.backArrowAndTitle(context, StringRes.address, ColorRes.blackColor),
               SizedBox(height: 20),
-
               listData(),
-
             ],
           ),
         ),
@@ -62,6 +66,7 @@ class _AddressScreenState extends State<AddressScreen> {
     ));
   }
 
+  //list of address
   listData() {
     return Container(
         margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
@@ -103,3 +108,5 @@ class _AddressScreenState extends State<AddressScreen> {
         ));
   }
 }
+
+

@@ -29,12 +29,13 @@ class _PaymentBillingScreenState extends State<PaymentBillingScreen> {
                   color: Colors.white,
                   child: Column(
                     children: <Widget>[
-                      CommonView.backArrowAndTitle(context,
-                          StringRes.paymentBillingTitle1, ColorRes.blackColor),
+                      // Heading back arrow and title
+                      CommonView.backArrowAndTitle(context, StringRes.paymentBillingTitle1, ColorRes.blackColor),
                       appBarDesign(),
                     ],
                   ),
                 ),
+                //all method are call
                 Divider(height: 1, color: ColorRes.greyColor),
                 productDetailsView(),
                 statusShow(),
@@ -51,6 +52,7 @@ class _PaymentBillingScreenState extends State<PaymentBillingScreen> {
     );
   }
 
+  // app bar design are use in payment Billing Title
   appBarDesign() {
     return Container(
       alignment: Alignment.center,
@@ -79,6 +81,8 @@ class _PaymentBillingScreenState extends State<PaymentBillingScreen> {
     );
   }
 
+
+  //productDetails in left and right side text
   productDetails(String leftTile, String rightSide) {
     return Container(
       margin: EdgeInsets.only(top: 10, bottom: 7, right: 7),
@@ -99,6 +103,7 @@ class _PaymentBillingScreenState extends State<PaymentBillingScreen> {
     );
   }
 
+  //product Details View are use this screen in text ,image, brand, pageWidth, seriesNumber, edgeRubber, sidewall
   productDetailsView() {
     return Container(
       padding: EdgeInsets.only(top: 10, bottom: 10, right: 10),

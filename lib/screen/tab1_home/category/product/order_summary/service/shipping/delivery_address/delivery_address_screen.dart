@@ -8,8 +8,12 @@ import 'package:flutter/material.dart';
 
 import '../../../order_summary_screen.dart';
 import '../shipping_screen.dart';
+import 'location/loaction_search_screen/loaction_search_screen.dart';
+import 'location/location_screen.dart';
 
 class DeliveryAddressScreen extends StatefulWidget {
+  final int i;
+  const DeliveryAddressScreen({Key key, this.i}) : super(key: key);
   @override
   _DeliveryAddressScreenState createState() => _DeliveryAddressScreenState();
 }
@@ -38,6 +42,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
                 children: <Widget>[
                   _appBar(),
                   SizedBox(height: 30),
+
                   ListView.builder(
                       itemCount: 2,
                       shrinkWrap: true,
@@ -95,6 +100,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
         ));
   }
 
+  //list data are use in list of strings
   listData(int index) {
     return InkResponse(
       onTap: () {
@@ -144,7 +150,6 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
 
   serviceDetails() {
     return Container(
-
       color: Colors.white,
       child: Container(
         height: 60,
@@ -173,14 +178,13 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
             ),
             Container(
               height: 50,
-              padding: EdgeInsets.only(left: 120),
+              padding: EdgeInsets.only(left: 160),
               child: InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ShippingScreen()),
-                    );
-                  },
+                      MaterialPageRoute(builder: (context) => LocationScreen()),
+                    );                  },
                   child: Icon(
                     Icons.arrow_forward_ios,
                     size: 25,

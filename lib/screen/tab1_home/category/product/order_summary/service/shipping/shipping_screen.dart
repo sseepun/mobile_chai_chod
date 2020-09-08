@@ -152,6 +152,7 @@ class _ShippingScreenState extends State<ShippingScreen>
         ));
   }
 
+  // service details are use in forward arrow to the next screen
   serviceDetails() {
     return Container(
         color: Colors.white,

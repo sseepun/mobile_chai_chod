@@ -167,7 +167,9 @@ class StringRes {
   static const serviceDes2                   = "Please select an address";
   static const discountServiceBtn1           = "Choose an appointment date";
   static const serviceDescription            = "Choose an appointment date";
-
+  static const serviceVisible1               = "Mark Joley";
+  static const serviceVisible2               = "0123456789";
+  static const serviceVisible3               = "999/9 Rama I Rd, Pathum Wan, Pathum Wan\nDistrict, Bangkok 10330";
 
   //Shipping Screen
   static const shippingTitle                  = "Shipping address details";
@@ -253,6 +255,9 @@ class StringRes {
   static const SelectTireDes7                   = "Lorem ipsum dolor sit\narnet, consectetur\nadipicsing elit.";
   static const SelectTireBtn1                   = "More Details";
   static const SelectTireBtn2                   = "More Details";
+
+  //Search screen
+  static const SearchTitle1                     =  "Search";
 
 
 }

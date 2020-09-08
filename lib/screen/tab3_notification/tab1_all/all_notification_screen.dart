@@ -29,6 +29,7 @@ class _AllNotificationScreenState extends State<AllNotificationScreen> {
     );
   }
 
+  // list data are use the card details
   listData(int index){
     return InkResponse(
       onTap: () {
@@ -122,7 +123,7 @@ class _AllNotificationScreenState extends State<AllNotificationScreen> {
   }
 
 
-
+//color show use in color changes
   colorShow(int index) {
     if(index == 0) {
       return Colors.pink;

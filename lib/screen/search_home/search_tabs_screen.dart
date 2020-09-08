@@ -21,6 +21,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
   TabController tabController;
   var currentSelectedValue;
   String _dropDownValue;
+  //tab bar heading
   final deviceTypes = ["Mac", "Windows", "Mobile"];
   final deviceTypes1 = ["Mac2", "Windows2", "Mobile2"];
   final deviceTypes2 = ["Mac3", "Windows3", "Mobile3"];

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ChaiChod/export.dart';
 
+//model are name and image
 class Model {
   String name;
   String image;
@@ -22,6 +23,7 @@ class _LanguageState extends State<Language> {
   @override
   void initState() {
     // TODO: implement initState
+    //list of country name , flag
     setState(() {
       list.add(Model("USA", Utils.getAssetsImg('usa')));
       list.add(Model("Thailand", Utils.getAssetsImg('eng')));
@@ -57,6 +59,7 @@ class _LanguageState extends State<Language> {
             )));
   }
 
+  //languageData are use in list of country name and flag
   Widget languageData(int index) {
     return InkResponse(
       onTap: () {

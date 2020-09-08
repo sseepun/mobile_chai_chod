@@ -88,6 +88,7 @@ class RateProductScreenState extends State<RateProductScreen> {
         ));
   }
 
+  //rate card design
   rateCard() {
     return Container(
       child: Container(
