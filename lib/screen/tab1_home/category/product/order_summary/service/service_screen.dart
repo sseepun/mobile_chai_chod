@@ -44,10 +44,10 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 child: serviceDetails(),
               ),
               Divider(height: 1, color: ColorRes.greyColor),
-              Visibility(
+             /* Visibility(
                 visible: true,
                 child: service(),
-              ),
+              ),*/
               Divider(height: 1, color: ColorRes.greyColor),
               discountDetails(),
               Divider(height: 1, color: ColorRes.greyColor),
@@ -119,7 +119,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
   //service details are use in radio list tile and change color bottom button
   serviceDetails() {
     return Container(
-        height: 350,
+        height: 400,
         color: Colors.white,
         child: Column(
           children: <Widget>[

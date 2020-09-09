@@ -28,7 +28,7 @@ class AppTheme {
   );
 
   static const TextStyle display1 = TextStyle(
-    fontFamily: StringRes.fontFamilyRoboto,
+    fontFamily: StringRes.fontFamilyKanitBlack,
     fontWeight: FontWeight.w600,
     fontSize: 36,
     letterSpacing: 0.4,
@@ -37,7 +37,7 @@ class AppTheme {
   );
 
   static const TextStyle headline = TextStyle(
-    fontFamily: StringRes.fontFamilyRoboto,
+    fontFamily: StringRes.fontFamilyKanitBlack,
     fontWeight: FontWeight.w600,
     fontSize: 24,
     letterSpacing: 0.27,
@@ -45,7 +45,7 @@ class AppTheme {
   );
 
   static const TextStyle title = TextStyle(
-    fontFamily: StringRes.fontFamilyRoboto,
+    fontFamily: StringRes.fontFamilyKanitBlack,
     fontWeight: FontWeight.w600,
     fontSize: 16,
     letterSpacing: 0.18,
@@ -53,7 +53,7 @@ class AppTheme {
   );
 
   static const TextStyle subtitle = TextStyle(
-    fontFamily: StringRes.fontFamilyRoboto,
+    fontFamily: StringRes.fontFamilyKanitBlack,
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: -0.04,
@@ -61,7 +61,7 @@ class AppTheme {
   );
 
   static const TextStyle body2 = TextStyle(
-    fontFamily: StringRes.fontFamilyRoboto,
+    fontFamily: StringRes.fontFamilyKanitBlack,
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: 0.2,
@@ -69,7 +69,7 @@ class AppTheme {
   );
 
   static const TextStyle body1 = TextStyle(
-    fontFamily: StringRes.fontFamilyRoboto,
+    fontFamily: StringRes.fontFamilyKanitBlack,
     fontWeight: FontWeight.w400,
     fontSize: 16,
     letterSpacing: -0.05,
@@ -77,7 +77,7 @@ class AppTheme {
   );
 
   static const TextStyle caption = TextStyle(
-    fontFamily: StringRes.fontFamilyRoboto,
+    fontFamily: StringRes.fontFamilyKanitBlack,
     fontWeight: FontWeight.w400,
     fontSize: 12,
     letterSpacing: 0.2,

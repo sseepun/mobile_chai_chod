@@ -82,47 +82,44 @@ class _MapScreenState extends State<LocationScreen> {
 //  ),
 //  ),
 
-  //search fild
+  //search TextFormField
   searchData() {
     return Container(
       height: 50,
       width: Utils.getDeviceWidth(context),
       margin: EdgeInsets.all(15),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Search()),
-          );                  },
-        child: TextFormField(
-          decoration: InputDecoration(
-            hintText: 'Search here...',
-            filled: true,
-            fillColor: ColorRes.whiteColor,
-            border: UnderlineInputBorder(borderRadius: BorderRadius.circular(2)),
-            prefixIcon: IconButton(
-              icon: Icon(
-                Icons.search,
-                size: 20,
-              ),
+      child:TextFormField(
+        decoration: InputDecoration(
+          hintText: 'Search here...',
+          filled: true,
+          fillColor: ColorRes.whiteColor,
+          border: UnderlineInputBorder(borderRadius: BorderRadius.circular(2)),
+          prefixIcon: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Search()),
+              );                  },
+            icon: Icon(
+              Icons.search,
+              size: 20,
             ),
-            hintStyle: TextStyle(
-              fontFamily: 'Roboto',
-              letterSpacing: 1.0,
-              fontSize: 15,
-            ),
-            disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(2)),
-              borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(2)),
-              borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(4)),
-              borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
-            ),
+          ),
+          hintStyle: TextStyle(
+            letterSpacing: 1.0,
+            fontSize: 15,
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
           ),
         ),
       ),

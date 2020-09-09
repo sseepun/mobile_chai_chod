@@ -83,7 +83,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                 ),
                               ),
                               hintStyle: TextStyle(
-                                fontFamily: 'Roboto',
                                 letterSpacing: 1.0,
                                 fontSize: 15,
                               ),

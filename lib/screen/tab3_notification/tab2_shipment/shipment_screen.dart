@@ -47,7 +47,7 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
         }
       },
       child: Container(
-          height: 90,
+          height: 105,
           margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
           padding: EdgeInsets.only(left: 0, bottom: 10, right: 0, top: 10),
 

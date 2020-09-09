@@ -238,7 +238,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
 
   productDes3() {
     return Container(
-        height: 105,
+        height: 110,
         color: Colors.white,
         child: Column(
           children: <Widget>[
@@ -387,7 +387,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
 
   productDes4() {
     return Container(
-        height: 130,
+        height: 160,
         color: Colors.white,
         child: Column(
           children: <Widget>[

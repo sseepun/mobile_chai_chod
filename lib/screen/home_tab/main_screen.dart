@@ -84,7 +84,6 @@ class _MainScreenState extends State<MainScreen> {
               Text(
                 data[2],
                 style: TextStyle(
-                  fontFamily: 'Roboto',
                   fontWeight: FontWeight.w600,
                   color: _bottomIndex == _currentScreenIndex 
                     ? ColorRes.primaryColor

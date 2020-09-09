@@ -302,7 +302,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: 'Mark Joley',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),
@@ -356,7 +355,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: 'Nutchayacha',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),
@@ -410,7 +408,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: '110392104012',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),
@@ -464,7 +461,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: '999/9',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),
@@ -518,7 +514,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: 'EEE',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),
@@ -588,7 +583,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: 'Bangkok',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),
@@ -657,7 +651,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: 'Bueng kum',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),
@@ -694,7 +687,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               Container(
                 alignment: Alignment.topRight,
-                padding: EdgeInsets.only(top: 5, left: 192),
+                padding: EdgeInsets.only(top: 5, left: 189),
                 child: IconButton(
                   icon: Icon(
                     Icons.keyboard_arrow_down,
@@ -726,7 +719,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: 'Navwamin',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),
@@ -780,7 +772,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               hintText: '10330',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: ColorRes.blackColor,
                 fontSize: 13,
               ),

@@ -177,7 +177,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
 
   discountDetails(){
     return Container(
-        height: 130,
+        height: 150,
         color: Colors.white,
         child: Column(
           children: <Widget>[

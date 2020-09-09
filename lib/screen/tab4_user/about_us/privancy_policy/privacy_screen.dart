@@ -99,7 +99,6 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
               child: Text(
                 StringRes.PrivacyTitle1,
                 style: TextStyle(
-                  fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   fontSize: 16,
@@ -112,7 +111,6 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
               child: Text(
                 StringRes.PrivacyDescription2,
                 style: TextStyle(
-                  fontFamily: 'Roboto',
                   color: Colors.black,
                   fontSize: 14,
                 ),
@@ -124,7 +122,6 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
               child: Text(
                 StringRes.PrivacyTitle2,
                 style: TextStyle(
-                  fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   fontSize: 16,
@@ -137,7 +134,6 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
               child: Text(
                 StringRes.PrivacyDescription3,
                 style: TextStyle(
-                  fontFamily: 'Roboto',
                   color: Colors.black,
                   fontSize: 14,
                 ),

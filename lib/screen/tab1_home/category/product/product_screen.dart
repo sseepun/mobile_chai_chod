@@ -235,7 +235,7 @@ class _ProductScreenState extends State<ProductScreen>
   //tab bar heading
   tabBarShow() {
     return Container(
-      height: 750,
+      height: 800,
       // height: 500,
       child: Column(
         children: <Widget>[
@@ -447,7 +447,6 @@ class _ProductScreenState extends State<ProductScreen>
             child: Text(
               StringRes.Title1,
               style: TextStyle(
-                fontFamily: 'Roboto',
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
                 fontSize: 16,
@@ -460,7 +459,6 @@ class _ProductScreenState extends State<ProductScreen>
             child: Text(
               StringRes.Description,
               style: TextStyle(
-                fontFamily: 'Roboto',
                 color: Colors.black,
                 fontSize: 14,
               ),
@@ -540,7 +538,6 @@ class _ProductScreenState extends State<ProductScreen>
             child: Text(
               StringRes.Description1,
               style: TextStyle(
-                fontFamily: 'Roboto',
                 color: Colors.black,
                 fontSize: 13,
               ),
@@ -565,7 +562,6 @@ class _ProductScreenState extends State<ProductScreen>
             child: Text(
               StringRes.Title1,
               style: TextStyle(
-                fontFamily: 'Roboto',
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
                 fontSize: 16,
@@ -837,7 +833,6 @@ class _ProductScreenState extends State<ProductScreen>
                         child: Text(
                           StringRes.Title1,
                           style: TextStyle(
-                            fontFamily: 'Roboto',
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                             fontSize: 16,
@@ -854,7 +849,6 @@ class _ProductScreenState extends State<ProductScreen>
                             child: Text(
                               StringRes.DateFormat,
                               style: TextStyle(
-                                fontFamily: 'Roboto',
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black26,
                                 fontSize: 10,
@@ -869,7 +863,6 @@ class _ProductScreenState extends State<ProductScreen>
                               StringRes.Description,
                               maxLines: 4,
                               style: TextStyle(
-                                fontFamily: 'Roboto',
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
                                 fontSize: 10,
@@ -1177,7 +1170,6 @@ class _ProductScreenState extends State<ProductScreen>
                           Text(
                             'Added to cart',
                             style: TextStyle(
-                              fontFamily: 'Roboto',
                               letterSpacing: 1.0,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

@@ -50,7 +50,7 @@ class _AllNotificationScreenState extends State<AllNotificationScreen> {
         }
       },
       child: Container(
-          height: 60,
+          height: 70,
           margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
           padding: EdgeInsets.only(left: 0, bottom: 10, right: 0, top: 10),
 
