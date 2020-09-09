@@ -47,13 +47,12 @@ class _MainScreenState extends State<MainScreen> {
       child: Scaffold(
         backgroundColor: ColorRes.bgColor,
         body: _screens[_currentScreenIndex],
-        // bottomNavigationBar
         bottomNavigationBar: _bottomNavigationBar(),
       ),
     );
   }
 
-// bottom tab bar navigator and its use are bottom tab bar
+  // bottom tab bar navigator and its use are bottom tab bar
   Widget _bottomNavigationBar() {
     return BottomNavigationBar(
       currentIndex: _currentScreenIndex,

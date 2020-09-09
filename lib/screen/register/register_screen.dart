@@ -698,7 +698,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         else{
           if (isGeneralUser || isDealerDetails) {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SuccessScreen()));
+              MaterialPageRoute(builder: (context) => SuccessScreen())
+            );
           }
         }
 

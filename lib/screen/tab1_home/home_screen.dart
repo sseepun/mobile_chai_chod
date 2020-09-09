@@ -4,6 +4,7 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,37 +22,38 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: _appBar(),
-        backgroundColor: ColorRes.lightWhite,
-        body: SingleChildScrollView(
-          child: Column(
-//              mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: 10),
-              searchTextFiled(),
-              SizedBox(height: 10),
-              sideImage(),
-              SizedBox(height: 20),
-              titleText(StringRes.chooseHereTitle),
-              SizedBox(height: 20),
-              ListView.builder(
-                  itemCount: 1,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return categoryList(index);
-                  }),
-              SizedBox(height: 20),
-              bannerImages(),
-              SizedBox(height: 20),
-              titleText(StringRes.promotionTitle),
-              SizedBox(height: 20),
-              gridImage(),
-              SizedBox(height: 20),
-            ],
-          ),
-        ));
+      appBar: _appBar(),
+      backgroundColor: Colors.transparent,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: 10),
+            searchTextFiled(),
+            SizedBox(height: 10),
+            sideImage(),
+            SizedBox(height: 15),
+            titleText(StringRes.chooseHereTitle),
+            SizedBox(height: 15),
+            ListView.builder(
+              itemCount: 1,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return categoryList(index);
+              }
+            ),
+            SizedBox(height: 20),
+            bannerImages(),
+            SizedBox(height: 25),
+            titleText(StringRes.promotionTitle),
+            SizedBox(height: 15),
+            gridImage(),
+            SizedBox(height: 20),
+          ],
+        ),
+      )
+    );
   }
 
   Widget _appBar() {
@@ -60,10 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
       elevation: 0,
       centerTitle: true,
       title: Container(
-        height: 50,
-        alignment: Alignment.topCenter,
-        child: CommonView.logoImage(125, 45),
-//        child: Image.asset(Utils.getAssetsImg('logo')),
+        alignment: Alignment.center,
+        child: CommonView.logoImage(110, 0),
       ),
       actions: <Widget>[
         IconButton(
@@ -110,45 +110,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        // child: OutlineButton(
-        //   color: Colors.white,
-        // child: TextFormField(
-        //   autofocus: false,
-        //   onTap: () {
-        //     FocusScope.of(context).unfocus();
-        //     searchScreenNavigator(context);
-        //   },
-        //   decoration: InputDecoration(
-        //     enabledBorder: UnderlineInputBorder(
-        //         borderSide: BorderSide(color: Colors.white),
-        //         borderRadius: BorderRadius.circular(2)),
-        //     focusedBorder: UnderlineInputBorder(
-        //         borderSide: BorderSide(color: Colors.white),
-        //         borderRadius: BorderRadius.circular(2)),
-        //     filled: true,
-        //     fillColor: ColorRes.lightWhite,
-        //     border:
-        //         UnderlineInputBorder(borderRadius: BorderRadius.circular(2)),
-        //     hintText: 'Search here...',
-        //     hintStyle: TextStyle(
-        //       letterSpacing: 1.0,
-        //       fontSize: 15,
-        //     ),
-        //     prefixIcon: IconButton(
-        //       icon: Icon(
-        //         Icons.search,
-        //         size: 20,
-        //       ),
-        //     ),
-        //     contentPadding: EdgeInsets.fromLTRB(0, 20.0, 0.0, 10.0),
-        //   ),
-        // ),
-        // onPressed: () {},
-        // borderSide: BorderSide(
-        //   color: Colors.black26,
-        //   width: 0.8, //width of the border
-        // ),
-        // ),
       ),
     );
   }
@@ -159,7 +120,6 @@ class _HomeScreenState extends State<HomeScreen> {
       height: Utils.getDeviceWidth(context) / 1.6,
       child: SizedBox(
         height: 150.0,
-//        width: 300.0,
         child: Carousel(
           boxFit: BoxFit.cover,
           autoplay: false,
@@ -173,111 +133,105 @@ class _HomeScreenState extends State<HomeScreen> {
           showIndicator: true,
           indicatorBgPadding: 7.0,
           images: [
-//            NetworkImage('https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg'),
-//            NetworkImage('https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
             ExactAssetImage('assets/images/car_1.jpg'),
             ExactAssetImage('assets/images/car_2.jpg'),
             ExactAssetImage('assets/images/car_3.jpg'),
           ],
         ),
       ),
-      /* child: Swiper(
-       itemBuilder: (BuildContext context,int index){
-         return new Image.network("http://via.placeholder.com/350x150", fit: BoxFit.fill,);
-       },
-       itemCount: 3,
-
-       pagination: new SwiperPagination(),
-       control: new SwiperControl(),
-     ),*/
     );
   }
 
   titleText(String title) {
     return Padding(
-      padding: EdgeInsets.only(
-        left: 10,
-      ),
-      child: AllText(
+      padding: EdgeInsets.only(left: 15, right: 15),
+      child: Text(
         title,
-        color: ColorRes.blackColor,
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
+        style: AppTheme.subHeaderBoldStyle,
       ),
     );
   }
 
   //images text are show in category list method and horizontal scroll
   categoryList(int index) {
-    return InkResponse(
-      onTap: () {
-        if (index == 0) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => CategoryScreen()),
-          );
-        } else if (index == 1) {
-        } else if (index == 2) {
-        } else if (index == 3) {
-        } else if (index == 4) {}
-      },
-      child: Container(
-        height: 200,
-        child: ListView.builder(
-            itemCount: 5,
-            shrinkWrap: true,
-//          physics: NeverScrollableScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(left: 10, bottom: 0, top: 0, right: 0),
-                decoration: BoxDecoration(color: ColorRes.whiteColor),
-                child: Column(
-                  children: <Widget>[
-                    Expanded(
-                        child: Image(
-                            image: AssetImage(Utils.getAssetsImg('0car')),
-                            fit: BoxFit.fill)),
-                    Container(
-                        height: 50,
-                        width: 150,
-                        margin: EdgeInsets.only(right: 10),
-                        child: Column(
-                          children: <Widget>[
-                            AllText("Tires sedands, pickup",
-                                color: ColorRes.blackColor,
-                                maxLine: 1,
-                                overflow: TextOverflow.ellipsis),
-                            AllText("Super car",
-                                color: ColorRes.blackColor,
-                                maxLine: 1,
-                                overflow: TextOverflow.ellipsis)
-                          ],
-                        )),
-                  ],
-                ),
-              );
-            }),
+    return Container(
+      padding: EdgeInsets.only(left: 5),
+      child: InkResponse(
+        onTap: () {
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CategoryScreen()),
+            );
+          } else if (index == 1) {
+          } else if (index == 2) {
+          } else if (index == 3) {
+          } else if (index == 4) {}
+        },
+        child: Container(
+          height: 200,
+          child: ListView.builder(
+              itemCount: 5,
+              shrinkWrap: true,
+              // physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.only(
+                    left: 10, bottom: 0, top: 0, right: 0
+                  ),
+                  decoration: BoxDecoration(color: ColorRes.whiteColor),
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                          child: Image(
+                              image: AssetImage(Utils.getAssetsImg('0car')),
+                              fit: BoxFit.fill)),
+                      Container(
+                          height: 50,
+                          width: 150,
+                          margin: EdgeInsets.only(right: 10),
+                          child: Column(
+                            children: <Widget>[
+                              AllText("Tires sedands, pickup",
+                                  color: ColorRes.blackColor,
+                                  maxLine: 1,
+                                  overflow: TextOverflow.ellipsis),
+                              AllText("Super car",
+                                  color: ColorRes.blackColor,
+                                  maxLine: 1,
+                                  overflow: TextOverflow.ellipsis)
+                            ],
+                          )),
+                    ],
+                  ),
+                );
+              }),
+        ),
       ),
     );
   }
 
   bannerImages() {
     return Container(
-      height: 225,
+      padding: EdgeInsets.only(left: 3),
+      height: 220,
       child: ListView.builder(
-          itemCount: 5,
-          shrinkWrap: true,
-          padding: EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 0),
-//          physics: NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Container(
-                margin: EdgeInsets.only(right: 10),
-                child: Image(
-                    image: AssetImage(Utils.getAssetsImg('3one1')),
-                    fit: BoxFit.fill));
-          }),
+        itemCount: 5,
+        shrinkWrap: true,
+        padding: EdgeInsets.only(left: 12),
+        // physics: NeverScrollableScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.only(right: 10),
+            child: Image(
+              image: AssetImage(Utils.getAssetsImg('3one1')),
+              fit: BoxFit.fill
+            )
+          );
+        }
+      ),
     );
   }
 
@@ -286,59 +240,61 @@ class _HomeScreenState extends State<HomeScreen> {
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemCount: listTitle.length,
-      padding: EdgeInsets.only(left: 10, right: 10),
+      padding: EdgeInsets.only(left: 15, right: 15),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.7
-          // childAspectRatio: Utils.getDeviceWidth(context) /
-          //     (Utils.getDeviceHeight(context) / 1.25),
-          ),
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.69
+      ),
       itemBuilder: (context, index) {
         return Container(
-          // height: 150,
-          padding: EdgeInsets.only(left: 8, right: 8),
+          padding: EdgeInsets.only(left: 10, right: 10),
           color: ColorRes.whiteColor,
-
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Image(image: AssetImage(Utils.getAssetsImg('tiers'))),
-              Column(
-//                  mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  AllText(
-                    "GOODYEAR",
-                    color: ColorRes.blackColor,
-                  ),
-                  AllText(
-                    "Tires 225/45/R17",
-                    color: ColorRes.blackColor,
-                  ),
-                  AllText(
-                    "\$2,000 /len.",
-                    color: ColorRes.blackColor,
-                  )
-                ],
+              Center(
+                child: Image(
+                  image: AssetImage(Utils.getAssetsImg('tiers')),
+                  width: 200,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 5, right: 5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "GOODYEAR",
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTheme.productNameStyle,
+                    ),
+                    Text(
+                      "ยางรถยนต์ 225/45/R17",
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTheme.productDescStyle
+                    ),
+                    SizedBox(height: 8),
+                    Row(
+                      children: <Widget> [
+                        Text(
+                          "\$2,000",
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTheme.productPriceStyle,
+                        ),
+                        Text(
+                          " /เส้น",
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTheme.productUnitStyle,
+                        )
+                      ]
+                    )
+                  ],
+                ),
               )
             ],
           ),
-          /*  child:Container(
-
-            color: Colors.white,
-              margin: EdgeInsets.only(bottom: 10),
-                child:Column(
-                  children: <Widget>[
-                    Image.asset(
-                     Utils.getAssetsImg(listTitle[index]),
-                      width: 300,
-                      height: 170,
-                     ),
-                  ],
-                ),
-          ),*/
         );
       },
     );

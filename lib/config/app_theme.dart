@@ -31,6 +31,20 @@ class AppTheme {
     fontWeight: FontWeight.w500,
     letterSpacing: 0.4,
   );
+  static const TextStyle subHeaderBoldStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 21.0,
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.4,
+  );
+
+  static const TextStyle descStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 18.0,
+    color: Colors.black87,
+    fontWeight: FontWeight.w400,
+  );
 
   static const TextStyle inputLabelStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,
@@ -57,11 +71,35 @@ class AppTheme {
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
-
   static const Icon btnBackIcon = Icon(
     Icons.arrow_back,
     color: Colors.black,
     size: 28.0,
+  );
+
+  static const TextStyle productNameStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 17.0,
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+  );
+  static const TextStyle productDescStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 15.5,
+    color: Colors.black,
+    fontWeight: FontWeight.w300,
+  );
+  static const TextStyle productPriceStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 17.0,
+    color: ColorRes.lightBlur,
+    fontWeight: FontWeight.w600,
+  );
+  static const TextStyle productUnitStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 15,
+    color: Colors.black,
+    fontWeight: FontWeight.w300,
   );
 
 }

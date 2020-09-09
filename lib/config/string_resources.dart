@@ -26,8 +26,8 @@ class StringRes {
   static const userListScreen                =  "UserListScreen";
 
   //Success screen
-  static const successMessage                =  "Successfully registered!";
-  static const reviewAdmin                   =  "Please wait for the review from  Admin";
+  static const successMessage                =  "ลงทะเบียนสำเร็จ!";
+  static const reviewAdmin                   =  "กรุณารอการตรวจสอบจาก Admin";
 
   //Home page
   static const heading                       =  "Salam, Style, Ory";
@@ -36,8 +36,8 @@ class StringRes {
   static const archiveHeading                =  "Track delivery";
 
   static const StyleOry                      =  "Salam, Style, Ory";
-  static const promotionTitle                =  "Promotion Product This Month";
-  static const chooseHereTitle               =  "Choose acconding to here";
+  static const promotionTitle                =  "สินค้าโปรโมรชั่นประจำเดือนนี้";
+  static const chooseHereTitle               =  "เลือกตามหมวดหมู่";
 
   //Notification Page
   static const notificationHeading           =  "Notification";
