@@ -66,6 +66,7 @@ class LoginScreenState extends State<LoginScreen> {
                       StringRes.signIn,
                       fontSize: 30.0,
                       align: TextAlign.left,
+
                       color: ColorRes.blackColor,
                       overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.bold,
@@ -203,7 +204,7 @@ class LoginScreenState extends State<LoginScreen> {
               ),
               hintText: 'Enter your Password',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
+                fontFamily: StringRes.fontFamilyKanitBlack,
                 fontSize: 13,
               ),
               contentPadding: EdgeInsets.only(top: 8, left: 30),
@@ -237,7 +238,6 @@ class LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Password',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
                     fontSize: 12,
                   ),
                 ),
@@ -265,7 +265,6 @@ class LoginScreenState extends State<LoginScreen> {
               ),
               hintText: 'Enter your Password',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 fontSize: 13,
               ),
               contentPadding: EdgeInsets.only(top: 8, left: 30),

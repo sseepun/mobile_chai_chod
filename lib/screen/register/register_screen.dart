@@ -268,7 +268,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               hintText: 'Enter your Username',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 fontSize: 13,
               ),
               contentPadding: EdgeInsets.only(top:8,left: 30),
@@ -301,7 +300,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Text(
                   'Email',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
                     fontSize: 12,
                   ),
                 ),
@@ -328,7 +326,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               hintText: 'Enter your Emailid',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 fontSize: 13,
               ),
               contentPadding: EdgeInsets.only(top:8,left: 30),
@@ -361,7 +358,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Text(
                   'Password',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
                     fontSize: 12,
                   ),
                 ),
@@ -390,7 +386,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               hintText: 'Enter your password',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 fontSize: 13,
               ),
               contentPadding: EdgeInsets.only(top:8,left: 30),
@@ -423,7 +418,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Text(
                   'Confirm Password',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
                     fontSize: 12,
                   ),
                 ),
@@ -451,7 +445,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               hintText: 'Enter your password',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 fontSize: 13,
               ),
               contentPadding: EdgeInsets.only(top:8,left: 30),
@@ -554,7 +547,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Text(
                   'My taxpayer number',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
                     fontSize: 12,
                   ),
                 ),
@@ -584,7 +576,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               hintText: '1234567899999',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
@@ -619,7 +610,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Text(
                   'Store name',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
                     fontSize: 12,
                   ),
                 ),
@@ -647,7 +637,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               hintText: 'storname',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 fontSize: 14,
               ),
               contentPadding: EdgeInsets.only(top:8,left: 30),
@@ -680,7 +669,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Text(
                   'Shop address',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
                     fontSize: 12,
                   ),
                 ),
@@ -707,7 +695,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               hintText: 'Shop address',
               hintStyle: TextStyle(
-                fontFamily: 'Roboto',
                 fontSize: 14,
               ),
               contentPadding: EdgeInsets.only(top:15,left: 30,bottom: 65),

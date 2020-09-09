@@ -104,7 +104,6 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                                 ),
                               ),
                               hintStyle: TextStyle(
-                                fontFamily: 'Roboto',
                                 letterSpacing: 1.0,
                                 fontSize: 15,
                               ),
@@ -148,7 +147,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
                 ),
               ),
               Container(
-                height: 320,
+                height: 350,
                 color: ColorRes.whiteColor,
                 child: Column(
                   children: <Widget>[
@@ -836,7 +835,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.1)),
+              (Utils.getDeviceHeight(context) / 1.0)),
       itemBuilder: (context, index) {
         return Column(
           children: <Widget>[

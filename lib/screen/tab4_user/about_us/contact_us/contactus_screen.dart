@@ -139,7 +139,6 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         stringList1[index],
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'Roboto',
                           fontSize: 15,
                         ),
                       ),
@@ -148,7 +147,6 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         style: TextStyle(
                           color: ColorRes.primaryColor,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'Roboto',
                           fontSize: 13,
                         ),
                       ),

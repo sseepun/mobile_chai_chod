@@ -84,7 +84,6 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
             child: Text(
               'Forgot Password',
               style: TextStyle(
-                  fontFamily: 'Roboto',
                   letterSpacing: 1,
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
@@ -98,7 +97,6 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
             child: Text(
               "Enter Your Email",
               style: TextStyle(
-                  fontFamily: 'Roboto',
                   letterSpacing: 1,
                   fontSize: 16,
                   color: Colors.black),
@@ -141,7 +139,6 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                               child: Text(
                                 'Email',
                                 style: TextStyle(
-                                  fontFamily: 'Roboto',
                                   fontSize: 12,
                                 ),
                               ),
@@ -170,7 +167,6 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                             ),
                             hintText: 'Enter your Password',
                             hintStyle: TextStyle(
-                              fontFamily: 'Roboto',
                               fontSize: 13,
                             ),
                             contentPadding:

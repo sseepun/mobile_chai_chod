@@ -5,13 +5,13 @@ AppState appState = AppState();
 class StringRes {
 
   //Font string
-  static const fontFamilyRoboto              = 'Roboto';
+  static const fontFamilyKanitBlack          = 'Kanit';
 
   //Login Screen
   static const signIn                        = 'SIGN IN';
   static const forgotPasswordTitle           = 'Forgot your Password?';
   static const youHaveAccount                = 'If you do not have a account yet,';
-  static const pleaseRegister                = '  Please Register';
+  static const pleaseRegister                = 'Please Register';
   static const googleLoginTitle              = 'Login with Google';
   static const faceBookLoginTitle            = 'Login with Facebook';
   static const appleLoginTitle               = 'Sign in with Apple';
@@ -96,14 +96,14 @@ class StringRes {
 
 
   //Contact Us
-  static const contactUs                     =  "Contact Us";
-  static const description                   =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\n  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
+  static const contactUs                     = "Contact Us";
+  static const description                   = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
   static const description1                  = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
 
   //Privacy
   static const privacyPolicy                 =  "Privacy Poliicy";
-  static const PrivacyDescription1           =  "Chaichod built the Chaichod app as a Free app. This SERVICE is provided by Chaichod at no cost and is intended for use as is.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                   This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                    If you choose to use our Service, then you agree to the collection and use of information in relation to this policy The Personal Information that we collect is used for providing and improving the Service we will not use or share your information with anyone except as described in this Privacy Policy.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                    The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Chaichod unless otherwise defined in this Privacy Policy.";
+  static const PrivacyDescription1           =  "Chaichod built the Chaichod app as a Free app. This SERVICE is provided by Chaichod at no cost and is intended for use as is.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                   This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                       If you choose to use our Service, then you agree to the collection and use of information in relation to this policy The Personal Information that we collect is used for providing and improving the Service we will not use or share your information with anyone except as described in this Privacy Policy.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                    The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Chaichod unless otherwise defined in this Privacy Policy.";
   static const PrivacyDescription2           =  "For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained by us and used as described in this privacy policy.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                    The app does use third party services that may collect Information used to identify you.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                    Link to privacy policy of third party service providers used by the app";
   static const PrivacyDescription3           =  "we want to inform you that whenever you use our Service, in a case of an error in the app we collect data and information (through third party products) on your phone called Log Data.  This Log Data may include information such as your device Internet Protocol (IP) address, device.";
   static const PrivacyTitle1                 =  "Information Collection and Use";
@@ -111,8 +111,8 @@ class StringRes {
 
   //About Us
   static const setup                         = "Set Up";
-  static const deSetup                       =  "Current address";
-  static const aboutUs                       =  "About Us";
+  static const deSetup                       = "Current address";
+  static const aboutUs                       = "About Us";
 
   //Change Password
   static const passwordTitle                 =  "Change Password";

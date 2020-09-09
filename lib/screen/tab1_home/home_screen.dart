@@ -107,7 +107,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 UnderlineInputBorder(borderRadius: BorderRadius.circular(2)),
             hintText: 'Search here...',
             hintStyle: TextStyle(
-              fontFamily: 'Roboto',
               letterSpacing: 1.0,
               fontSize: 15,
             ),
@@ -117,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 size: 20,
               ),
             ),
-            contentPadding: EdgeInsets.fromLTRB(0, 10.0, 0.0, 15.0),
+            contentPadding: EdgeInsets.fromLTRB(0, 20.0, 0.0, 10.0),
           ),
         ),
         onPressed: () {},

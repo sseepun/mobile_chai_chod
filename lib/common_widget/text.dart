@@ -37,7 +37,7 @@ class AllText extends StatelessWidget {
       style: TextStyle(
         color: color.withOpacity(opacity),
         letterSpacing: letterSpace,
-        fontFamily: StringRes.fontFamilyRoboto,
+        fontFamily: StringRes.fontFamilyKanitBlack,
 //        fontFamily: 'Helvetica',
         fontWeight: fontWeight ?? FontWeight.normal,
         fontSize: fontSize,

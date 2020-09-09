@@ -139,7 +139,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
  // status view use are order history screen in status, and date show
   statusView() {
     return Container(
-      height: 80,
+      height: 100,
       color: ColorRes.lightWhite,
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),

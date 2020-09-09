@@ -98,7 +98,6 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
           hintStyle: TextStyle(
-            fontFamily: 'Roboto',
             letterSpacing: 1.0,
             fontSize: 15,
           ),

@@ -141,7 +141,6 @@ class _SetUpScreenState extends State<SetUpScreen> {
                       stringList[index],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
                         fontSize: 15,
                       ),
                     ),

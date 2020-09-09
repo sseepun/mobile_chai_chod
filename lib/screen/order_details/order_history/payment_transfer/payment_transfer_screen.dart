@@ -192,7 +192,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
         setState(() {});
       },
       child: Container(
-        height: 70,
+        height: 80,
         decoration: BoxDecoration(
           boxShadow: [
             new BoxShadow(
