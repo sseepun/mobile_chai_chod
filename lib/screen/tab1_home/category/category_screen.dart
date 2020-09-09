@@ -64,7 +64,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
         child: Stack(
           children: <Widget>[
             CommonView.backArrow(context),
-
             Column(
               children: <Widget>[
                 Padding(
@@ -135,11 +134,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 } else if (index == 1) {
                 } else if (index == 2) {
                 } else if (index == 3) {
-                } else if (index == 4) {
-                }
+                } else if (index == 4) {}
               },
               child: Padding(
-                padding: EdgeInsets.only(right: index == images.length - 1 ? 10 : 0 , left: 10),
+                padding: EdgeInsets.only(
+                    right: index == images.length - 1 ? 10 : 0, left: 10),
                 child: Column(
                   children: <Widget>[
                     Expanded(
@@ -171,11 +170,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
       itemCount: listTitle.length,
       padding: EdgeInsets.only(left: 10, right: 10),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.20)),
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.68
+        // childAspectRatio: Utils.getDeviceWidth(context) /
+        //     (Utils.getDeviceHeight(context) / 1.20),
+      ),
       itemBuilder: (context, index) {
         return InkResponse(
           onTap: () {

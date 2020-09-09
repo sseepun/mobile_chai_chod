@@ -285,6 +285,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       color: Colors.blue),
                   selectPaymentChannel(),
                   selectRadioPayment(setState),
+                  Spacer(),
                   continueBtn(),
                 ],
               ),
@@ -310,7 +311,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     return Container(
       color: ColorRes.primaryColor,
       height: 50,
-      margin: EdgeInsets.only(left: 5, right: 5, top: 230),
+      margin: EdgeInsets.only(left: 5, right: 5,bottom: 10),
       width: MediaQuery.of(context).size.width,
       child: FlatButton(
         onPressed: () {

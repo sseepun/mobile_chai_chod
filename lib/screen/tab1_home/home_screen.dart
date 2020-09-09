@@ -83,51 +83,75 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   searchTextFiled() {
-    return Container(
-      height: 40,
-      padding: EdgeInsets.only(left: 10, right: 10),
-      child: OutlineButton(
-        color: Colors.white,
-        child: TextFormField(
-          autofocus: false,
-          onTap: () {
-            FocusScope.of(context).unfocus();
-            searchScreenNavigator(context);
-          },
-          decoration: InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-                borderRadius: BorderRadius.circular(2)),
-            focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-                borderRadius: BorderRadius.circular(2)),
-            filled: true,
-            fillColor: ColorRes.lightWhite,
-            border:
-                UnderlineInputBorder(borderRadius: BorderRadius.circular(2)),
-            hintText: 'Search here...',
-            hintStyle: TextStyle(
-              letterSpacing: 1.0,
-              fontSize: 15,
+    return GestureDetector(
+      onTap: () {
+        searchScreenNavigator(context);
+      },
+      child: Container(
+        decoration: BoxDecoration(color: Colors.white),
+        height: 40,
+        padding: EdgeInsets.only(left: 20, right: 10),
+        child: Row(
+          children: [
+            Icon(
+              Icons.search,
+              size: 20,
+              color: Colors.grey,
             ),
-            prefixIcon: IconButton(
-              icon: Icon(
-                Icons.search,
-                size: 20,
+            Container(
+              width: 20,
+            ),
+            Container(
+              child: Text(
+                'Search here...',
+                style: TextStyle(
+                    letterSpacing: 1.0, fontSize: 15, color: Colors.grey),
               ),
             ),
-            contentPadding: EdgeInsets.fromLTRB(0, 20.0, 0.0, 10.0),
-          ),
+          ],
         ),
-        onPressed: () {},
-        borderSide: BorderSide(
-          color: Colors.black26,
-          width: 0.8, //width of the border
-        ),
+        // child: OutlineButton(
+        //   color: Colors.white,
+        // child: TextFormField(
+        //   autofocus: false,
+        //   onTap: () {
+        //     FocusScope.of(context).unfocus();
+        //     searchScreenNavigator(context);
+        //   },
+        //   decoration: InputDecoration(
+        //     enabledBorder: UnderlineInputBorder(
+        //         borderSide: BorderSide(color: Colors.white),
+        //         borderRadius: BorderRadius.circular(2)),
+        //     focusedBorder: UnderlineInputBorder(
+        //         borderSide: BorderSide(color: Colors.white),
+        //         borderRadius: BorderRadius.circular(2)),
+        //     filled: true,
+        //     fillColor: ColorRes.lightWhite,
+        //     border:
+        //         UnderlineInputBorder(borderRadius: BorderRadius.circular(2)),
+        //     hintText: 'Search here...',
+        //     hintStyle: TextStyle(
+        //       letterSpacing: 1.0,
+        //       fontSize: 15,
+        //     ),
+        //     prefixIcon: IconButton(
+        //       icon: Icon(
+        //         Icons.search,
+        //         size: 20,
+        //       ),
+        //     ),
+        //     contentPadding: EdgeInsets.fromLTRB(0, 20.0, 0.0, 10.0),
+        //   ),
+        // ),
+        // onPressed: () {},
+        // borderSide: BorderSide(
+        //   color: Colors.black26,
+        //   width: 0.8, //width of the border
+        // ),
+        // ),
       ),
     );
   }
-
 
   // car images side images
   sideImage() {
@@ -182,7 +206,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
 
   //images text are show in category list method and horizontal scroll
   categoryList(int index) {
@@ -268,13 +291,16 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.25)),
+          childAspectRatio: 0.7
+          // childAspectRatio: Utils.getDeviceWidth(context) /
+          //     (Utils.getDeviceHeight(context) / 1.25),
+          ),
       itemBuilder: (context, index) {
         return Container(
-          height: 150,
+          // height: 150,
           padding: EdgeInsets.only(left: 8, right: 8),
           color: ColorRes.whiteColor,
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

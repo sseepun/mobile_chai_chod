@@ -43,11 +43,13 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.27)),
+          childAspectRatio: 0.68
+          // childAspectRatio: Utils.getDeviceWidth(context) /
+          //     (Utils.getDeviceHeight(context) / 1.27),
+      ),
       itemBuilder: (context, index) {
         return Container(
-          height: 150,
+          // height: 150,
           padding: EdgeInsets.only(left: 8, right: 8),
           color: ColorRes.whiteColor,
           child: Column(

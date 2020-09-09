@@ -55,7 +55,8 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
         child: Stack(
           children: <Widget>[
 //            CommonView.backArrow(context),
-            CommonView.backArrowAndTitle(context, StringRes.goodyear, ColorRes.blackColor),
+            CommonView.backArrowAndTitle(
+                context, StringRes.goodyear, ColorRes.blackColor),
 
             Padding(
               padding: EdgeInsets.only(top: 10),
@@ -92,11 +93,13 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
       itemCount: listTitle.length,
       padding: EdgeInsets.only(left: 10, right: 10),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.25)),
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.68
+        // childAspectRatio: Utils.getDeviceWidth(context) /
+        //     (Utils.getDeviceHeight(context) / 1.25),
+      ),
       itemBuilder: (context, index) {
         return InkResponse(
           onTap: () {

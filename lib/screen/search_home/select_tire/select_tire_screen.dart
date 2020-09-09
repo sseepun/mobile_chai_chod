@@ -25,7 +25,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
           child: Column(
             children: <Widget>[
               Container(
-                height: 280,
+                // height: 280,
                 color: Colors.white,
                 child: Column(
                   children: <Widget>[
@@ -104,7 +104,8 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
 //title description
   productDes() {
     return Container(
-      height: 70,
+      // height: 70,
+      padding: EdgeInsets.only(top: 10,bottom: 10),
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -238,7 +239,8 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
 
   productDes3() {
     return Container(
-        height: 110,
+        // height: 110,
+      padding: EdgeInsets.only(bottom: 10),
         color: Colors.white,
         child: Column(
           children: <Widget>[
@@ -387,7 +389,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
 
   productDes4() {
     return Container(
-        height: 160,
+        // height: 160,
         color: Colors.white,
         child: Column(
           children: <Widget>[

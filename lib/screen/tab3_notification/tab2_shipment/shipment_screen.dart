@@ -47,7 +47,7 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
         }
       },
       child: Container(
-          height: 105,
+          height: MediaQuery.of(context).size.height*0.2,
           margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
           padding: EdgeInsets.only(left: 0, bottom: 10, right: 0, top: 10),
 
@@ -65,6 +65,7 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
+
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

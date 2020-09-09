@@ -149,21 +149,22 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-
-
   //grid image are using image and text are grid view
   gridImage() {
     return GridView.builder(
+
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemCount: 6,
-      padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+      padding: EdgeInsets.only(left: 10, right: 10),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: Utils.getDeviceWidth(context) /
-              (Utils.getDeviceHeight(context) / 1.0)),
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 0,
+        childAspectRatio: 0.56
+        // childAspectRatio: Utils.getDeviceWidth(context) /
+        //     (Utils.getDeviceHeight(context) / 1.0),
+      ),
       itemBuilder: (context, index) {
         return Column(
           children: <Widget>[

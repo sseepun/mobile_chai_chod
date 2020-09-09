@@ -131,7 +131,7 @@ class OrderScreenState extends State<OrderScreen> {
 
   statusView() {
     return Container(
-      height: 80,
+      // height: 80,
       color: ColorRes.lightWhite,
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -274,6 +274,7 @@ class OrderScreenState extends State<OrderScreen> {
                           color: Colors.blue),
                       selectPaymentChannel(),
                       selectRadioPayment(setState),
+                      Spacer(),
                       continueBtn(),
                     ],
                   ),
@@ -298,7 +299,7 @@ class OrderScreenState extends State<OrderScreen> {
     return Container(
       color: ColorRes.primaryColor,
       height: 50,
-      margin: EdgeInsets.only(left: 5, right: 5, top: 300),
+      margin: EdgeInsets.only(left: 5, right: 5,bottom: 5),
       width: MediaQuery.of(context).size.width,
       child: FlatButton(
         onPressed: () {

@@ -96,7 +96,7 @@ class CommonView {
   // product details left data design
   static productDetailsLeftRightData(String title, String price, {Color showColor}) {
     return Padding(
-      padding: EdgeInsets.only(left: 0, right: 0),
+      padding: EdgeInsets.only(left: 0, right: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

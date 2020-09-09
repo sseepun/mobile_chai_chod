@@ -22,6 +22,8 @@ import 'package:ChaiChod/screen/tab4_user/manage_profile/manage_profile_screen.d
 import 'package:ChaiChod/screen/tab4_user/set_up/setup_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../screen/tab1_home/category/product/order_summary/order_summary_screen.dart';
+
 class Routes {}
 
 /*goToAddQue(context){
@@ -93,6 +95,10 @@ orderHistoryScreenNavigator(BuildContext context) {
 orderScreenNavigator(BuildContext context) {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => OrderScreen()));
+}
+orderSummaryScreenNavigator(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => OrderSummaryScreen()));
 }
 paymentTransferScreenNavigator(BuildContext context) {
   Navigator.push(

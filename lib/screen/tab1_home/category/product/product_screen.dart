@@ -288,7 +288,8 @@ class _ProductScreenState extends State<ProductScreen>
   //
   listProductData() {
     return Container(
-      height: 275,
+      // height: 275,
+      padding: EdgeInsets.only(bottom: 15),
       alignment: Alignment.topLeft,
       color: ColorRes.lightWhite,
       width: Utils.getDeviceWidth(context),
@@ -299,7 +300,8 @@ class _ProductScreenState extends State<ProductScreen>
           relatedProducts(),
           SizedBox(height: 20),
           Container(
-            height: 200,
+            // height: 200,
+            height: MediaQuery.of(context).size.height*0.4,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -314,7 +316,7 @@ class _ProductScreenState extends State<ProductScreen>
                       (Utils.getDeviceHeight(context) / 1.25)),*/
               itemBuilder: (context, index) {
                 return Container(
-                  height: 175,
+                  // height: 175,
 //                  width: 125,
 //            width: 100,
                   padding: EdgeInsets.only(left: 8, right: 8),
@@ -799,9 +801,10 @@ class _ProductScreenState extends State<ProductScreen>
 
   reviewDetails() {
     return Container(
-      height: 500,
+      // height: 500,
       alignment: Alignment.topLeft,
-      color: ColorRes.lightWhite,
+      // color: ColorRes.lightWhite,
+      // color: Colors.red,
       width: Utils.getDeviceWidth(context),
       margin: EdgeInsets.only(top: 20, bottom: 20),
       child: Column(

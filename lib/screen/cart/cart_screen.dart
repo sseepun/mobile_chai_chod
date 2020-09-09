@@ -6,6 +6,8 @@ import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/material.dart';
 
+import '../../common_widget/common_route.dart';
+
 class CartScreen extends StatefulWidget {
   @override
   _CartScreenState createState() => _CartScreenState();
@@ -40,20 +42,27 @@ class _CartScreenState extends State<CartScreen> {
 // Cart screen in Bottom bar Continue button
   bottomBar() {
     return Container(
-      height: 150,
+      // height: 150,
+      padding: EdgeInsets.only(bottom: 10,left: 10,right: 10),
       decoration: BoxDecoration(
           color: ColorRes.whiteColor,
           border:
               Border(top: BorderSide(color: ColorRes.greyColor, width: 1.0))),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
+        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           CommonView.productDetailsLeftRightData(StringRes.prices, "\$2,000"),
           CommonView.productDetailsLeftRightData(StringRes.discount, "\$0"),
           CommonView.productDetailsLeftRightData(StringRes.total, "\$2,000"),
-          Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: FilledButton(text: StringRes.continueText, fontSize: 18))
+          // Padding(
+              // padding: EdgeInsets.only(left: 10, right: 10),
+              // child:
+              FilledButton(text: StringRes.continueText, fontSize: 18,onPressed: (){
+                orderSummaryScreenNavigator(context);
+
+              },),
+    // )
         ],
       ),
     );
@@ -67,11 +76,12 @@ class _CartScreenState extends State<CartScreen> {
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return Container(
-            height: 250,
+            height: MediaQuery.of(context).size.height*0.5,
             width: Utils.getDeviceWidth(context),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.only(left: 5, right: 5, top: 10, bottom: 10),
@@ -133,6 +143,7 @@ class _CartScreenState extends State<CartScreen> {
                 Container(
                   height: 50,
                   color: ColorRes.lightWhite,
+
                   padding: EdgeInsets.only(left: 10, right: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
