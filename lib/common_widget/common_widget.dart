@@ -11,7 +11,7 @@ class CommonView {
     return Container(
       alignment: Alignment.center,
       child: Image.asset(
-        Utils.getAssetsImg('logo'),
+        Utils.getAssetsImg('logo-title'),
 //        'assets/img/logo.png', 220 ,80
         width: width,
         height: height,

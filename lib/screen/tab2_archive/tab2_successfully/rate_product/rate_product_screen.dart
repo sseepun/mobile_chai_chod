@@ -6,6 +6,7 @@ import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class RateProductScreen extends StatefulWidget {
   final int i;
@@ -25,7 +26,12 @@ class RateProductScreenState extends State<RateProductScreen> {
     super.initState();
     model = RateProductScreen();
   }
-
+  hexColor(String colorhexcode) {
+    String colornew = '0xff' + colorhexcode;
+    colornew = colornew.replaceAll('#', '');
+    int colorint = int.parse(colornew);
+    return colorint;
+  }
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -122,31 +128,10 @@ class RateProductScreenState extends State<RateProductScreen> {
                       margin: EdgeInsets.only(top: 20),
                       child: Row(
                         children: <Widget>[
-                          Icon(
-                            Icons.star,
-                            size: 50,
-                            color: Colors.yellow,
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 50,
-                            color: Colors.yellow,
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 50,
-                            color: Colors.yellow,
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 50,
-                            color: Colors.black12,
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 50,
-                            color: Colors.black12,
-                          ),
+                          Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[starRating(3.0)]),
                         ],
                       ),
                     ),
@@ -155,6 +140,30 @@ class RateProductScreenState extends State<RateProductScreen> {
               ],
             ),
           )),
+    );
+  }
+  starRating(item) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      padding: EdgeInsets.only(left:10.0,right:5.0),
+      child: SmoothStarRating(
+        size: 50,
+        rating: item,
+        filledIconData: Icons.star,
+        //halfFilledIconData: Icons.star_half,
+        defaultIconData: Icons.star_border,
+        color:Color(hexColor('#f3cb54')),
+        //color: Colors.yellow,
+        borderColor: Color(hexColor('#f3cb54')),
+        starCount: 5,
+        allowHalfRating: true,
+        spacing: 1.0,
+//        onRated: (value) {
+//          setState(() {
+//            rating = value ;
+//          });
+//        },
+      ),
     );
   }
 

@@ -5,6 +5,7 @@ import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/home_tab/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class CompleteScreen extends StatefulWidget {
   final int i;
@@ -86,27 +87,86 @@ class _CompleteScreenState extends State<CompleteScreen> {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(top: 35,left: 50),
-            child: Icon(
-              Icons.star,
-              size: 70,
-              color: Colors.yellow.shade800,
-            ),
+            child:starRating(1.0),
           ),
-          Icon(
-            Icons.star,
-            size: 130,
-            color: Colors.yellow.shade800,
-          ),
+          starRating1(1.0),
           Container(
             padding: EdgeInsets.only(top: 35),
-            child: Icon(
-              Icons.star,
-              size: 70,
-              color: Colors.yellow.shade800,
-            ),
+            child:starRating2(1.0),
           ),
         ],
       ),
     );
   }
+
+  starRating(item) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      child: SmoothStarRating(
+        size: 70,
+        rating: item,
+        filledIconData: Icons.star,
+        //halfFilledIconData: Icons.star_half,
+        defaultIconData: Icons.star_border,
+        color:Color(hexColor('#f3cb54')),
+        //color: Colors.yellow,
+        borderColor: Color(hexColor('#f3cb54')),
+        starCount:1,
+        allowHalfRating: true,
+        spacing: 1.0,
+//        onRated: (value) {
+//          setState(() {
+//            rating = value ;
+//          });
+//        },
+      ),
+    );
+  }
+  starRating1(item) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      child: SmoothStarRating(
+        size: 130,
+        rating: item,
+        filledIconData: Icons.star,
+        //halfFilledIconData: Icons.star_half,
+        defaultIconData: Icons.star_border,
+        color:Color(hexColor('#f3cb54')),
+        //color: Colors.yellow,
+        borderColor: Color(hexColor('#f3cb54')),
+        starCount:1,
+        allowHalfRating: true,
+        spacing: 1.0,
+//        onRated: (value) {
+//          setState(() {
+//            rating = value ;
+//          });
+//        },
+      ),
+    );
+  }
+  starRating2(item) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      child: SmoothStarRating(
+        size: 70,
+        rating: item,
+        filledIconData: Icons.star,
+        //halfFilledIconData: Icons.star_half,
+        defaultIconData: Icons.star_border,
+        color:Color(hexColor('#f3cb54')),
+        //color: Colors.yellow,
+        borderColor: Color(hexColor('#f3cb54')),
+        starCount:1,
+        allowHalfRating: true,
+        spacing: 1.0,
+//        onRated: (value) {
+//          setState(() {
+//            rating = value ;
+//          });
+//        },
+      ),
+    );
+  }
+
 }
