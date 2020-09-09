@@ -8,10 +8,10 @@ class StringRes {
   static const fontFamilyKanitBlack          = 'Kanit';
 
   //Login Screen
-  static const signIn                        = 'SIGN IN';
-  static const forgotPasswordTitle           = 'Forgot your Password?';
-  static const youHaveAccount                = 'If you do not have a account yet,';
-  static const pleaseRegister                = 'Please Register';
+  static const signIn                        = 'ลงชื่อเข้าใช้';
+  static const forgotPasswordTitle           = 'ลืมรหัสผ่าน?';
+  static const youHaveAccount                = 'ถ้าคุณยังไม่มีบัญชีกรุณา';
+  static const pleaseRegister                = 'ลงทะเบียน';
   static const googleLoginTitle              = 'Login with Google';
   static const faceBookLoginTitle            = 'Login with Facebook';
   static const appleLoginTitle               = 'Sign in with Apple';
@@ -19,7 +19,7 @@ class StringRes {
   static const enterUserName                 = 'Enter your Username';
 
   //Register Screen
-  static const register                      = 'REGISTER';
+  static const register                      = 'ลงทะเบียน';
 
   //card common screen
   static const homeFirstRecord               =  "HomeFirstRecord";

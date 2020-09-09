@@ -1,6 +1,7 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
@@ -39,63 +40,64 @@ class LoginScreenState extends State<LoginScreen> {
     super.initState();
   }
 
-//  LoginViewModel model;
+  // LoginViewModel model;
 
   @override
   Widget build(BuildContext context) {
-//    model ?? (model = LoginViewModel(this));
+    // model ?? (model = LoginViewModel(this));
 
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorRes.whiteColor,
-        body: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints viewportConstraints) {
-            return SingleChildScrollView(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              child: new Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(height: 20),
-                    // heading Image logo
-                    CommonView.logoImage(220, 80),
-                    SizedBox(height: 40),
-                    // heading title
-                    AllText(
-                      StringRes.signIn,
-                      fontSize: 30.0,
-                      align: TextAlign.left,
-
-                      color: ColorRes.blackColor,
-                      overflow: TextOverflow.ellipsis,
-                      fontWeight: FontWeight.bold,
-                      letterSpace: 1,
-                    ),
-                    SizedBox(height: 10),
-                    //All method call in this column
-                    Column(
-                      children: <Widget>[
-                        userNameTextFiled(),
-                        SizedBox(height: 5),
-                        passWordTextFiled(),
-                        SizedBox(height: 10),
-                        forgotPassword(),
-                        accessButton(),
-                        registerTitle(),
-                        SizedBox(height: 7),
-                        orTitle(),
-                        faceBookButton(),
-                        googleButton(),
-                        appleButton(),
-                        SizedBox(height: 7),
-                      ],
-                    ),
-                  ],
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: ColorRes.whiteColor,
+          body: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints viewportConstraints) {
+              return SingleChildScrollView(
+                padding: EdgeInsets.only(left: 15, right: 15),
+                child: new Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: 30),
+                      // heading Image logo
+                      CommonView.logoImage(200, 0),
+                      SizedBox(height: 50),
+                      // heading title
+                      Text(
+                        StringRes.signIn,
+                        textAlign: TextAlign.left,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.headerStyle,
+                      ),
+                      SizedBox(height: 10),
+                      //All method call in this column
+                      Column(
+                        children: <Widget>[
+                          SizedBox(height: 7),
+                          userNameTextFiled(),
+                          SizedBox(height: 5),
+                          passWordTextFiled(),
+                          SizedBox(height: 10),
+                          forgotPassword(),
+                          accessButton(),
+                          SizedBox(height: 5),
+                          registerTitle(),
+                          SizedBox(height: 10),
+                          orTitle(),
+                          faceBookButton(),
+                          googleButton(),
+                          appleButton(),
+                          SizedBox(height: 7),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
@@ -161,8 +163,8 @@ class LoginScreenState extends State<LoginScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left: 4, bottom: 30),
-          height: 60,
+          padding: EdgeInsets.only(left: 6, bottom: 35),
+          height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -172,21 +174,20 @@ class LoginScreenState extends State<LoginScreen> {
               Icon(
                 Icons.person,
                 color: ColorRes.primaryColor,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
-                child: AllText(
+                child: Text(
                   StringRes.userName,
-                  fontSize: 12,
-                  color: ColorRes.blackColor,
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 1, top: 11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             controller: usernameController,
             validator: validateEmail,
@@ -203,11 +204,8 @@ class LoginScreenState extends State<LoginScreen> {
                 borderSide: BorderSide(color: Colors.white70),
               ),
               hintText: 'Enter your Password',
-              hintStyle: TextStyle(
-                fontFamily: StringRes.fontFamilyKanitBlack,
-                fontSize: 13,
-              ),
-              contentPadding: EdgeInsets.only(top: 8, left: 30),
+              hintStyle: AppTheme.inputHintStyle,
+              contentPadding: EdgeInsets.only(top: 13, left: 38),
             ),
           ),
         ),
@@ -220,8 +218,8 @@ class LoginScreenState extends State<LoginScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left: 4, bottom: 30),
-          height: 60,
+          padding: EdgeInsets.only(left: 6, bottom: 35),
+          height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -231,22 +229,20 @@ class LoginScreenState extends State<LoginScreen> {
               Icon(
                 Icons.lock,
                 color: ColorRes.primaryColor,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
                 child: Text(
                   'Password',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 1, top: 11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             controller: passwordController,
             validator: validatePassword,
@@ -264,10 +260,8 @@ class LoginScreenState extends State<LoginScreen> {
                 borderSide: BorderSide(color: Colors.white70),
               ),
               hintText: 'Enter your Password',
-              hintStyle: TextStyle(
-                fontSize: 13,
-              ),
-              contentPadding: EdgeInsets.only(top: 8, left: 30),
+              hintStyle: AppTheme.inputHintStyle,
+              contentPadding: EdgeInsets.only(top: 13, left: 38),
             ),
           ),
         ),
@@ -287,7 +281,11 @@ class LoginScreenState extends State<LoginScreen> {
           );
         },
         child:
-            AllText(StringRes.forgotPasswordTitle, color: ColorRes.lightBlur),
+            AllText(
+              StringRes.forgotPasswordTitle, 
+              color: ColorRes.lightBlur,
+              fontSize: 16,
+            ),
       ),
     );
   }
@@ -295,13 +293,16 @@ class LoginScreenState extends State<LoginScreen> {
   //Access Button are use in move to main screen
   accessButton() {
     return Container(
-      height: 45,
+      height: 58,
       width: Utils.getDeviceWidth(context),
       margin: EdgeInsets.only(top: 40),
       child: RaisedButton(
         textColor: ColorRes.whiteColor,
         color: ColorRes.lightBlur,
-        child: Text('Access'),
+        child: Text(
+          'เข้าใช้งาน',
+          style: AppTheme.btnTextStyle,
+        ),
         onPressed: () {
           if (_validateInputs()) {
             if(widget.i == 2 ) {
@@ -325,13 +326,18 @@ class LoginScreenState extends State<LoginScreen> {
       children: <Widget>[
         AllText(
           StringRes.youHaveAccount,
-          fontSize: 12,
+          fontSize: 16,
           color: ColorRes.blackColor,
+          fontWeight: FontWeight.w500,
         ),
         FlatButton(
-          padding: EdgeInsets.only(right: 1),
+          padding: EdgeInsets.only(left: 0, right: 0),
           textColor: ColorRes.lightBlur,
-          child: AllText(StringRes.pleaseRegister, fontSize: 12),
+          child: AllText(
+            StringRes.pleaseRegister, 
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
           onPressed: () {
             Navigator.push(
               context,
@@ -355,7 +361,11 @@ class LoginScreenState extends State<LoginScreen> {
                 height: 36,
               )),
         ),
-        AllText("OR", color: ColorRes.greyColor),
+        AllText(
+          "หรือ", 
+          color: ColorRes.greyColor,
+          fontSize: 14,
+        ),
         Expanded(
           child: new Container(
               margin: const EdgeInsets.only(left: 10.0, right: 70.0),
@@ -372,15 +382,15 @@ class LoginScreenState extends State<LoginScreen> {
   faceBookButton() {
     return Container(
       margin: EdgeInsets.only(top: 20),
-      width: 270,
-      height: 45,
+      width: 300,
+      height: 50,
       decoration: new BoxDecoration(
         color: ColorRes.whiteColor,
         borderRadius: BorderRadius.all(Radius.circular(2)),
         boxShadow: [
           new BoxShadow(
             color: Colors.black12,
-            blurRadius: 5,
+            blurRadius: 4,
           ),
         ],
       ),
@@ -398,7 +408,7 @@ class LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.only(left: 10),
               child: AllText(
                 StringRes.faceBookLoginTitle,
-                fontSize: 13,
+                fontSize: 18,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
@@ -413,15 +423,15 @@ class LoginScreenState extends State<LoginScreen> {
   googleButton() {
     return Container(
       margin: EdgeInsets.only(top: 13, bottom: 10),
-      width: 270,
-      height: 45,
+      width: 300,
+      height: 50,
       decoration: new BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(2)),
         boxShadow: [
           new BoxShadow(
             color: Colors.black12,
-            blurRadius: 5,
+            blurRadius: 4,
           ),
         ],
       ),
@@ -439,7 +449,7 @@ class LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.only(left: 15),
               child: AllText(
                 StringRes.googleLoginTitle,
-                fontSize: 13,
+                fontSize: 18,
                 color: ColorRes.blackColor,
                 fontWeight: FontWeight.bold,
               ),
@@ -454,15 +464,15 @@ class LoginScreenState extends State<LoginScreen> {
   //appleButton
   appleButton() {
     return Container(
-      width: 270,
-      height: 45,
+      width: 300,
+      height: 50,
       decoration: new BoxDecoration(
         color: ColorRes.whiteColor,
         borderRadius: BorderRadius.all(Radius.circular(2)),
         boxShadow: [
           new BoxShadow(
             color: Colors.black12,
-            blurRadius: 5,
+            blurRadius: 4,
           ),
         ],
       ),
@@ -482,7 +492,7 @@ class LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.only(left: 7),
                 child: AllText(
                   StringRes.appleLoginTitle,
-                  fontSize: 13,
+                  fontSize: 18,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),

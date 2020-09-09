@@ -1,6 +1,7 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/text.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
@@ -51,71 +52,77 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorRes.whiteColor,
-        body: SingleChildScrollView(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              child: new Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {
-                        navigatorPop(context);
-                      },
-                      child: CommonView.backArrow(context),
-                    ),
-                    CommonView.logoImage(220, 80),
-                    SizedBox(height: 17),
-                    registerTitle(),
-                    SizedBox(height: 7),
-                    Container(
-                      padding: EdgeInsets.only(top: 7),
-                      child: Column(
-                        children: <Widget>[
-                          userNameTextFiled(),
-                          SizedBox(height: 5),
-                          emailTextFiled(),
-                          SizedBox(height: 7),
-                          passwordTextFiled(),
-                          SizedBox(height: 7),
-                          conPasswordTextFiled(),
-                          SizedBox(height: 30),
-                          AllText('Choose user status',color: ColorRes.blackColor),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              generalUser(),
-                              SizedBox(width: 10),
-                              dealer(),
-                            ],
-                          ),
-                          //visible method are click button
-                          Visibility(
-                            visible: isDealerDetails,
-                            child: Container(
-                              padding: EdgeInsets.only(top: 20),
-                              child: Column(
-                                children: <Widget>[
-                                  dealerPhoneNumber(),
-                                  SizedBox(height: 7),
-                                  dealerStoreName(),
-                                  SizedBox(height: 7),
-                                  dealerShopAddress()
-                                ],
-                              ),
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: ColorRes.whiteColor,
+          body: SingleChildScrollView(
+            padding: EdgeInsets.only(left: 15, right: 15),
+            child: new Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  IconButton(
+                    icon: AppTheme.btnBackIcon,
+                    onPressed: () {
+                      navigatorPop(context);
+                    },
+                  ),
+                  CommonView.logoImage(200, 0),
+                  SizedBox(height: 50),
+                  registerTitle(),
+                  SizedBox(height: 7),
+                  Container(
+                    padding: EdgeInsets.only(top: 7),
+                    child: Column(
+                      children: <Widget>[
+                        userNameTextFiled(),
+                        SizedBox(height: 5),
+                        emailTextFiled(),
+                        SizedBox(height: 7),
+                        passwordTextFiled(),
+                        SizedBox(height: 7),
+                        conPasswordTextFiled(),
+                        SizedBox(height: 30),
+                        Text(
+                          'เลือกสถานะผู้ใช้งาน',
+                          style: AppTheme.subHeaderStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            generalUser(),
+                            SizedBox(width: 10),
+                            dealer(),
+                          ],
+                        ),
+                        //visible method are click button
+                        Visibility(
+                          visible: isDealerDetails,
+                          child: Container(
+                            padding: EdgeInsets.only(top: 20),
+                            child: Column(
+                              children: <Widget>[
+                                dealerPhoneNumber(),
+                                SizedBox(height: 7),
+                                dealerStoreName(),
+                                SizedBox(height: 7),
+                                dealerShopAddress()
+                              ],
                             ),
                           ),
-                          submitButton(),
-                        ],
-                      ),
+                        ),
+                        submitButton(),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            )
+            ),
+          )
+        ),
       ),
     );
   }
@@ -210,14 +217,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   registerTitle() {
-    return AllText(
+    return Text(
       StringRes.register,
-      fontSize: 30.0,
-      align: TextAlign.left,
-      color: ColorRes.blackColor,
+      textAlign: TextAlign.left,
       overflow: TextOverflow.ellipsis,
-      fontWeight: FontWeight.bold,
-      letterSpace: 1,
+      style: AppTheme.headerStyle,
     );
   }
 
@@ -225,8 +229,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left:4,bottom: 30),
-          height: 60,
+          padding: EdgeInsets.only(left: 6, bottom: 35),
+          height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -236,21 +240,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Icon(
                 Icons.person,
                 color: ColorRes.primaryColor,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
-                child: AllText(
+                child: Text(
                   StringRes.userName,
-                  fontSize: 12,
-                  color: ColorRes.blackColor,
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left:1,top:11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             controller: usernameController,
             validator: validateName,
@@ -267,10 +270,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 borderSide: BorderSide(color: Colors.white70),
               ),
               hintText: 'Enter your Username',
-              hintStyle: TextStyle(
-                fontSize: 13,
-              ),
-              contentPadding: EdgeInsets.only(top:8,left: 30),
+              hintStyle: AppTheme.inputHintStyle,
+              contentPadding: EdgeInsets.only(top: 13, left: 38),
             ),
           ),
         ),
@@ -282,8 +283,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left:4,bottom: 30),
-          height: 60,
+          padding: EdgeInsets.only(left: 6, bottom: 35),
+          height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -293,22 +294,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Icon(
                 Icons.email,
                 color: ColorRes.primaryColor,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
                   'Email',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left:1,top:11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             controller: emailController,
             validator: validateEmail,
@@ -325,10 +324,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 borderSide: BorderSide(color: Colors.white70),
               ),
               hintText: 'Enter your Emailid',
-              hintStyle: TextStyle(
-                fontSize: 13,
-              ),
-              contentPadding: EdgeInsets.only(top:8,left: 30),
+              hintStyle: AppTheme.inputHintStyle,
+              contentPadding: EdgeInsets.only(top: 13, left: 38),
             ),
           ),
         ),
@@ -340,8 +337,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left:4,bottom: 30),
-          height: 60,
+          padding: EdgeInsets.only(left: 6, bottom: 35),
+          height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -351,22 +348,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Icon(
                 Icons.lock,
                 color: ColorRes.primaryColor,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
                   'Password',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left:1,top:11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             key: passKey,
             obscureText: true,
@@ -385,10 +380,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 borderSide: BorderSide(color: Colors.white70),
               ),
               hintText: 'Enter your password',
-              hintStyle: TextStyle(
-                fontSize: 13,
-              ),
-              contentPadding: EdgeInsets.only(top:8,left: 30),
+              hintStyle: AppTheme.inputHintStyle,
+              contentPadding: EdgeInsets.only(top: 13, left: 38),
             ),
           ),
         ),
@@ -400,8 +393,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left:4,bottom: 30),
-          height: 60,
+          padding: EdgeInsets.only(left: 6, bottom: 35),
+          height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -411,22 +404,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Icon(
                 Icons.lock,
                 color: ColorRes.primaryColor,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
                   'Confirm Password',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left:1,top:11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             controller: conformPasswordController,
             obscureText: true,
@@ -444,10 +435,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 borderSide: BorderSide(color: Colors.white70),
               ),
               hintText: 'Enter your password',
-              hintStyle: TextStyle(
-                fontSize: 13,
-              ),
-              contentPadding: EdgeInsets.only(top:8,left: 30),
+              hintStyle: AppTheme.inputHintStyle,
+              contentPadding: EdgeInsets.only(top: 13, left: 38),
             ),
           ),
         ),
@@ -467,7 +456,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 if (!isDealerDetails) {
                   isGeneralUser = !isGeneralUser;
                 } else {
-//              isGeneralUser = false;
                   isDealerDetails = !isDealerDetails;
                 }
               }
@@ -475,14 +463,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
           });
         },
         child: Container(
-          height: 50,
-//          width: Utils.getDeviceWidth(context) / 2.2,
+          height: 60,
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: 25),
           decoration: BoxDecoration(
-              color:isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
-              border: Border.all(color: ColorRes.primaryColor, width: 1)),
-          child: AllText('General user', color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor),
+            color:isGeneralUser ? ColorRes.primaryColor : ColorRes.whiteColor,
+            border: Border.all(color: ColorRes.primaryColor, width: 1)),
+          child: AllText(
+            'ผู้ใช้งานทั่วไป', 
+            color: isGeneralUser ? ColorRes.whiteColor : ColorRes.blackColor,
+            fontSize: 17.0,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );
@@ -501,7 +493,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 if (!isGeneralUser) {
                   isDealerDetails = !isDealerDetails;
                 } else {
-//              isDealerDetails = false;
                   isGeneralUser = !isGeneralUser;
                 }
               }
@@ -509,17 +500,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
           });
         },
         child: Container(
-          height: 50,
-//          width: Utils.getDeviceWidth(context) / 2.5,
+          height: 60,
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: 25),
           decoration: BoxDecoration(
               color:
                   isDealerDetails ? ColorRes.primaryColor : ColorRes.whiteColor,
               border: Border.all(color: ColorRes.primaryColor, width: 1)),
-          child: AllText('Dealer',
-              color:
-                  isDealerDetails ? ColorRes.whiteColor : ColorRes.blackColor),
+          child: AllText(
+            'Dealer',
+            color: isDealerDetails ? ColorRes.whiteColor : ColorRes.blackColor,
+            fontSize: 17.0,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );
@@ -529,8 +522,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left:4,bottom: 30),
-          height: 60,
+          padding: EdgeInsets.only(left: 6, bottom: 35),
+          height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -540,22 +533,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Icon(
                 Icons.confirmation_number,
                 color: Colors.blue,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
-                  'My taxpayer number',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
+                  'หมายเลขผู้เสียภาษี',
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left:1,top:11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             controller: numberController,
             onSaved: (String val) {
@@ -567,7 +558,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             autofocus: false,
             decoration: InputDecoration(
               border: InputBorder.none,
-
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white70),
               ),
@@ -575,12 +565,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 borderSide: BorderSide(color: Colors.white70),
               ),
               hintText: '1234567899999',
-              hintStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
-              ),
-              contentPadding: EdgeInsets.only(top:8,left: 30),
+              hintStyle: AppTheme.inputHintStyle,
+              contentPadding: EdgeInsets.only(top: 13, left: 38),
             ),
           ),
         ),
@@ -592,8 +578,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left:4,bottom: 30),
-          height: 60,
+          padding: EdgeInsets.only(left: 6, bottom: 35),
+          height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -603,22 +589,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Icon(
                 Icons.store,
                 color: Colors.blue,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
-                  'Store name',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
+                  'ชื่อร้าน',
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left:1,top:11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             controller: storeController,
             onSaved: (String val) {
@@ -635,11 +619,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white70),
               ),
-              hintText: 'storname',
+              hintText: 'ชื่อร้าน',
               hintStyle: TextStyle(
                 fontSize: 14,
               ),
-              contentPadding: EdgeInsets.only(top:8,left: 30),
+              contentPadding: EdgeInsets.only(top: 13, left: 38),
             ),
           ),
         ),
@@ -651,8 +635,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left:4,bottom: 80),
-          height: 110,
+          padding: EdgeInsets.only(left: 6, bottom: 80),
+          height: 118,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
             borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -662,22 +646,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Icon(
                 Icons.location_on,
                 color: Colors.blue,
-                size: 20,
+                size: 24,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5, left:7, bottom: 5),
                 child: Text(
-                  'Shop address',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
+                  'ที่อยู่ร้าน',
+                  style: AppTheme.inputLabelStyle,
                 ),
               )
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left:1,top:11),
+          padding: EdgeInsets.only(left: 1, top: 16),
           child: TextFormField(
             controller: shopController,
             onSaved: (String val) {
@@ -693,11 +675,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white70),
               ),
-              hintText: 'Shop address',
-              hintStyle: TextStyle(
-                fontSize: 14,
+              hintText: 'ที่อยู่ร้าน',
+              hintStyle: AppTheme.inputHintStyle,
+              contentPadding: EdgeInsets.only(
+                top: 13, left: 38
               ),
-              contentPadding: EdgeInsets.only(top:15,left: 30,bottom: 65),
             ),
           ),
         ),
@@ -722,10 +704,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       },
       child: Container(
-        margin: EdgeInsets.only(top: 25, bottom: 10),
+        margin: EdgeInsets.only(top: 30, bottom: 30),
         alignment: Alignment.center,
         width: Utils.getDeviceWidth(context),
-        height: 45,
+        height: 58,
         decoration: new BoxDecoration(
           color: isGeneralUser || isDealerDetails
               ? ColorRes.primaryColor
@@ -738,12 +720,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ],
         ),
-        child: AllText(
-          "Into",
-          fontSize: 15,
-          align: TextAlign.center,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
+        child: Text(
+          "ลงทะเบียน",
+          textAlign: TextAlign.center,
+          style: AppTheme.btnTextStyle,
         ),
       ),
     );

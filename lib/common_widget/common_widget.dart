@@ -12,9 +12,7 @@ class CommonView {
       alignment: Alignment.center,
       child: Image.asset(
         Utils.getAssetsImg('logo-title'),
-//        'assets/img/logo.png', 220 ,80
         width: width,
-        height: height,
         fit: BoxFit.fill,
       ),
     );

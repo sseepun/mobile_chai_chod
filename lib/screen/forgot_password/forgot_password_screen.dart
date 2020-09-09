@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/config/color_resources.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import '../login/login_screen.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -28,99 +30,84 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(hexColor('#FFFFFF')),
-      body: Center(
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints viewportConstraints) {
-            return SingleChildScrollView(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: viewportConstraints.maxHeight,
-                ),
-                child: new Form(
-                  key: _formKey,
-                  child: Column(
-                    children: <Widget>[
-                      // method call in Forgot Password screen design
-                      forgot(),
-                    ],
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Color(hexColor('#FFFFFF')),
+          body: Center(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints viewportConstraints) {
+                return SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: viewportConstraints.maxHeight,
+                    ),
+                    child: new Form(
+                      key: _formKey,
+                      child: Column(
+                        children: <Widget>[
+                          // method call in Forgot Password screen design
+                          forgot(),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            );
-          },
+                );
+              },
+            ),
+          ),
         ),
       ),
     );
   }
 
-// Forgot Password screen design
+  // Forgot Password screen design
   forgot(){
     return Container(
+      padding: EdgeInsets.only(left: 15, right: 15),
       child: Column(
         children: [
           Container(
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(top: 30, left: 0),
             child: IconButton(
+              icon: AppTheme.btnBackIcon,
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => LoginScreen()),
+                    builder: (context) => LoginScreen()
+                  ),
                 );
               },
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-                size: 25,
-              ),
             ),
           ),
           Container(
             padding: EdgeInsets.only(top: 10),
             alignment: Alignment.center,
             child: Text(
-              'Forgot Password',
-              style: TextStyle(
-                  letterSpacing: 1,
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+              'ลืมรหัสผ่าน',
+              style: AppTheme.headerStyle,
             ),
           ),
           Container(
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(top: 25),
-            margin: EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(top: 20),
             child: Text(
-              "Enter Your Email",
-              style: TextStyle(
-                  letterSpacing: 1,
-                  fontSize: 16,
-                  color: Colors.black),
+              "ระบุอีเมล์ของคุณ",
+              style: AppTheme.inputLabelLargeStyle,
             ),
           ),
           Container(
-            padding: EdgeInsets.only(
-              top: 17,
-            ),
+            padding: EdgeInsets.only(top: 15),
             child: Column(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(
-                    left:10,
-                    right: 10,
-                  ),
-                  child:Stack(
+                  child: Stack(
                     children: <Widget>[
                       Container(
-                        padding: EdgeInsets.only(
-                          left: 4,
-                          bottom: 30,
-                        ),
-                        height: 60,
+                        padding: EdgeInsets.only(left: 6, bottom: 35),
+                        height: 68,
                         decoration: new BoxDecoration(
                           border: Border.all(color: Colors.black45),
                           borderRadius:
@@ -130,24 +117,21 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                           children: <Widget>[
                             Icon(
                               Icons.email,
-                              color: Color(hexColor('#4298D3')),
-                              size: 20,
+                              color: ColorRes.primaryColor,
+                              size: 24,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(
-                                  top: 5, left: 7, bottom: 5),
+                              padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
                               child: Text(
                                 'Email',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                ),
+                                style: AppTheme.inputLabelStyle,
                               ),
                             )
                           ],
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 1, top: 11),
+                        padding: EdgeInsets.only(left: 1, top: 16),
                         child: TextFormField(
                           controller: emailContoller,
                           validator: validateEmail,
@@ -166,11 +150,8 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                               BorderSide(color: Colors.white70),
                             ),
                             hintText: 'Enter your Password',
-                            hintStyle: TextStyle(
-                              fontSize: 13,
-                            ),
-                            contentPadding:
-                            EdgeInsets.only(top: 8, left: 30),
+                            hintStyle: AppTheme.inputHintStyle,
+                            contentPadding: EdgeInsets.only(top: 13, left: 38),
                           ),
                         ),
                       ),
@@ -179,14 +160,17 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
                 Container(
                   padding:
-                  EdgeInsets.only(top: 40, left: 10, right: 10),
+                  EdgeInsets.only(top: 40),
                   child: Container(
-                      height: 45,
+                      height: 58,
                       width: Utils.getDeviceWidth(context),
                       child: RaisedButton(
                         textColor: Colors.white,
-                        color: Color(hexColor('#4298D3')),
-                        child: Text('OK'),
+                        color: ColorRes.lightBlur,
+                        child: Text(
+                          'ตกลง',
+                          style: AppTheme.btnTextStyle,
+                        ),
                         onPressed: () {
                           _validateInputs();
                         },

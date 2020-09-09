@@ -16,71 +16,52 @@ class AppState {
 class AppTheme {
   AppTheme._();
 
-
-  static const TextTheme textTheme = TextTheme(
-    headline4: display1,
-    headline5: headline,
-    headline6: title,
-    subtitle2: subtitle,
-    bodyText2: body2,
-    bodyText1: body1,
-    caption: caption,
+  static const TextStyle headerStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 30.0,
+    color: Colors.black,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.5,
   );
 
-  static const TextStyle display1 = TextStyle(
+  static const TextStyle subHeaderStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,
-    fontWeight: FontWeight.w600,
-    fontSize: 36,
+    fontSize: 21.0,
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
     letterSpacing: 0.4,
-    height: 0.9,
-    color: ColorRes.darkTextColor2,
   );
 
-  static const TextStyle headline = TextStyle(
+  static const TextStyle inputLabelStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,
-    fontWeight: FontWeight.w600,
-    fontSize: 24,
-    letterSpacing: 0.27,
-    color: ColorRes.darkTextColor2,
-  );
-
-  static const TextStyle title = TextStyle(
-    fontFamily: StringRes.fontFamilyKanitBlack,
-    fontWeight: FontWeight.w600,
-    fontSize: 16,
-    letterSpacing: 0.18,
-    color: ColorRes.darkTextColor2,
-  );
-
-  static const TextStyle subtitle = TextStyle(
-    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 16.0,
+    color: Colors.black,
     fontWeight: FontWeight.w400,
-    fontSize: 14,
-    letterSpacing: -0.04,
-    color: ColorRes.darkTextColor,
+  );
+  static const TextStyle inputLabelLargeStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 18.0,
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+  );
+  static const TextStyle inputHintStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 16.0,
+    color: Colors.grey,
+    fontWeight: FontWeight.w400,
   );
 
-  static const TextStyle body2 = TextStyle(
+  static const TextStyle btnTextStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,
-    fontWeight: FontWeight.w400,
-    fontSize: 14,
-    letterSpacing: 0.2,
-    color: ColorRes.darkTextColor,
+    fontSize: 20.0,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle body1 = TextStyle(
-    fontFamily: StringRes.fontFamilyKanitBlack,
-    fontWeight: FontWeight.w400,
-    fontSize: 16,
-    letterSpacing: -0.05,
-    color: ColorRes.darkTextColor,
+  static const Icon btnBackIcon = Icon(
+    Icons.arrow_back,
+    color: Colors.black,
+    size: 28.0,
   );
 
-  static const TextStyle caption = TextStyle(
-    fontFamily: StringRes.fontFamilyKanitBlack,
-    fontWeight: FontWeight.w400,
-    fontSize: 12,
-    letterSpacing: 0.2,
-    color: ColorRes.lightTextColor,
-  );
 }
