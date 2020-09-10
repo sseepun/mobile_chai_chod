@@ -22,6 +22,13 @@ class AppTheme {
     fontWeight: FontWeight.bold,
     letterSpacing: 0.5,
   );
+  static const TextStyle headerSmallStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 27.0,
+    color: Colors.black,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.45,
+  );
 
 
   static const TextStyle subHeaderStyle = TextStyle(
@@ -44,12 +51,25 @@ class AppTheme {
     color: Colors.black,
     fontWeight: FontWeight.w500,
   );
+  static const TextStyle subHeaderLargeStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 24.0,
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+    letterSpacing: 0.4,
+  );
 
 
   static const TextStyle descStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,
     fontSize: 18.0,
     color: Colors.black87,
+    fontWeight: FontWeight.w400,
+  );
+  static const TextStyle descBlackStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 18.0,
+    color: Colors.black,
     fontWeight: FontWeight.w400,
   );
   static const TextStyle descSemiboldStyle = TextStyle(
@@ -63,6 +83,12 @@ class AppTheme {
     fontSize: 12.5,
     color: Colors.black87,
     fontWeight: FontWeight.w400,
+  );
+  static const TextStyle descGreyStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 16.0,
+    color: Colors.grey,
+    fontWeight: FontWeight.w500,
   );
 
 

@@ -33,17 +33,17 @@ class StringRes {
   static const heading                       =  "Salam, Style, Ory";
   static const secondHeading                 =  "Promotion Product This Month";
   //Archive Page
-  static const archiveHeading                =  "Track delivery";
+  static const archiveHeading                =  "ติดตามการจัดส่ง";
 
   static const StyleOry                      =  "Salam, Style, Ory";
   static const promotionTitle                =  "สินค้าโปรโมรชั่นประจำเดือนนี้";
   static const chooseHereTitle               =  "เลือกตามหมวดหมู่";
 
   //Notification Page
-  static const notificationHeading           =  "Notification";
+  static const notificationHeading           =  "การแจ้งเตือน";
 
   //Notification Page
-  static const userHeading                   =  "Your Account";
+  static const userHeading                   =  "บัญชีของคุณ";
 
   //Cart Screen
   static const shoppingCart                  =  "Shopping Carts";
@@ -61,38 +61,38 @@ class StringRes {
   static const numberItem                    =  "The Number of Item";
 
   // tab 2
-  static const shipping                      =  "Shipping";
-  static const successDelivery               =  "Successful delivery";
+  static const shipping                      =  "กำลังจัดส่ง";
+  static const successDelivery               =  "จัดส่งสำเร็จ";
 
   //Tab2 => tab1 shipping
-  static const dayOrder                      =  "Day Order the";
+  static const dayOrder                      =  "วันที่สั่งของ";
 
   //tab2 => tab2 success
-  static const orders                        =  "Orders";
-  static const dateOrder                     =  "Date order";
-  static const dateOfReceipt                 =  "Date of receipt of goods";
+  static const orders                        =  "คำสั่งซื้อเลขที่";
+  static const dateOrder                     =  "วันที่สั่งของ";
+  static const dateOfReceipt                 =  "วันที่ได้รับสินค้า";
 
   //tab3
-  static const all                           =  "All";
-  static const shipment                      =  "Shipment";
-  static const payment                       =  "Payment";
+  static const all                           =  "ทั้งหมด";
+  static const shipment                      =  "การจัดส่ง";
+  static const payment                       =  "การชำระเงิน";
 
   //Tab4
-  static const manageProfile                 =  "Manage profile";
-  static const favorites                     =  "Favorites";
-  static const orderHistory                  =  "Order history";
-  static const setUp                         =  "Set up";
+  static const manageProfile                 =  "จัดการโปรไฟล์";
+  static const favorites                     =  "รายการโปรด";
+  static const orderHistory                  =  "ประวัติการสั่งซื้อ";
+  static const setUp                         =  "ตั้งค่า";
   static const address                       =  "Address";
   static const setLanguage                   =  "Set Language";
   static const save                          =  "Save";
 
   //User Profile
-  static const accountTheYou                 =  "Account The You";
-  static const youAreNotLogin                =  "You Are not logged in";
-  static const logIn                         =  "Log In";
-  static const storeName                     =  "Store Name";
-  static const hTax                          =  "H number tax";
-  static const currentAddress                =  "Current Address";
+  static const accountTheYou                 =  "บัญชีของคุณ";
+  static const youAreNotLogin                =  "คุณยังไม่ได้เข้าสู่ระบบ";
+  static const logIn                         =  "เข้าสู่ระบบ";
+  static const storeName                     =  "ชื่อร้าน";
+  static const hTax                          =  "หมายเลขเสียภาษี";
+  static const currentAddress                =  "ที่อยู่ปัจจุบัน";
 
 
   //Contact Us
@@ -121,13 +121,13 @@ Link to privacy policy of third party service providers used by the app
   //About Us
   static const setup                         = "Set Up";
   static const deSetup                       = "Current address";
-  static const aboutUs                       = "About Us";
+  static const aboutUs                       = "เกี่ยวกับเรา";
 
   //Change Password
   static const passwordTitle                 =  "Change Password";
 
   //Edit Profile
-  static const editProfile                   =  "Edit Profile";
+  static const editProfile                   =  "แก้ไขโปรไฟล์";
 
   //category Profile
   static const categoryTitle                 = "ยางรถเก๋ง, รถกระบะ, รถซูเปอร์คาร์";

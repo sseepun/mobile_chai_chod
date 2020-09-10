@@ -225,21 +225,14 @@ class _ProductScreenState extends State<ProductScreen>
           SizedBox(height: 5),
           TabBar(
             indicatorColor: ColorRes.primaryColor,
+            indicatorWeight: 4,
             labelColor: ColorRes.primaryColor,
             unselectedLabelColor: Colors.grey,
             isScrollable: false,
             labelStyle: AppTheme.tabTextStyle,
             tabs: <Tab>[
-              Tab(
-                child: Text(
-                  StringRes.tab1,
-                )
-              ),
-              Tab(
-                child: Text(
-                  StringRes.tab2,
-                )
-              ),
+              Tab(child: Text(StringRes.tab1)),
+              Tab(child: Text(StringRes.tab2)),
             ],
             controller: tabController,
           ),

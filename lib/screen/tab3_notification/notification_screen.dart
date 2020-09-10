@@ -3,11 +3,13 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/tab3_notification/tab1_all/all_notification_screen.dart';
-import '../tab4_user/order_history/shipment_screen.dart';
-import 'package:ChaiChod/screen/tab3_notification/tab3_payment/payment_screen.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'tab1_all/all_notification_screen.dart';
+import 'tab3_payment/payment_screen.dart';
+import '../tab4_user/order_history/shipment_screen.dart';
 
 class NotificationScreen extends StatefulWidget {
 
@@ -27,40 +29,36 @@ class _NotificationScreenState extends State<NotificationScreen>
   void initState() {
     // TODO: implement initState
     super.initState();
-    _tabController = new TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
+        backgroundColor: ColorRes.bgColor,
         body: Column(
           children: <Widget>[
-            widget.i == 2 ?
-            CommonView.backArrowAndTitle(context, StringRes.notificationHeading, ColorRes.blackColor)
-            : CommonView.titleText(StringRes.notificationHeading),
+            CommonView.titleText(StringRes.notificationHeading),
+            SizedBox(height: 20),
             Container(
-              color: ColorRes.lightWhite,
-              height: Utils.getDeviceHeight(context) / 12,
-              margin: EdgeInsets.only(top: 15, bottom: 15),
+              height: 50,
               child: TabBar(
                 indicatorColor: ColorRes.primaryColor,
+                indicatorWeight: 4,
                 labelColor: ColorRes.primaryColor,
+                unselectedLabelColor: Colors.grey,
                 isScrollable: false,
-                labelStyle: TextStyle(color: ColorRes.primaryColor),
+                labelStyle: AppTheme.tabTextStyle,
                 tabs: <Tab>[
-                  Tab(
-                      child: AllText(StringRes.all, fontSize: 17, color: ColorRes.primaryColor)),
-                  Tab(
-                      child: AllText(StringRes.shipment, fontSize: 17, color: ColorRes.primaryColor)),
-                  Tab(
-                      child: AllText(StringRes.payment, fontSize: 17, color: ColorRes.primaryColor)),
+                  Tab(child: Text(StringRes.all)),
+                  Tab(child: Text(StringRes.shipment)),
+                  Tab(child: Text(StringRes.payment)),
                 ],
                 controller: _tabController,
               ),
             ),
-
+            SizedBox(height: 10),
             // tab bar view are use in other screen
             Expanded(
               child: TabBarView(

@@ -1,7 +1,7 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
-import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
+import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:flutter/material.dart';
 
 class ShippingScreen extends StatefulWidget {
@@ -13,84 +13,49 @@ class _ShippingScreenState extends State<ShippingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorRes.lightWhite,
-
+      backgroundColor: ColorRes.bgColor,
       body: SingleChildScrollView(
         child: ListView.builder(
-            itemCount: 2,
-            padding: EdgeInsets.only(top: 10),
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) {
-              return shippingCard();
-            }),
+          itemCount: 2,
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return shippingCards();
+          }
+        ),
       ),
     );
   }
 
   //shipping card show the text and date
-  shippingCard(){
+  shippingCards(){
     return InkResponse(
       onTap: () {
         orderDetailsScreenNavigator(context, 1);
       },
       child: Container(
-          height: 60,
-          margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-          decoration: new BoxDecoration(
-            boxShadow: [
-              new BoxShadow(
-                offset: Offset(0.5, 0.5),
-                color: ColorRes.greyColor,
-                blurRadius: 0.5,
-              ),
-            ],
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(2)),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              cardTextShow(StringRes.orders, "#1003111124"),
-              cardTextShow(StringRes.dayOrder, "30/05/20")
-            ],
-          )
+        margin: EdgeInsets.only(left: 15, right: 15, top: 10),
+        padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0.5, 0.5),
+              color: Colors.black12,
+              blurRadius: 2,
+            ),
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(2)),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            CommonView.rowCard(StringRes.orders, "#1003111124"),
+            SizedBox(height: 1),
+            CommonView.rowCard(StringRes.dayOrder, "30/05/20")
+          ],
+        )
       ),
-    );
-  }
-
-  //card text show are use in design in shipping card
-  cardTextShow(String leftText, String rightText) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Expanded(
-          flex: 2,
-          child: Container(
-            alignment: Alignment.topLeft,
-            padding: EdgeInsets.only(top: 0, left: 20),
-            child: AllText(leftText,
-              color: Colors.black,
-              fontSize: 14,
-              overflow: TextOverflow.ellipsis,
-              maxLine: 1,
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Container(
-            alignment: Alignment.topRight,
-            padding: EdgeInsets.only(top: 0, right: 15),
-            child: AllText(
-              rightText,
-              color: Colors.black,
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ],
     );
   }
 

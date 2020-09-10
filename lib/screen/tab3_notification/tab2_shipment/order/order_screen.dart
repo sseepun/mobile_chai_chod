@@ -5,9 +5,10 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/order_details/order_history/orderhistorymodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ChaiChod/screen/order_details/order_history/orderhistorymodel.dart';
 
 class OrderScreen extends StatefulWidget {
   @override
@@ -32,11 +33,10 @@ class OrderScreenState extends State<OrderScreen> {
     return Material(
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: ColorRes.whiteColor,
+          backgroundColor: ColorRes.bgColor,
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-//                  appBarDesign(),
                 CommonView.backArrowAndTitle(
                     context, StringRes.orderHistory, ColorRes.blackColor),
                 orderIdDesign(),
@@ -57,32 +57,6 @@ class OrderScreenState extends State<OrderScreen> {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  appBarDesign() {
-    return Container(
-      alignment: Alignment.center,
-      height: 50,
-      color: Colors.white,
-      child: Stack(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(10),
-            child: InkWell(
-              child: Icon(Icons.arrow_back, size: 25),
-              onTap: () {},
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text(
-              "",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
       ),
     );
   }

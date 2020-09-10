@@ -1,15 +1,3 @@
-//import 'package:ChaiChod/common_widget/common_route.dart';
-//import 'package:ChaiChod/common_widget/common_widget.dart';
-//import 'package:ChaiChod/common_widget/text.dart';
-//import 'package:ChaiChod/config/color_resources.dart';
-//import 'package:ChaiChod/config/string_resources.dart';
-//import 'package:ChaiChod/config/util.dart';
-//import 'package:flutter/cupertino.dart';
-//import 'package:flutter/material.dart';
-//import 'package:image_picker/image_picker.dart';
-//import 'dart:io';
-//import '../manage_profile_screen.dart';
-
 import 'package:ChaiChod/export.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -64,60 +52,51 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
- /*   return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-//              textTitle(),
-              CommonView.backArrowAndTitle(context, StringRes.editProfile, ColorRes.blackColor),
-
-              SizedBox(height: 20),
-              uploadImage()
-            ],
-          ),*/
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          child: new Form(
-            key: _formKey,
-            child: Column(
-              children: <Widget>[
-//              textTitle(),
-                CommonView.backArrowAndTitle(context, StringRes.editProfile, ColorRes.blackColor),
-
-                uploadImage(),
-                Container(
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 10),
-                      nameTextFiled(),
-                      SizedBox(height: 5),
-                      shopNameTextFiled(),
-                      SizedBox(height: 5),
-                      taxIdTextFiled(),
-                      SizedBox(height: 5),
-                      addressTextFiled(),
-                      SizedBox(height: 5),
-                      soiTextFiled(),
-                      SizedBox(height: 5),
-                      provinceTextFiled(),
-                      SizedBox(height: 5),
-                      districtTextFiled(),
-                      SizedBox(height: 5),
-                      subDistrictTextFiled(),
-                      SizedBox(height: 5),
-                      postalCodeTextFiled(),
-                      SizedBox(height: 20),
-                      recordButton(),
-                      SizedBox(height: 10),
-                    ],
+    return Container(
+      color: ColorRes.bgColor,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: ColorRes.bgColor,
+          body: SingleChildScrollView(
+            child: new Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
+                  CommonView.backArrowAndTitle(
+                    context, StringRes.editProfile, 
+                    ColorRes.blackColor
                   ),
-                ),
-              ],
+                  uploadImage(),
+                  Container(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(height: 10),
+                        nameTextFiled(),
+                        SizedBox(height: 5),
+                        shopNameTextFiled(),
+                        SizedBox(height: 5),
+                        taxIdTextFiled(),
+                        SizedBox(height: 5),
+                        addressTextFiled(),
+                        SizedBox(height: 5),
+                        soiTextFiled(),
+                        SizedBox(height: 5),
+                        provinceTextFiled(),
+                        SizedBox(height: 5),
+                        districtTextFiled(),
+                        SizedBox(height: 5),
+                        subDistrictTextFiled(),
+                        SizedBox(height: 5),
+                        postalCodeTextFiled(),
+                        SizedBox(height: 20),
+                        recordButton(),
+                        SizedBox(height: 10),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

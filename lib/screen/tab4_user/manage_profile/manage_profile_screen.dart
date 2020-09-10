@@ -1,3 +1,4 @@
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/export.dart';
 
 class ManageProfileScreen extends StatefulWidget {
@@ -11,61 +12,67 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
-        body: Column(
-          children: <Widget>[
-            CommonView.backArrowAndTitle(context, StringRes.accountTheYou, ColorRes.blackColor),
-
-            isUserLogin ? userLogo() : logoShow(),
-
-            SizedBox(height: isUserLogin ? 25 : 50),
-
-            isUserLogin ? AllText("Your Name", fontSize: 20, color: ColorRes.blackColor): Container(),
-
-            isUserLogin ? Container() : AllText(StringRes.youAreNotLogin, fontSize: 28, color: ColorRes.blackColor),
-            SizedBox(height: 20),
-
-            isUserLogin ? userDetails() : loginButton()
-          ],
+    return Container(
+      color: ColorRes.bgColor,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: ColorRes.lightWhite,
+          body: Column(
+            children: <Widget>[
+              CommonView.backArrowAndTitle(
+                context, 
+                StringRes.accountTheYou, 
+                ColorRes.blackColor
+              ),
+              SizedBox(height: 25),
+              isUserLogin ? userLogo() : companyLogo(),
+              SizedBox(height: isUserLogin ? 15 : 50),
+              isUserLogin 
+                ? Text(
+                  "Mark Joley", 
+                  style: AppTheme.subHeaderLargeStyle,  
+                )
+                : Text(
+                  StringRes.youAreNotLogin,
+                  style: AppTheme.headerSmallStyle,
+                ),
+              SizedBox(height: isUserLogin ? 7 : 40),
+              isUserLogin ? userDetails() : loginButton()
+            ],
+          ),
         ),
       ),
     );
   }
 
-
-
   //show the image logo
-  logoShow() {
+  companyLogo() {
     return Container(
-      height: Utils.getDeviceWidth(context) / 2.3,
-      width: Utils.getDeviceWidth(context) / 2.3,
-
+      height: Utils.getDeviceWidth(context) * 0.42,
+      width: Utils.getDeviceWidth(context) * 0.42,
       alignment: Alignment.center,
-      margin: EdgeInsets.only(top: 20),
-      padding: EdgeInsets.only(left: 10, right: 10),
+      padding: EdgeInsets.only(left: 15, right: 15),
       decoration: BoxDecoration(
-        color: ColorRes.profileLogoBg,
+        color: Colors.black12,
         shape: BoxShape.circle,
       ),
-      child: Image(image:  AssetImage(Utils.getAssetsImg('logo'))),
+      child: Image(
+        image: AssetImage(Utils.getAssetsImg('logo'))
+      ),
     );
   }
 
   // user logo is use the move to edit profile screen
   userLogo() {
     return Stack(
-//      alignment: Alignment.topCenter
       children: <Widget>[
         Center(
-          child: logoShow(),
+          child: companyLogo(),
         ),
         Align(
           alignment: Alignment.topRight,
           child: InkResponse(
             onTap: () {
-
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => EditProfileScreen()),
@@ -90,36 +97,55 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
   userDetails() {
     return Container(
       width: Utils.getDeviceWidth(context),
-      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
       decoration: BoxDecoration(
-        color: ColorRes.whiteColor,
-        borderRadius: BorderRadius.all(Radius.circular(5))
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0.5, 0.5),
+            color: Colors.black12,
+            blurRadius: 2,
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          titleText(StringRes.storeName, "nutchatya.cha"),
+          Text(
+            StringRes.storeName,
+            style: AppTheme.descGreyStyle,
+          ),
+          Text(
+            'nutchatya.cha',
+            style: AppTheme.descStyle,
+          ),
+          SizedBox(height: 15),
           Divider(height: 1, color: ColorRes.greyColor),
-
-          titleText(StringRes.hTax, "98765431215988"),
+          SizedBox(height: 10),
+          Text(
+            StringRes.hTax,
+            style: AppTheme.descGreyStyle,
+          ),
+          Text(
+            '98765431215988',
+            style: AppTheme.descStyle,
+          ),
+          SizedBox(height: 15),
           Divider(height: 1, color: ColorRes.greyColor),
-
-          titleText(StringRes.currentAddress, "999/9 nawamin, bueng kum, post 10330"),
-        ],
-      ),
-    );
-  }
-
-  titleText(String title, String subTitle) {
-    return Container(
-      color: ColorRes.whiteColor,
-      margin: EdgeInsets.only(bottom: 10, top: 10),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(title),
-          SizedBox(height: 2),
-          Text(subTitle)
+          SizedBox(height: 10),
+          Text(
+            StringRes.currentAddress,
+            style: AppTheme.descGreyStyle,
+          ),
+          Text(
+            '999/9 นวมินทร์ บึงกลุ่ม กรุงเทพมหานคร',
+            style: AppTheme.descStyle,
+          ),
+          Text(
+            'รหัสไปรษณีย์ 10330',
+            style: AppTheme.descStyle,
+          ),
         ],
       ),
     );
@@ -127,13 +153,18 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
 
   loginButton() {
     return Padding(
-        padding: EdgeInsets.only(left: 10, right: 10),
-        child: InkResponse(
-            onTap: () {
-              logInScreenNavigator(context, 2);
-            },
-            child: FilledButton(text: StringRes.logIn, fontSize: 18)));
+      padding: EdgeInsets.only(left: 15, right: 15),
+      child: InkResponse(
+        onTap: () {
+          logInScreenNavigator(context, 2);
+        },
+        child: FilledButton(
+          text: StringRes.logIn,
+          height: 58, 
+          fontSize: 20
+        )
+      )
+    );
   }
-
 
 }

@@ -21,7 +21,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentScreenIndex = 0;
   List<Widget> _screens;
-// list of bottom tab bar
   List<List> _bottomData = <List>[
     [ 0, FontAwesomeIcons.home, 'หน้าหลัก' ],
     [ 1, FontAwesomeIcons.archive, 'ติดตามพัสดุ' ],
@@ -56,6 +55,7 @@ class _MainScreenState extends State<MainScreen> {
   // bottom tab bar navigator and its use are bottom tab bar
   Widget _bottomNavigationBar() {
     return BottomNavigationBar(
+      elevation: 0,
       currentIndex: _currentScreenIndex,
       type: BottomNavigationBarType.fixed,
       showUnselectedLabels: true,

@@ -1,6 +1,7 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
+import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,95 @@ class CommonView {
     );
   }
 
+  //rowCard
+  static rowCard(String leftText, String rightText) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          leftText,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: StringRes.fontFamilyKanitBlack,
+            fontSize: 16.0,
+            color: Colors.black,
+            fontWeight: FontWeight.w400,
+          )
+        ),
+        Text(
+          rightText,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: StringRes.fontFamilyKanitBlack,
+            fontSize: 16.0,
+            color: Colors.black,
+            fontWeight: FontWeight.w400,
+          )
+        ),
+      ],
+    );
+  }
+  static rowCardGrey(String leftText, String rightText) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          leftText,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: StringRes.fontFamilyKanitBlack,
+            fontSize: 16.0,
+            color: Colors.black45,
+            fontWeight: FontWeight.w400,
+          )
+        ),
+        Text(
+          rightText,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: StringRes.fontFamilyKanitBlack,
+            fontSize: 16.0,
+            color: Colors.black45,
+            fontWeight: FontWeight.w400,
+          )
+        ),
+      ],
+    );
+  }
+  static rowCardWithColor(String leftText, String rightText, Color color) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          leftText,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: StringRes.fontFamilyKanitBlack,
+            fontSize: 16.0,
+            color: color,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        Text(
+          rightText,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: StringRes.fontFamilyKanitBlack,
+            fontSize: 16.0,
+            color: Colors.black45,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ],
+    );
+  }
+
   // all screen common back arrow and title use
   static backArrowAndTitle(BuildContext context, String title, Color color) {
     return Stack(
@@ -60,27 +150,18 @@ class CommonView {
           },
           child: Container(
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 15,top: 20),
-            child: Icon(
-              Icons.arrow_back,
-              color: color,
-              size: 25,
-            ),
+            padding: EdgeInsets.only(left: 15, right: 20),
+            child: AppTheme.btnBackIcon,
           ),
         ),
         Center(
           child: Container(
             alignment: Alignment.center,
-            margin: EdgeInsets.only(top: 25, bottom: 5),
-            child: Flexible(
-              child: AllText(
-                title,
-                maxLine: 1,
-                overflow: TextOverflow.ellipsis,
-                color: color,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppTheme.subHeaderBoldStyle,
             ),
           ),
         )
