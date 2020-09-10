@@ -47,7 +47,7 @@ class StringRes {
 
   //Cart Screen
   static const shoppingCart                  =  "Shopping Carts";
-  static const continueText                  =  "Continue";
+  static const continueText                  =  "ดำเนินการต่อ";
   static const prices                        =  "Prices";
   static const discount                      =  "Discount";
   static const total                         =  "Total";
@@ -103,8 +103,17 @@ class StringRes {
 
   //Privacy
   static const privacyPolicy                 =  "Privacy Poliicy";
-  static const PrivacyDescription1           =  "Chaichod built the Chaichod app as a Free app. This SERVICE is provided by Chaichod at no cost and is intended for use as is.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                   This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                       If you choose to use our Service, then you agree to the collection and use of information in relation to this policy The Personal Information that we collect is used for providing and improving the Service we will not use or share your information with anyone except as described in this Privacy Policy.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                    The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Chaichod unless otherwise defined in this Privacy Policy.";
-  static const PrivacyDescription2           =  "For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained by us and used as described in this privacy policy.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                    The app does use third party services that may collect Information used to identify you.                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                    Link to privacy policy of third party service providers used by the app";
+  static const PrivacyDescription1           =  '''
+Chaichod built the Chaichod app as a Free app. This SERVICE is provided by Chaichod at no cost and is intended for use as is.
+This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
+If you choose to use our Service, then you agree to the collection and use of information in relation to this policy The Personal Information that we collect is used for providing and improving the Service we will not use or share your information with anyone except as described in this Privacy Policy.
+The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Chaichod unless otherwise defined in this Privacy Policy.
+  ''';
+  static const PrivacyDescription2           =  '''
+For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained by us and used as described in this privacy policy.
+The app does use third party services that may collect Information used to identify you.
+Link to privacy policy of third party service providers used by the app
+''';
   static const PrivacyDescription3           =  "we want to inform you that whenever you use our Service, in a case of an error in the app we collect data and information (through third party products) on your phone called Log Data.  This Log Data may include information such as your device Internet Protocol (IP) address, device.";
   static const PrivacyTitle1                 =  "Information Collection and Use";
   static const PrivacyTitle2                 =  "Log Data";
@@ -128,16 +137,16 @@ class StringRes {
   static const brandName                     = "แบรนด์";
   static const buttonName                    = "สเปคยาง";
   static const ProductTitle1                 = "รายละเอียดสินค้าเพิ่มเติม";
-  static const tab1                          = "Details";
-  static const tab2                          = "Reviews";
-  static const ProductTitle3                 = "Related Products";
-  static const btn1                          = "Transparent trolley";
-  static const btn2                          = "Buy now";
+  static const tab1                          = "รายละเอียด";
+  static const tab2                          = "รีวิว";
+  static const ProductTitle3                 = "สินค้าใกล้เคียง";
+  static const btn1                          = "ใส่รถเข็น";
+  static const btn2                          = "ซื้อเลย";
   static const rubberSeries                  = "ซีรี่ย์ยาง";
   static const rubberEdge                    = "ขอบยาง";
   static const sidewallTxt                   = "แก้มยาง";
-  static const btn1details                   = "Add to cart";
-  static const DateFormat                   = "12 DEC 2019";
+  static const btn1details                   = "เพิ่มเข้าตระกร้า";
+  static const DateFormat                    = "12 DEC 2019";
 
   //OrderSummary
   static const OrderSummaryTitle             = "Order Summary";
@@ -149,9 +158,13 @@ class StringRes {
   static const discountDetailsBtn2           = "Take";
 
   //Details Screen
-  static const Title1                        = "Lorem properties";
+  static const Title1                        = "คุณสมบัติ";
   static const Description                   = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut";
-  static const Description1                  = "Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua . Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute inure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui officia deserunt mollit anim id est laborum . Lorem ipsum dolor sit amet , consectetur adipiscing elit . sed do eiusmod tempor incididunt ut labore et dolore magna aliqua .                            \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                             Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui";
+  static const Description1                  = '''
+Lorem ipsum dolor sit amet , consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua . Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute inure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui officia deserunt mollit anim id est laborum . Lorem ipsum dolor sit amet , consectetur adipiscing elit . sed do eiusmod tempor incididunt ut labore et dolore magna aliqua .
+    
+Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat . Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur . Excepteur sint occaecat cupidatat non proident , sunt in culpa qui
+  ''';
 
   //payment transfer Screen
   static const paymentTitle                  =  "Pay by bank account";
@@ -206,7 +219,10 @@ class StringRes {
 
   //Complete Screen
   static const CompleteTitle                  = "Completed";
-  static const CompleteTitle1                 = "Thank you for Rating                                                                                                                      \t        and 555";
+  static const CompleteTitle1                 = '''
+Thank you for Rating
+and 555
+''';
   static const CompleteBtn1                   = "Back to homepage";
 
 

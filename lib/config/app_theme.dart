@@ -92,6 +92,12 @@ class AppTheme {
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle btnTextPrimaryStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 20.0,
+    color: ColorRes.primaryColor,
+    fontWeight: FontWeight.bold,
+  );
   static const Icon btnBackIcon = Icon(
     Icons.arrow_back,
     color: Colors.black,
@@ -154,6 +160,13 @@ class AppTheme {
     color: Colors.black54,
     fontWeight: FontWeight.w500,
     height: 1.25,
+  );
+
+
+  static const TextStyle tabTextStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 17.5,
+    fontWeight: FontWeight.w500,
   );
 
 }

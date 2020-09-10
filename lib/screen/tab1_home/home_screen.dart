@@ -28,9 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 10),
             searchTextFiled(),
-            SizedBox(height: 10),
             sideImage(),
             SizedBox(height: 15),
             CommonView.titleText(StringRes.chooseHereTitle),
@@ -83,32 +81,46 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   searchTextFiled() {
-    return GestureDetector(
-      onTap: () {
-        searchScreenNavigator(context);
-      },
-      child: Container(
-        decoration: BoxDecoration(color: Colors.white),
-        height: 40,
-        padding: EdgeInsets.only(left: 20, right: 10),
-        child: Row(
-          children: [
-            Icon(
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+      color: Colors.white,
+      child: TextField(
+        textInputAction: TextInputAction.search,
+        onSubmitted: (value) {
+          searchScreenNavigator(context);
+        },
+        style: TextStyle(
+          fontSize: 17, 
+          color: Colors.black,
+          fontWeight: FontWeight.w500,
+          fontFamily: StringRes.fontFamilyKanitBlack,
+        ),
+        decoration: InputDecoration(
+          hintText: 'ค้นหา',
+          filled: true,
+          fillColor: ColorRes.whiteColor,
+          contentPadding: EdgeInsets.all(0),
+          prefixIcon: IconButton(
+            icon: Icon(
               Icons.search,
-              size: 20,
-              color: Colors.grey,
+              size: 28,
             ),
-            Container(
-              width: 20,
-            ),
-            Container(
-              child: Text(
-                'Search here...',
-                style: TextStyle(
-                    letterSpacing: 1.0, fontSize: 15, color: Colors.grey),
-              ),
-            ),
-          ],
+          ),
+          hintStyle: TextStyle(
+            fontSize: 17, 
+            fontWeight: FontWeight.w500,
+            fontFamily: StringRes.fontFamilyKanitBlack,
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 1, color: Colors.black26),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 1, color: ColorRes.primaryColor),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 1, color: Colors.black26),
+          ),
         ),
       ),
     );

@@ -58,21 +58,4 @@ class FilledButton extends StatelessWidget {
     );
   }
 
-/*  Widget _iOSButton() {
-    var dTextColor = disabledTextColor ?? primaryDark;
-    var txtColor = textColor ?? Colors.white;
-    return CupertinoButton(padding: child==null? EdgeInsets.all(0):EdgeInsets.symmetric(horizontal: 10),
-      disabledColor: disabledColor ?? primaryLight,
-      onPressed: onPressed,
-      child: child ??
-          Text(
-            text,
-            style: TextStyle(
-              color: onPressed == null ? dTextColor : txtColor,
-            ),
-          ),
-      color: color ?? primaryDark,
-      borderRadius: BorderRadius.circular(7.0),
-    );
-  }*/
 }

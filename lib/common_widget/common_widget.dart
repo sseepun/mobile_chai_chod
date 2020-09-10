@@ -91,7 +91,7 @@ class CommonView {
   // product details left data design
   static productDetailRow(String title, String detail, bool greyRow) {
     return Container(
-      color: greyRow ? Colors.black12: Colors.white,
+      color: greyRow ? Color(0xFFEFEFEF): Colors.white,
       child: Padding(
         padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
         child: Row(
