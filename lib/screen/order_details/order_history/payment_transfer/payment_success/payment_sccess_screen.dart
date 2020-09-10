@@ -102,11 +102,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
                         color: ColorRes.lightBlur,
                         child: Text('Back to homepage'),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen()),
-                          );
+                          productScreenNavigator(context);
                         },
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:ChaiChod/export.dart';
+import 'package:ChaiChod/screen/tab1_home/category/product/product_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 
@@ -44,39 +45,53 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           childAspectRatio: 0.72
-          // childAspectRatio: Utils.getDeviceWidth(context) /
-          //     (Utils.getDeviceHeight(context) / 1.27),
+        // childAspectRatio: Utils.getDeviceWidth(context) /
+        //     (Utils.getDeviceHeight(context) / 1.27),
       ),
       itemBuilder: (context, index) {
-        return Container(
-          // height: 150,
-          padding: EdgeInsets.only(left: 8, right: 8),
-          color: ColorRes.whiteColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Image(image: AssetImage(Utils.getAssetsImg('tiers'))),
-              Column(
+        return InkResponse(
+          onTap: () {
+            if (index == 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProductScreen()),
+              );
+            } else if (index == 1) {
+            } else if (index == 2) {
+            } else if (index == 3) {
+            } else if (index == 4) {}
+          },
+          child: Container(
+            // height: 150,
+            padding: EdgeInsets.only(left: 8, right: 8),
+            color: ColorRes.whiteColor,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Image(image: AssetImage(Utils.getAssetsImg('tiers'))),
+                Column(
 //                  mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  AllText(
-                    "GOODYEAR",
-                    color: ColorRes.blackColor,
-                  ),
-                  AllText(
-                    "Tires 225/45/R17",
-                    color: ColorRes.blackColor,
-                  ),
-                  AllText(
-                    "\$2,000 /len.",
-                    color: ColorRes.blackColor,
-                  )
-                ],
-              )
-            ],
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    AllText(
+                      "GOODYEAR",
+                      color: ColorRes.blackColor,
+                    ),
+                    AllText(
+                      "Tires 225/45/R17",
+                      color: ColorRes.blackColor,
+                    ),
+                    AllText(
+                      "\$2,000 /len.",
+                      color: ColorRes.blackColor,
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         );
+
       },
     );
   }

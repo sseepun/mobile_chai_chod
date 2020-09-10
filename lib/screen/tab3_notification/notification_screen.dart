@@ -4,7 +4,7 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/tab3_notification/tab1_all/all_notification_screen.dart';
-import 'package:ChaiChod/screen/tab3_notification/tab2_shipment/shipment_screen.dart';
+import 'file:///D:/Ankita/mobile_chai_chod/lib/screen/tab4_user/order_history/shipment_screen.dart';
 import 'package:ChaiChod/screen/tab3_notification/tab3_payment/payment_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -78,41 +78,4 @@ class _NotificationScreenState extends State<NotificationScreen>
     );
   }
 
-// tab bar name
-  tabBar() {
-    return Container(
-      child: new DefaultTabController(
-        length: 3,
-        child: new Column(
-          children: <Widget>[
-            new Container(
-              width: 1200.0,
-              child: new Container(
-                color: Colors.white60,
-                child: new TabBar(
-                  indicatorColor: ColorRes.primaryColor,
-//                  indicatorSize:,
-                  labelColor: ColorRes.primaryColor,
-                  tabs: [
-                    Tab(
-                      child:
-                          new Text("All", style: new TextStyle(fontSize: 17.0)),
-                    ),
-                    Tab(
-                      child: new Text("Shipment",
-                          style: new TextStyle(fontSize: 17.0)),
-                    ),
-                    Tab(
-                      child: new Text("Payment",
-                          style: new TextStyle(fontSize: 17.0)),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }

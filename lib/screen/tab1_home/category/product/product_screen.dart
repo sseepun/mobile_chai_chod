@@ -48,8 +48,8 @@ class _ProductScreenState extends State<ProductScreen>
   @override
   void initState() {
     super.initState();
-    showPerBottomSheetCallBack = _showModalSheet1;
-    showPerBottomSheetCallBack = _showModalSheet2;
+    showPerBottomSheetCallBack = showModalSheet1;
+    showPerBottomSheetCallBack = showModalSheet2;
     tabController = new TabController(length: 2, vsync: this);
   }
 
@@ -249,149 +249,10 @@ class _ProductScreenState extends State<ProductScreen>
             child: TabBarView(
               children: [
                 listData(),
-                ReviewsTab(),
+                reviewsTab(),
               ],
               controller: tabController,
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  relatedProducts() {
-    return Padding(
-      padding: EdgeInsets.only(top: 20, left: 15),
-      child: AllText(
-        StringRes.ProductTitle3,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-        fontSize: 16,
-      ),
-    );
-  }
-
-  //
-  listProductData() {
-    return Container(
-      // height: 275,
-      padding: EdgeInsets.only(bottom: 15),
-      alignment: Alignment.topLeft,
-      color: ColorRes.lightWhite,
-      width: Utils.getDeviceWidth(context),
-      margin: EdgeInsets.only(top: 20, bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          relatedProducts(),
-          SizedBox(height: 20),
-          Container(
-            // height: 200,
-            height: MediaQuery.of(context).size.height * 0.35,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-//        physics: NeverScrollableScrollPhysics(),
-              itemCount: listTitle.length,
-              padding: EdgeInsets.only(left: 10, right: 10),
-              /*  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: Utils.getDeviceWidth(context) /
-                      (Utils.getDeviceHeight(context) / 1.25)),*/
-              itemBuilder: (context, index) {
-                return Container(
-                  // height: 175,
-//                  width: 125,
-//            width: 100,
-                  padding: EdgeInsets.only(left: 8, right: 8),
-                  margin: EdgeInsets.only(left: 10, right: 10),
-
-                  color: ColorRes.whiteColor,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Image(
-                          height: 130,
-                          image: AssetImage(Utils.getAssetsImg('tiers')),
-                          fit: BoxFit.fill),
-                      Column(
-//                  mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          AllText(
-                            "GOODYEAR",
-                            color: ColorRes.blackColor,
-                          ),
-                          AllText(
-                            "Tires 225/45/R17",
-                            color: ColorRes.blackColor,
-                          ),
-                          SizedBox(
-                            height: 6,
-                          ),
-                          AllText(
-                            "\$2,000 /len.",
-                            color: ColorRes.blackColor,
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  twoButton() {
-    return Container(
-      padding: EdgeInsets.only(left: 10, right: 10),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 3,
-            child: Container(
-                height: 50,
-//              width: 160,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                  color: ColorRes.primaryColor,
-                )),
-                child: FlatButton(
-                  color: ColorRes.whiteColor,
-                  child: AllText(
-                    StringRes.btn1,
-                    fontSize: 15,
-                    align: TextAlign.center,
-                    color: ColorRes.primaryColor,
-                  ),
-                  onPressed: () {
-                    _showModalSheet1();
-                  },
-                )),
-          ),
-          Expanded(
-            flex: 5,
-            child: Container(
-                height: 50,
-                //width: 180,
-                padding: EdgeInsets.only(left: 10),
-                child: FlatButton(
-                  color: ColorRes.primaryColor,
-                  child: AllText(
-                    StringRes.btn2,
-                    fontSize: 15,
-                    color: ColorRes.whiteColor,
-                  ),
-                  onPressed: () {
-                    _showModalSheet2();
-                  },
-                )),
           ),
         ],
       ),
@@ -424,6 +285,7 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+  //list data in using details tab
   listData() {
     return SingleChildScrollView(
       physics: NeverScrollableScrollPhysics(),
@@ -536,8 +398,8 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-  //review tab in using rating this screen
-  ReviewsTab() {
+  //review tab in using review tab
+  reviewsTab() {
     return SingleChildScrollView(
       physics: NeverScrollableScrollPhysics(),
       child: Column(
@@ -759,6 +621,7 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+  //review tab in rate in properties
   starRating(item) {
     return Container(
       alignment: Alignment.centerLeft,
@@ -784,6 +647,7 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+  //review tab in card design
   reviewDetails() {
     return Container(
       // height: 500,
@@ -869,7 +733,147 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-  void _showModalSheet1() {
+  relatedProducts() {
+    return Padding(
+      padding: EdgeInsets.only(top: 20, left: 15),
+      child: AllText(
+        StringRes.ProductTitle3,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        fontSize: 16,
+      ),
+    );
+  }
+
+  listProductData() {
+    return Container(
+      // height: 275,
+      padding: EdgeInsets.only(bottom: 15),
+      alignment: Alignment.topLeft,
+      color: ColorRes.lightWhite,
+      width: Utils.getDeviceWidth(context),
+      margin: EdgeInsets.only(top: 20, bottom: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          relatedProducts(),
+          SizedBox(height: 20),
+          Container(
+            // height: 200,
+            height: MediaQuery.of(context).size.height * 0.30,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+//        physics: NeverScrollableScrollPhysics(),
+              itemCount: listTitle.length,
+              padding: EdgeInsets.only(left: 10, right: 10),
+              /*  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: Utils.getDeviceWidth(context) /
+                      (Utils.getDeviceHeight(context) / 1.25)),*/
+              itemBuilder: (context, index) {
+                return Container(
+                  // height: 175,
+//                  width: 125,
+//            width: 100,
+                  padding: EdgeInsets.only(left: 8, right: 8),
+                  margin: EdgeInsets.only(left: 10, right: 10),
+
+                  color: ColorRes.whiteColor,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Image(
+                          height: 130,
+                          image: AssetImage(Utils.getAssetsImg('tiers')),
+                          fit: BoxFit.fill),
+                      Column(
+//                  mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          AllText(
+                            "GOODYEAR",
+                            color: ColorRes.blackColor,
+                          ),
+                          AllText(
+                            "Tires 225/45/R17",
+                            color: ColorRes.blackColor,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          AllText(
+                            "\$2,000 /len.",
+                            color: ColorRes.blackColor,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //bottom in two button design
+  twoButton() {
+    return Container(
+      padding: EdgeInsets.only(left: 10, right: 10),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 5,
+            child: Container(
+                height: 50,
+//              width: 160,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      color: ColorRes.primaryColor,
+                    )),
+                child: FlatButton(
+                  color: ColorRes.whiteColor,
+                  child: AllText(
+                    StringRes.btn1,
+                    fontSize: 15,
+                    align: TextAlign.center,
+                    color: ColorRes.primaryColor,
+                  ),
+                  onPressed: () {
+                    showModalSheet1();
+                  },
+                )),
+          ),
+          Expanded(
+            flex: 5,
+            child: Container(
+                height: 50,
+                //width: 180,
+                margin: EdgeInsets.only(left: 10),
+                child: FlatButton(
+                  color: ColorRes.primaryColor,
+                  child: AllText(
+                    StringRes.btn2,
+                    fontSize: 15,
+                    color: ColorRes.whiteColor,
+                  ),
+                  onPressed: () {
+                    showModalSheet2();
+                  },
+                )),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //bottom transparent trolley button use the  showModalSheet1 and modelSheet is a bottom sheet
+  void showModalSheet1() {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
@@ -1128,7 +1132,7 @@ class _ProductScreenState extends State<ProductScreen>
         });
   }
 
-  //dialog box show in image
+  //transparent trolley button are click then show dialog box and show in image
   void dialogBoxShow() {
     showDialog(
         context: context,
@@ -1171,7 +1175,8 @@ class _ProductScreenState extends State<ProductScreen>
         });
   }
 
-  void _showModalSheet2() {
+  //bottom buy now button use the  showModalSheet2 and modelSheet is a bottom sheet
+  void showModalSheet2() {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
