@@ -30,12 +30,45 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+              size: 25,
+            ),
+            onPressed: (){
+              Navigator.of(context).pop();
+            },
+          ),
+          backgroundColor: Colors.white,
+          title: Text(
+            StringRes.goodyear,
+
+            style: TextStyle(color: Colors.black),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.search),
+              color: ColorRes.primaryColor,
+            ),
+            IconButton(
+              icon: Icon(Icons.shopping_basket),
+              color: ColorRes.primaryColor,
+              onPressed: () {
+                cartScreenNavigator(context);
+              },
+            ),
+          ],
+        ),
         backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              appBar(),
+              // appBar(),
               SizedBox(height: 10),
               gridImage(),
               SizedBox(height: 20),
@@ -47,44 +80,44 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
   }
 
   // app bar method are use in back arrow , search icon and shopping basket icon
-  Widget appBar() {
-    return Container(
-        color: Colors.white,
-//        margin: EdgeInsets.only(bottom: 4),
-        padding: EdgeInsets.only(bottom: 15),
-        child: Stack(
-          children: <Widget>[
-//            CommonView.backArrow(context),
-            CommonView.backArrowAndTitle(
-                context, StringRes.goodyear, ColorRes.blackColor),
-
-            Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  IconButton(
-                    onPressed: () {},
-                    padding: EdgeInsets.only(right: 5),
-                    icon: Icon(Icons.search),
-                    iconSize: 28,
-                    color: ColorRes.primaryColor,
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      cartScreenNavigator(context);
-                    },
-                    padding: EdgeInsets.only(right: 20),
-                    icon: Icon(Icons.shopping_basket),
-                    iconSize: 28,
-                    color: ColorRes.primaryColor,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ));
-  }
+//   Widget appBar() {
+//     return Container(
+//         color: Colors.white,
+// //        margin: EdgeInsets.only(bottom: 4),
+//         padding: EdgeInsets.only(bottom: 15),
+//         child: Stack(
+//           children: <Widget>[
+// //            CommonView.backArrow(context),
+//             CommonView.backArrowAndTitle(
+//                 context, StringRes.goodyear, ColorRes.blackColor),
+//
+//             Padding(
+//               padding: EdgeInsets.only(top: 10),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.end,
+//                 children: <Widget>[
+//                   IconButton(
+//                     onPressed: () {},
+//                     padding: EdgeInsets.only(right: 5),
+//                     icon: Icon(Icons.search),
+//                     iconSize: 28,
+//                     color: ColorRes.primaryColor,
+//                   ),
+//                   IconButton(
+//                     onPressed: () {
+//                       cartScreenNavigator(context);
+//                     },
+//                     padding: EdgeInsets.only(right: 20),
+//                     icon: Icon(Icons.shopping_basket),
+//                     iconSize: 28,
+//                     color: ColorRes.primaryColor,
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ));
+//   }
 
   gridImage() {
     return GridView.builder(

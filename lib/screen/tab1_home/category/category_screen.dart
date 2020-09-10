@@ -37,12 +37,43 @@ class _CategoryScreenState extends State<CategoryScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+              size: 25,
+            ),
+            onPressed: (){
+              Navigator.of(context).pop();
+            },
+          ),
+          backgroundColor: Colors.white,
+          title: Text(
+            StringRes.categoryTitle,
+            style: TextStyle(color: Colors.black),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.search),
+              color: ColorRes.primaryColor,
+            ),
+            IconButton(
+              icon: Icon(Icons.shopping_basket),
+              color: ColorRes.primaryColor,
+              onPressed: () {
+                cartScreenNavigator(context);
+              },
+            ),
+          ],
+        ),
         backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              appBar(),
+              // appBar(),
               SizedBox(height: 10),
               titleText(),
               SizedBox(height: 10),
@@ -56,51 +87,51 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 
-  Widget appBar() {
-    return Container(
-        color: Colors.white,
-//        margin: EdgeInsets.only(bottom: 4),
-        padding: EdgeInsets.only(bottom: 15),
-        child: Stack(
-          children: <Widget>[
-            CommonView.backArrow(context),
-            Column(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      IconButton(
-                        onPressed: () {},
-                        padding: EdgeInsets.only(bottom: 10, right: 5),
-                        icon: Icon(Icons.search),
-                        iconSize: 28,
-                        color: ColorRes.primaryColor,
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          cartScreenNavigator(context);
-                        },
-                        padding: EdgeInsets.only(bottom: 10, right: 20),
-                        icon: Icon(Icons.shopping_basket),
-                        iconSize: 28,
-                        color: ColorRes.primaryColor,
-                      ),
-                    ],
-                  ),
-                ),
-                AllText(
-                  StringRes.categoryTitle,
-                  color: ColorRes.blackColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ],
-            ),
-          ],
-        ));
-  }
+//   Widget appBar() {
+//     return Container(
+//         color: Colors.white,
+// //        margin: EdgeInsets.only(bottom: 4),
+//         padding: EdgeInsets.only(bottom: 15),
+//         child: Stack(
+//           children: <Widget>[
+//             CommonView.backArrow(context),
+//             Column(
+//               children: <Widget>[
+//                 Padding(
+//                   padding: EdgeInsets.only(top: 12),
+//                   child: Row(
+//                     mainAxisAlignment: MainAxisAlignment.end,
+//                     children: <Widget>[
+//                       IconButton(
+//                         onPressed: () {},
+//                         padding: EdgeInsets.only(bottom: 10, right: 5),
+//                         icon: Icon(Icons.search),
+//                         iconSize: 28,
+//                         color: ColorRes.primaryColor,
+//                       ),
+//                       IconButton(
+//                         onPressed: () {
+//                           cartScreenNavigator(context);
+//                         },
+//                         padding: EdgeInsets.only(bottom: 10, right: 20),
+//                         icon: Icon(Icons.shopping_basket),
+//                         iconSize: 28,
+//                         color: ColorRes.primaryColor,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//                 AllText(
+//                   StringRes.categoryTitle,
+//                   color: ColorRes.blackColor,
+//                   fontSize: 20,
+//                   fontWeight: FontWeight.bold,
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ));
+//   }
 
   titleText() {
     return Padding(
@@ -170,13 +201,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
       itemCount: listTitle.length,
       padding: EdgeInsets.only(left: 10, right: 10),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        childAspectRatio: 0.68
-        // childAspectRatio: Utils.getDeviceWidth(context) /
-        //     (Utils.getDeviceHeight(context) / 1.20),
-      ),
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: 0.68
+          // childAspectRatio: Utils.getDeviceWidth(context) /
+          //     (Utils.getDeviceHeight(context) / 1.20),
+          ),
       itemBuilder: (context, index) {
         return InkResponse(
           onTap: () {
