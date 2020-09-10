@@ -3,11 +3,10 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/config/app_theme.dart';
-import 'package:ChaiChod/screen/home_tab/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../forgot_password/forgot_password_screen.dart';
-import '../login/login_screen.dart';
+
+import '../home_tab/main_screen.dart';
 
 class SuccessScreen extends StatefulWidget {
   @override

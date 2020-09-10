@@ -1,7 +1,7 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
-import 'package:ChaiChod/config/string_resources.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/material.dart';
 
@@ -39,23 +39,20 @@ class CommonView {
 
   //all screen use common text style
   static titleText(String title) {
-    return Container(
-      alignment: Alignment.center,
-      margin: EdgeInsets.only(top: 20),
-      child: AllText(
+    return Padding(
+      padding: EdgeInsets.only(left: 15, right: 15),
+      child: Text(
         title,
-        color: ColorRes.blackColor,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
+        style: AppTheme.subHeaderBoldStyle,
       ),
     );
   }
 
-  //all screen common back arrow and title use
+  // all screen common back arrow and title use
   static backArrowAndTitle(BuildContext context, String title, Color color) {
     return Stack(
       alignment: Alignment.center,
-//      mainAxisAlignment: MainAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         InkResponse(
           onTap: () {
@@ -92,9 +89,32 @@ class CommonView {
   }
 
   // product details left data design
+  static productDetailRow(String title, String detail, bool greyRow) {
+    return Container(
+      color: greyRow ? Colors.black12: Colors.white,
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              title,
+              style: AppTheme.productDescStyle,
+            ),
+            Text(
+              detail,
+              style: AppTheme.productDescStyle,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  // product details left data design
   static productDetailsLeftRightData(String title, String price, {Color showColor}) {
     return Padding(
-      padding: EdgeInsets.only(left: 0, right: 10),
+      padding: EdgeInsets.only(left: 15, right: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

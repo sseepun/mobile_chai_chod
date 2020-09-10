@@ -5,12 +5,14 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
-import 'order_summary/order_summary_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+
+import 'order_summary/order_summary_screen.dart';
 
 class ProductScreen extends StatefulWidget {
   final int i;
@@ -60,81 +62,68 @@ class _ProductScreenState extends State<ProductScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            color: Colors.black,
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          backgroundColor: Colors.white,
-          title: Text(
-            'Product Details',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-        backgroundColor: ColorRes.whiteColor,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // appBar(),
-              userLogo(),
-              tireNumberShow(),
-              SizedBox(height: 10),
-              Divider(height: 1, color: ColorRes.greyColor),
-              productDetails(),
-              tabBarShow(),
-              listProductData(),
-              SizedBox(height: 20),
-              twoButton(),
-              SizedBox(height: 20),
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            leading: IconButton(
+              icon: AppTheme.btnBackIcon,
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            backgroundColor: Colors.white,
+            title: Text(
+              'รายละเอียดสินต้า',
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: AppTheme.subHeaderSmallStyle,
+            ),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.shopping_basket),
+                color: ColorRes.primaryColor,
+                onPressed: () {
+                  cartScreenNavigator(context);
+                },
+              ),
             ],
+          ),
+          backgroundColor: ColorRes.whiteColor,
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                userOptions(),
+                productDisplay(),
+                SizedBox(height: 10),
+                Divider(height: 1, color: ColorRes.greyColor),
+                productDetails(),
+                SizedBox(height: 20),
+                productDetailTabs(),
+                listProductData(),
+                SizedBox(height: 20),
+                twoButton(),
+                SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  // Widget appBar() {
-  //   return Container(
-  //       height: 60,
-  //       color: Colors.white,
-  //       child: Stack(
-  //         children: <Widget>[
-  //           CommonView.backArrowAndTitle(
-  //               context, StringRes.ProductTitle, ColorRes.blackColor),
-  //           Align(
-  //             alignment: Alignment.centerRight,
-  //             child: Padding(
-  //               padding: EdgeInsets.only(top: 15),
-  //               child: IconButton(
-  //                 onPressed: () {
-  //                   cartScreenNavigator(context);
-  //                 },
-  //                 icon: Icon(Icons.shopping_basket),
-  //                 iconSize: 28,
-  //                 color: ColorRes.primaryColor,
-  //               ),
-  //             ),
-  //           )
-  //         ],
-  //       ));
-  // }
-
-  //user logo show in this method
-  userLogo() {
+  //user options show in this method
+  userOptions() {
     return Stack(
-//      alignment: Alignment.topCenter
+      // alignment: Alignment.topCenter
       children: <Widget>[
         Center(
           child: Image.asset(
             Utils.getAssetsImg('productimg'),
-            height: Utils.getDeviceHeight(context) / 2.3,
-//            width: 250,
+            height: Utils.getDeviceWidth(context) * 0.75,
             fit: BoxFit.fill,
           ),
         ),
@@ -142,28 +131,6 @@ class _ProductScreenState extends State<ProductScreen>
           alignment: Alignment.topRight,
           child: Column(
             children: <Widget>[
-              GestureDetector(
-                child: Container(
-                  height: 40,
-                  width: 40,
-                  margin: EdgeInsets.only(top: 10, right: 7),
-                  decoration: BoxDecoration(boxShadow: [
-                    new BoxShadow(
-                      offset: Offset(0.5, 0.5),
-                      color: ColorRes.greyColor,
-                      blurRadius: 0.5,
-                    ),
-                  ], color: ColorRes.whiteColor, shape: BoxShape.circle),
-                  child: Icon(
-                    Icons.shopping_basket,
-                    size: 25,
-                    color: ColorRes.primaryColor,
-                  ),
-                ),
-                onTap: () {
-                  cartScreenNavigator(context);
-                },
-              ),
               iconShow(Icons.favorite, 1),
               iconShow(Icons.share, 2),
             ],
@@ -173,32 +140,28 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-  tireNumberShow() {
+  productDisplay() {
     return Padding(
-        padding: EdgeInsets.only(left: 10, top: 10, right: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            AllText(
-              "NANKANG AS-2+ -205/55R16",
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-            SizedBox(height: 8),
-            AllText(
-              "B2,500",
-              color: ColorRes.primaryColor,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-            AllText(
-              "Per line",
-              color: Colors.black,
-              fontSize: 14,
-            ),
-          ],
-        ));
+      padding: EdgeInsets.all(15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            "NANKANG AS-2+ -205/55R16",
+            style: AppTheme.productNameLargeStyle,
+          ),
+          SizedBox(height: 7),
+          Text(
+            "\$2,500",
+            style: AppTheme.productPriceLargeStyle,
+          ),
+          Text(
+            "ต่อเส้น",
+            style: AppTheme.productUnitLargeStyle,
+          ),
+        ],
+      )
+    );
   }
 
   productDetails() {
@@ -206,74 +169,55 @@ class _ProductScreenState extends State<ProductScreen>
       children: <Widget>[
         Row(
           children: <Widget>[
-            Container(
-              alignment: Alignment.topRight,
-              padding: EdgeInsets.only(left: 20, top: 5),
-              child: Row(
-                children: <Widget>[
-                  AllText(
-                    StringRes.brandName,
-                    color: ColorRes.blackColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 185),
-                    child: Image.asset(
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(15, 8, 15, 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      StringRes.brandName,
+                      style: AppTheme.descSemiboldStyle,
+                    ),
+                    Image.asset(
                       Utils.getAssetsImg('michelin'),
-                      height: 25,
-                      width: 100,
+                      width: 150,
                       fit: BoxFit.fill,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
         ),
         Container(
-          child: Padding(
-            padding: EdgeInsets.only(right: 230, top: 5),
-            child: FilledButton(
-                height: 30,
-                text: StringRes.buttonName,
-                fontSize: 12,
-                onPressed: () {}),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget> [
+              Container(
+                padding: EdgeInsets.fromLTRB(15, 5, 45, 5),
+                color: Colors.blue,
+                child: Text(
+                  StringRes.buttonName,
+                  style: AppTheme.btnTextStyle,
+                ),
+              ),
+            ],
           ),
         ),
-        Container(
-          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-          color: ColorRes.whiteColor,
-          child: CommonView.productDetailsLeftRightData(
-              StringRes.width, "195 mm."),
-        ),
-        Container(
-          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-          color: ColorRes.lightWhite,
-          child: CommonView.productDetailsLeftRightData(
-              StringRes.rubberSeries, "55"),
-        ),
-        Container(
-          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-          color: ColorRes.whiteColor,
-          child: CommonView.productDetailsLeftRightData(
-              StringRes.rubberEdge, "15"),
-        ),
-        Container(
-          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-          color: ColorRes.lightWhite,
-          child: CommonView.productDetailsLeftRightData(
-              StringRes.sidewallTxt, "10.72 cm."),
-        ),
+        SizedBox(height: 5),
+        CommonView.productDetailRow(StringRes.width, "195 mm.", false),
+        CommonView.productDetailRow(StringRes.rubberSeries, "55", true),
+        CommonView.productDetailRow(StringRes.rubberEdge, '15"', false),
+        CommonView.productDetailRow(StringRes.sidewallTxt, "10.72 cm.", true),
       ],
     );
   }
 
   //tab bar heading
-  tabBarShow() {
+  productDetailTabs() {
     return Container(
       height: 800,
-      // height: 500,
       child: Column(
         children: <Widget>[
           CommonView.titleText(StringRes.ProductTitle1),
@@ -285,11 +229,19 @@ class _ProductScreenState extends State<ProductScreen>
             labelStyle: TextStyle(color: ColorRes.primaryColor),
             tabs: <Tab>[
               Tab(
-                  child: AllText(StringRes.tab1,
-                      fontSize: 17, color: ColorRes.primaryColor)),
+                child: AllText(
+                  StringRes.tab1,
+                  fontSize: 17, 
+                  color: ColorRes.primaryColor
+                )
+              ),
               Tab(
-                  child: AllText(StringRes.tab2,
-                      fontSize: 17, color: ColorRes.primaryColor)),
+                child: AllText(
+                  StringRes.tab2,
+                  fontSize: 17, 
+                  color: ColorRes.primaryColor
+                )
+              ),
             ],
             controller: tabController,
           ),
@@ -298,8 +250,6 @@ class _ProductScreenState extends State<ProductScreen>
               children: [
                 listData(),
                 ReviewsTab(),
-//                  DetailsScreen(),
-//                ReviewScreen(),
               ],
               controller: tabController,
             ),

@@ -4,11 +4,13 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/screen/tab1_home/category/product/product_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'goodyear/goodyear_screen.dart';
+import '../../tab1_home/category/product/product_screen.dart';
 
 class CategoryScreen extends StatefulWidget {
   @override
@@ -35,123 +37,72 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-              size: 25,
-            ),
-            onPressed: (){
-              Navigator.of(context).pop();
-            },
-          ),
-          backgroundColor: Colors.white,
-          title: Text(
-            StringRes.categoryTitle,
-            style: TextStyle(color: Colors.black),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.search),
-              color: ColorRes.primaryColor,
-            ),
-            IconButton(
-              icon: Icon(Icons.shopping_basket),
-              color: ColorRes.primaryColor,
-              onPressed: () {
-                cartScreenNavigator(context);
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            leading: IconButton(
+              icon: AppTheme.btnBackIcon,
+              onPressed: (){
+                Navigator.of(context).pop();
               },
             ),
-          ],
-        ),
-        backgroundColor: ColorRes.lightWhite,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // appBar(),
-              SizedBox(height: 10),
-              titleText(),
-              SizedBox(height: 10),
-              categoryList(),
-              gridImage(),
-              SizedBox(height: 20),
+            backgroundColor: Colors.white,
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.search),
+                color: ColorRes.primaryColor,
+              ),
+              IconButton(
+                icon: Icon(Icons.shopping_basket),
+                color: ColorRes.primaryColor,
+                onPressed: () {
+                  cartScreenNavigator(context);
+                },
+              ),
             ],
+            bottom: PreferredSize(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(15, 10, 15, 16),
+                child: Text(
+                  StringRes.categoryTitle,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: AppTheme.subHeaderSmallStyle,
+                ),
+              ),
+              preferredSize: Size(0.0, 40.0),
+            ),
+          ),
+          backgroundColor: ColorRes.lightWhite,
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: 15),
+                CommonView.titleText(StringRes.brand),
+                SizedBox(height: 10),
+                categoryList(),
+                SizedBox(height: 15),
+                gridImage(),
+                SizedBox(height: 15),
+              ],
+            ),
           ),
         ),
-      ),
-    );
-  }
-
-//   Widget appBar() {
-//     return Container(
-//         color: Colors.white,
-// //        margin: EdgeInsets.only(bottom: 4),
-//         padding: EdgeInsets.only(bottom: 15),
-//         child: Stack(
-//           children: <Widget>[
-//             CommonView.backArrow(context),
-//             Column(
-//               children: <Widget>[
-//                 Padding(
-//                   padding: EdgeInsets.only(top: 12),
-//                   child: Row(
-//                     mainAxisAlignment: MainAxisAlignment.end,
-//                     children: <Widget>[
-//                       IconButton(
-//                         onPressed: () {},
-//                         padding: EdgeInsets.only(bottom: 10, right: 5),
-//                         icon: Icon(Icons.search),
-//                         iconSize: 28,
-//                         color: ColorRes.primaryColor,
-//                       ),
-//                       IconButton(
-//                         onPressed: () {
-//                           cartScreenNavigator(context);
-//                         },
-//                         padding: EdgeInsets.only(bottom: 10, right: 20),
-//                         icon: Icon(Icons.shopping_basket),
-//                         iconSize: 28,
-//                         color: ColorRes.primaryColor,
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-//                 AllText(
-//                   StringRes.categoryTitle,
-//                   color: ColorRes.blackColor,
-//                   fontSize: 20,
-//                   fontWeight: FontWeight.bold,
-//                 ),
-//               ],
-//             ),
-//           ],
-//         ));
-//   }
-
-  titleText() {
-    return Padding(
-      padding: EdgeInsets.only(left: 10, top: 5),
-      child: AllText(
-        StringRes.brand,
-        align: TextAlign.left,
-        color: ColorRes.blackColor,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
       ),
     );
   }
 
   categoryList() {
     return Container(
-      height: 100,
-      margin: EdgeInsets.only(bottom: 10),
+      height: 105,
+      padding: EdgeInsets.only(left: 10, right: 15),
       child: ListView.builder(
-          itemCount: 4,
+          itemCount: 6,
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
@@ -165,26 +116,29 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 } else if (index == 1) {
                 } else if (index == 2) {
                 } else if (index == 3) {
-                } else if (index == 4) {}
+                } else if (index == 4) {
+                } else if (index == 5) {
+                } else if (index == 6) {}
               },
               child: Padding(
-                padding: EdgeInsets.only(
-                    right: index == images.length - 1 ? 10 : 0, left: 10),
+                padding: EdgeInsets.only(left: 5),
                 child: Column(
                   children: <Widget>[
                     Expanded(
                       child: Image.asset(
-                        images[index],
+                        images[index % 4],
                         height: 80,
-                        width: 80,
+                        width: 90,
                         fit: BoxFit.fill,
                       ),
                     ),
                     SizedBox(height: 5),
-                    AllText(stringList1[index],
-                        color: ColorRes.blackColor,
-                        fontSize: 10,
-                        overflow: TextOverflow.ellipsis),
+                    Text(
+                      stringList1[index % 4],
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTheme.descSmallStyle,
+                    ),
+                    SizedBox(height: 5),
                   ],
                 ),
               ),
@@ -193,60 +147,71 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 
-// grid image  are using grid view image and text
+  // grid image  are using grid view image and text
   gridImage() {
     return GridView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemCount: listTitle.length,
-      padding: EdgeInsets.only(left: 10, right: 10),
+      padding: EdgeInsets.only(left: 15, right: 15),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.68
-          // childAspectRatio: Utils.getDeviceWidth(context) /
-          //     (Utils.getDeviceHeight(context) / 1.20),
-          ),
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.69
+      ),
       itemBuilder: (context, index) {
         return InkResponse(
           onTap: () {
-            if (index == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProductScreen()),
-              );
-            } else if (index == 1) {
-            } else if (index == 2) {
-            } else if (index == 3) {
-            } else if (index == 4) {}
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProductScreen()),
+            );
           },
           child: Container(
-            height: 150,
-            padding: EdgeInsets.only(left: 8, right: 8),
+            padding: EdgeInsets.only(left: 10, right: 10),
             color: ColorRes.whiteColor,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Image(image: AssetImage(Utils.getAssetsImg('tiers'))),
-                Column(
-//                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    AllText(
-                      "GOODYEAR",
-                      color: ColorRes.blackColor,
-                    ),
-                    AllText(
-                      "Tires 225/45/R17",
-                      color: ColorRes.blackColor,
-                    ),
-                    SizedBox(height: 10),
-                    AllText(
-                      "\$2,000 /len.",
-                      color: ColorRes.blackColor,
-                    )
-                  ],
+                Center(
+                  child: Image(
+                    image: AssetImage(Utils.getAssetsImg('tiers')),
+                    width: 200,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 5, right: 5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "GOODYEAR",
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.productNameStyle,
+                      ),
+                      Text(
+                        "ยางรถยนต์ 225/45/R17",
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.productDescStyle
+                      ),
+                      SizedBox(height: 8),
+                      Row(
+                        children: <Widget> [
+                          Text(
+                            "\$2,000",
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTheme.productPriceStyle,
+                          ),
+                          Text(
+                            " /เส้น",
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTheme.productUnitStyle,
+                          )
+                        ]
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
@@ -255,4 +220,5 @@ class _CategoryScreenState extends State<CategoryScreen> {
       },
     );
   }
+  
 }

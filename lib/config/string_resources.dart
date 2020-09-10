@@ -51,13 +51,13 @@ class StringRes {
   static const prices                        =  "Prices";
   static const discount                      =  "Discount";
   static const total                         =  "Total";
-  static const brand                         =  "Brand";
+  static const brand                         =  "แบรนด์";
   static const miCheIn                       =  "MICHELIN";
   static const pageWidth                     =  "pageWidth";
-  static const width                         =  "Width";
-  static const serialNumber                  =  "Serial number";
-  static const edgeNumber                    =  "Edge number";
-  static const sideWall                      =  "The sidewall";
+  static const width                         =  "หน้ากว้าง";
+  static const serialNumber                  =  "ซีรี่ย์ยาง";
+  static const edgeNumber                    =  "ขอบยาง";
+  static const sideWall                      =  "แก้มยาง";
   static const numberItem                    =  "The Number of Item";
 
   // tab 2
@@ -121,21 +121,21 @@ class StringRes {
   static const editProfile                   =  "Edit Profile";
 
   //category Profile
-  static const categoryTitle                 = "Pickup truck tires, super cars";
+  static const categoryTitle                 = "ยางรถเก๋ง, รถกระบะ, รถซูเปอร์คาร์";
 
   //Product Profile
   static const ProductTitle                  = "Product Details";
-  static const brandName                     = "Brand";
-  static const buttonName                    = "Tire specification";
-  static const ProductTitle1                 = "More product details";
+  static const brandName                     = "แบรนด์";
+  static const buttonName                    = "สเปคยาง";
+  static const ProductTitle1                 = "รายละเอียดสินค้าเพิ่มเติม";
   static const tab1                          = "Details";
   static const tab2                          = "Reviews";
   static const ProductTitle3                 = "Related Products";
   static const btn1                          = "Transparent trolley";
   static const btn2                          = "Buy now";
-  static const rubberSeries                  = "Rubber Series";
-  static const rubberEdge                    = "Rubber edge";
-  static const sidewallTxt                   = "Sidewall";
+  static const rubberSeries                  = "ซีรี่ย์ยาง";
+  static const rubberEdge                    = "ขอบยาง";
+  static const sidewallTxt                   = "แก้มยาง";
   static const btn1details                   = "Add to cart";
   static const DateFormat                   = "12 DEC 2019";
 
@@ -243,7 +243,7 @@ class StringRes {
   static const SelectTireTitle                  = "Compare Selected Tires";
   static const SelectTireTitle1                 = "Product Name";
   static const SelectTireDes1                   = "Special sale tire model\nSP2030, new tires\nproduced in 2020";
-  static const SelectTireTitle2                 = "Brand";
+  static const SelectTireTitle2                 = "แบรนด์";
   static const SelectTireDes2                   = "Good Year";
   static const SelectTireTitle3                 = "price";
   static const SelectTireDes3                   = "B10,000/n Line";

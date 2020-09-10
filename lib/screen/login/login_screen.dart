@@ -5,9 +5,10 @@ import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../register/register_screen.dart';
 import '../forgot_password/forgot_password_screen.dart';
 import '../home_tab/main_screen.dart';
 

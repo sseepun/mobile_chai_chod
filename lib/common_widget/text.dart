@@ -15,7 +15,6 @@ class AllText extends StatelessWidget {
   final TextOverflow overflow;
   final double letterSpace;
 
-
   AllText(this.title,
       {this.fontWeight,
         this.fontSize,
