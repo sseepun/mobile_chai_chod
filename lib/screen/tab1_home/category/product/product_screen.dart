@@ -14,7 +14,9 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 class ProductScreen extends StatefulWidget {
   final int i;
+
   const ProductScreen({Key key, this.i}) : super(key: key);
+
   @override
   _ProductScreenState createState() => _ProductScreenState();
 }
@@ -28,6 +30,7 @@ class _ProductScreenState extends State<ProductScreen>
   double rating = 3.0;
   List<String> listTitle = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
   int _n = 1;
+
   void add() {
     setState(() {
       _n++;
@@ -48,7 +51,6 @@ class _ProductScreenState extends State<ProductScreen>
     tabController = new TabController(length: 2, vsync: this);
   }
 
-
   hexColor(String colorhexcode) {
     String colornew = '0xff' + colorhexcode;
     colornew = colornew.replaceAll('#', '');
@@ -60,12 +62,26 @@ class _ProductScreenState extends State<ProductScreen>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: Colors.black,
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          backgroundColor: Colors.white,
+          title: Text(
+            'Product Details',
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
         backgroundColor: ColorRes.whiteColor,
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              appBar(),
+              // appBar(),
               userLogo(),
               tireNumberShow(),
               SizedBox(height: 10),
@@ -83,31 +99,31 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-  Widget appBar() {
-    return Container(
-        height: 60,
-        color: Colors.white,
-        child: Stack(
-          children: <Widget>[
-            CommonView.backArrowAndTitle(
-                context, StringRes.ProductTitle, ColorRes.blackColor),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Padding(
-                padding: EdgeInsets.only(top: 15),
-                child: IconButton(
-                  onPressed: () {
-                    cartScreenNavigator(context);
-                  },
-                  icon: Icon(Icons.shopping_basket),
-                  iconSize: 28,
-                  color: ColorRes.primaryColor,
-                ),
-              ),
-            )
-          ],
-        ));
-  }
+  // Widget appBar() {
+  //   return Container(
+  //       height: 60,
+  //       color: Colors.white,
+  //       child: Stack(
+  //         children: <Widget>[
+  //           CommonView.backArrowAndTitle(
+  //               context, StringRes.ProductTitle, ColorRes.blackColor),
+  //           Align(
+  //             alignment: Alignment.centerRight,
+  //             child: Padding(
+  //               padding: EdgeInsets.only(top: 15),
+  //               child: IconButton(
+  //                 onPressed: () {
+  //                   cartScreenNavigator(context);
+  //                 },
+  //                 icon: Icon(Icons.shopping_basket),
+  //                 iconSize: 28,
+  //                 color: ColorRes.primaryColor,
+  //               ),
+  //             ),
+  //           )
+  //         ],
+  //       ));
+  // }
 
   //user logo show in this method
   userLogo() {
@@ -126,6 +142,28 @@ class _ProductScreenState extends State<ProductScreen>
           alignment: Alignment.topRight,
           child: Column(
             children: <Widget>[
+              GestureDetector(
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  margin: EdgeInsets.only(top: 10, right: 7),
+                  decoration: BoxDecoration(boxShadow: [
+                    new BoxShadow(
+                      offset: Offset(0.5, 0.5),
+                      color: ColorRes.greyColor,
+                      blurRadius: 0.5,
+                    ),
+                  ], color: ColorRes.whiteColor, shape: BoxShape.circle),
+                  child: Icon(
+                    Icons.shopping_basket,
+                    size: 25,
+                    color: ColorRes.primaryColor,
+                  ),
+                ),
+                onTap: () {
+                  cartScreenNavigator(context);
+                },
+              ),
               iconShow(Icons.favorite, 1),
               iconShow(Icons.share, 2),
             ],
@@ -231,7 +269,6 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-
   //tab bar heading
   tabBarShow() {
     return Container(
@@ -272,7 +309,6 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-
   relatedProducts() {
     return Padding(
       padding: EdgeInsets.only(top: 20, left: 15),
@@ -301,7 +337,7 @@ class _ProductScreenState extends State<ProductScreen>
           SizedBox(height: 20),
           Container(
             // height: 200,
-            height: MediaQuery.of(context).size.height*0.4,
+            height: MediaQuery.of(context).size.height * 0.35,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -550,7 +586,6 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-
   //review tab in using rating this screen
   ReviewsTab() {
     return SingleChildScrollView(
@@ -558,9 +593,9 @@ class _ProductScreenState extends State<ProductScreen>
       child: Column(
         children: <Widget>[
           Container(
-            color:Colors.white,
+            color: Colors.white,
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(top: 20, left: 10,bottom: 10),
+            padding: EdgeInsets.only(top: 20, left: 10, bottom: 10),
             child: Text(
               StringRes.Title1,
               style: TextStyle(
@@ -777,14 +812,14 @@ class _ProductScreenState extends State<ProductScreen>
   starRating(item) {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(left:10.0,right:5.0),
+      padding: EdgeInsets.only(left: 10.0, right: 5.0),
       child: SmoothStarRating(
         size: 25,
         rating: item,
         filledIconData: Icons.star,
         //halfFilledIconData: Icons.star_half,
         defaultIconData: Icons.star_border,
-        color:Color(hexColor('#f3cb54')),
+        color: Color(hexColor('#f3cb54')),
         //color: Colors.yellow,
         borderColor: Color(hexColor('#f3cb54')),
         starCount: 5,
@@ -810,7 +845,6 @@ class _ProductScreenState extends State<ProductScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-
           SizedBox(height: 15),
           Container(
             height: 175,
@@ -825,7 +859,6 @@ class _ProductScreenState extends State<ProductScreen>
                   width: 280,
                   padding: EdgeInsets.only(left: 8, right: 8),
                   margin: EdgeInsets.only(left: 10, right: 10),
-
                   color: ColorRes.whiteColor,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -848,7 +881,8 @@ class _ProductScreenState extends State<ProductScreen>
                         children: <Widget>[
                           Container(
                             alignment: Alignment.topLeft,
-                            padding: EdgeInsets.only(top: 5, left: 10,bottom:5),
+                            padding:
+                                EdgeInsets.only(top: 5, left: 10, bottom: 5),
                             child: Text(
                               StringRes.DateFormat,
                               style: TextStyle(
@@ -861,7 +895,7 @@ class _ProductScreenState extends State<ProductScreen>
                           starRating(4.0),
                           Container(
                             alignment: Alignment.topLeft,
-                            padding: EdgeInsets.all( 10),
+                            padding: EdgeInsets.all(10),
                             child: Text(
                               StringRes.Description,
                               maxLines: 4,

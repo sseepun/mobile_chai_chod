@@ -43,7 +43,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          childAspectRatio: 0.68
+          childAspectRatio: 0.72
           // childAspectRatio: Utils.getDeviceWidth(context) /
           //     (Utils.getDeviceHeight(context) / 1.27),
       ),

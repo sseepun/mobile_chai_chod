@@ -21,6 +21,21 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+              size: 25,
+            ),
+            onPressed: (){
+              Navigator.of(context).pop();
+            },
+          ),
+          backgroundColor: Colors.white,
+          centerTitle:true,
+          title: Text(StringRes.privacyPolicy,style: TextStyle(color: Colors.black),),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -28,10 +43,10 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                 children: <Widget>[
 //                textTitle(),
 
-                  CommonView.backArrowAndTitle(context, StringRes.privacyPolicy, ColorRes.blackColor),
+                  // CommonView.backArrowAndTitle(context, StringRes.privacyPolicy, ColorRes.blackColor),
 
                   Container(
-                    padding: EdgeInsets.only(top: 70),
+                    padding: EdgeInsets.only(top: 20),
                     child:listData()
                   ),
 
@@ -44,38 +59,38 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
     );
   }
 
-  textTitle() {
-    return Container(
-        padding: EdgeInsets.only(top:30,bottom: 100),
-        child: Row(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(left: 10),
-              child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AboutUsScreen()),
-                    );
-                  },
-                  child: Icon(
-                    Icons.arrow_back,
-                    size: 25,
-                    color: Colors.black,
-                  )),
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 80),
-              child: AllText(
-                StringRes.privacyPolicy,
-                color: ColorRes.blackColor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ));
-  }
+  // textTitle() {
+  //   return Container(
+  //       padding: EdgeInsets.only(top:30,bottom: 100),
+  //       child: Row(
+  //         children: <Widget>[
+  //           Container(
+  //             padding: EdgeInsets.only(left: 10),
+  //             child: InkWell(
+  //                 onTap: () {
+  //                   Navigator.push(
+  //                     context,
+  //                     MaterialPageRoute(builder: (context) => AboutUsScreen()),
+  //                   );
+  //                 },
+  //                 child: Icon(
+  //                   Icons.arrow_back,
+  //                   size: 25,
+  //                   color: Colors.black,
+  //                 )),
+  //           ),
+  //           Container(
+  //             padding: EdgeInsets.only(left: 80),
+  //             child: AllText(
+  //               StringRes.privacyPolicy,
+  //               color: ColorRes.blackColor,
+  //               fontSize: 20,
+  //               fontWeight: FontWeight.bold,
+  //             ),
+  //           ),
+  //         ],
+  //       ));
+  // }
 
   //list data use in list of privacy screen details
   listData() {
