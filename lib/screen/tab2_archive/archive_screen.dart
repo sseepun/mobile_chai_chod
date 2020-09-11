@@ -28,7 +28,10 @@ class _ArchiveScreenState extends State<ArchiveScreen> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         body: Column(
@@ -64,7 +67,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> with SingleTickerProvider
           ],
         ),
       ),
-    );
+        ),);
   }
 
   //tab bar heading

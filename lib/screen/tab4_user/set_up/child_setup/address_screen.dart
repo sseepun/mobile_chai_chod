@@ -13,7 +13,10 @@ class _AddressScreenState extends State<AddressScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         floatingActionButton: FloatingActionButton(
@@ -36,7 +39,7 @@ class _AddressScreenState extends State<AddressScreen> {
           ),
         ),
       ),
-    );
+        ), );
   }
 
   textTitle() {

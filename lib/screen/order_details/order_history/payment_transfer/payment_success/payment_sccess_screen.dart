@@ -29,7 +29,10 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
           body: Center(
@@ -111,6 +114,6 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
               ),
             ),
           )),
-    );
+        ),);
   }
 }

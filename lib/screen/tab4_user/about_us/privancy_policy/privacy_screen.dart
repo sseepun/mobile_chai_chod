@@ -19,7 +19,10 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -56,7 +59,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           ),
         ),
       ),
-    );
+        ),);
   }
 
   // textTitle() {

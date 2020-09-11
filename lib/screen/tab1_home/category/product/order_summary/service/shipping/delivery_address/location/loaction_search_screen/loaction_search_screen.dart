@@ -15,7 +15,11 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+        color: Colors.blue,
+        child: SafeArea(
+        bottom: false,
+     child: Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: ListView(
@@ -84,6 +88,6 @@ class _SearchState extends State<Search> {
           ],
         ),
       ),
-    );
+    ),), );
   }
 }

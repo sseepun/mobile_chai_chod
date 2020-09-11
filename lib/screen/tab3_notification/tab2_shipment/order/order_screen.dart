@@ -29,7 +29,10 @@ class OrderScreenState extends State<OrderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
@@ -58,7 +61,7 @@ class OrderScreenState extends State<OrderScreen> {
           ),
         ),
       ),
-    );
+        ),);
   }
 
   appBarDesign() {

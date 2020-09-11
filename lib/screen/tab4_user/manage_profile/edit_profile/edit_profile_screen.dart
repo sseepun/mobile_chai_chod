@@ -77,7 +77,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               uploadImage()
             ],
           ),*/
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -122,7 +125,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
         ),
       ),
-    );
+        ),);
   }
 
   textTitle() {

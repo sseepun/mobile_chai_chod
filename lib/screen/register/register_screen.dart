@@ -55,6 +55,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Container(
       color: Colors.white,
       child: SafeArea(
+        bottom: false,
         child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(

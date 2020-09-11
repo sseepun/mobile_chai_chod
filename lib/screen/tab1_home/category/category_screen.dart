@@ -35,7 +35,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -84,7 +87,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ),
         ),
       ),
-    );
+        ),);
   }
 
 //   Widget appBar() {

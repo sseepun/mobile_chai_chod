@@ -27,7 +27,10 @@ class _ShippingScreenState extends State<ShippingScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.whiteColor,
         body: SingleChildScrollView(
@@ -47,7 +50,7 @@ class _ShippingScreenState extends State<ShippingScreen>
           ),
         ),
       ),
-    );
+        ), );
   }
 
   Widget _appBar() {

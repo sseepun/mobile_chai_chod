@@ -18,8 +18,11 @@ class _CartScreenState extends State<CartScreen> {
   bool isCheckValue = false;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
+        child: Scaffold(
         bottomNavigationBar: bottomBar(),
         body: SingleChildScrollView(
           child: Column(
@@ -36,7 +39,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
       ),
-    );
+        ),);
   }
 
 // Cart screen in Bottom bar Continue button

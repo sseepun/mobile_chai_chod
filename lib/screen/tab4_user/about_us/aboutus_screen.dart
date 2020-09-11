@@ -23,7 +23,10 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -42,7 +45,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
           ),
         ),
       ),
-    );
+        ),  );
   }
 
 //list data use in list of icon and strings and click the other screen

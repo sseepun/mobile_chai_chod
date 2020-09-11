@@ -17,7 +17,10 @@ class _ChangePasswordState extends State<ChangePassword> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         body: Form(
           autovalidate: true,
@@ -63,7 +66,7 @@ class _ChangePasswordState extends State<ChangePassword> {
          ),
        ),
       ),
-    );
+        ), );
   }
 
   bool _validateInputs() {

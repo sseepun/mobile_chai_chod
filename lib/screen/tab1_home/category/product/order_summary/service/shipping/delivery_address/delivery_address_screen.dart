@@ -31,7 +31,10 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.whiteColor,
         body: SingleChildScrollView(
@@ -57,7 +60,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
           ),
         ),
       ),
-    );
+        ), );
   }
 
   Widget _appBar() {

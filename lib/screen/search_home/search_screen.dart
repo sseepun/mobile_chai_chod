@@ -23,7 +23,10 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.whiteColor,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         bottomNavigationBar: Container(
@@ -146,7 +149,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
       ),
-    );
+        ),);
   }
 
   //grid image are using image and text are grid view

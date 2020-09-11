@@ -18,8 +18,10 @@ class PaymentBillingScreen extends StatefulWidget {
 class _PaymentBillingScreenState extends State<PaymentBillingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Container(
+      color: ColorRes.whiteColor,
       child: SafeArea(
+        bottom: false,
         child: Scaffold(
           backgroundColor: ColorRes.lightWhite,
           body: SingleChildScrollView(

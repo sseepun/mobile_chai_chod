@@ -60,7 +60,10 @@ class _ProductScreenState extends State<ProductScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -95,7 +98,7 @@ class _ProductScreenState extends State<ProductScreen>
           ),
         ),
       ),
-    );
+        ), );
   }
 
   // Widget appBar() {

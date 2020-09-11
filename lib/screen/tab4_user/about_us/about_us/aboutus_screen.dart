@@ -21,7 +21,10 @@ class _ChildAboutUsScreenState extends State<ChildAboutUsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.lightBlur,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
@@ -52,7 +55,7 @@ class _ChildAboutUsScreenState extends State<ChildAboutUsScreen> {
           ),
         ),
       ),
-    );
+        ),);
   }
 
   textTitle() {

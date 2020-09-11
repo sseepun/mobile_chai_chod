@@ -29,8 +29,10 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Container(
+      color: Colors.white,
       child: SafeArea(
+        bottom: false,
         child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(

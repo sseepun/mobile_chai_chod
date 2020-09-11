@@ -21,9 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
+        child:Scaffold(
       appBar: _appBar(),
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorRes.lightWhite,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       )
-    );
+    ),), );
   }
 
   Widget _appBar() {

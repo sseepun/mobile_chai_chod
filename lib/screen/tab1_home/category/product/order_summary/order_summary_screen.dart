@@ -18,7 +18,10 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.whiteColor,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
@@ -43,7 +46,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
           ),
         ),
       ),
-    );
+        ),);
   }
   Widget _appBar() {
     return Container(

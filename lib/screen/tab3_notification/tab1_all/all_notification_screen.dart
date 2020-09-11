@@ -15,7 +15,11 @@ class _AllNotificationScreenState extends State<AllNotificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
+      child:Scaffold(
       backgroundColor: ColorRes.lightWhite,
       body:  SingleChildScrollView(
         child: ListView.builder(
@@ -26,7 +30,7 @@ class _AllNotificationScreenState extends State<AllNotificationScreen> {
               return listData(index);
             }),
       ),
-    );
+    )),);
   }
 
   // list data are use the card details

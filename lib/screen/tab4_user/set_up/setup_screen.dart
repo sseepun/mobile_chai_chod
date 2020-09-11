@@ -25,7 +25,10 @@ class _SetUpScreenState extends State<SetUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -47,7 +50,7 @@ class _SetUpScreenState extends State<SetUpScreen> {
           ),
         ),
       ),
-    );
+        ), );
   }
 
   textTitle() {

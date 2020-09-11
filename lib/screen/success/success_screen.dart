@@ -22,8 +22,6 @@ class _SuccessScreenState extends State<SuccessScreen> {
     return colorint;
   }
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   @override
   void initState() {
     super.initState();
@@ -34,6 +32,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
     return Container(
       color: Colors.white,
       child: SafeArea(
+        bottom: false,
         child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
           body: Center(

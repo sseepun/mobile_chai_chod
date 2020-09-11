@@ -13,7 +13,11 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
+     child: Scaffold(
       backgroundColor: ColorRes.lightWhite,
       body:  SingleChildScrollView(
         child: ListView.builder(
@@ -24,7 +28,7 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
               return listData(index);
             }),
       ),
-    );
+    ),),);
   }
 
   listData(int index){

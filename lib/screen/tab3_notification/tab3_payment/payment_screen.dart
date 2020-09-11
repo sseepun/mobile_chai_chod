@@ -9,11 +9,15 @@ class PaymentScreen extends StatefulWidget {
 class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
+      child:Scaffold(
       backgroundColor: ColorRes.lightWhite,
       body: Center(
         child: Text("Payment"),
       ),
-    );
+    ),),);
   }
 }

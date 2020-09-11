@@ -32,7 +32,10 @@ class _NotificationScreenState extends State<NotificationScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         body: Column(
@@ -75,7 +78,7 @@ class _NotificationScreenState extends State<NotificationScreen>
           ],
         ),
       ),
-    );
+        ),);
   }
 
 }

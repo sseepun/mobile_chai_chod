@@ -31,7 +31,10 @@ class _CompleteScreenState extends State<CompleteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
           body: Center(
@@ -77,7 +80,7 @@ class _CompleteScreenState extends State<CompleteScreen> {
               ),
             ),
           )),
-    );
+        ), );
   }
 
   //rate card design in method

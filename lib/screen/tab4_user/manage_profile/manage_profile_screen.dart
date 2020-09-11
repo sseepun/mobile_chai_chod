@@ -11,7 +11,10 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         body: Column(
@@ -31,7 +34,7 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
           ],
         ),
       ),
-    );
+        ),);
   }
 
 

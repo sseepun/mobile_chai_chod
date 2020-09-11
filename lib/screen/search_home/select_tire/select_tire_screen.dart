@@ -18,7 +18,10 @@ class SelectTireScreen extends StatefulWidget {
 class _SelectTireScreenState extends State<SelectTireScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.whiteColor,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
@@ -52,7 +55,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
           ),
         ),
       ),
-    );
+        ), );
   }
 
   appBar() {

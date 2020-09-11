@@ -47,7 +47,10 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.whiteColor,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.lightWhite,
         bottomNavigationBar: Container(
@@ -195,7 +198,7 @@ class _SearchTabsScreenState extends State<SearchTabsScreen>
           ),
         ),
       ),
-    );
+        ),);
   }
 
   //-------------------------------Tab1-----------------------------------------//

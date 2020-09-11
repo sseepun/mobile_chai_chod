@@ -49,6 +49,7 @@ class LoginScreenState extends State<LoginScreen> {
     return Container(
       color: Colors.white,
       child: SafeArea(
+        bottom: false,
         child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
           body: LayoutBuilder(

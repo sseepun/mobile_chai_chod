@@ -48,7 +48,10 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
         child: Scaffold(
       backgroundColor: ColorRes.lightWhite,
       body: SingleChildScrollView(
@@ -63,7 +66,7 @@ class _MapScreenState extends State<MapScreen> {
           ],
         ),
       ),
-    ));
+    ),),);
   }
 
 //  SingleChildScrollView(

@@ -32,7 +32,10 @@ class _LanguageState extends State<Language> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
         child: Scaffold(
           backgroundColor: ColorRes.lightWhite,
             body: SingleChildScrollView(
@@ -56,7 +59,7 @@ class _LanguageState extends State<Language> {
                 padding: EdgeInsets.only(left: 10, right: 10, bottom: 10, top: 10),
                 child: FilledButton(text: StringRes.save, fontSize: 18),
               ),
-            )));
+            )),),);
   }
 
   //languageData are use in list of country name and flag

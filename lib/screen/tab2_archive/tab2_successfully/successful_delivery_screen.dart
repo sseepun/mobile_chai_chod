@@ -13,7 +13,11 @@ class SuccessfulDeliveryScreen extends StatefulWidget {
 class _SuccessfulDeliveryScreenState extends State<SuccessfulDeliveryScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
+     child: Scaffold(
       backgroundColor: ColorRes.lightWhite,
       body: SingleChildScrollView(
         child: ListView.builder(
@@ -25,7 +29,7 @@ class _SuccessfulDeliveryScreenState extends State<SuccessfulDeliveryScreen> {
               return successFullCard();
             }),
       ),
-    );
+    ),),);
   }
 
   //success full card in order , date order , date Of Receipt

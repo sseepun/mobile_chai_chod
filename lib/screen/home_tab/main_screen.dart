@@ -43,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorRes.greyColor,
+      color: ColorRes.bgColor,
       child: Scaffold(
         backgroundColor: ColorRes.bgColor,
         body: _screens[_currentScreenIndex],

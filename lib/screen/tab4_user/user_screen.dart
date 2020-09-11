@@ -29,7 +29,10 @@ class _UserScreenState extends State<UserScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Column(
@@ -46,7 +49,7 @@ class _UserScreenState extends State<UserScreen> {
           ],
         ),
       ),
-    );
+        ), );
   }
 
 

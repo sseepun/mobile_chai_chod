@@ -28,7 +28,10 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+        color: Colors.white,
+        child: SafeArea(
+        bottom: false,
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -76,7 +79,7 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
           ),
         ),
       ),
-    );
+        ),);
   }
 
   // app bar method are use in back arrow , search icon and shopping basket icon

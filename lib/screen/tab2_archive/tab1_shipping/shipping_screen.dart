@@ -12,7 +12,11 @@ class ShippingScreen extends StatefulWidget {
 class _ShippingScreenState extends State<ShippingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+        color: ColorRes.lightWhite,
+        child: SafeArea(
+        bottom: false,
+     child: Scaffold(
       backgroundColor: ColorRes.lightWhite,
 
       body: SingleChildScrollView(
@@ -25,7 +29,7 @@ class _ShippingScreenState extends State<ShippingScreen> {
               return shippingCard();
             }),
       ),
-    );
+    ),),);
   }
 
   //shipping card show the text and date
