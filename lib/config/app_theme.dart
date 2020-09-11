@@ -105,6 +105,12 @@ class AppTheme {
     color: Colors.black,
     fontWeight: FontWeight.w400,
   );
+  static const TextStyle inputLabelBoldStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 16.0,
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+  );
   static const TextStyle inputLabelLargeStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,
     fontSize: 18.0,
@@ -137,9 +143,15 @@ class AppTheme {
     color: ColorRes.primaryColor,
     fontWeight: FontWeight.bold,
   );
+
   static const Icon btnBackIcon = Icon(
     Icons.arrow_back,
     color: Colors.black,
+    size: 25.0,
+  );
+  static const Icon chevRightIcon = Icon(
+    Icons.arrow_forward_ios,
+    color: ColorRes.primaryColor,
     size: 25.0,
   );
 

@@ -269,6 +269,26 @@ class CommonView {
       ),
     );
   }
+  static productDetailRowLarge(String title, String detail) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              title,
+              style: AppTheme.descSemiboldStyle,
+            ),
+            Text(
+              detail,
+              style: AppTheme.descSemiboldStyle,
+            )
+          ],
+        ),
+      ),
+    );
+  }
 
   // product details left data design
   static productDetailsLeftRightData(String title, String price, {Color showColor}) {

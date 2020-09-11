@@ -160,11 +160,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
                     StringRes.serviceDetails1,
                     style: AppTheme.descGreyStyle,
                   ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 28,
-                    color: ColorRes.primaryColor,
-                  )
+                  AppTheme.chevRightIcon
                 ],
               ),
             ),

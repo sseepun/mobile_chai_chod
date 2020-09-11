@@ -21,13 +21,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  // hex color code
-  hexColor(String colorhexcode) {
-    String colornew = '0xff' + colorhexcode;
-    colornew = colornew.replaceAll('#', '');
-    int colorint = int.parse(colornew);
-    return colorint;
-  }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   // Text Controller

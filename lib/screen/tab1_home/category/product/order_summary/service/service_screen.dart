@@ -1,13 +1,14 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
+import 'package:ChaiChod/common_widget/filled_button.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/tab1_home/category/product/order_summary/service/shipping/shipping_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../order_summary_screen.dart';
 
 class ServiceScreen extends StatefulWidget {
   @override
@@ -16,14 +17,7 @@ class ServiceScreen extends StatefulWidget {
 
 class _ServiceScreenState extends State<ServiceScreen> {
   final controller = PageController();
-  String radioItem = '';
-
-  hexColor(String colorhexcode) {
-    String colornew = '0xff' + colorhexcode;
-    colornew = colornew.replaceAll('#', '');
-    int colorint = int.parse(colornew);
-    return colorint;
-  }
+  int _raioValue;
 
   bool isSelected = true;
   bool isDealerDetails = false;
@@ -39,6 +33,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
             context, StringRes.serviceTitle, 
             StringRes.serviceTitle1
           ),
+          bottomNavigationBar: bottomBar(),
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
             child: Column(
@@ -46,18 +41,10 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 SizedBox(height: 2),
                 Visibility(
                   visible: true,
-                  child: serviceDetails(),
+                  child: shippingServices(),
                 ),
-                Divider(height: 1, color: ColorRes.greyColor),
-               /* Visibility(
-                  visible: true,
-                  child: service(),
-                ),*/
-                Divider(height: 1, color: ColorRes.greyColor),
-                discountDetails(),
-                Divider(height: 1, color: ColorRes.greyColor),
-                productPriceView(),
-                bottomButton(),
+                Divider(height: 1, color: Colors.black26),
+                dateSelection(),
               ],
             ),
           ),
@@ -66,421 +53,282 @@ class _ServiceScreenState extends State<ServiceScreen> {
     );
   }
 
-  //service details are use in radio list tile and change color bottom button
-  serviceDetails() {
+  bottomBar() {
     return Container(
-        height: 400,
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left: 10, top: 10),
-              child: AllText(
-                StringRes.serviceDes1,
-                color: ColorRes.blackColor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+      padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+      decoration: BoxDecoration(
+        color: ColorRes.whiteColor,
+        border: Border(top: BorderSide(color: Colors.black12, width: 1.0))
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          CommonView.productDetailRow(StringRes.price, 'B2,000', false),
+          CommonView.productDetailRow(StringRes.discount, 'B0', false),
+          CommonView.productDetailRow(StringRes.shipping, 'B0', false),
+          CommonView.productDetailRowLarge(StringRes.total, 'B2,000'),
+          Padding(
+            padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+            child: FilledButton(
+              text: 'ดำเนินการต่อ', 
+              fontSize: 20,
+              height: 58,
+              onPressed: (){
+                // orderSummaryScreenNavigator(context);
+              },
             ),
-            Container(
+          ),
+        ],
+      ),
+    );
+  }
+
+  //service details are use in radio list tile and change color bottom button
+  shippingServices() {
+    return Container(
+      color: Colors.white,
+      child: Column(
+        children: <Widget>[
+          Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.fromLTRB(15, 10, 15, 8),
+            child: Text(
+              StringRes.serviceDes1,
+              style: AppTheme.subHeaderBoldStyle,
+            ),
+          ),
+          InkResponse(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ShippingScreen()
+                ),
+              );
+            },
+            child: Container(
               height: 60,
-              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-              decoration: new BoxDecoration(
+              margin: EdgeInsets.only(left: 15, right: 15),
+              decoration: BoxDecoration(
                 boxShadow: [
-                  new BoxShadow(
-                    offset: Offset(0.5, 0.5),
-                    color: ColorRes.greyColor,
-                    blurRadius: 0.9,
+                  BoxShadow(
+                    offset: Offset(1, .5),
+                    color: Colors.black12,
+                    blurRadius: 5,
                   ),
                 ],
                 color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(2)),
               ),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(left: 10, top: 20),
-                    child: AllText(
-                      StringRes.serviceDes2,
-                      color: ColorRes.blackColor,
-                      fontSize: 15,
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    padding: EdgeInsets.only(left: 130),
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ShippingScreen()),
-                          );
-                        },
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          size: 25,
-                          color: ColorRes.primaryColor,
-                        )),
-                  ),
-                ],
-              ),
-            ),
-            Column(
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    setState(
-                      () {
-                        if (!isGeneralUser) {
-                          isGeneralUser = !isGeneralUser;
-                        } else {
-                          isDealerDetails = !isDealerDetails;
-                        }
-                      },
-                    );
-                  },
-                  child: RadioListTile(
-                    groupValue: radioItem,
-                    title: Text(
-                      'Free installation (C Service Area)',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    value: 'Item 1',
-                    onChanged: (val) {
-                      setState(() {
-                        radioItem = val;
-                      });
-                    },
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 70),
-                  child: Text(
-                    'Bangkok, Maha Sarakham, Samut Prakan, Pathum Thani, Nonthaburi, Nakhon Pathom and Samut Sakhon',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ),
-                GestureDetector(
-                  child: RadioListTile(
-                    groupValue: radioItem,
-                    title: Text(
-                      'Free private transport (not installed)',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    value: 'Item 2',
-                    onChanged: (val) {
-                      setState(() {
-                        radioItem = val;
-                      });
-                    },
-                  ),
-                ),
-                GestureDetector(
-                  child: RadioListTile(
-                    groupValue: radioItem,
-                    title: Text(
-                      'Delivery outside the area, installation service free)',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    value: 'Item 3',
-                    onChanged: (val) {
-                      setState(() {
-                        radioItem = val;
-                      });
-                    },
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(right: 30),
-                  child: Text('* There is a transportation fee.',
-                      style: TextStyle(fontSize: 14, color: Colors.red)),
-                ),
-              ],
-            ),
-          ],
-        ));
-  }
-
-  service() {
-    return Container(
-        height: 400,
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Container(
-                height: 120,
-                margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-                decoration: new BoxDecoration(
-                  boxShadow: [
-                    new BoxShadow(
-                      offset: Offset(0.5, 0.5),
-                      color: ColorRes.greyColor,
-                      blurRadius: 0.9,
-                    ),
-                  ],
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(2)),
-                ),
-                child: Column(
-                  children: [
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(20, 5, 10, 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
                     Container(
-                      alignment: Alignment.topLeft,
-                      padding: EdgeInsets.only(left: 10, top: 10),
-                      child: AllText(
-                        StringRes.serviceVisible1,
-                        color: ColorRes.blackColor,
-                        fontSize: 15,
+                      alignment: Alignment.center,
+                      child: Text(
+                        StringRes.serviceDes2,
+                        style: AppTheme.descGreyStyle,
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.topLeft,
-                      padding: EdgeInsets.only(left: 10, top: 10),
-                      child: AllText(
-                        StringRes.serviceVisible2,
-                        color: ColorRes.blackColor,
-                        fontSize: 15,
-                      ),
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          alignment: Alignment.topRight,
-                          padding: EdgeInsets.only(left: 10, top: 10),
-                          child: AllText(
-                            StringRes.serviceVisible3,
-                            color: ColorRes.blackColor,
-                            fontSize: 15,
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          padding: EdgeInsets.only(left: 5),
-                          child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ShippingScreen()),
-                                );
-                              },
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                size: 25,
-                                color: ColorRes.primaryColor,
-                              )),
-                        ),
-                      ],
-                    ),
+                    AppTheme.chevRightIcon
                   ],
-                )),
-            Column(
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    setState(
-                      () {
-                        if (!isGeneralUser) {
-                          isGeneralUser = !isGeneralUser;
-                        } else {
-                          isDealerDetails = !isDealerDetails;
-                        }
-                      },
-                    );
-                  },
-                  child: RadioListTile(
-                    groupValue: radioItem,
-                    title: Text(
-                      'Free installation (C Service Area)',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    value: 'Item 1',
-                    onChanged: (val) {
-                      setState(
-                        () {
-                          radioItem = val;
-                        },
-                      );
-                    },
-                  ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(left: 70),
-                  child: Text(
-                    'Bangkok, Maha Sarakham, Samut Prakan, Pathum Thani, Nonthaburi, Nakhon Pathom and Samut Sakhon',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ),
-                GestureDetector(
-                  child: RadioListTile(
-                    groupValue: radioItem,
-                    title: Text(
-                      'Free private transport (not installed)',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    value: 'Item 2',
-                    onChanged: (val) {
-                      setState(() {
-                        radioItem = val;
-                      });
-                    },
-                  ),
-                ),
-                GestureDetector(
-                  child: RadioListTile(
-                    groupValue: radioItem,
-                    title: Text(
-                      'Delivery outside the area, installation service free)',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    value: 'Item 3',
-                    onChanged: (val) {
-                      setState(() {
-                        radioItem = val;
-                      });
-                    },
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(right: 30),
-                  child: Text('* There is a transportation fee.',
-                      style: TextStyle(fontSize: 14, color: Colors.red)),
-                ),
-              ],
-            ),
-          ],
-        ));
-  }
-
-  discountDetails() {
-    return Container(
-        height: 110,
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left: 10, top: 10),
-              child: AllText(
-                StringRes.serviceDescription,
-                color: ColorRes.blackColor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(top: 10, left: 10),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                      height: 50,
-                      width: 290,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                        color: ColorRes.primaryColor,
-                      )),
-                      child: FlatButton(
-                        padding: EdgeInsets.only(right: 80),
-                        color: ColorRes.whiteColor,
-                        child: AllText(
-                          StringRes.discountServiceBtn1,
-                          fontSize: 15,
-                          color: ColorRes.primaryColor,
-                        ),
-                        onPressed: () {},
-                      )),
-                  Container(
-                      height: 50,
-                      width: 50,
-                      padding: EdgeInsets.only(),
-                      child: FlatButton(
-                        padding: EdgeInsets.only(right: 3),
-                        color: ColorRes.primaryColor,
-                        child: Icon(
-                          Icons.calendar_today,
-                          color: ColorRes.whiteColor,
-                        ),
-                        onPressed: () {},
-                      )),
-                ],
-              ),
-            ),
-          ],
-        ));
-  }
-
-  productPriceView() {
-    return Container(
-      color: Colors.white,
-      padding: EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-      margin: EdgeInsets.only(top: 5, bottom: 5),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          productPriceShow(StringRes.price, 'B2,000'),
-          productPriceShow(StringRes.sectionAA, 'B0'),
-          productPriceShow(StringRes.shipping, 'B0'),
+          ),
           Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            padding: EdgeInsets.only(top: 10, bottom: 25),
+            child: Column(
               children: <Widget>[
-                AllText(StringRes.total, color: ColorRes.blackColor),
-                AllText('\$2,000',
-                    align: TextAlign.right,
-                    color: ColorRes.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget> [
+                    Radio(
+                      value: 1, 
+                      groupValue: _raioValue, 
+                      activeColor: ColorRes.primaryColor,
+                      onChanged: (val) {
+                        setState(() {
+                          _raioValue = val;
+                        });
+                      }
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget> [
+                            Text(
+                              'ติดตั้งฟรี (ในเขตบริการ)',
+                              style: AppTheme.inputLabelBoldStyle,
+                            ),
+                            Text(
+                              'กรุงเทพมหานคร, สมุทรปราการ, ปทุมธานี, นนบุรี, นครปฐม และสมุทรสาคร',
+                              style: AppTheme.descGreySmallStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget> [
+                    Radio(
+                      value: 2, 
+                      groupValue: _raioValue, 
+                      activeColor: ColorRes.primaryColor,
+                      onChanged: (val) {
+                        setState(() {
+                          _raioValue = val;
+                        });
+                      }
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget> [
+                            Text(
+                              'ขนส่งเอกชนฟรี (ไม่ติดตั้ง)',
+                              style: AppTheme.inputLabelBoldStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget> [
+                    Radio(
+                      value: 3, 
+                      groupValue: _raioValue, 
+                      activeColor: ColorRes.primaryColor,
+                      onChanged: (val) {
+                        setState(() {
+                          _raioValue = val;
+                        });
+                      }
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget> [
+                            Text(
+                              'จัดส่งนอกเขตบริการ (ติดตั้งฟรี)',
+                              style: AppTheme.inputLabelBoldStyle,
+                            ),
+                            Text(
+                              '* มีค่าบริการขนส่ง',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.red
+                              )
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                )
+
               ],
             ),
-          )
+          ),
         ],
-      ),
+      )
     );
   }
 
-  productPriceShow(String title, String details, {Color showColor}) {
-    return Padding(
-      padding: EdgeInsets.only(top: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  dateSelection(){
+    return Container(
+      padding: EdgeInsets.fromLTRB(15, 12, 15, 20),
+      color: Colors.white,
+      child: Column(
         children: <Widget>[
-          AllText(title, color: ColorRes.blackColor),
-          AllText(details,
-              align: TextAlign.right,
-              color: showColor != null ? showColor : ColorRes.blackColor),
+          Container(
+            alignment: Alignment.topLeft,
+            child: Text(
+              StringRes.serviceDescription,
+              style: AppTheme.subHeaderSmallStyle,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 8),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: dateTextField(),
+                ),
+                Container(
+                  height: 50,
+                  width: 68,
+                  padding: EdgeInsets.only(left: 8),
+                  child: FlatButton(
+                    color: ColorRes.primaryColor,
+                    child: Icon(
+                      Icons.calendar_today,
+                      color: ColorRes.whiteColor,
+                    ),
+                    onPressed: () { },
+                  )
+                ),
+              ],
+            ),
+          ),
         ],
+      )
+    );
+  }
+
+  dateTextField(){
+    return TextField(
+      style: TextStyle(
+        fontSize: 15, 
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+        fontFamily: StringRes.fontFamilyKanitBlack,
+      ),
+      decoration: InputDecoration(
+        hintText: StringRes.discountServiceBtn1,
+        filled: true,
+        fillColor: ColorRes.whiteColor,
+        contentPadding: EdgeInsets.only(left: 10, right: 10),
+        hintStyle: TextStyle(
+          fontSize: 15,
+          color: Colors.black38,
+          fontWeight: FontWeight.w400,
+          fontFamily: StringRes.fontFamilyKanitBlack,
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(width: 1, color: Colors.black26),
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(width: 1, color: ColorRes.primaryColor),
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(width: 1, color: Colors.black26),
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+        ),
       ),
     );
   }
 
-  bottomButton() {
-    return InkResponse(
-      onTap: () {},
-      child: Container(
-        margin: EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 10),
-        alignment: Alignment.center,
-        width: Utils.getDeviceWidth(context),
-        height: 45,
-        decoration: new BoxDecoration(
-          color: isGeneralUser || isDealerDetails
-              ? ColorRes.primaryColor
-              : Color(hexColor('#E0E0E0')),
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-          boxShadow: [
-            new BoxShadow(
-              color: Colors.black12,
-              blurRadius: 5,
-            ),
-          ],
-        ),
-        child: AllText(
-          StringRes.rated,
-          color: Colors.white,
-        ),
-      ),
-    );
-  }
 }

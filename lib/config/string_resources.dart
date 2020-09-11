@@ -167,7 +167,7 @@ Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliq
   ''';
 
   //payment transfer Screen
-  static const paymentTitle                  =  "Pay by bank account";
+  static const paymentTitle                  = "Pay by bank account";
   static const paymentTitle2                 = "Order no.410031124 30/05/20";
 
   //GoodYear
@@ -176,10 +176,10 @@ Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliq
   //Service Screen
   static const serviceTitle                  = "บริการจัดส่งและติดตั้ง";
   static const serviceTitle1                 = "คำสั่งซื้อเลขที่ #1003111124 30/05/20";
-  static const serviceDes1                   = "Name and shipping address";
-  static const serviceDes2                   = "Please select an address";
-  static const discountServiceBtn1           = "Choose an appointment date";
-  static const serviceDescription            = "Choose an appointment date";
+  static const serviceDes1                   = "ชื่อและที่อยู่จัดส่ง";
+  static const serviceDes2                   = "กรุณาเลือกที่อยู่";
+  static const discountServiceBtn1           = "เลือกวันนัดหมาย";
+  static const serviceDescription            = "เลือกวันนัดหมาย";
   static const serviceVisible1               = "Mark Joley";
   static const serviceVisible2               = "0123456789";
   static const serviceVisible3               = "999/9 Rama I Rd, Pathum Wan, Pathum Wan\nDistrict, Bangkok 10330";
