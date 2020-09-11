@@ -23,6 +23,29 @@ class _MapScreenState extends State<LocationScreen> {
     super.initState();
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: CommonView.appBarTitle(
+            context, 'เลือกแผนที่จัดส่ง'
+          ),
+          backgroundColor: ColorRes.lightWhite,
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                searchData(),
+                map(),
+              ],
+            ),
+          ),
+        )
+      ),
+    );
+  }
+
   //show map in screen
   map() {
     return Container(
@@ -47,69 +70,53 @@ class _MapScreenState extends State<LocationScreen> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: SafeArea(
-        child: Scaffold(
-          appBar: CommonView.appBarTitleBg(
-            context, StringRes.address
-          ),
-          backgroundColor: ColorRes.lightWhite,
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 20),
-                searchData(),
-                map(),
-                //listData(),
-              ],
-            ),
-          ),
-        )
-      ),
-    );
-  }
-
   //search TextFormField
   searchData() {
     return Container(
-      height: 50,
-      width: Utils.getDeviceWidth(context),
-      margin: EdgeInsets.all(15),
-      child:TextFormField(
+      width: double.infinity,
+      padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+      color: Colors.transparent,
+      child: TextField(
+        textInputAction: TextInputAction.search,
+        onSubmitted: (value) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Search()),
+          );
+        },
+        style: TextStyle(
+          fontSize: 16, 
+          color: Colors.black,
+          fontWeight: FontWeight.w500,
+          fontFamily: StringRes.fontFamilyKanitBlack,
+        ),
         decoration: InputDecoration(
-          hintText: 'Search here...',
+          hintText: 'ค้นหาที่อยู่หรือชื่ออาคาร',
           filled: true,
           fillColor: ColorRes.whiteColor,
-          border: UnderlineInputBorder(borderRadius: BorderRadius.circular(2)),
+          contentPadding: EdgeInsets.all(0),
           prefixIcon: IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Search()),
-              );                  },
             icon: Icon(
               Icons.search,
-              size: 20,
+              size: 28,
             ),
           ),
           hintStyle: TextStyle(
-            letterSpacing: 1.0,
-            fontSize: 15,
+            fontSize: 16, 
+            fontWeight: FontWeight.w500,
+            fontFamily: StringRes.fontFamilyKanitBlack,
           ),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(2)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderSide: BorderSide(width: 1, color: Colors.black26),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(2)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderSide: BorderSide(width: 1, color: ColorRes.primaryColor),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderSide: BorderSide(width: 1, color: Colors.black26),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
           ),
         ),
       ),

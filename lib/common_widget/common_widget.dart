@@ -236,7 +236,7 @@ class CommonView {
     );
   }
 
-  static appBarTitle(BuildContext context, String title) {
+  static appBarTitle(BuildContext context, String title, {Color bgColor}) {
     return AppBar(
       elevation: 0,
       leading: backIconButton(context),
@@ -246,7 +246,7 @@ class CommonView {
         overflow: TextOverflow.ellipsis,
         style: AppTheme.subHeaderBoldStyle,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: bgColor!=null ? bgColor : Colors.white,
     );
   }
   static appBarTitleBg(BuildContext context, String title) {
@@ -294,6 +294,19 @@ class CommonView {
         ),
         preferredSize: Size(0.0, 22.0),
       ),
+    );
+  }
+  static appBarTitleBlue(BuildContext context, String title) {
+    return AppBar(
+      elevation: 0,
+      leading: backIconButton(context),
+      title: Text(
+        title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: AppTheme.subHeaderWhiteBoldStyle,
+      ),
+      backgroundColor: Colors.blue,
     );
   }
 

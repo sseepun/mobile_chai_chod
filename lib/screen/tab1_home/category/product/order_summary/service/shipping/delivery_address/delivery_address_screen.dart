@@ -39,12 +39,13 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
                     children: <Widget>[
                       SizedBox(height: 10),
                       ListView.builder(
-                      itemCount: 2,
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return addressGridData(index);
-                      }),
+                        itemCount: 2,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return addressGridData(index);
+                        }
+                      ),
                       
                       SizedBox(height: 40),
                       Column(

@@ -273,7 +273,7 @@ and 555
   static const SelectTireBtn2                   = "More Details";
 
   //Search screen
-  static const SearchTitle1                     =  "Search";
+  static const SearchTitle1                     =  "ค้นหาที่อยู่";
 
 
 }

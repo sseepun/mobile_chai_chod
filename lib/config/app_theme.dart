@@ -45,6 +45,13 @@ class AppTheme {
     fontWeight: FontWeight.w600,
     letterSpacing: 0.4,
   );
+  static const TextStyle subHeaderWhiteBoldStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 21.0,
+    color: Colors.white,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.4,
+  );
   static const TextStyle subHeaderSmallStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,
     fontSize: 19.0,

@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
           searchScreenNavigator(context);
         },
         style: TextStyle(
-          fontSize: 17, 
+          fontSize: 16, 
           color: Colors.black,
           fontWeight: FontWeight.w500,
           fontFamily: StringRes.fontFamilyKanitBlack,
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           hintStyle: TextStyle(
-            fontSize: 17, 
+            fontSize: 16, 
             fontWeight: FontWeight.w500,
             fontFamily: StringRes.fontFamilyKanitBlack,
           ),
