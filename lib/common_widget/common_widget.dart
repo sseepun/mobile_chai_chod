@@ -18,6 +18,17 @@ class CommonView {
       ),
     );
   }
+  static icon(String file, double width, double height) {
+    return Container(
+      alignment: Alignment.center,
+      child: Image.asset(
+        Utils.getIcon(file),
+        width: width,
+        height: height,
+        fit: BoxFit.fill,
+      ),
+    );
+  }
 
 
   //all screen common back arrow use
@@ -34,6 +45,62 @@ class CommonView {
           size: 25,
         ),
       ),
+    );
+  }
+  
+  static backIconButton(context){
+    return IconButton(
+      icon: AppTheme.btnBackIcon,
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+  }
+  static cartIconButton(context, int unit, double topPosition){
+    return IconButton(
+      onPressed: () {
+        print('Shopping Cart');
+        cartScreenNavigator(context);
+      },
+      padding: EdgeInsets.only(right: 10),
+      icon: Stack(
+        children: <Widget>[
+          CommonView.icon('cart.png', 25, 25),
+          Positioned(
+            top: topPosition,
+            right: 3.0,
+            child: Container(
+              width: unit > 0 ? 14 : 0,
+              height: unit > 0 ? 14 : 0,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: unit > 0
+                ? Text(
+                  '$unit',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 11,
+                    height: 1.4
+                  ),
+                )
+                : Container(),
+            )
+          )
+        ]
+      ),
+    );
+  }
+  static searchIconButton(context){
+    return IconButton(
+      onPressed: () {
+        print('Search');
+      },
+      icon: Icon(Icons.search),
+      color: ColorRes.primaryColor,
+      iconSize: 28,
     );
   }
 
@@ -172,12 +239,7 @@ class CommonView {
   static appBarTitle(BuildContext context, String title) {
     return AppBar(
       elevation: 0,
-      leading: IconButton(
-        icon: AppTheme.btnBackIcon,
-        onPressed: (){
-          Navigator.of(context).pop();
-        },
-      ),
+      leading: backIconButton(context),
       title: Text(
         title,
         maxLines: 1,
@@ -187,15 +249,23 @@ class CommonView {
       backgroundColor: Colors.white,
     );
   }
+  static appBarTitleBg(BuildContext context, String title) {
+    return AppBar(
+      elevation: 0,
+      leading: backIconButton(context),
+      title: Text(
+        title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: AppTheme.subHeaderBoldStyle,
+      ),
+      backgroundColor: ColorRes.bgColor,
+    );
+  }
   static appBarTitleWithDesc(BuildContext context, String title, String desc) {
     return AppBar(
       elevation: 0,
-      leading: IconButton(
-        icon: AppTheme.btnBackIcon,
-        onPressed: (){
-          Navigator.of(context).pop();
-        },
-      ),
+      leading: backIconButton(context),
       title: Text(
         title,
         maxLines: 1,
@@ -342,6 +412,5 @@ class CommonView {
       ),
     );
   }
-
 
 }

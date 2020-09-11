@@ -1,11 +1,8 @@
-import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/filled_button.dart';
-import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/app_theme.dart';
-import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/tab1_home/category/product/order_summary/service/shipping/shipping_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

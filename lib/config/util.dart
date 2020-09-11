@@ -18,6 +18,9 @@ class Utils{
   static getAssetsImg(String name) {
     return "assets/images/" + name + ".png";
   }
+  static getIcon(String file) {
+    return "assets/icons/" + file;
+  }
 
   /* static getNetworkImg(String name) {
     return "${RestApi().baseUrl}$name";

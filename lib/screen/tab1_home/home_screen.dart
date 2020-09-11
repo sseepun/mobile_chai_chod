@@ -64,18 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: CommonView.logoImage(110, 0),
       ),
       actions: <Widget>[
-        IconButton(
-          onPressed: () {
-            print('Shopping Cart');
-            cartScreenNavigator(context);
-          },
-          padding: EdgeInsets.only(
-            right: 15,
-          ),
-          icon: Icon(Icons.shopping_basket),
-          iconSize: 28,
-          color: ColorRes.primaryColor,
-        ),
+        CommonView.cartIconButton(context, 2, 11),
       ],
     );
   }

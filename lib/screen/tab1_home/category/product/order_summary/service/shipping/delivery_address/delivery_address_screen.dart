@@ -1,14 +1,10 @@
-import 'package:ChaiChod/common_widget/text.dart';
+import 'package:ChaiChod/common_widget/common_widget.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
-import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/tab1_home/category/product/order_summary/service/service_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../order_summary_screen.dart';
-import '../shipping_screen.dart';
-import 'location/loaction_search_screen/loaction_search_screen.dart';
 import 'location/location_screen.dart';
 
 class DeliveryAddressScreen extends StatefulWidget {
@@ -21,40 +17,84 @@ class DeliveryAddressScreen extends StatefulWidget {
 class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
   final controller = PageController();
   List<String> stringList = [
-    'Address 1',
-    'Address 2',
+    '999/9 นวมินทร์ บึงกลุ่ม กรุงเทพมหานคร รหัสไปรษณีย์ 10330',
+    '123/1 เรวดี 29 ตลาดขวัญ เมืองนนทบุรี นนทบุรี รหัสไปรษณีย์ 11000',
   ];
-  List<String> stringList1 = [
-    '999/9 Nawamin, Bueng Kum, Bangkok, 10330',
-    '123/1 Rawadee 29, Talat Khwan, Muang Nonthaburi, Nonthaburi 11000',
 
-  ];
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: ColorRes.bgColor,
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.white,
+          appBar: CommonView.appBarTitleBg(
+            context, StringRes.DeliveryAddressTitle
+          ),
+          backgroundColor: ColorRes.bgColor,
           body: SingleChildScrollView(
             child: Stack(
               children: <Widget>[
                 Container(
-                    child: Column(
-                  children: <Widget>[
-                    _appBar(),
-                    SizedBox(height: 30),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 10),
+                      ListView.builder(
+                      itemCount: 2,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return addressGridData(index);
+                      }),
+                      
+                      SizedBox(height: 40),
+                      Column(
+                        children: <Widget>[
+                          InkResponse(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => LocationScreen()),
+                              );
+                            },
+                            child: Container(
+                              height: 60,
+                              margin: EdgeInsets.only(left: 15, right: 15),
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    offset: Offset(1, .5),
+                                    color: Colors.black12,
+                                    blurRadius: 5,
+                                  ),
+                                ],
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(2)),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(20, 5, 10, 5),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Container(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        StringRes.DeliveryAddressDescription1,
+                                        style: AppTheme.descGreyStyle,
+                                      ),
+                                    ),
+                                    AppTheme.chevRightIcon
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                        ]
+                      ),
+                      SizedBox(height: 20),
 
-                    ListView.builder(
-                        itemCount: 2,
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return listData(index);
-                        }),
-                    serviceDetails(),
-                  ],
-                )),
+                    ],
+                  )
+                ),
               ],
             ),
           ),
@@ -63,87 +103,47 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
     );
   }
 
-  Widget _appBar() {
-    return Container(
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(top: 17),
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OrderSummaryScreen()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 25,
-                        color: Colors.black,
-                      )),
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 80, top: 10),
-                  child: AllText(
-                    StringRes.DeliveryAddressTitle,
-                    color: ColorRes.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ));
-  }
-
   //list data are use in list of strings
-  listData(int index) {
+  addressGridData(int index) {
     return InkResponse(
       onTap: () {
         if (index == 0) {
-        } else if (index == 1) {}
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LocationScreen()),
+          );
+        } else if (index == 1) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LocationScreen()),
+          );
+        }
       },
       child: Container(
-        height: 120,
-        margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
-        padding: EdgeInsets.only(left: 0, bottom: 10, right: 0, top: 10),
+        margin: EdgeInsets.only(top: 10, left: 15, right: 15),
+        padding: EdgeInsets.fromLTRB(15, 15, 15, 20),
         decoration: new BoxDecoration(
           boxShadow: [
             new BoxShadow(
-              offset: Offset(0.5, 0.5),
-              color: ColorRes.greyColor,
-              blurRadius: 0.5,
+              offset: Offset(0.5, 3),
+              color: Colors.black12,
+              blurRadius: 4,
             ),
           ],
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(2)),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(top: 7,left: 10),
-              child: AllText(
-                stringList[index],
-                color: Colors.black,
-                fontSize: 14,
-              ),
+            Text(
+              'ที่อยู่ ${index+1}',
+              style: AppTheme.inputLabelStyle,
             ),
-            Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(top: 10,left: 10),
-              child: AllText(
-                stringList1[index],
-                color: Colors.black,
-                fontSize: 17,
-              ),
+            SizedBox(height: 5),
+            Text(
+              stringList[index],
+              style: AppTheme.inputLabelStyle,
             ),
           ],
         ),
@@ -151,52 +151,4 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
     );
   }
 
-  serviceDetails() {
-    return Container(
-      color: Colors.white,
-      child: Container(
-        height: 60,
-        margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-        decoration: new BoxDecoration(
-          boxShadow: [
-            new BoxShadow(
-              offset: Offset(0.5, 0.5),
-              color: ColorRes.greyColor,
-              blurRadius: 0.9,
-            ),
-          ],
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-        child: Row(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topRight,
-              padding: EdgeInsets.only(left: 10, top: 20),
-              child: AllText(
-                StringRes.DeliveryAddressDescription1,
-                color: ColorRes.blackColor,
-                fontSize: 15,
-              ),
-            ),
-            Container(
-              height: 50,
-              padding: EdgeInsets.only(left: 160),
-              child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LocationScreen()),
-                    );                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 25,
-                    color: ColorRes.primaryColor,
-                  )),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }

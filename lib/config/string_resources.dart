@@ -185,16 +185,16 @@ Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliq
   static const serviceVisible3               = "999/9 Rama I Rd, Pathum Wan, Pathum Wan\nDistrict, Bangkok 10330";
 
   //Shipping Screen
-  static const shippingTitle                  = "Shipping address details";
-  static const shippingTitle1                 = "Order No. 81003I124 30/05/20";
-  static const shippingDes1                   = "Recipient name";
-  static const shippingDes2                   = "Contact phone number";
-  static const shippingDescription1           = "Delivery address";
-  static const shippingDescription2           = "Choose a shipping address";
+  static const shippingTitle                  = "รายละเอียดที่อยู่สำหรับจัดส่ง";
+  static const shippingTitle1                 = "คำสั่งซื้อเลขที่ #1003111124 30/05/20";
+  static const shippingDes1                   = "ชื่อผู้รับ";
+  static const shippingDes2                   = "หมายเลขโทรศัพท์ติดต่อ";
+  static const shippingDescription1           = "ที่อยู่จัดส่ง";
+  static const shippingDescription2           = "เลือกที่อยู่จัดส่ง";
 
   //Delivery Address Screen
-  static const DeliveryAddressTitle           = "Delivery Address";
-  static const DeliveryAddressDescription1    = "Choose new address";
+  static const DeliveryAddressTitle           = "ที่อยู่จัดส่ง";
+  static const DeliveryAddressDescription1    = "เลือกที่อยู่ใหม่";
 
   //Order Details Screen
   static const orderDetailsTitle             = "Order Details";

@@ -39,10 +39,6 @@ dependencies:
   percent_indicator: ^2.1.5
   google_maps_flutter: ^0.5.3
 
-
-
-
-
   #  flutter_swiper: ^1.1.6
   carousel_pro: ^1.0.0
 
@@ -63,9 +59,7 @@ flutter:
 
   assets:
     - assets/images/
-#    - assets/img/banner/
-#    - assets/img/bg/
-#    - assets/img/icon/
+    - assets/icons/
 
   fonts:
     - family: Kanit

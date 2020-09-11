@@ -51,18 +51,8 @@ class _GoodYearScreenState extends State<GoodYearScreen> {
               style: AppTheme.subHeaderSmallStyle,
             ),
             actions: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.search),
-                color: ColorRes.primaryColor,
-              ),
-              IconButton(
-                icon: Icon(Icons.shopping_basket),
-                color: ColorRes.primaryColor,
-                onPressed: () {
-                  cartScreenNavigator(context);
-                },
-              ),
+              CommonView.searchIconButton(context),
+              CommonView.cartIconButton(context, 2, 11),
             ],
           ),
           backgroundColor: ColorRes.lightWhite,

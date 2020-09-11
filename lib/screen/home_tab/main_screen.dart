@@ -21,11 +21,11 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentScreenIndex = 0;
   List<Widget> _screens;
-  List<List> _bottomData = <List>[
-    [ 0, FontAwesomeIcons.home, 'หน้าหลัก' ],
-    [ 1, FontAwesomeIcons.archive, 'ติดตามพัสดุ' ],
-    [ 2, FontAwesomeIcons.bell, 'แจ้งเตือน' ],
-    [ 3, FontAwesomeIcons.user, 'โปรไฟล์' ],
+  List<List> _bottomData = <List> [
+    [ 0, 'home', 'หน้าหลัก' ],
+    [ 1, 'tracking', 'ติดตามพัสดุ' ],
+    [ 2, 'notification', 'แจ้งเตือน' ],
+    [ 3, 'user', 'โปรไฟล์' ],
   ];
 
   @override
@@ -70,13 +70,24 @@ class _MainScreenState extends State<MainScreen> {
       },
       items: _bottomData.map((data) {
         var _bottomIndex = _bottomData.indexWhere((d) => d[0] == data[0]);
+        var activeIcon = 'home' + '-selected.png';
+        var inactiveIcon = 'home' + '-unselected.png';
+
+        String iconPath = 'home';
+        if(data[0] == 1){
+          iconPath = 'tracking';
+        }else if(data[0] == 2){
+          iconPath = 'notification';
+        }else if(data[0] == 3){
+          iconPath = 'user';
+        }
+
         return BottomNavigationBarItem(
-          icon: Icon(
-            data[1],
-            size: 25,
-            color: _bottomIndex == _currentScreenIndex 
-              ? ColorRes.primaryColor
-              : ColorRes.greyColor,
+          icon: Padding(
+            padding: EdgeInsets.only(top: 5),
+            child: _bottomIndex == _currentScreenIndex
+            ? CommonView.icon(iconPath+'-selected.png', 25, 25) 
+            : CommonView.icon(iconPath+'-unselected.png', 25, 25)
           ),
           title: Column(
             children: <Widget>[

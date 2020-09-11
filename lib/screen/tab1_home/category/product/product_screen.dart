@@ -68,12 +68,7 @@ class _ProductScreenState extends State<ProductScreen>
         child: Scaffold(
           appBar: AppBar(
             elevation: 0,
-            leading: IconButton(
-              icon: AppTheme.btnBackIcon,
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
+            leading: CommonView.backIconButton(context),
             backgroundColor: Colors.white,
             title: Text(
               'รายละเอียดสินต้า',
@@ -82,13 +77,7 @@ class _ProductScreenState extends State<ProductScreen>
               style: AppTheme.subHeaderSmallStyle,
             ),
             actions: [
-              IconButton(
-                icon: Icon(Icons.shopping_basket),
-                color: ColorRes.primaryColor,
-                onPressed: () {
-                  cartScreenNavigator(context);
-                },
-              ),
+              CommonView.cartIconButton(context, 2, 11),
             ],
           ),
           backgroundColor: ColorRes.whiteColor,
@@ -132,8 +121,8 @@ class _ProductScreenState extends State<ProductScreen>
           alignment: Alignment.topRight,
           child: Column(
             children: <Widget>[
-              iconShow(Icons.favorite, 1),
-              iconShow(Icons.share, 2),
+              favIcon(Icons.favorite, 1),
+              favIcon(Icons.share, 2),
             ],
           ),
         )
@@ -250,7 +239,7 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-  iconShow(IconData icons, int i) {
+  favIcon(IconData icons, int i) {
     return InkResponse(
       onTap: () {
         if (i == 1) {
@@ -259,17 +248,17 @@ class _ProductScreenState extends State<ProductScreen>
       child: Container(
         height: 40,
         width: 40,
-        margin: EdgeInsets.only(top: 10, right: 7),
+        margin: EdgeInsets.only(top: 8, right: 10),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
-            offset: Offset(0.5, 0.5),
-            color: ColorRes.greyColor,
-            blurRadius: 0.5,
+            offset: Offset(0.5, 2),
+            color: Colors.black12,
+            blurRadius: 3,
           ),
         ], color: ColorRes.whiteColor, shape: BoxShape.circle),
         child: Icon(
           icons,
-          size: 25,
+          size: 22,
           color: ColorRes.primaryColor,
         ),
       ),

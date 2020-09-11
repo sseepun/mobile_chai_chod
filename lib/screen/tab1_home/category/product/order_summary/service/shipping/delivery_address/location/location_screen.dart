@@ -1,4 +1,3 @@
-import 'package:ChaiChod/screen/tab4_user/set_up/child_setup/map_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ChaiChod/export.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -17,13 +16,12 @@ class _MapScreenState extends State<LocationScreen> {
   BitmapDescriptor pinLocationIcon;
   final LatLng _center = const LatLng(23.022505, 72.571365);
   void _onMapCreated(GoogleMapController controller) {
-//    mapController = controller;
+    // mapController = controller;
     _controller.complete(controller);
   }
   void initState() {
     super.initState();
   }
-
 
   //show map in screen
   map() {
@@ -51,14 +49,17 @@ class _MapScreenState extends State<LocationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
         child: Scaffold(
+          appBar: CommonView.appBarTitleBg(
+            context, StringRes.address
+          ),
           backgroundColor: ColorRes.lightWhite,
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                CommonView.backArrowAndTitle(
-                    context, StringRes.address, ColorRes.blackColor),
                 SizedBox(height: 20),
                 searchData(),
                 map(),
@@ -66,21 +67,10 @@ class _MapScreenState extends State<LocationScreen> {
               ],
             ),
           ),
-        ));
+        )
+      ),
+    );
   }
-
-//  SingleChildScrollView(
-//  child: Column(
-//  children: <Widget>[
-//  CommonView.backArrowAndTitle(
-//  context, StringRes.address, ColorRes.blackColor),
-//  SizedBox(height: 20),
-//  searchData(),
-//  map(),
-//  //listData(),
-//  ],
-//  ),
-//  ),
 
   //search TextFormField
   searchData() {
@@ -125,4 +115,5 @@ class _MapScreenState extends State<LocationScreen> {
       ),
     );
   }
+
 }

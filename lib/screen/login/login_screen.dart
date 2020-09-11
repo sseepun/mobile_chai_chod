@@ -376,7 +376,7 @@ class LoginScreenState extends State<LoginScreen> {
   faceBookButton() {
     return Container(
       margin: EdgeInsets.only(top: 20),
-      width: 300,
+      width: double.infinity,
       height: 50,
       decoration: new BoxDecoration(
         color: ColorRes.whiteColor,
@@ -417,7 +417,7 @@ class LoginScreenState extends State<LoginScreen> {
   googleButton() {
     return Container(
       margin: EdgeInsets.only(top: 13, bottom: 10),
-      width: 300,
+      width: double.infinity,
       height: 50,
       decoration: new BoxDecoration(
         color: Colors.white,
@@ -458,7 +458,7 @@ class LoginScreenState extends State<LoginScreen> {
   //appleButton
   appleButton() {
     return Container(
-      width: 300,
+      width: double.infinity,
       height: 50,
       decoration: new BoxDecoration(
         color: ColorRes.whiteColor,

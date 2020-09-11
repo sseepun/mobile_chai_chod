@@ -43,26 +43,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
         child: Scaffold(
           appBar: AppBar(
             elevation: 0,
-            leading: IconButton(
-              icon: AppTheme.btnBackIcon,
-              onPressed: (){
-                Navigator.of(context).pop();
-              },
-            ),
+            leading: CommonView.backIconButton(context),
             backgroundColor: Colors.white,
             actions: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.search),
-                color: ColorRes.primaryColor,
-              ),
-              IconButton(
-                icon: Icon(Icons.shopping_basket),
-                color: ColorRes.primaryColor,
-                onPressed: () {
-                  cartScreenNavigator(context);
-                },
-              ),
+              CommonView.searchIconButton(context),
+              CommonView.cartIconButton(context, 2, 4),
             ],
             bottom: PreferredSize(
               child: Padding(
