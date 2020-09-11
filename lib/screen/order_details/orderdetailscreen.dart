@@ -4,6 +4,7 @@ import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'orderdetailsmodel.dart';
 
@@ -29,23 +30,26 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: ColorRes.whiteColor,
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
+      child: Container(
+        color: Colors.white,
+        child: SafeArea(
+          child: Scaffold(
+            backgroundColor: ColorRes.whiteColor,
+            body: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
 
-                CommonView.backArrowAndTitle(context, StringRes.orderDetailsTitle, ColorRes.blackColor),
-                orderNumberShow(),
-                statusShow(),
-                productDetailsView(),
-                Divider(height: 1, color: ColorRes.greyColor),
-                detailsView(),
-                Divider(height: 1, color: ColorRes.greyColor),
-                productPriceView(),
-                widget.i == 2 ? bottomButton() : Container()
-              ],
+                  CommonView.backArrowAndTitle(context, StringRes.orderDetailsTitle, ColorRes.blackColor),
+                  orderNumberShow(),
+                  statusShow(),
+                  productDetailsView(),
+                  Divider(height: 1, color: ColorRes.greyColor),
+                  detailsView(),
+                  Divider(height: 1, color: ColorRes.greyColor),
+                  productPriceView(),
+                  widget.i == 2 ? bottomButton() : Container()
+                ],
+              ),
             ),
           ),
         ),

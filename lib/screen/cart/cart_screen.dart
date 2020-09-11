@@ -1,6 +1,7 @@
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/filled_button.dart';
 import 'package:ChaiChod/common_widget/text.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
@@ -18,193 +19,209 @@ class _CartScreenState extends State<CartScreen> {
   bool isCheckValue = false;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        bottomNavigationBar: bottomBar(),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-
-              // Heading back arrow and title
-              CommonView.backArrowAndTitle(context, StringRes.shoppingCart, ColorRes.blackColor),
-
-              SizedBox(height: 15),
-
-              // method call in list of cart design
-              listViewData(),
-            ],
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: CommonView.appBarTitle(context, StringRes.shoppingCart),
+          bottomNavigationBar: bottomBar(),
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                cardListViewData(),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-// Cart screen in Bottom bar Continue button
+  // Cart screen in Bottom bar Continue button
   bottomBar() {
     return Container(
-      // height: 150,
-      padding: EdgeInsets.only(bottom: 10,left: 10,right: 10),
+      padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
       decoration: BoxDecoration(
-          color: ColorRes.whiteColor,
-          border:
-              Border(top: BorderSide(color: ColorRes.greyColor, width: 1.0))),
+        color: ColorRes.whiteColor,
+        border: Border(top: BorderSide(color: Colors.black12, width: 1.0))
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          CommonView.productDetailsLeftRightData(StringRes.prices, "\$2,000"),
-          CommonView.productDetailsLeftRightData(StringRes.discount, "\$0"),
-          CommonView.productDetailsLeftRightData(StringRes.total, "\$2,000"),
-          // Padding(
-              // padding: EdgeInsets.only(left: 10, right: 10),
-              // child:
-              FilledButton(text: StringRes.continueText, fontSize: 18,onPressed: (){
+          CommonView.productDetailRow(StringRes.prices, "\$2,000", false),
+          CommonView.productDetailRow(StringRes.discount, "\$0", false),
+          CommonView.productDetailRow(StringRes.total, "\$2,000", false),
+          Padding(
+            padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+            child: FilledButton(
+              text: StringRes.continueText, 
+              fontSize: 20,
+              height: 58,
+              onPressed: (){
                 orderSummaryScreenNavigator(context);
-
-              },),
-    // )
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 
-// List of Cart Design
-  listViewData() {
+  // List of Cart Design
+  cardListViewData() {
     return ListView.builder(
-        itemCount: 10,
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) {
-          return Container(
-            height: MediaQuery.of(context).size.height*0.5,
-            width: Utils.getDeviceWidth(context),
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.start,
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Padding(
-                    padding: EdgeInsets.only(left: 5, right: 5, top: 10, bottom: 10),
-                    child: Row(
-                      children: <Widget>[
-                        InkResponse(
-                          onTap: () {
-                            setState(() {
-                              isCheckValue = !isCheckValue;
-                            });
-                          },
-                          child: Container(
-                            height: 15,
-                            width: 15,
-                            padding: EdgeInsets.all(0),
-                            decoration: BoxDecoration(
-                              border: Border.all(width: 1, color: ColorRes.primaryColor)
-                            ),
-                            child: Icon(Icons.check, color: ColorRes.primaryColor, size: 15),
+      itemCount: 2,
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return Container(
+          height: 310,
+          width: Utils.getDeviceWidth(context),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                child: Row(
+                  children: <Widget>[
+                    InkResponse(
+                      onTap: () {
+                        setState(() {
+                          isCheckValue = !isCheckValue;
+                        });
+                      },
+                      child: Container(
+                        height: 18,
+                        width: 18,
+                        padding: EdgeInsets.all(0),
+                        decoration: BoxDecoration(
+                          color: ColorRes.primaryColor,
+                          border: Border.all(width: 2, color: ColorRes.primaryColor)
+                        ),
+                        child: SizedBox(
+                          height: 18.0,
+                          width: 18.0,
+                          child: Icon(
+                            Icons.check, 
+                            color: Colors.white, 
+                            size: 15,
                           ),
+                        )
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Text(
+                        "E NANKANG AS 2+ _205/55R16",
+                        style: AppTheme.descStyle,
+                      ),
+                    ),
+                  ],
+                )
+              ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: 150,
+                        child: Image(
+                          image: AssetImage(Utils.getAssetsImg('tiers'))
                         ),
-                        AllText(" E NANKANG AS 2+ _205/55R16",
-                            color: ColorRes.blackColor, fontSize: 17),
-                      ],
-                    )),
-                Expanded(
-                  child: Container(
-                    color: ColorRes.whiteColor,
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                          height: 150,
-                          width: 150,
-                          child: Image(
-                              image: AssetImage(Utils.getAssetsImg('tiers'))),
-                        ),
-                        Expanded(
-                            child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      ),
+                      Expanded(
+                        child: Column(
                           children: <Widget>[
-                            CommonView.productDetailsLeftRightData(
-                                StringRes.brand, StringRes.miCheIn),
-                            CommonView.productDetailsLeftRightData(StringRes.pageWidth, "195 mm."),
-                            CommonView.productDetailsLeftRightData(
-                                StringRes.serialNumber, "Fifty five"),
-                            CommonView.productDetailsLeftRightData(StringRes.edgeNumber, "Fifteen"),
-                            CommonView.productDetailsLeftRightData(StringRes.sideWall, "10.72 cm."),
-                            Divider(
-                              height: 1,
-                              color: ColorRes.greyColor,
-                            ),
+                            CommonView.productDetailRowSmall(StringRes.brand, StringRes.miCheIn),
+                            CommonView.productDetailRowSmall(StringRes.pageWidth, "195 mm."),
+                            CommonView.productDetailRowSmall(StringRes.serialNumber, "Fifty five"),
+                            CommonView.productDetailRowSmall(StringRes.edgeNumber, "Fifteen"),
+                            CommonView.productDetailRowSmall(StringRes.sideWall, "10.72 cm."),
+                            SizedBox(height: 10),
+                            Divider(height: 1, color: Colors.black26),
                             incrementRow(),
                           ],
-                        ))
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 50,
-                  color: ColorRes.lightWhite,
-
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      AllText(StringRes.prices, color: ColorRes.blackColor),
-                      AllText("\$2,000", color: ColorRes.blackColor)
+                        )
+                      )
                     ],
                   ),
-                )
-              ],
-            ),
-          );
-        });
+                ),
+              ),
+              Container(
+                color: ColorRes.bgColor,
+                padding: EdgeInsets.fromLTRB(15, 12, 15, 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      StringRes.prices,
+                      style: AppTheme.descStyle,
+                    ),
+                    Text(
+                      "\$2,000", 
+                      style: AppTheme.productPriceStyle,
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      }
+    );
   }
 
-// Number are increment and decrement
+  // Number are increment and decrement
   incrementRow() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Expanded(
-            flex: 1,
-            child: Padding(
-              padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-              child: AllText(StringRes.numberItem,
-                  maxLine: 1,
-                  align: TextAlign.left,
-                  color: ColorRes.blackColor),
-            )),
-        Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                InkResponse(
-                  onTap: () {
-                    if (productCountShow > 1) {
-                      productCountShow -= 1;
-                      setState(() {});
-                    }
-                  },
-                  child: AllText(
-                    "-",
-                    fontSize: 25,
-                    color: productCountShow > 1 ? ColorRes.primaryColor : ColorRes.greyColor,
-                  ),
-                ),
-                AllText(
-                  "$productCountShow",
-                  fontSize: 18,
-                  color: ColorRes.blackColor,
-                ),
-                InkResponse(
-                  onTap: () {
-                    productCountShow += 1;
-                    setState(() {});
-                  },
-                  child: AllText("+", fontSize: 20),
-                ),
-              ],
-            )),
+        Padding(
+          padding: EdgeInsets.only(top: 10, bottom: 10),
+          child: Text(
+            StringRes.numberItem,
+            style: AppTheme.productDescLargeStyle,
+          ),
+        ),
+        Row(
+          children: <Widget>[
+            InkResponse(
+              onTap: () {
+                if (productCountShow > 1) {
+                  productCountShow -= 1;
+                  setState(() {});
+                }
+              },
+              child: AllText(
+                "-",
+                fontSize: 22,
+                color: productCountShow > 1 
+                  ? ColorRes.primaryColor 
+                  : Colors.grey,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 4, left: 15, right: 15),
+              child: Text(
+                "$productCountShow",
+                style: AppTheme.productDescLargeStyle,
+              ),
+            ),
+            InkResponse(
+              onTap: () {
+                productCountShow += 1;
+                setState(() {});
+              },
+              child: AllText(
+                "+", 
+                fontSize: 22
+              ),
+            ),
+          ],
+        )
       ],
     );
   }
+
 }

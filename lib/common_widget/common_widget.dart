@@ -169,12 +169,90 @@ class CommonView {
     );
   }
 
+  static appBarTitle(BuildContext context, String title) {
+    return AppBar(
+      elevation: 0,
+      leading: IconButton(
+        icon: AppTheme.btnBackIcon,
+        onPressed: (){
+          Navigator.of(context).pop();
+        },
+      ),
+      title: Text(
+        title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: AppTheme.subHeaderBoldStyle,
+      ),
+      backgroundColor: Colors.white,
+    );
+  }
+  static appBarTitleWithDesc(BuildContext context, String title, String desc) {
+    return AppBar(
+      elevation: 0,
+      leading: IconButton(
+        icon: AppTheme.btnBackIcon,
+        onPressed: (){
+          Navigator.of(context).pop();
+        },
+      ),
+      title: Text(
+        title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: AppTheme.subHeaderBoldStyle,
+      ),
+      backgroundColor: Colors.white,
+      bottom: PreferredSize(
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Colors.black12,
+                width: 1.0,
+              )
+            )
+          ),
+          child: Text(
+            desc,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: AppTheme.descGreySmallStyle,
+          ),
+        ),
+        preferredSize: Size(0.0, 22.0),
+      ),
+    );
+  }
+
   // product details left data design
   static productDetailRow(String title, String detail, bool greyRow) {
     return Container(
       color: greyRow ? Color(0xFFEFEFEF): Colors.white,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
+        padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              title,
+              style: AppTheme.productDescStyle,
+            ),
+            Text(
+              detail,
+              style: AppTheme.productDescStyle,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  static productDetailRowSmall(String title, String detail) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[

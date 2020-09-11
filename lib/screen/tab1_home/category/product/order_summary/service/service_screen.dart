@@ -31,88 +31,38 @@ class _ServiceScreenState extends State<ServiceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorRes.whiteColor,
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              _appBar(),
-              SizedBox(height: 2),
-              Visibility(
-                visible: true,
-                child: serviceDetails(),
-              ),
-              Divider(height: 1, color: ColorRes.greyColor),
-             /* Visibility(
-                visible: true,
-                child: service(),
-              ),*/
-              Divider(height: 1, color: ColorRes.greyColor),
-              discountDetails(),
-              Divider(height: 1, color: ColorRes.greyColor),
-              productPriceView(),
-              bottomButton(),
-            ],
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: CommonView.appBarTitleWithDesc(
+            context, StringRes.serviceTitle, 
+            StringRes.serviceTitle1
+          ),
+          backgroundColor: ColorRes.whiteColor,
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 2),
+                Visibility(
+                  visible: true,
+                  child: serviceDetails(),
+                ),
+                Divider(height: 1, color: ColorRes.greyColor),
+               /* Visibility(
+                  visible: true,
+                  child: service(),
+                ),*/
+                Divider(height: 1, color: ColorRes.greyColor),
+                discountDetails(),
+                Divider(height: 1, color: ColorRes.greyColor),
+                productPriceView(),
+                bottomButton(),
+              ],
+            ),
           ),
         ),
       ),
-    );
-  }
-
-  Widget _appBar() {
-    return Column(
-      children: <Widget>[
-        Stack(
-          alignment: Alignment.center,
-//      mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            InkResponse(
-              onTap: () {
-                navigatorPop(context);
-              },
-              child: Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: 15, top: 20),
-                child: Icon(
-                  Icons.arrow_back,
-                  color: ColorRes.blackColor,
-                  size: 25,
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 25, bottom: 5, left: 45),
-                child: Flexible(
-                  child: AllText(
-                    StringRes.serviceTitle,
-                    maxLine: 1,
-                    overflow: TextOverflow.ellipsis,
-                    color: ColorRes.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
-        Container(
-          alignment: Alignment.topCenter,
-          padding: EdgeInsets.only(top: 5, bottom: 15),
-          child: AllText(
-            StringRes.serviceTitle1,
-            color: ColorRes.blackColor,
-            fontSize: 15,
-          ),
-        ),
-        Divider(
-          color: ColorRes.greyColor,
-          height: 5,
-        )
-      ],
     );
   }
 

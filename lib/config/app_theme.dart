@@ -84,9 +84,16 @@ class AppTheme {
     color: Colors.black87,
     fontWeight: FontWeight.w400,
   );
+
   static const TextStyle descGreyStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,
     fontSize: 16.0,
+    color: Colors.grey,
+    fontWeight: FontWeight.w500,
+  );
+  static const TextStyle descGreySmallStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 14.0,
     color: Colors.grey,
     fontWeight: FontWeight.w500,
   );
@@ -117,6 +124,12 @@ class AppTheme {
     fontSize: 20.0,
     color: Colors.white,
     fontWeight: FontWeight.bold,
+  );
+  static const TextStyle btnSmallTextStyle = TextStyle(
+    fontFamily: StringRes.fontFamilyKanitBlack,
+    fontSize: 16.0,
+    color: Colors.white,
+    fontWeight: FontWeight.w400,
   );
   static const TextStyle btnTextPrimaryStyle = TextStyle(
     fontFamily: StringRes.fontFamilyKanitBlack,

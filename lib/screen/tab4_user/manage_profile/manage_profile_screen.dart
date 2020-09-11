@@ -139,11 +139,7 @@ class _ManageProfileScreenState extends State<ManageProfileScreen> {
             style: AppTheme.descGreyStyle,
           ),
           Text(
-            '999/9 นวมินทร์ บึงกลุ่ม กรุงเทพมหานคร',
-            style: AppTheme.descStyle,
-          ),
-          Text(
-            'รหัสไปรษณีย์ 10330',
+            '999/9 นวมินทร์ บึงกลุ่ม กรุงเทพมหานคร รหัสไปรษณีย์ 10330',
             style: AppTheme.descStyle,
           ),
         ],

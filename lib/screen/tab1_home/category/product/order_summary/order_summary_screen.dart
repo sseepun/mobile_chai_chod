@@ -1,12 +1,14 @@
 import 'package:ChaiChod/common_widget/common_widget.dart';
+import 'package:ChaiChod/common_widget/filled_button.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/tab1_home/category/product/order_summary/service/service_screen.dart';
+import 'package:ChaiChod/config/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../product_screen.dart';
+
+import 'package:ChaiChod/screen/tab1_home/category/product/order_summary/service/service_screen.dart';
 
 class OrderSummaryScreen extends StatefulWidget {
   @override
@@ -18,67 +20,61 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              _appBar(),
-              //product details method are call
-              Column(
-                children: <Widget>[
-                  productDetailsView(),
-                  Divider(height: 1, color: ColorRes.greyColor),
-                  serviceDetails(),
-                  Divider(height: 1, color: ColorRes.greyColor),
-                  discountDetails(),
-                  Divider(height: 1, color: ColorRes.greyColor),
-                  productPriceView(),
-                  bottomButton(),
-                ],
-              ),
-
-            ],
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: CommonView.appBarTitleWithDesc(
+            context, StringRes.OrderSummaryTitle, 
+            StringRes.OrderSummaryDescription
+          ),
+          bottomNavigationBar: bottomBar(),
+          backgroundColor: ColorRes.bgColor,
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    productDetailsView(),
+                    Divider(height: 1, color: Colors.black26),
+                    addressSelection(),
+                    Divider(height: 1, color: Colors.black26),
+                    discountDetails(),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-  Widget _appBar() {
-    return Container(
-//      height: 100,
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            CommonView.backArrowAndTitle(context, StringRes.OrderSummaryTitle, ColorRes.blackColor),
-            Container(
-              alignment: Alignment.topCenter,
-              padding: EdgeInsets.only(top: 0),
-              child:AllText(
-                StringRes.OrderSummaryDescription,
-                color: ColorRes.blackColor,
-                fontSize: 17,
-              ),
-            ),
-          ],
-        ));
-  }
 
-  productDetails(String leftTile, String rightSide) {
+  // Cart screen in Bottom bar Continue button
+  bottomBar() {
     return Container(
-      margin: EdgeInsets.only(top: 7, bottom: 7, right: 7),
-      child: Row(
+      padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+      decoration: BoxDecoration(
+        color: ColorRes.whiteColor,
+        border: Border(top: BorderSide(color: Colors.black12, width: 1.0))
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Expanded(
-            child: AllText(
-              leftTile,
-              color: ColorRes.blackColor,
+          CommonView.productDetailRow(StringRes.payment, 'World Bank of Thailand', false),
+          CommonView.productDetailRow(StringRes.price, 'B2,000', false),
+          CommonView.productDetailRow(StringRes.sectionAA, 'B0', false),
+          CommonView.productDetailRow(StringRes.shipping, 'B50', false),
+          Padding(
+            padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+            child: FilledButton(
+              text: 'เลือกช่องทางการชำระเงิน', 
+              fontSize: 20,
+              height: 58,
+              onPressed: (){
+                // orderSummaryScreenNavigator(context);
+              },
             ),
-          ),
-          Expanded(
-            child: AllText(rightSide,
-                align: TextAlign.end, color: ColorRes.blackColor),
           ),
         ],
       ),
@@ -87,237 +83,191 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
 
   productDetailsView() {
     return Container(
-      padding: EdgeInsets.only(top: 10, bottom: 10),
+      height: 260,
       color: Colors.white,
+      width: Utils.getDeviceWidth(context),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 10, bottom: 10),
-            child: Text('NANKA AS 2+ - 205/5RR/A'),
+          Padding(
+            padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+            child: Text(
+              "E NANKANG AS 2+ _205/55R16",
+              style: AppTheme.descStyle,
+            )
           ),
-          Row(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.all(20),
-                width: Utils.getDeviceWidth(context) / 3.3,
-                child:
-                Image.asset(Utils.getAssetsImg('tiers'), fit: BoxFit.fill),
-              ),
-              Expanded(
-                child: Column(
-                  children: <Widget>[
-                    productDetails(StringRes.brand, "Micheline"),
-                    productDetails(StringRes.pageWidth, "199mm"),
-                    productDetails(StringRes.seriesNumber, "Fifty Five"),
-                    productDetails(StringRes.edgeRubber, "Fifteen"),
-                    productDetails(StringRes.sidewall, "10.72 cm"),
-                    Divider(
-                      height: 1,
-                      color: ColorRes.greyColor,
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(15, 10, 15, 0),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width: 150,
+                    child: Image(
+                      image: AssetImage(Utils.getAssetsImg('tiers'))
                     ),
-                    productDetails(StringRes.count, "x1"),
-                  ],
-                ),
-              )
-            ],
-          )
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: <Widget>[
+                        CommonView.productDetailRowSmall(StringRes.brand, StringRes.miCheIn),
+                        CommonView.productDetailRowSmall(StringRes.pageWidth, "195 mm."),
+                        CommonView.productDetailRowSmall(StringRes.serialNumber, "Fifty five"),
+                        CommonView.productDetailRowSmall(StringRes.edgeNumber, "Fifteen"),
+                        CommonView.productDetailRowSmall(StringRes.sideWall, "10.72 cm."),
+                        SizedBox(height: 10),
+                        Divider(height: 1, color: Colors.black26),
+                        SizedBox(height: 10),
+                        CommonView.productDetailRowSmall(StringRes.numberItem, "x1"),
+                      ],
+                    )
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
-  serviceDetails(){
+  addressSelection(){
     return InkResponse(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => ServiceScreen()));
+          context,
+          MaterialPageRoute(
+          builder: (context) => ServiceScreen())
+        );
       },
       child: Container(
-          height: 100,
-          padding: EdgeInsets.only(left: 10, top: 10),
-          color: Colors.white,
-          child: Column(
-//          mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              AllText(
-                StringRes.serviceDetails,
-                color: ColorRes.blackColor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-              Row(
+        padding: EdgeInsets.fromLTRB(15, 12, 15, 20),
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              StringRes.serviceDetails,
+              style: AppTheme.subHeaderSmallStyle,
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Flexible(
-                    child: AllText(
-                      StringRes.serviceDetails1,
-                      color: ColorRes.blackColor,
-                      fontSize: 15,
-                      maxLine: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                  Text(
+                    StringRes.serviceDetails1,
+                    style: AppTheme.descGreyStyle,
                   ),
-                  Container(
-                    height: 50,
-                    padding: EdgeInsets.only(left:15,top: 17),
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 25,
-                      color: ColorRes.primaryColor,
-                    ),
-                  ),],
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 28,
+                    color: ColorRes.primaryColor,
+                  )
+                ],
               ),
-
-            ],
-          )),
+            ),
+          ],
+        )
+      ),
     );
   }
 
   discountDetails(){
     return Container(
-        height: 150,
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left: 10, top: 15),
-              child:AllText(
-                StringRes.discountDetails,
-                color: ColorRes.blackColor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top:5,left: 10, right: 10),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: ColorRes.primaryColor,
-                            )),
-                        child: FlatButton(
-                          color: ColorRes.whiteColor,
-                          child: AllText(
-                            StringRes.discountDetailsBtn1,
-                            fontSize: 15,
-                            color: ColorRes.primaryColor,
-                          ),
-                          onPressed: () {
-                          },
-                        )),
-                  ),
-                  Container(
-                      height: 50,
-                      width: 80,
-                      padding: EdgeInsets.only(left: 10),
-                      child: FlatButton(
-                        color: ColorRes.primaryColor,
-                        child: AllText(
-                          StringRes.discountDetailsBtn2,
-                          fontSize: 14,
-                          color: ColorRes.whiteColor,
-                        ),
-                        onPressed: () {
-                        },
-                      )),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top:10,left: 7),
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.check_box,
-                    size: 25,
-                    color: ColorRes.primaryColor,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 7),
-                    child:AllText(
-                      "Request a tax invoice",
-                      color: Colors.black,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-          ],
-        ));
-  }
-
-  productPriceView() {
-    return Container(
+      padding: EdgeInsets.fromLTRB(15, 12, 15, 20),
       color: Colors.white,
-      padding: EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-      margin: EdgeInsets.only(top: 5, bottom: 5),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          AllText("Summery", fontSize: 17, color: ColorRes.blackColor),
-          productPriceShow(StringRes.payment, 'World Bank of Thailand'),
-          productPriceShow(StringRes.price, 'B2,000'),
-          productPriceShow(StringRes.sectionAA, 'B0'),
-          productPriceShow(StringRes.shipping, 'B50'),
-          Padding(
-            padding: EdgeInsets.only(top: 10),
+          Container(
+            alignment: Alignment.topLeft,
+            child: Text(
+              StringRes.discountDetails,
+              style: AppTheme.subHeaderSmallStyle,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 8),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                AllText(StringRes.total, color: ColorRes.blackColor),
-                AllText('\$20050',
-                    align: TextAlign.right,
-                    color: ColorRes.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
+                Expanded(
+                  child: discountTextField(),
+                ),
+                Container(
+                  height: 50,
+                  width: 68,
+                  padding: EdgeInsets.only(left: 8),
+                  child: FlatButton(
+                    color: ColorRes.primaryColor,
+                    child: Text(
+                      StringRes.discountDetailsBtn2,
+                      style: AppTheme.btnSmallTextStyle,
+                    ),
+                    onPressed: () { },
+                  )
+                ),
               ],
             ),
-          )
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 10),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.check_box,
+                  size: 25,
+                  color: ColorRes.primaryColor,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 7),
+                  child:AllText(
+                    "ขอใบกำกับภาษี",
+                    color: Colors.black,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
+      )
+    );
+  }
+
+  discountTextField(){
+    return TextField(
+      style: TextStyle(
+        fontSize: 15, 
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+        fontFamily: StringRes.fontFamilyKanitBlack,
+      ),
+      decoration: InputDecoration(
+        hintText: StringRes.discountDetailsBtn1,
+        filled: true,
+        fillColor: ColorRes.whiteColor,
+        contentPadding: EdgeInsets.only(left: 10, right: 10),
+        hintStyle: TextStyle(
+          fontSize: 15,
+          color: Colors.black38,
+          fontWeight: FontWeight.w400,
+          fontFamily: StringRes.fontFamilyKanitBlack,
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(width: 1, color: Colors.black26),
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(width: 1, color: ColorRes.primaryColor),
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(width: 1, color: Colors.black26),
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+        ),
       ),
     );
   }
 
-  productPriceShow(String title, String details, {Color showColor}) {
-    return Padding(
-      padding: EdgeInsets.only(top: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          AllText(title, color: ColorRes.blackColor ),
-          AllText(details, align: TextAlign.right, color: showColor != null ? showColor :ColorRes.blackColor  ),
-        ],
-      ),
-    );
-  }
-
-  bottomButton() {
-    return Container(
-      color: Colors.white,
-      child:Padding(
-
-          padding: EdgeInsets.only(left: 10, right: 10, bottom: 15),
-          child: MaterialButton(
-
-            minWidth: Utils.getDeviceWidth(context),
-            height: 50,
-            onPressed: () {},
-            child: AllText(StringRes.rated),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0.0),
-                side: BorderSide(color: ColorRes.primaryColor)),
-            color: ColorRes.whiteColor,
-          )),
-    );
-
-  }
 }

@@ -46,19 +46,19 @@ class StringRes {
   static const userHeading                   =  "บัญชีของคุณ";
 
   //Cart Screen
-  static const shoppingCart                  =  "Shopping Carts";
+  static const shoppingCart                  =  "ตะกร้าสินค้า";
   static const continueText                  =  "ดำเนินการต่อ";
-  static const prices                        =  "Prices";
-  static const discount                      =  "Discount";
-  static const total                         =  "Total";
+  static const prices                        =  "ราคา";
+  static const discount                      =  "ส่วนลด";
+  static const total                         =  "ยอดรวม";
   static const brand                         =  "แบรนด์";
   static const miCheIn                       =  "MICHELIN";
-  static const pageWidth                     =  "pageWidth";
+  static const pageWidth                     =  "หน้ากว้าง";
   static const width                         =  "หน้ากว้าง";
   static const serialNumber                  =  "ซีรี่ย์ยาง";
   static const edgeNumber                    =  "ขอบยาง";
   static const sideWall                      =  "แก้มยาง";
-  static const numberItem                    =  "The Number of Item";
+  static const numberItem                    =  "จำนวน";
 
   // tab 2
   static const shipping                      =  "กำลังจัดส่ง";
@@ -149,13 +149,13 @@ Link to privacy policy of third party service providers used by the app
   static const DateFormat                    = "12 DEC 2019";
 
   //OrderSummary
-  static const OrderSummaryTitle             = "Order Summary";
-  static const OrderSummaryDescription       = "Order now at wipost124 30/05/20";
-  static const serviceDetails                = "Delivery and installation service";
-  static const serviceDetails1               = "Please select an address and delivery service.";
-  static const discountDetails               = "Discount coupons";
-  static const discountDetailsBtn1           = "Coupon Code";
-  static const discountDetailsBtn2           = "Take";
+  static const OrderSummaryTitle             = "สรุปคำสั่งซื้อ";
+  static const OrderSummaryDescription       = "คำสั่งซื้อเลขที่ #1003111124 30/05/20";
+  static const serviceDetails                = "บริการจัดส่งและติดตั้ง";
+  static const serviceDetails1               = "กรุณาเลือกที่อยู่และบริการจัดส่ง";
+  static const discountDetails               = "คูปองส่วนลด";
+  static const discountDetailsBtn1           = "รหัสคูปอง";
+  static const discountDetailsBtn2           = "ใช้";
 
   //Details Screen
   static const Title1                        = "คุณสมบัติ";
@@ -168,14 +168,14 @@ Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliq
 
   //payment transfer Screen
   static const paymentTitle                  =  "Pay by bank account";
-  static const paymentTitle2                  =  "Order no.410031124 30/05/20";
+  static const paymentTitle2                 = "Order no.410031124 30/05/20";
 
   //GoodYear
   static const goodyear                      = "GOODYEAR";
 
   //Service Screen
-  static const serviceTitle                  = "Delivery and installation service";
-  static const serviceTitle1                 = "Buy Now Order 4 1003I124 30/05/20";
+  static const serviceTitle                  = "บริการจัดส่งและติดตั้ง";
+  static const serviceTitle1                 = "คำสั่งซื้อเลขที่ #1003111124 30/05/20";
   static const serviceDes1                   = "Name and shipping address";
   static const serviceDes2                   = "Please select an address";
   static const discountServiceBtn1           = "Choose an appointment date";
@@ -199,11 +199,11 @@ Ut enim ad minim veniam , quis nostrud exercitation ullamco laboris nisi ut aliq
   //Order Details Screen
   static const orderDetailsTitle             = "Order Details";
   static const status                        = "Status";
-  static const seriesNumber                  = "Series Number";
-  static const edgeRubber                    = "Edge Rubber";
-  static const sidewall                      = "The Sidewall";
-  static const count                         = "The number of";
-  static const price                         = "Price";
+  static const seriesNumber                  = "ซีรี่ย์ยาง";
+  static const edgeRubber                    = "ขอบยาง";
+  static const sidewall                      = "แก้มยาง";
+  static const count                         = "จำนวน";
+  static const price                         = "ราคา";
   static const sectionAA                     = "Section AA";
   static const totalMod                      = "Include H mod";
   static const rated                         = "Rated Applications";

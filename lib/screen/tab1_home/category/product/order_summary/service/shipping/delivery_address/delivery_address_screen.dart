@@ -31,29 +31,32 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorRes.whiteColor,
-        body: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                  child: Column(
-                children: <Widget>[
-                  _appBar(),
-                  SizedBox(height: 30),
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: SingleChildScrollView(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                    child: Column(
+                  children: <Widget>[
+                    _appBar(),
+                    SizedBox(height: 30),
 
-                  ListView.builder(
-                      itemCount: 2,
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return listData(index);
-                      }),
-                  serviceDetails(),
-                ],
-              )),
-            ],
+                    ListView.builder(
+                        itemCount: 2,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return listData(index);
+                        }),
+                    serviceDetails(),
+                  ],
+                )),
+              ],
+            ),
           ),
         ),
       ),
