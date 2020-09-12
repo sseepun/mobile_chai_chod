@@ -70,7 +70,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: SafeArea(
         bottom: false,
       child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
+        backgroundColor: ColorRes.whiteColor,
         body: SingleChildScrollView(
           child: new Form(
             key: _formKey,
