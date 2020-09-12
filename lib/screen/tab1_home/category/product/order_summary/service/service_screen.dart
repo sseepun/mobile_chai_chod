@@ -151,10 +151,11 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 borderRadius: BorderRadius.all(Radius.circular(2)),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
                     alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(left: 10, top: 20),
+                    padding: EdgeInsets.only(left: 10, top: 20, right: 15),
                     child: AllText(
                       StringRes.serviceDes2,
                       color: ColorRes.blackColor,

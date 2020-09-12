@@ -65,14 +65,16 @@ class _ProductScreenState extends State<ProductScreen>
         bottom: false,
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
+          /*leading: IconButton(
             icon: Icon(Icons.arrow_back),
             color: Colors.black,
             onPressed: () {
               Navigator.of(context).pop();
             },
-          ),
+          ),*/
           backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.black),
+          centerTitle: true,
           title: Text(
             'Product Details',
             style: TextStyle(color: Colors.black),
@@ -840,9 +842,12 @@ class _ProductScreenState extends State<ProductScreen>
       width: Utils.getDeviceWidth(context),
       margin: EdgeInsets.only(top: 20, bottom: 20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          relatedProducts(),
+          Align(
+            alignment: Alignment.topLeft,
+            child: relatedProducts(),
+          ),
           SizedBox(height: 20),
           Container(
             // height: 200,
@@ -902,6 +907,26 @@ class _ProductScreenState extends State<ProductScreen>
               },
             ),
           ),
+          Container(
+            height: 3,
+            margin: EdgeInsets.only(top: 18),
+            width: Utils.getDeviceWidth(context) / listTitle.length * 0.70,
+            alignment: Alignment.center,
+//          color: Colors.black,
+            child: Center(
+              child: ListView.builder(
+                  itemCount: listTitle.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Container(
+                        height: 3,
+                        width: 15,
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(right: 4),
+                        color: listTitle == index ? Colors.black.withOpacity(0.50) : Colors.grey.withOpacity(0.50));
+                  }),
+            ),
+          )
         ],
       ),
     );

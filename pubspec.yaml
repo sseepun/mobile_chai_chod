@@ -40,6 +40,7 @@ dependencies:
   google_maps_flutter: ^0.5.3
   flutter_statusbarcolor: ^0.2.3
   material_design_icons_flutter: ^4.0.5555
+#  flutter_images_slider: ^0.0.2
 
 
 

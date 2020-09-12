@@ -154,6 +154,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen>
                 fontWeight: FontWeight.bold,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Flexible(
                     child: AllText(
@@ -166,7 +167,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen>
                   ),
                   Container(
                     height: 50,
-                    padding: EdgeInsets.only(left: 15, top: 17),
+                    padding: EdgeInsets.only(left: 15, top: 17, right: 10),
                     child: Icon(
                       Icons.arrow_forward_ios,
                       size: 25,
@@ -203,11 +204,22 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen>
                   Expanded(
                     child: Container(
                         height: 50,
+                        padding: EdgeInsets.only(left: 8),
                         decoration: BoxDecoration(
                             border: Border.all(
-                          color: ColorRes.primaryColor,
+                          color: ColorRes.greyColor,
                         )),
-                        child: FlatButton(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: StringRes.discountDetailsBtn1,
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                            errorBorder: InputBorder.none,
+                            disabledBorder: InputBorder.none,
+                          ),
+                        ),
+                       /* child: FlatButton(
                           color: ColorRes.whiteColor,
                           child: AllText(
                             StringRes.discountDetailsBtn1,
@@ -215,7 +227,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen>
                             color: ColorRes.primaryColor,
                           ),
                           onPressed: () {},
-                        )),
+                        )*/),
                   ),
                   Container(
                       height: 50,

@@ -4,8 +4,8 @@ import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/tab3_notification/tab1_all/all_notification_screen.dart';
-import 'file:///D:/Ankita/mobile_chai_chod/lib/screen/tab4_user/order_history/shipment_screen.dart';
 import 'package:ChaiChod/screen/tab3_notification/tab3_payment/payment_screen.dart';
+import 'package:ChaiChod/screen/tab4_user/order_history/shipment_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

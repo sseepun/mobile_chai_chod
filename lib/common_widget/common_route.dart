@@ -21,7 +21,6 @@ import 'package:ChaiChod/screen/tab4_user/favorites/favorites_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/manage_profile/manage_profile_screen.dart';
 import 'package:ChaiChod/screen/tab4_user/set_up/setup_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../screen/tab1_home/category/product/order_summary/order_summary_screen.dart';
 
 class Routes {}

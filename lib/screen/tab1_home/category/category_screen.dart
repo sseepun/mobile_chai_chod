@@ -31,7 +31,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     'CONTINENTAL',
     'TOYO',
   ];
-  List<String> listTitle = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
+  List<String> listImage = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +81,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               titleText(),
               SizedBox(height: 10),
               categoryList(),
+              SizedBox(height: 10),
               gridImage(),
               SizedBox(height: 20),
             ],
@@ -149,8 +150,76 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 
+  int currentIndex;
+
   categoryList() {
-    return Container(
+    return Column(
+//      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          height: 120,
+          child: ListView.builder(
+              itemCount: images.length,
+              shrinkWrap: true,
+              // physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+
+                currentIndex = index;
+
+                return Container(
+//              height: 200,
+                  width: 100,
+                  margin: EdgeInsets.only(left: 10),
+//              decoration: BoxDecoration(color: ColorRes.whiteColor),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                          child: Image(
+                              image: AssetImage(images[index]),
+                              fit: BoxFit.fill)
+                      ),
+                      Container(
+                          height: 25,
+                          alignment: Alignment.bottomCenter,
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          margin: EdgeInsets.only(right: 0),
+                          child: AllText(stringList1[index],
+                              color: ColorRes.blackColor,
+                              maxLine: 1,
+                              fontSize: 12,
+                              overflow: TextOverflow.ellipsis)),
+                    ],
+                  ),
+                );
+              }),
+        ),
+        Container(
+          height: 3,
+          margin: EdgeInsets.only(top: 10),
+          width: Utils.getDeviceWidth(context) / images.length * 0.70,
+          alignment: Alignment.center,
+//          color: Colors.black,
+          child: Center(
+            child: ListView.builder(
+                itemCount: images.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+              return Container(
+                height: 3,
+                width: 15,
+                alignment: Alignment.center,
+                  margin: EdgeInsets.only(right: 4),
+                  color: currentIndex == index ? Colors.black.withOpacity(0.50) : Colors.grey.withOpacity(0.50));
+            }),
+          ),
+        )
+      ],
+    );
+    /*Container(
       height: 100,
       margin: EdgeInsets.only(bottom: 10),
       child: ListView.builder(
@@ -193,7 +262,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               ),
             );
           }),
-    );
+    )*/;
   }
 
 // grid image  are using grid view image and text
@@ -201,7 +270,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     return GridView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      itemCount: listTitle.length,
+      itemCount: listImage.length,
       padding: EdgeInsets.only(left: 10, right: 10),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,

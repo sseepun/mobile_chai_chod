@@ -14,6 +14,7 @@ import '../home_tab/main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   final int i;
+
   const LoginScreen({Key key, this.i}) : super(key: key);
 
   @override
@@ -30,9 +31,12 @@ class LoginScreenState extends State<LoginScreen> {
   }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   // Text Controller
-  TextEditingController usernameController = TextEditingController(text: 'Testting@gmail.com');
-  TextEditingController passwordController = TextEditingController(text: "TEst@1234565");
+  TextEditingController usernameController =
+      TextEditingController(text: 'Testting@gmail.com');
+  TextEditingController passwordController =
+      TextEditingController(text: "TEst@1234565");
   String username;
   String password;
 
@@ -54,7 +58,8 @@ class LoginScreenState extends State<LoginScreen> {
         child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
           body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints viewportConstraints) {
+            builder:
+                (BuildContext context, BoxConstraints viewportConstraints) {
               return SingleChildScrollView(
                 padding: EdgeInsets.only(left: 15, right: 15),
                 child: new Form(
@@ -165,7 +170,7 @@ class LoginScreenState extends State<LoginScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left: 6, bottom: 35),
+          padding: EdgeInsets.only(left: 8, bottom: 35),
           height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
@@ -173,13 +178,17 @@ class LoginScreenState extends State<LoginScreen> {
           ),
           child: Row(
             children: <Widget>[
-              Icon(
+              Image(
+                  height: 22,
+                  width: 20,
+                  image: AssetImage(Utils.getAssetsImg('user')), color: ColorRes.primaryColor),
+              /*Icon(
                 MdiIcons.bagPersonalOutline,
                 color: ColorRes.primaryColor,
                 size: 24,
-              ),
+              ),*/
               Padding(
-                padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
+                padding: EdgeInsets.only(top: 5, left: 10, bottom: 5),
                 child: Text(
                   StringRes.userName,
                   style: AppTheme.inputLabelStyle,
@@ -220,7 +229,7 @@ class LoginScreenState extends State<LoginScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left: 6, bottom: 35),
+          padding: EdgeInsets.only(left: 8, bottom: 35),
           height: 68,
           decoration: new BoxDecoration(
             border: Border.all(color: Colors.black45),
@@ -228,13 +237,18 @@ class LoginScreenState extends State<LoginScreen> {
           ),
           child: Row(
             children: <Widget>[
-              Icon(
+
+              Image(
+                  height: 22,
+                  width: 20,
+                  image: AssetImage(Utils.getAssetsImg('lock')), color: ColorRes.primaryColor),
+              /*Icon(
                 MdiIcons.lockOutline,
                 color: ColorRes.primaryColor,
                 size: 24,
-              ),
+              ),*/
               Padding(
-                padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
+                padding: EdgeInsets.only(top: 5, left: 10, bottom: 5),
                 child: Text(
                   'Password',
                   style: AppTheme.inputLabelStyle,
@@ -282,12 +296,11 @@ class LoginScreenState extends State<LoginScreen> {
             MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
           );
         },
-        child:
-            AllText(
-              StringRes.forgotPasswordTitle, 
-              color: ColorRes.lightBlur,
-              fontSize: 16,
-            ),
+        child: AllText(
+          StringRes.forgotPasswordTitle,
+          color: ColorRes.lightBlur,
+          fontSize: 16,
+        ),
       ),
     );
   }
@@ -307,7 +320,7 @@ class LoginScreenState extends State<LoginScreen> {
         ),
         onPressed: () {
           if (_validateInputs()) {
-            if(widget.i == 2 ) {
+            if (widget.i == 2) {
               navigatorPop(context);
             } else {
               Navigator.push(
@@ -336,7 +349,7 @@ class LoginScreenState extends State<LoginScreen> {
           padding: EdgeInsets.only(left: 0, right: 0),
           textColor: ColorRes.lightBlur,
           child: AllText(
-            StringRes.pleaseRegister, 
+            StringRes.pleaseRegister,
             fontSize: 16,
             fontWeight: FontWeight.w400,
           ),
@@ -364,7 +377,7 @@ class LoginScreenState extends State<LoginScreen> {
               )),
         ),
         AllText(
-          "หรือ", 
+          "หรือ",
           color: ColorRes.greyColor,
           fontSize: 14,
         ),

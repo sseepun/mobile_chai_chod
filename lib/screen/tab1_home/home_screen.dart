@@ -1,11 +1,12 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
+import 'package:ChaiChod/common_widget/slider_plugin_custome.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/config/app_theme.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+//import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,42 +23,42 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        child: SafeArea(
+      color: Colors.white,
+      child: SafeArea(
         bottom: false,
-        child:Scaffold(
-      appBar: _appBar(),
-      backgroundColor: ColorRes.lightWhite,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: 10),
-            searchTextFiled(),
-            SizedBox(height: 10),
-            sideImage(),
-            SizedBox(height: 15),
-            titleText(StringRes.chooseHereTitle),
-            SizedBox(height: 15),
-            ListView.builder(
-              itemCount: 1,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return categoryList(index);
-              }
-            ),
-            SizedBox(height: 20),
-            bannerImages(),
-            SizedBox(height: 25),
-            titleText(StringRes.promotionTitle),
-            SizedBox(height: 15),
-            gridImage(),
-            SizedBox(height: 20),
-          ],
-        ),
-      )
-    ),), );
+        child: Scaffold(
+            appBar: _appBar(),
+            backgroundColor: ColorRes.lightWhite,
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: 10),
+                  searchTextFiled(),
+                  SizedBox(height: 10),
+                  sideImage(),
+                  SizedBox(height: 15),
+                  titleText(StringRes.chooseHereTitle),
+                  SizedBox(height: 15),
+                  ListView.builder(
+                      itemCount: 1,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return categoryList(index);
+                      }),
+                  SizedBox(height: 20),
+                  bannerImages(),
+                  SizedBox(height: 25),
+                  titleText(StringRes.promotionTitle),
+                  SizedBox(height: 15),
+                  gridImage(),
+                  SizedBox(height: 20),
+                ],
+              ),
+            )),
+      ),
+    );
   }
 
   Widget _appBar() {
@@ -118,6 +119,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  final List<String> imgList = [
+    'assets/images/car_1.jpg',
+    'assets/images/car_2.jpg',
+    'assets/images/car_3.jpg'
+  ];
+
+  List<T> map<T>(List list, Function handler) {
+    List<T> result = [];
+    for (var i = 0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
+    }
+    return result;
+  }
+
+
   // car images side images
   sideImage() {
     return Container(
@@ -128,17 +144,24 @@ class _HomeScreenState extends State<HomeScreen> {
           boxFit: BoxFit.cover,
           autoplay: false,
           animationCurve: Curves.fastOutSlowIn,
-          animationDuration: Duration(milliseconds: 1000),
+          animationDuration: Duration(milliseconds: 500),
           dotSize: 6.0,
-          dotIncreasedColor: ColorRes.primaryColor,
+          dotIncreasedColor: ColorRes.whiteColor,
+          overlayShadowColors: Colors.white.withOpacity(0.55),
           dotBgColor: Colors.transparent,
           dotPosition: DotPosition.bottomCenter,
-          dotVerticalPadding: 10.0,
+          dotVerticalPadding: 5.0,
           showIndicator: true,
+          dotColor: Colors.white.withOpacity(0.25),
+
+//          dotIncreaseSize: 15.0,
+//          radius: Radius.circular(10),
+//          noRadiusForIndicator: true,
           indicatorBgPadding: 7.0,
           images: [
             ExactAssetImage('assets/images/car_1.jpg'),
             ExactAssetImage('assets/images/car_2.jpg'),
+            ExactAssetImage('assets/images/car_3.jpg'),
             ExactAssetImage('assets/images/car_3.jpg'),
           ],
         ),
@@ -181,9 +204,8 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Container(
-                  margin: EdgeInsets.only(
-                    left: 10, bottom: 0, top: 0, right: 0
-                  ),
+                  margin:
+                      EdgeInsets.only(left: 10, bottom: 0, top: 0, right: 0),
                   decoration: BoxDecoration(color: ColorRes.whiteColor),
                   child: Column(
                     children: <Widget>[
@@ -221,21 +243,18 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: EdgeInsets.only(left: 3),
       height: 220,
       child: ListView.builder(
-        itemCount: 5,
-        shrinkWrap: true,
-        padding: EdgeInsets.only(left: 12),
-        // physics: NeverScrollableScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.only(right: 10),
-            child: Image(
-              image: AssetImage(Utils.getAssetsImg('3one1')),
-              fit: BoxFit.fill
-            )
-          );
-        }
-      ),
+          itemCount: 5,
+          shrinkWrap: true,
+          padding: EdgeInsets.only(left: 12),
+          // physics: NeverScrollableScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Container(
+                margin: EdgeInsets.only(right: 10),
+                child: Image(
+                    image: AssetImage(Utils.getAssetsImg('3one1')),
+                    fit: BoxFit.fill));
+          }),
     );
   }
 
@@ -246,11 +265,10 @@ class _HomeScreenState extends State<HomeScreen> {
       itemCount: listTitle.length,
       padding: EdgeInsets.only(left: 15, right: 15),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        childAspectRatio: 0.69
-      ),
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: 0.69),
       itemBuilder: (context, index) {
         return Container(
           padding: EdgeInsets.only(left: 10, right: 10),
@@ -274,26 +292,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       overflow: TextOverflow.ellipsis,
                       style: AppTheme.productNameStyle,
                     ),
-                    Text(
-                      "ยางรถยนต์ 225/45/R17",
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTheme.productDescStyle
-                    ),
+                    Text("ยางรถยนต์ 225/45/R17",
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.productDescStyle),
                     SizedBox(height: 8),
-                    Row(
-                      children: <Widget> [
-                        Text(
-                          "\$2,000",
-                          overflow: TextOverflow.ellipsis,
-                          style: AppTheme.productPriceStyle,
-                        ),
-                        Text(
-                          " /เส้น",
-                          overflow: TextOverflow.ellipsis,
-                          style: AppTheme.productUnitStyle,
-                        )
-                      ]
-                    )
+                    Row(children: <Widget>[
+                      Text(
+                        "\$2,000",
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.productPriceStyle,
+                      ),
+                      Text(
+                        " /เส้น",
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.productUnitStyle,
+                      )
+                    ])
                   ],
                 ),
               )
