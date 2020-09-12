@@ -42,7 +42,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
       ),
-        ),);
+    );
   }
 
 // Cart screen in Bottom bar Continue button

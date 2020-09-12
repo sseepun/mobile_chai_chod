@@ -17,7 +17,7 @@ class CommonView {
       ),
     );
   }
-  static icon(String file, double width, double height) {
+  /*static icon(String file, double width, double height) {
     return Container(
       alignment: Alignment.center,
       child: Image.asset(
@@ -27,7 +27,7 @@ class CommonView {
         fit: BoxFit.fill,
       ),
     );
-  }
+  }*/
 
 
   //all screen common back arrow use
