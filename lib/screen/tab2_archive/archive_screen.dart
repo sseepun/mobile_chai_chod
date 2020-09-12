@@ -71,7 +71,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> with SingleTickerProvider
   }
 
   //tab bar heading
-  tabBar(){
+  /*tabBar(){
     return DefaultTabController(
         length: 2,
         child: new Column(
@@ -99,7 +99,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> with SingleTickerProvider
         ),
       );
 
-  }
+  }*/
 
 
 }

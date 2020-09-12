@@ -8,13 +8,12 @@ import 'package:ChaiChod/config/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'order_summary/order_summary_screen.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class ProductScreen extends StatefulWidget {
   final int i;
-
   const ProductScreen({Key key, this.i}) : super(key: key);
 
   @override
@@ -26,7 +25,7 @@ class _ProductScreenState extends State<ProductScreen>
   final controller = PageController();
   final scaffoldKey = new GlobalKey<ScaffoldState>();
   VoidCallback showPerBottomSheetCallBack;
-  TabController tabController;
+  TabController _tabController;
   double rating = 3.0;
   List<String> listTitle = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
   int _n = 1;
@@ -46,9 +45,9 @@ class _ProductScreenState extends State<ProductScreen>
   @override
   void initState() {
     super.initState();
+    _tabController = new TabController(length: 2, vsync: this);
     showPerBottomSheetCallBack = showModalSheet1;
     showPerBottomSheetCallBack = showModalSheet2;
-    tabController = new TabController(length: 2, vsync: this);
   }
 
   hexColor(String colorhexcode) {
@@ -90,6 +89,7 @@ class _ProductScreenState extends State<ProductScreen>
               SizedBox(height: 10),
               Divider(height: 1, color: ColorRes.greyColor),
               productDetails(),
+              // tabbar(),
               tabBarShow(),
               listProductData(),
               twoButton(),
@@ -175,6 +175,32 @@ class _ProductScreenState extends State<ProductScreen>
       ],
     );
   }
+  iconShow(IconData icons, int i) {
+    return InkResponse(
+      onTap: () {
+        if (i == 1) {
+        } else {}
+      },
+      child: Container(
+        height: 40,
+        width: 40,
+        margin: EdgeInsets.only(top: 10, right: 7),
+        decoration: BoxDecoration(boxShadow: [
+          new BoxShadow(
+            offset: Offset(0.5, 0.5),
+            color: ColorRes.greyColor,
+            blurRadius: 0.5,
+          ),
+        ], color: ColorRes.whiteColor, shape: BoxShape.circle),
+        child: Icon(
+          icons,
+          size: 25,
+          color: ColorRes.primaryColor,
+        ),
+      ),
+    );
+  }
+
 
   tireNumberShow() {
     return Padding(
@@ -272,6 +298,39 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
+  /*tabbar(){
+    return Container(
+    child: Column(
+      children: [
+        Container(
+          color: ColorRes.whiteColor,
+          child: TabBar(
+            indicatorColor: ColorRes.primaryColor,
+            labelColor: ColorRes.primaryColor,
+            isScrollable: false,
+            labelStyle: TextStyle(color: ColorRes.primaryColor),
+            tabs: <Tab>[
+              Tab(child: AllText(StringRes.shipping, fontSize: 17,  color: ColorRes.primaryColor)),
+              Tab(child: AllText(StringRes.successDelivery, fontSize: 17, color: ColorRes.primaryColor)),
+            ],
+            controller: _tabController,
+          ),
+        ),
+        //show the tab bar
+        Expanded(
+          child: TabBarView(
+            children: [
+              ProductDetailsScreen(),
+              ProductReviewsScreen(),
+            ],
+            controller: _tabController,
+          ),
+        ),
+      ],
+    ),
+    );
+}*/
+
   //tab bar heading
   tabBarShow() {
     return Container(
@@ -293,7 +352,7 @@ class _ProductScreenState extends State<ProductScreen>
                   child: AllText(StringRes.tab2,
                       fontSize: 17, color: ColorRes.primaryColor)),
             ],
-            controller: tabController,
+            controller: _tabController,
           ),
           Expanded(
         child: TabBarView(
@@ -305,40 +364,13 @@ class _ProductScreenState extends State<ProductScreen>
 //                  DetailsScreen(),
 //                ReviewScreen(),
           ],
-          controller: tabController,
+          controller: _tabController,
         ),
       ),
         ],
       ),
     );
   }
-
-  iconShow(IconData icons, int i) {
-    return InkResponse(
-      onTap: () {
-        if (i == 1) {
-        } else {}
-      },
-      child: Container(
-        height: 40,
-        width: 40,
-        margin: EdgeInsets.only(top: 10, right: 7),
-        decoration: BoxDecoration(boxShadow: [
-          new BoxShadow(
-            offset: Offset(0.5, 0.5),
-            color: ColorRes.greyColor,
-            blurRadius: 0.5,
-          ),
-        ], color: ColorRes.whiteColor, shape: BoxShape.circle),
-        child: Icon(
-          icons,
-          size: 25,
-          color: ColorRes.primaryColor,
-        ),
-      ),
-    );
-  }
-
   //list data in using details tab
   listData() {
     return SingleChildScrollView(
@@ -704,9 +736,9 @@ class _ProductScreenState extends State<ProductScreen>
   //review tab in card design
   reviewDetails() {
     return Container(
-      // height: 500,
+      height: 220,
       alignment: Alignment.topLeft,
-      // color: ColorRes.lightWhite,
+      color: ColorRes.lightWhite,
       // color: Colors.red,
       width: Utils.getDeviceWidth(context),
       margin: EdgeInsets.only(top: 20, bottom: 20),
@@ -715,7 +747,7 @@ class _ProductScreenState extends State<ProductScreen>
         children: <Widget>[
           SizedBox(height: 15),
           Container(
-            height: 175,
+            height: 190,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -770,7 +802,7 @@ class _ProductScreenState extends State<ProductScreen>
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
-                                fontSize: 10,
+                                fontSize: 15,
                               ),
                             ),
                           ),

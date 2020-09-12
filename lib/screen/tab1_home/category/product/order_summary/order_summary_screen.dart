@@ -13,52 +13,56 @@ class OrderSummaryScreen extends StatefulWidget {
   _OrderSummaryScreenState createState() => _OrderSummaryScreenState();
 }
 
-class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTickerProviderStateMixin {
+class _OrderSummaryScreenState extends State<OrderSummaryScreen>
+    with SingleTickerProviderStateMixin {
   final controller = PageController();
+  bool monVal = true;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: ColorRes.whiteColor,
-        child: SafeArea(
+      color: ColorRes.whiteColor,
+      child: SafeArea(
         bottom: false,
-      child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              _appBar(),
-              //product details method are call
-              Column(
-                children: <Widget>[
-                  productDetailsView(),
-                  Divider(height: 1, color: ColorRes.greyColor),
-                  serviceDetails(),
-                  Divider(height: 1, color: ColorRes.greyColor),
-                  discountDetails(),
-                  Divider(height: 1, color: ColorRes.greyColor),
-                  productPriceView(),
-                  bottomButton(),
-                ],
-              ),
-
-            ],
+        child: Scaffold(
+          backgroundColor: ColorRes.lightWhite,
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                _appBar(),
+                //product details method are call
+                Column(
+                  children: <Widget>[
+                    productDetailsView(),
+                    Divider(height: 1, color: ColorRes.greyColor),
+                    serviceDetails(),
+                    Divider(height: 1, color: ColorRes.greyColor),
+                    discountDetails(),
+                    Divider(height: 1, color: ColorRes.greyColor),
+                    productPriceView(),
+                    bottomButton(),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
-        ),);
+    );
   }
+
   Widget _appBar() {
     return Container(
 //      height: 100,
         color: Colors.white,
         child: Column(
           children: <Widget>[
-            CommonView.backArrowAndTitle(context, StringRes.OrderSummaryTitle, ColorRes.blackColor),
+            CommonView.backArrowAndTitle(
+                context, StringRes.OrderSummaryTitle, ColorRes.blackColor),
             Container(
               alignment: Alignment.topCenter,
               padding: EdgeInsets.only(top: 0),
-              child:AllText(
+              child: AllText(
                 StringRes.OrderSummaryDescription,
                 color: ColorRes.blackColor,
                 fontSize: 17,
@@ -104,7 +108,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
                 margin: EdgeInsets.all(20),
                 width: Utils.getDeviceWidth(context) / 3.3,
                 child:
-                Image.asset(Utils.getAssetsImg('tiers'), fit: BoxFit.fill),
+                    Image.asset(Utils.getAssetsImg('tiers'), fit: BoxFit.fill),
               ),
               Expanded(
                 child: Column(
@@ -129,13 +133,11 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
     );
   }
 
-  serviceDetails(){
+  serviceDetails() {
     return InkResponse(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => ServiceScreen()));
+            context, MaterialPageRoute(builder: (context) => ServiceScreen()));
       },
       child: Container(
           height: 100,
@@ -164,30 +166,30 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
                   ),
                   Container(
                     height: 50,
-                    padding: EdgeInsets.only(left:15,top: 17),
+                    padding: EdgeInsets.only(left: 15, top: 17),
                     child: Icon(
                       Icons.arrow_forward_ios,
                       size: 25,
                       color: ColorRes.primaryColor,
                     ),
-                  ),],
+                  ),
+                ],
               ),
-
             ],
           )),
     );
   }
 
-  discountDetails(){
+  discountDetails() {
     return Container(
-        height: 150,
+        height: 160,
         color: Colors.white,
         child: Column(
           children: <Widget>[
             Container(
               alignment: Alignment.topLeft,
               padding: EdgeInsets.only(left: 10, top: 15),
-              child:AllText(
+              child: AllText(
                 StringRes.discountDetails,
                 color: ColorRes.blackColor,
                 fontSize: 20,
@@ -195,7 +197,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top:5,left: 10, right: 10),
+              padding: EdgeInsets.only(top: 5, left: 10, right: 10),
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -203,8 +205,8 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
                         height: 50,
                         decoration: BoxDecoration(
                             border: Border.all(
-                              color: ColorRes.primaryColor,
-                            )),
+                          color: ColorRes.primaryColor,
+                        )),
                         child: FlatButton(
                           color: ColorRes.whiteColor,
                           child: AllText(
@@ -212,8 +214,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
                             fontSize: 15,
                             color: ColorRes.primaryColor,
                           ),
-                          onPressed: () {
-                          },
+                          onPressed: () {},
                         )),
                   ),
                   Container(
@@ -227,16 +228,34 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
                           fontSize: 14,
                           color: ColorRes.whiteColor,
                         ),
-                        onPressed: () {
-                        },
+                        onPressed: () {},
                       )),
                 ],
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top:10,left: 7),
+              padding: EdgeInsets.only(top: 5, left: 7),
               child: Row(
                 children: <Widget>[
+                  Checkbox(
+                    value: monVal,
+                    onChanged: (bool value) {
+                      setState(() {
+                        monVal = value;
+                      });
+                    },
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 7),
+                    child: AllText(
+                      "Request a tax invoice",
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+
+                /*children: <Widget>[
                   Icon(
                     Icons.check_box,
                     size: 25,
@@ -250,10 +269,9 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
                       fontSize: 14,
                     ),
                   ),
-                ],
+                ],*/
               ),
             ),
-
           ],
         ));
   }
@@ -296,8 +314,10 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          AllText(title, color: ColorRes.blackColor ),
-          AllText(details, align: TextAlign.right, color: showColor != null ? showColor :ColorRes.blackColor  ),
+          AllText(title, color: ColorRes.blackColor),
+          AllText(details,
+              align: TextAlign.right,
+              color: showColor != null ? showColor : ColorRes.blackColor),
         ],
       ),
     );
@@ -306,11 +326,9 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
   bottomButton() {
     return Container(
       color: Colors.white,
-      child:Padding(
-
+      child: Padding(
           padding: EdgeInsets.only(left: 10, right: 10, bottom: 15),
           child: MaterialButton(
-
             minWidth: Utils.getDeviceWidth(context),
             height: 50,
             onPressed: () {},
@@ -321,6 +339,5 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
             color: ColorRes.whiteColor,
           )),
     );
-
   }
 }

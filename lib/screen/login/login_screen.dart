@@ -173,7 +173,7 @@ class LoginScreenState extends State<LoginScreen> {
           child: Row(
             children: <Widget>[
               Icon(
-                Icons.person,
+                Icons.person_outline,
                 color: ColorRes.primaryColor,
                 size: 24,
               ),

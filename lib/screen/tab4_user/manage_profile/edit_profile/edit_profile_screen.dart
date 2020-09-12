@@ -19,7 +19,11 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   File _image;
+  @override
+  void initState() {
+    super.initState();
 
+  }
   //image picker use in get the images in gallery
   void _openGallery() async {
     var i = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -78,11 +82,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ],
           ),*/
     return Container(
-        color: Colors.white,
+        color: ColorRes.whiteColor,
         child: SafeArea(
         bottom: false,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
           child: new Form(
             key: _formKey,
@@ -170,12 +174,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               child: FlatButton(
                 padding: EdgeInsets.only(top: 25),
                 child: _image == null
-                    ? new Image.asset(
-                        Utils.getAssetsImg('profile'),
-                        width: 150,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      )
+                    ? new Container(
+                  height: 150,
+                  width: 150,
+                  decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                      image: new AssetImage(Utils.getAssetsImg('profile')),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: new BorderRadius.all(const Radius.circular(100)),
+                  ),
+                )
                     : _setImageView(),
               ),
             ),
