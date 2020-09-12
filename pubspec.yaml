@@ -39,6 +39,7 @@ dependencies:
   percent_indicator: ^2.1.5
   google_maps_flutter: ^0.5.3
   flutter_statusbarcolor: ^0.2.3
+  material_design_icons_flutter: ^4.0.5555
 
 
 
@@ -74,7 +75,6 @@ flutter:
         - asset: assets/fonts/Kanit-Regular.ttf
         - asset: assets/fonts/Kanit-Medium.ttf
         - asset: assets/fonts/Kanit-SemiBold.ttf
-
 
   # To add assets to your application, add an assets section, like this:
   # assets:

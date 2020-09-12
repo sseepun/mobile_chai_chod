@@ -8,6 +8,7 @@ import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/screen/register/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../forgot_password/forgot_password_screen.dart';
 import '../home_tab/main_screen.dart';
 
@@ -173,7 +174,7 @@ class LoginScreenState extends State<LoginScreen> {
           child: Row(
             children: <Widget>[
               Icon(
-                Icons.person_outline,
+                MdiIcons.bagPersonalOutline,
                 color: ColorRes.primaryColor,
                 size: 24,
               ),
@@ -228,7 +229,7 @@ class LoginScreenState extends State<LoginScreen> {
           child: Row(
             children: <Widget>[
               Icon(
-                Icons.lock,
+                MdiIcons.lockOutline,
                 color: ColorRes.primaryColor,
                 size: 24,
               ),
