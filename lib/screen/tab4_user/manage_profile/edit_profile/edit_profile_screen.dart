@@ -1,15 +1,3 @@
-//import 'package:ChaiChod/common_widget/common_route.dart';
-//import 'package:ChaiChod/common_widget/common_widget.dart';
-//import 'package:ChaiChod/common_widget/text.dart';
-//import 'package:ChaiChod/config/color_resources.dart';
-//import 'package:ChaiChod/config/string_resources.dart';
-//import 'package:ChaiChod/config/util.dart';
-//import 'package:flutter/cupertino.dart';
-//import 'package:flutter/material.dart';
-//import 'package:image_picker/image_picker.dart';
-//import 'dart:io';
-//import '../manage_profile_screen.dart';
-
 import 'package:ChaiChod/export.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -19,11 +7,7 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   File _image;
-  @override
-  void initState() {
-    super.initState();
 
-  }
   //image picker use in get the images in gallery
   void _openGallery() async {
     var i = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -264,7 +248,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             image: new ExactAssetImage(_image.path),
             fit: BoxFit.cover,
           ),
-          borderRadius: new BorderRadius.all(const Radius.circular(100)),
+           shape: BoxShape.circle
         ),
       );
     } else {

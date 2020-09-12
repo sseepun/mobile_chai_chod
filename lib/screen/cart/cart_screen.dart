@@ -23,19 +23,22 @@ class _CartScreenState extends State<CartScreen> {
         child: SafeArea(
         bottom: false,
         child: Scaffold(
-        bottomNavigationBar: bottomBar(),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-
-              // Heading back arrow and title
-              CommonView.backArrowAndTitle(context, StringRes.shoppingCart, ColorRes.blackColor),
-
-              SizedBox(height: 15),
-
-              // method call in list of cart design
-              listViewData(),
-            ],
+          appBar: AppBar(
+            iconTheme: IconThemeData(
+              color: ColorRes.blackColor, //change your color here
+            ),
+            title: Text(StringRes.shoppingCart, style: TextStyle(color: ColorRes.blackColor)),
+            backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
+          bottomNavigationBar: bottomBar(),
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                listViewData(),
+              ],
+            ),
           ),
         ),
       ),

@@ -17,6 +17,17 @@ class CommonView {
       ),
     );
   }
+  static icon(String file, double width, double height) {
+    return Container(
+      alignment: Alignment.center,
+      child: Image.asset(
+        Utils.getIcon(file),
+        width: width,
+        height: height,
+        fit: BoxFit.fill,
+      ),
+    );
+  }
 
 
   //all screen common back arrow use
@@ -143,6 +154,4 @@ class CommonView {
       ),
     );
   }
-
-
 }
