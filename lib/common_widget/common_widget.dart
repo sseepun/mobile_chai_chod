@@ -243,6 +243,7 @@ class CommonView {
       title: Text(
         title,
         maxLines: 1,
+        textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
         style: AppTheme.subHeaderBoldStyle,
       ),

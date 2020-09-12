@@ -70,6 +70,7 @@ class _ProductScreenState extends State<ProductScreen>
             elevation: 0,
             leading: CommonView.backIconButton(context),
             backgroundColor: Colors.white,
+            centerTitle: true,
             title: Text(
               'รายละเอียดสินต้า',
               overflow: TextOverflow.ellipsis,

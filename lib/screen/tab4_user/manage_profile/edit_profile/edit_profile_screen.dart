@@ -146,12 +146,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               child: FlatButton(
                 padding: EdgeInsets.only(top: 25),
                 child: _image == null
-                    ? new Image.asset(
-                        Utils.getAssetsImg('profile'),
-                        width: 150,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      )
+                    ? ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                      child: Image.asset(
+                          Utils.getAssetsImg('profile'),
+                          width: 150,
+                          height: 150,
+                          fit: BoxFit.cover,
+                        ),
+                    )
                     : _setImageView(),
               ),
             ),
@@ -231,7 +234,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             image: new ExactAssetImage(_image.path),
             fit: BoxFit.cover,
           ),
-          borderRadius: new BorderRadius.all(const Radius.circular(100)),
+           shape: BoxShape.circle
         ),
       );
     } else {

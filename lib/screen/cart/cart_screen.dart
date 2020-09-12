@@ -23,7 +23,15 @@ class _CartScreenState extends State<CartScreen> {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          appBar: CommonView.appBarTitle(context, StringRes.shoppingCart),
+          appBar: AppBar(
+            iconTheme: IconThemeData(
+              color: ColorRes.blackColor, //change your color here
+            ),
+            title: Text(StringRes.shoppingCart, style: TextStyle(color: ColorRes.blackColor)),
+            backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
           bottomNavigationBar: bottomBar(),
           body: SingleChildScrollView(
             child: Column(

@@ -110,15 +110,13 @@ class _SearchScreenState extends State<SearchScreen> {
                       ],
                     ),
                     GestureDetector(
-                      // textColor: ColorRes.lightBlur,
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                            padding: EdgeInsets.only(top: 20, right: 15),
-                            child: AllText("More Option",
-                                align: TextAlign.right,
-                                color: ColorRes.lightBlur)),
-                      ),
+                         // textColor: ColorRes.lightBlur,
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 20,right: 15),
+                          child: AllText("More Option",align: TextAlign.right,color: ColorRes.lightBlur)),
+                        ),
                       onTap: () {
                         searchScreensNavigator(context);
                       },
@@ -152,7 +150,6 @@ class _SearchScreenState extends State<SearchScreen> {
   //grid image are using image and text are grid view
   gridImage() {
     return GridView.builder(
-
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemCount: 6,
