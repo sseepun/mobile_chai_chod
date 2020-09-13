@@ -162,22 +162,23 @@ class _ServiceScreenState extends State<ServiceScreen> {
                       fontSize: 15,
                     ),
                   ),
-                  Container(
-                    height: 50,
-                    padding: EdgeInsets.only(left: 130),
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ShippingScreen()),
-                          );
-                        },
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          size: 25,
-                          color: ColorRes.primaryColor,
-                        )),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ShippingScreen()),
+                      );
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      child: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 25,
+                        color: ColorRes.primaryColor,
+                      ),
+                    ),
                   ),
                 ],
               ),
