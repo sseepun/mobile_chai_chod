@@ -14,6 +14,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 class ProductScreen extends StatefulWidget {
   final int i;
+
   const ProductScreen({Key key, this.i}) : super(key: key);
 
   @override
@@ -29,7 +30,7 @@ class _ProductScreenState extends State<ProductScreen>
   double rating = 3.0;
   List<String> listTitle = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
   int _n = 1;
-
+  int currentIndexChangeTabBar = 0;
   void add() {
     setState(() {
       _n++;
@@ -60,47 +61,49 @@ class _ProductScreenState extends State<ProductScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        child: SafeArea(
+      color: Colors.white,
+      child: SafeArea(
         bottom: false,
-      child: Scaffold(
-        appBar: AppBar(
-          /*leading: IconButton(
+        child: Scaffold(
+          appBar: AppBar(
+            /*leading: IconButton(
             icon: Icon(Icons.arrow_back),
             color: Colors.black,
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),*/
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.black),
-          centerTitle: true,
-          title: Text(
-            'Product Details',
-            style: TextStyle(color: Colors.black),
+            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(color: Colors.black),
+            centerTitle: true,
+            title: Text(
+              'Product Details',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
-        ),
-        backgroundColor: ColorRes.whiteColor,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // appBar(),
-              userLogo(),
-              tireNumberShow(),
-              SizedBox(height: 10),
-              Divider(height: 1, color: ColorRes.greyColor),
-              productDetails(),
-              // tabbar(),
-              tabBarShow(),
-              listProductData(),
-              twoButton(),
-              SizedBox(height: 10),
-            ],
+          backgroundColor: ColorRes.whiteColor,
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                // appBar(),
+                userLogo(),
+                tireNumberShow(),
+                SizedBox(height: 10),
+                Divider(height: 1, color: ColorRes.greyColor),
+                productDetails(),
+                // tabbar(),
+                tabBarShow(),
+                Divider(height: 1, color: ColorRes.greyColor),
+                listProductData(),
+                twoButton(),
+                SizedBox(height: 10),
+              ],
+            ),
           ),
         ),
       ),
-        ), );
+    );
   }
 
   // Widget appBar() {
@@ -177,6 +180,7 @@ class _ProductScreenState extends State<ProductScreen>
       ],
     );
   }
+
   iconShow(IconData icons, int i) {
     return InkResponse(
       onTap: () {
@@ -202,7 +206,6 @@ class _ProductScreenState extends State<ProductScreen>
       ),
     );
   }
-
 
   tireNumberShow() {
     return Padding(
@@ -335,8 +338,9 @@ class _ProductScreenState extends State<ProductScreen>
 
   //tab bar heading
   tabBarShow() {
+    print(currentIndexChangeTabBar);
     return Container(
-      height: 575,
+      height: currentIndexChangeTabBar == 0 ? 850 : 575,
       color: ColorRes.lightWhite,
       child: Column(
         children: <Widget>[
@@ -347,6 +351,20 @@ class _ProductScreenState extends State<ProductScreen>
             labelColor: ColorRes.primaryColor,
             isScrollable: false,
             labelStyle: TextStyle(color: ColorRes.primaryColor),
+            onTap: (indedx) {
+
+              if (indedx == 0) {
+                setState(() {
+                  currentIndexChangeTabBar = 0;
+                });
+              } else if (indedx == 1) {
+                setState(() {
+                  currentIndexChangeTabBar = 1;
+                });
+              }
+
+
+            },
             tabs: <Tab>[
               Tab(
                   child: AllText(StringRes.tab1,
@@ -358,22 +376,26 @@ class _ProductScreenState extends State<ProductScreen>
             controller: _tabController,
           ),
           Expanded(
-        child: TabBarView(
-          children: [
-            listData(),
-            reviewsTab(),
+            child: TabBarView(
+              children: [
+                listData(),
+                reviewsTab(),
 //                  DetailsScreen(),
 //                ReviewScreen(),
-          ],
-          controller: _tabController,
-        ),
-      ),
+              ],
+
+              controller: _tabController,
+            ),
+          ),
         ],
       ),
     );
   }
+
+
   //list data in using details tab
   listData() {
+    currentIndexChangeTabBar = 1;
     return SingleChildScrollView(
       physics: NeverScrollableScrollPhysics(),
       child: Column(
@@ -401,71 +423,16 @@ class _ProductScreenState extends State<ProductScreen>
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(top: 10, left: 7),
-            child: Row(
-              children: <Widget>[
-                Icon(
-                  Icons.check_circle,
-                  size: 25,
-                  color: ColorRes.primaryColor,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 7),
-                  child: AllText(
-                    "Qualifications",
-                    color: Colors.black,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 10, left: 7),
-            child: Row(
-              children: <Widget>[
-                Icon(
-                  Icons.check_circle,
-                  size: 25,
-                  color: ColorRes.primaryColor,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 7),
-                  child: AllText(
-                    "Qualifications",
-                    color: Colors.black,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 10, left: 7),
-            child: Row(
-              children: <Widget>[
-                Icon(
-                  Icons.check_circle,
-                  size: 25,
-                  color: ColorRes.primaryColor,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 7),
-                  child: AllText(
-                    "Qualifications",
-                    color: Colors.black,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-          ),
+
+          qualifications(),
+          qualifications(),
+          qualifications(),
+
           Center(
             child: Image.asset(
               Utils.getAssetsImg('productimge2'),
               height: 200,
-              width: 300,
+              width: Utils.getDeviceWidth(context),
               fit: BoxFit.fill,
             ),
           ),
@@ -487,10 +454,11 @@ class _ProductScreenState extends State<ProductScreen>
 
   //review tab in using review tab
   reviewsTab() {
+    currentIndexChangeTabBar = 2;
     return Column(
       children: <Widget>[
         Container(
-          color: Colors.white,
+          color: ColorRes.lightWhite,
 //          color: ColorRes.lightWhite,
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.only(top: 20, left: 10, bottom: 10),
@@ -503,201 +471,11 @@ class _ProductScreenState extends State<ProductScreen>
             ),
           ),
         ),
-        Row(children: <Widget>[
-          Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[starRating(5.0)]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: new LinearPercentIndicator(
-                      width: 150.0,
-                      lineHeight: 10.0,
-                      percent: 0.8,
-                      linearStrokeCap: LinearStrokeCap.roundAll,
-                      backgroundColor: Colors.black12,
-                      progressColor: Colors.blue,
-                    ),
-                  ),
-                ),
-              ]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.centerRight,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Text("2022"),
-                  ),
-                ),
-              ])
-        ]),
-        Row(children: <Widget>[
-          Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[starRating(4.0)]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: new LinearPercentIndicator(
-                      width: 150.0,
-                      lineHeight: 10.0,
-                      percent: 0.5,
-                      linearStrokeCap: LinearStrokeCap.roundAll,
-                      backgroundColor: Colors.black12,
-                      progressColor: Colors.blue,
-                    ),
-                  ),
-                ),
-              ]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.centerRight,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Text("544"),
-                  ),
-                ),
-              ])
-        ]),
-        Row(children: <Widget>[
-          Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[starRating(3.0)]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: new LinearPercentIndicator(
-                      width: 150.0,
-                      lineHeight: 10.0,
-                      percent: 0.6,
-                      linearStrokeCap: LinearStrokeCap.roundAll,
-                      backgroundColor: Colors.black12,
-                      progressColor: Colors.blue,
-                    ),
-                  ),
-                ),
-              ]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.centerRight,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Text("122"),
-                  ),
-                ),
-              ])
-        ]),
-        Row(children: <Widget>[
-          Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[starRating(2.0)]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: new LinearPercentIndicator(
-                      width: 150.0,
-                      lineHeight: 10.0,
-                      percent: 0.7,
-                      linearStrokeCap: LinearStrokeCap.roundAll,
-                      backgroundColor: Colors.black12,
-                      progressColor: Colors.blue,
-                    ),
-                  ),
-                ),
-              ]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.centerRight,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Text("89"),
-                  ),
-                ),
-              ])
-        ]),
-        Row(children: <Widget>[
-          Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[starRating(1.0)]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: new LinearPercentIndicator(
-                      width: 150.0,
-                      lineHeight: 10.0,
-                      percent: 0.9,
-                      linearStrokeCap: LinearStrokeCap.roundAll,
-                      backgroundColor: Colors.black12,
-                      progressColor: Colors.blue,
-                    ),
-                  ),
-                ),
-              ]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.centerRight,
-                  // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Text("12"),
-                  ),
-                ),
-              ])
-        ]),
+        startRatingCountShow(5, 0.8 ,"2022"),
+        startRatingCountShow(4, 0.5 ,"544"),
+        startRatingCountShow(3, 0.6 ,"122"),
+        startRatingCountShow(2, 0.7 ,"89"),
+        startRatingCountShow(1, 0.9 ,"12"),
         reviewDetails()
       ],
     );
@@ -707,7 +485,7 @@ class _ProductScreenState extends State<ProductScreen>
   starRating(item) {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(left: 10.0, right: 5.0),
+      padding: EdgeInsets.only(left: 10.0, right: 5.0, top: 5),
       child: SmoothStarRating(
         size: 25,
         rating: item,
@@ -834,7 +612,7 @@ class _ProductScreenState extends State<ProductScreen>
       alignment: Alignment.topLeft,
       color: ColorRes.lightWhite,
       width: Utils.getDeviceWidth(context),
-      margin: EdgeInsets.only(top: 20, bottom: 20),
+      margin: EdgeInsets.only(top: 0, bottom: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -844,7 +622,7 @@ class _ProductScreenState extends State<ProductScreen>
           ),
           SizedBox(height: 20),
           Container(
-             height: 200,
+            height: 200,
 //            height: MediaQuery.of(context).size.height * 0.35,
             child: ListView.builder(
               shrinkWrap: true,
@@ -864,7 +642,7 @@ class _ProductScreenState extends State<ProductScreen>
 //                  width: 125,
 //            width: 100,
                   padding: EdgeInsets.only(left: 8, right: 8),
-                  margin: EdgeInsets.only(left: 10, right: 10),
+                  margin: EdgeInsets.only(left: 8, right: 8),
 
                   color: ColorRes.whiteColor,
                   child: Column(
@@ -923,7 +701,9 @@ class _ProductScreenState extends State<ProductScreen>
                         width: 15,
                         alignment: Alignment.center,
                         margin: EdgeInsets.only(right: 4),
-                        color: listTitle == index ? Colors.black.withOpacity(0.50) : Colors.grey.withOpacity(0.50));
+                        color: listTitle == index
+                            ? Colors.black.withOpacity(0.50)
+                            : Colors.grey.withOpacity(0.50));
                   }),
             ),
           )
@@ -945,8 +725,8 @@ class _ProductScreenState extends State<ProductScreen>
 //              width: 160,
                 decoration: BoxDecoration(
                     border: Border.all(
-                      color: ColorRes.primaryColor,
-                    )),
+                  color: ColorRes.primaryColor,
+                )),
                 child: FlatButton(
                   color: ColorRes.whiteColor,
                   child: AllText(
@@ -1547,5 +1327,59 @@ class _ProductScreenState extends State<ProductScreen>
             )),
           );
         });
+  }
+
+  startRatingCountShow(double startRating, double ratingPercent, String totalCount) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+      starRating(startRating),
+      Expanded(
+//        alignment: Alignment.center,
+        // padding: EdgeInsets.only(top:10,left: 10, right: 10),
+        child: Padding(
+          padding: EdgeInsets.only(top: 5),
+          child: new LinearPercentIndicator(
+//            width: 150.0,
+            lineHeight: 10.0,
+            percent: ratingPercent,
+            linearStrokeCap: LinearStrokeCap.roundAll,
+            backgroundColor: Colors.black12,
+            progressColor: Colors.blue,
+          ),
+        ),
+      ),
+      Container(
+        width: 50,
+        alignment: Alignment.centerRight,
+        margin: EdgeInsets.only(right: 10, top: 5),
+        // padding: EdgeInsets.only(top:10,left: 10, right: 10),
+        child: AllText(totalCount, align: TextAlign.right),
+      )
+    ]);
+  }
+
+  qualifications() {
+    return  Container(
+      margin: EdgeInsets.only(bottom: 10),
+      padding: EdgeInsets.only(top: 10, left: 7),
+      child: Row(
+        children: <Widget>[
+          Icon(
+            Icons.check_circle,
+            size: 25,
+            color: ColorRes.primaryColor,
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 7),
+            child: AllText(
+              "Qualifications",
+              color: Colors.black,
+              fontSize: 14,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
