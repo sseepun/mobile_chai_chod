@@ -70,6 +70,33 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: SafeArea(
         bottom: false,
       child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(70), // here the desired height
+          child: AppBar(
+            elevation: 0.0,
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(bottom: 20, left: 5),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            title: Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Text(StringRes.editProfile,
+                  style: TextStyle(color: ColorRes.blackColor)),
+            ),
+            backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
+        ),
+
         backgroundColor: ColorRes.whiteColor,
         body: SingleChildScrollView(
           child: new Form(
@@ -77,7 +104,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: Column(
               children: <Widget>[
 //              textTitle(),
-                CommonView.backArrowAndTitle(context, StringRes.editProfile, ColorRes.blackColor),
+//                 CommonView.backArrowAndTitle(context, StringRes.editProfile, ColorRes.blackColor),
 
                 uploadImage(),
                 Container(

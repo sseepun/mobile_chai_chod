@@ -26,8 +26,9 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen>
         bottom: false,
         child: Scaffold(
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(50), // here the desired height
+            preferredSize: Size.fromHeight(60), // here the desired height
             child: AppBar(
+              elevation: 0.0,
               leading: IconButton(
                 alignment: Alignment.centerLeft,
                 padding: EdgeInsets.only(bottom: 20, left: 5),
@@ -204,7 +205,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen>
                   ),
                   Container(
                     height: 50,
-                    padding: EdgeInsets.only(left: 15, top: 17, right: 10),
+                    padding: EdgeInsets.only(left: 10, top: 17, right: 10),
                     child: Icon(
                       Icons.arrow_forward_ios,
                       size: 25,

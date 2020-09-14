@@ -35,14 +35,51 @@ class OrderScreenState extends State<OrderScreen> {
         bottom: false,
       child: SafeArea(
         child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(60), // here the desired height
+            child: AppBar(
+              elevation: 0.0,
+              leading: IconButton(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(bottom: 20, left: 5),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 25,
+                ),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+              ),
+              title: Container(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 5),
+                      child: Text(StringRes.orderHistory,
+                          style: TextStyle(color: ColorRes.blackColor)),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 5),
+                      child: Text('#111111112222 30/05/2020',
+                          style: TextStyle(color: Colors.black38, fontSize: 15)),
+                    ),
+                  ],
+                ),
+              ),
+              backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+              centerTitle: true,
+            ),
+          ),
+
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
 //                  appBarDesign(),
-                CommonView.backArrowAndTitle(
-                    context, StringRes.orderHistory, ColorRes.blackColor),
-                orderIdDesign(),
+//                 CommonView.backArrowAndTitle(context, StringRes.orderHistory, ColorRes.blackColor),
+//                 orderIdDesign(),
                 statusView(),
                 productDetailsList(),
                 paymentDesign(),
@@ -64,7 +101,7 @@ class OrderScreenState extends State<OrderScreen> {
         ),);
   }
 
-  appBarDesign() {
+ /* appBarDesign() {
     return Container(
       alignment: Alignment.center,
       height: 50,
@@ -89,15 +126,15 @@ class OrderScreenState extends State<OrderScreen> {
       ),
     );
   }
-
-  orderIdDesign() {
+*/
+  /*orderIdDesign() {
     return Container(
       alignment: Alignment.center,
       padding: EdgeInsets.only(top: 5, bottom: 10),
       color: Colors.white,
       child: Text('#111111112222 30/05/2020'),
     );
-  }
+  }*/
 
   paymentDesign() {
     return Container(

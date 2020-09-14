@@ -39,13 +39,31 @@ class RateProductScreenState extends State<RateProductScreen> {
       child: SafeArea(
         bottom: false,
         child: Scaffold(
+          appBar: AppBar(
+            elevation: 0.0,
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(left: 5),
+              icon: Icon(
+                Icons.clear,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+          ),
+
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
             child: Stack(
               children: <Widget>[
-                appBar(),
+                // appBar(),
                 Container(
-                  padding: EdgeInsets.only(top: 60),
+                  padding: EdgeInsets.only(top: 5),
                   child: Column(
                     children: <Widget>[
                       rateCard(),

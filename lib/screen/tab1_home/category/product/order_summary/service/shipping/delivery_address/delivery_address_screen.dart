@@ -13,7 +13,9 @@ import 'location/location_screen.dart';
 
 class DeliveryAddressScreen extends StatefulWidget {
   final int i;
+
   const DeliveryAddressScreen({Key key, this.i}) : super(key: key);
+
   @override
   _DeliveryAddressScreenState createState() => _DeliveryAddressScreenState();
 }
@@ -27,40 +29,45 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
   List<String> stringList1 = [
     '999/9 Nawamin, Bueng Kum, Bangkok, 10330',
     '123/1 Rawadee 29, Talat Khwan, Muang Nonthaburi, Nonthaburi 11000',
-
   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        child: SafeArea(
+      color: Colors.white,
+      child: SafeArea(
         bottom: false,
-      child: Scaffold(
-        backgroundColor: ColorRes.whiteColor,
-        body: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                  child: Column(
-                children: <Widget>[
+        child: Scaffold(
+            backgroundColor: ColorRes.whiteColor,
+            body: Container(
+              child: Column(
+                children: [
                   _appBar(),
-                  SizedBox(height: 30),
-
-                  ListView.builder(
-                      itemCount: 2,
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return listData(index);
-                      }),
-                  serviceDetails(),
+                  SingleChildScrollView(
+                    child: Stack(
+                      children: <Widget>[
+                        Container(
+                            child: Column(
+                          children: <Widget>[
+                            SizedBox(height: 30),
+                            ListView.builder(
+                                itemCount: 2,
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return listData(index);
+                                }),
+                            serviceDetails(),
+                          ],
+                        )),
+                      ],
+                    ),
+                  ),
                 ],
-              )),
-            ],
-          ),
-        ),
+              ),
+            )),
       ),
-        ), );
+    );
   }
 
   Widget _appBar() {
@@ -75,7 +82,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
                   Container(
                     height: 50,
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 17),
+                    padding: EdgeInsets.only(top: 17,left: 10),
                     child: InkWell(
                         onTap: () {
                           Navigator.push(
@@ -132,7 +139,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
           children: <Widget>[
             Container(
               alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(top: 7,left: 10),
+              padding: EdgeInsets.only(top: 7, left: 10),
               child: AllText(
                 stringList[index],
                 color: Colors.black,
@@ -141,7 +148,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
             ),
             Container(
               alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(top: 10,left: 10),
+              padding: EdgeInsets.only(top: 10, left: 10),
               child: AllText(
                 stringList1[index],
                 color: Colors.black,
@@ -159,7 +166,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
       color: Colors.white,
       child: Container(
         height: 60,
-        margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+        margin: EdgeInsets.only(top: 10, left: 10, right: 10,bottom: 10),
         decoration: new BoxDecoration(
           boxShadow: [
             new BoxShadow(
@@ -190,7 +197,8 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => LocationScreen()),
-                    );                  },
+                    );
+                  },
                   child: Icon(
                     Icons.arrow_forward_ios,
                     size: 25,

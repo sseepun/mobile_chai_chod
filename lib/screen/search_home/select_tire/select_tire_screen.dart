@@ -23,6 +23,33 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
         child: SafeArea(
         bottom: false,
       child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60), // here the desired height
+          child: AppBar(
+            elevation: 0.0,
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only( left: 5),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            title: Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Text(StringRes.SelectTireTitle,
+                  style: TextStyle(color: ColorRes.blackColor)),
+            ),
+            backgroundColor: ColorRes.whiteColor,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
+        ),
+
         backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
           child: Column(
@@ -33,8 +60,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
                 child: Column(
                   children: <Widget>[
                     //back arrow and title
-                    CommonView.backArrowAndTitle(context,
-                        StringRes.SelectTireTitle, ColorRes.blackColor),
+                    // CommonView.backArrowAndTitle(context, StringRes.SelectTireTitle, ColorRes.blackColor),
                     appBar(),
                   ],
                 ),

@@ -33,22 +33,31 @@ class _ShippingScreenState extends State<ShippingScreen>
         bottom: false,
       child: Scaffold(
         backgroundColor: ColorRes.whiteColor,
-        body: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                  child: Column(
-                children: <Widget>[
-                  _appBar(),
-                  SizedBox(height: 10),
-                  serviceDetails(),
-                  SizedBox(height: 30),
-                  bottomButton(),
-                ],
-              )),
-            ],
-          ),
-        ),
+        body: Container(
+         child: Column(
+           children: [
+             _appBar(),
+
+             SingleChildScrollView(
+               child: Stack(
+                 children: <Widget>[
+                   Container(
+                       child: Column(
+                         children: <Widget>[
+
+                           SizedBox(height: 10),
+                           serviceDetails(),
+                           SizedBox(height: 30),
+                           bottomButton(),
+                         ],
+                       )),
+                 ],
+               ),
+             ),
+           ],
+         ),
+        )
+
       ),
         ), );
   }
@@ -65,7 +74,7 @@ class _ShippingScreenState extends State<ShippingScreen>
                   Container(
                     height: 50,
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 17),
+                    padding: EdgeInsets.only(top: 17,left: 10),
                     child: InkWell(
                         onTap: () {
                           Navigator.push(

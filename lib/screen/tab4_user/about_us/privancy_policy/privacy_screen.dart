@@ -25,6 +25,8 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
         bottom: false,
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0.0,
+
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back,

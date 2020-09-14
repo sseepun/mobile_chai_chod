@@ -28,12 +28,38 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
         child: SafeArea(
         bottom: false,
       child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(70), // here the desired height
+          child: AppBar(
+            elevation: 0.0,
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only( left: 5),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            title: Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Text(StringRes.aboutUs,
+                  style: TextStyle(color: ColorRes.blackColor)),
+            ),
+            backgroundColor: ColorRes.lightWhite,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
+        ),
+
         backgroundColor:ColorRes.lightWhite,
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-            CommonView.backArrowAndTitle(context, StringRes.aboutUs, ColorRes.blackColor),
-              SizedBox(height: 20),
+            // CommonView.backArrowAndTitle(context, StringRes.aboutUs, ColorRes.blackColor),
               ListView.builder(
                   itemCount: 3,
                   shrinkWrap: true,

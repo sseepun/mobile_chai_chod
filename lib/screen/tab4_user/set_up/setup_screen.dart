@@ -30,14 +30,41 @@ class _SetUpScreenState extends State<SetUpScreen> {
         child: SafeArea(
         bottom: false,
       child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(70), // here the desired height
+          child: AppBar(
+            elevation: 0.0,
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only( left: 5),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            title: Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Text(StringRes.setUp,
+                  style: TextStyle(color: ColorRes.blackColor)),
+            ),
+            backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
+        ),
+
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
 
-              CommonView.backArrowAndTitle(context, StringRes.setUp, ColorRes.blackColor),
-
-              SizedBox(height: 20),
+              // CommonView.backArrowAndTitle(context, StringRes.setUp, ColorRes.blackColor),
+              //
+              // SizedBox(height: 20),
 
               ListView.builder(
                   itemCount: 3,

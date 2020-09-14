@@ -34,16 +34,53 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
       child: SafeArea(
         bottom: false,
         child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(70), // here the desired height
+            child: AppBar(
+              elevation: 0.0,
+              leading: IconButton(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(bottom: 20, left: 5),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 25,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              title: Container(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 5),
+                      child: Text(StringRes.orderHistory,
+                          style: TextStyle(color: ColorRes.blackColor)),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 5),
+                      child: Text('#111111112222 30/05/2020',
+                        style: TextStyle(color: ColorRes.greyColor,fontSize: 15),),
+                    ),
+                  ],
+                ),
+              ),
+              backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+              centerTitle: true,
+            ),
+          ),
+
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
 //                  appBarDesign(),
                 // Heading back arrow and title
-                CommonView.backArrowAndTitle(
-                    context, StringRes.orderHistory, ColorRes.blackColor),
+                // CommonView.backArrowAndTitle(context, StringRes.orderHistory, ColorRes.blackColor),
                 // all method are call
-                orderIdDesign(),
+                // orderIdDesign(),
                 statusView(),
                 productDetailsList(),
                 paymentDesign(),

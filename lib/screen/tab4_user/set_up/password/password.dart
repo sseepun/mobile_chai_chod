@@ -22,6 +22,33 @@ class _ChangePasswordState extends State<ChangePassword> {
         child: SafeArea(
         bottom: false,
       child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(70), // here the desired height
+          child: AppBar(
+            elevation: 0.0,
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only( left: 5),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            title: Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Text(StringRes.passwordTitle,
+                  style: TextStyle(color: ColorRes.blackColor)),
+            ),
+            backgroundColor: ColorRes.whiteColor,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
+        ),
+
         body: Form(
           autovalidate: true,
           key: _formKey,
@@ -29,10 +56,10 @@ class _ChangePasswordState extends State<ChangePassword> {
             child: Column(
               children: [
 
-                CommonView.backArrowAndTitle(context, StringRes.passwordTitle, ColorRes.blackColor),
+                // CommonView.backArrowAndTitle(context, StringRes.passwordTitle, ColorRes.blackColor),
 
                 Container(
-                  padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+                  padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                   child: Column(
                     children: <Widget>[
                       emailTextFiled(),

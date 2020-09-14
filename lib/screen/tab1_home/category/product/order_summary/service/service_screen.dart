@@ -39,6 +39,8 @@ class _ServiceScreenState extends State<ServiceScreen> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(70), // here the desired height
           child: AppBar(
+            elevation: 0.0,
+
             leading: IconButton(
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.only(bottom: 20, left: 5),
@@ -113,7 +115,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
               },
               child: Container(
                 alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: 15, top: 20),
+                padding: EdgeInsets.only(left: 10, top: 20),
                 child: Icon(
                   Icons.arrow_back,
                   color: ColorRes.blackColor,
@@ -192,7 +194,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 children: <Widget>[
                   Container(
                     alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(left: 10, top: 20, right: 15),
+                    padding: EdgeInsets.only(left: 10, top: 20, right: 10),
                     child: AllText(
                       StringRes.serviceDes2,
                       color: ColorRes.blackColor,

@@ -33,13 +33,50 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
       child: SafeArea(
         bottom: false,
         child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(70), // here the desired height
+            child: AppBar(
+              elevation: 0.0,
+              leading: IconButton(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(bottom: 20, left: 5),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 25,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              title: Container(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 5),
+                      child: Text(StringRes.orderDetailsTitle,
+                          style: TextStyle(color: ColorRes.blackColor)),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 5),
+                      child: Text('#111111112222 30/05/2020',
+                          style: TextStyle(color: ColorRes.greyColor,fontSize: 15),),
+                    ),
+                  ],
+                ),
+              ),
+              backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+              centerTitle: true,
+            ),
+          ),
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-
-                CommonView.backArrowAndTitle(context, StringRes.orderDetailsTitle, ColorRes.blackColor),
-                orderNumberShow(),
+                // CommonView.backArrowAndTitle(
+                //     context, StringRes.orderDetailsTitle, ColorRes.blackColor),
+                // orderNumberShow(),
                 statusShow(),
                 productDetailsView(),
                 Divider(height: 1, color: ColorRes.greyColor),
@@ -54,7 +91,6 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
       ),
     );
   }
-
 
   orderNumberShow() {
     return Container(
@@ -75,8 +111,15 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 //        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          CommonView.productDetailsLeftRightData(StringRes.status, "Are shopping", showColor: widget.i == 2 ? ColorRes.lightGreenTxt : ColorRes.lightOrangeTxt),
-          widget.i == 2 ? CommonView.productDetailsLeftRightData(StringRes.dateReceipt, "30/05/20") : Container()
+          CommonView.productDetailsLeftRightData(
+              StringRes.status, "Are shopping",
+              showColor: widget.i == 2
+                  ? ColorRes.lightGreenTxt
+                  : ColorRes.lightOrangeTxt),
+          widget.i == 2
+              ? CommonView.productDetailsLeftRightData(
+                  StringRes.dateReceipt, "30/05/20")
+              : Container()
         ],
       ),
     );
@@ -123,17 +166,21 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
               Expanded(
                 child: Column(
                   children: <Widget>[
-                    CommonView.productDetailsLeftRightData(StringRes.brand, "Micheline"),
+                    CommonView.productDetailsLeftRightData(
+                        StringRes.brand, "Micheline"),
                     SizedBox(height: 2),
-                    CommonView.productDetailsLeftRightData(StringRes.pageWidth, "199mm"),
+                    CommonView.productDetailsLeftRightData(
+                        StringRes.pageWidth, "199mm"),
                     SizedBox(height: 2),
-                    CommonView.productDetailsLeftRightData(StringRes.seriesNumber, "Fifty Five"),
+                    CommonView.productDetailsLeftRightData(
+                        StringRes.seriesNumber, "Fifty Five"),
                     SizedBox(height: 2),
-                    CommonView.productDetailsLeftRightData(StringRes.edgeRubber, "Fifteen"),
+                    CommonView.productDetailsLeftRightData(
+                        StringRes.edgeRubber, "Fifteen"),
                     SizedBox(height: 2),
-                    CommonView.productDetailsLeftRightData(StringRes.sidewall, "10.72 cm"),
+                    CommonView.productDetailsLeftRightData(
+                        StringRes.sidewall, "10.72 cm"),
                     SizedBox(height: 10),
-
                     Divider(
                       height: 1,
                       color: ColorRes.greyColor,
@@ -184,7 +231,8 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           AllText("Summery", fontSize: 17, color: ColorRes.blackColor),
-          CommonView.productDetailsLeftRightData(StringRes.payment, 'World Bank of Thailand'),
+          CommonView.productDetailsLeftRightData(
+              StringRes.payment, 'World Bank of Thailand'),
           CommonView.productDetailsLeftRightData(StringRes.price, 'B2,000'),
           CommonView.productDetailsLeftRightData(StringRes.sectionAA, 'B0'),
           CommonView.productDetailsLeftRightData(StringRes.shipping, 'B50'),
@@ -214,7 +262,7 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
           minWidth: Utils.getDeviceWidth(context),
           height: 50,
           onPressed: () {
-            rateProductScreenNavigator(context,2);
+            rateProductScreenNavigator(context, 2);
           },
           child: AllText(StringRes.rated),
           shape: RoundedRectangleBorder(

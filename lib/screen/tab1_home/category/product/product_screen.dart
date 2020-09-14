@@ -66,6 +66,7 @@ class _ProductScreenState extends State<ProductScreen>
         bottom: false,
         child: Scaffold(
           appBar: AppBar(
+            elevation: 0.0,
             /*leading: IconButton(
             icon: Icon(Icons.arrow_back),
             color: Colors.black,
@@ -80,6 +81,7 @@ class _ProductScreenState extends State<ProductScreen>
               'Product Details',
               style: TextStyle(color: Colors.black),
             ),
+
           ),
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(

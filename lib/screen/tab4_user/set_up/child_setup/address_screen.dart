@@ -2,44 +2,70 @@ import 'package:ChaiChod/screen/tab4_user/set_up/child_setup/map_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ChaiChod/export.dart';
 
-
 class AddressScreen extends StatefulWidget {
   @override
   _AddressScreenState createState() => _AddressScreenState();
 }
 
 class _AddressScreenState extends State<AddressScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: ColorRes.lightWhite,
-        child: SafeArea(
+      color: ColorRes.lightWhite,
+      child: SafeArea(
         bottom: false,
-      child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: ColorRes.primaryColor,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MapScreen()),
-            );
- },
-          child: Icon(Icons.add,size: 40,),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              CommonView.backArrowAndTitle(context, StringRes.address, ColorRes.blackColor),
-              SizedBox(height: 20),
-              listData(),
-            ],
+        child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(70), // here the desired height
+            child: AppBar(
+              elevation: 0.0,
+              leading: IconButton(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 5),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 25,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              title: Container(
+                margin: EdgeInsets.only(top: 5),
+                child: Text(StringRes.address,
+                    style: TextStyle(color: ColorRes.blackColor)),
+              ),
+              backgroundColor: ColorRes.lightWhite,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+              centerTitle: true,
+            ),
+          ),
+          backgroundColor: ColorRes.lightWhite,
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: ColorRes.primaryColor,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MapScreen()),
+              );
+            },
+            child: Icon(
+              Icons.add,
+              size: 40,
+            ),
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                // CommonView.backArrowAndTitle(context, StringRes.address, ColorRes.blackColor),
+                listData(),
+              ],
+            ),
           ),
         ),
       ),
-        ), );
+    );
   }
 
   textTitle() {
@@ -92,13 +118,14 @@ class _AddressScreenState extends State<AddressScreen> {
                 Padding(
                   padding: EdgeInsets.only(top: 10, left: 10, right: 220),
                   child: AllText(
-                   "Current Address",
+                    "Current Address",
                     color: Colors.black,
                     fontSize: 15,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 10, left: 10, right: 50, bottom: 15),
+                  padding:
+                      EdgeInsets.only(top: 10, left: 10, right: 50, bottom: 15),
                   child: AllText(
                     "999/9 Naawamin, Bueng Kum, Bangkok, 10330",
                     color: Colors.black,
@@ -111,5 +138,3 @@ class _AddressScreenState extends State<AddressScreen> {
         ));
   }
 }
-
-

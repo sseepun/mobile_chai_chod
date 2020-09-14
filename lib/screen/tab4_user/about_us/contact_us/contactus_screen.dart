@@ -37,6 +37,33 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
         child: SafeArea(
         bottom: false,
       child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60), // here the desired height
+          child: AppBar(
+            elevation: 0.0,
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only( left: 5),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            title: Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Text(StringRes.contactUs,
+                  style: TextStyle(color: ColorRes.whiteColor)),
+            ),
+            backgroundColor: ColorRes.lightBlur,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
+        ),
+
         backgroundColor: ColorRes.lightWhite,
         body: SingleChildScrollView(
           child: Stack(
@@ -49,7 +76,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
 
               Column(
                 children: <Widget>[
-                  CommonView.backArrowAndTitle(context, StringRes.contactUs, ColorRes.whiteColor),
+                  // CommonView.backArrowAndTitle(context, StringRes.contactUs, ColorRes.whiteColor),
 
                   /* Container(
                 margin:
