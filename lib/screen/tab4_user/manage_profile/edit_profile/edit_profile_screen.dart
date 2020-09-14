@@ -239,7 +239,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   Widget _setImageView() {
-    if (_image != null) {
+/*
+    if (image != null) {
+*/
       return new Container(
         height: 150,
         width: 150,
@@ -251,9 +253,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
            shape: BoxShape.circle
         ),
       );
-    } else {
-      return Text("Please select an image");
-    }
+    // }
+    // else {
+    //   return Text("Please select an image");
+    // }
   }
 
   nameTextFiled() {

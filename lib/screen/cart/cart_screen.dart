@@ -16,18 +16,29 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   int productCountShow = 1;
   bool isCheckValue = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        child: SafeArea(
+      color: Colors.white,
+      child: SafeArea(
         bottom: false,
         child: Scaffold(
           appBar: AppBar(
-            iconTheme: IconThemeData(
-              color: ColorRes.blackColor, //change your color here
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only( left:10),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: (){
+                Navigator.of(context).pop();
+              },
             ),
-            title: Text(StringRes.shoppingCart, style: TextStyle(color: ColorRes.blackColor)),
+            title: Text(StringRes.shoppingCart,
+                style: TextStyle(color: ColorRes.blackColor)),
             backgroundColor: Colors.white,
 //            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
             centerTitle: true,
@@ -48,27 +59,32 @@ class _CartScreenState extends State<CartScreen> {
 // Cart screen in Bottom bar Continue button
   bottomBar() {
     return Container(
-      // height: 150,
-      padding: EdgeInsets.only(bottom: 10,left: 10,right: 10),
+      height: 180,
+      padding: EdgeInsets.only( left:10, right: 10, ),
       decoration: BoxDecoration(
           color: ColorRes.whiteColor,
           border:
               Border(top: BorderSide(color: ColorRes.greyColor, width: 1.0))),
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           CommonView.productDetailsLeftRightData(StringRes.prices, "\$2,000"),
           CommonView.productDetailsLeftRightData(StringRes.discount, "\$0"),
           CommonView.productDetailsLeftRightData(StringRes.total, "\$2,000"),
           // Padding(
-              // padding: EdgeInsets.only(left: 10, right: 10),
-              // child:
-              FilledButton(text: StringRes.continueText, fontSize: 18,onPressed: (){
-                orderSummaryScreenNavigator(context);
-
-              },),
-    // )
+          // padding: EdgeInsets.only(left: 10, right: 10),
+          // child:
+          FilledButton(
+            text: StringRes.continueText,
+            fontSize: 18,
+            onPressed: () {
+              orderSummaryScreenNavigator(context);
+            },
+          ),
+          // )
         ],
       ),
     );
@@ -82,7 +98,7 @@ class _CartScreenState extends State<CartScreen> {
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return Container(
-            height: MediaQuery.of(context).size.height*0.5,
+            height: MediaQuery.of(context).size.height * 0.5,
             width: Utils.getDeviceWidth(context),
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.start,
@@ -90,7 +106,8 @@ class _CartScreenState extends State<CartScreen> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Padding(
-                    padding: EdgeInsets.only(left: 5, right: 5, top: 10, bottom: 10),
+                    padding:
+                        EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
                     child: Row(
                       children: <Widget>[
                         InkResponse(
@@ -104,9 +121,10 @@ class _CartScreenState extends State<CartScreen> {
                             width: 15,
                             padding: EdgeInsets.all(0),
                             decoration: BoxDecoration(
-                              border: Border.all(width: 1, color: ColorRes.primaryColor)
-                            ),
-                            child: Icon(Icons.check, color: ColorRes.primaryColor, size: 15),
+                                border: Border.all(
+                                    width: 1, color: ColorRes.primaryColor)),
+                            child: Icon(Icons.check,
+                                color: ColorRes.primaryColor, size: 15),
                           ),
                         ),
                         AllText(" E NANKANG AS 2+ _205/55R16",
@@ -130,11 +148,14 @@ class _CartScreenState extends State<CartScreen> {
                           children: <Widget>[
                             CommonView.productDetailsLeftRightData(
                                 StringRes.brand, StringRes.miCheIn),
-                            CommonView.productDetailsLeftRightData(StringRes.pageWidth, "195 mm."),
+                            CommonView.productDetailsLeftRightData(
+                                StringRes.pageWidth, "195 mm."),
                             CommonView.productDetailsLeftRightData(
                                 StringRes.serialNumber, "Fifty five"),
-                            CommonView.productDetailsLeftRightData(StringRes.edgeNumber, "Fifteen"),
-                            CommonView.productDetailsLeftRightData(StringRes.sideWall, "10.72 cm."),
+                            CommonView.productDetailsLeftRightData(
+                                StringRes.edgeNumber, "Fifteen"),
+                            CommonView.productDetailsLeftRightData(
+                                StringRes.sideWall, "10.72 cm."),
                             Divider(
                               height: 1,
                               color: ColorRes.greyColor,
@@ -149,7 +170,6 @@ class _CartScreenState extends State<CartScreen> {
                 Container(
                   height: 50,
                   color: ColorRes.lightWhite,
-
                   padding: EdgeInsets.only(left: 10, right: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,7 +192,8 @@ class _CartScreenState extends State<CartScreen> {
         Expanded(
             flex: 1,
             child: Padding(
-              padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+              padding:
+                  EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
               child: AllText(StringRes.numberItem,
                   maxLine: 1,
                   align: TextAlign.left,
@@ -193,7 +214,9 @@ class _CartScreenState extends State<CartScreen> {
                   child: AllText(
                     "-",
                     fontSize: 25,
-                    color: productCountShow > 1 ? ColorRes.primaryColor : ColorRes.greyColor,
+                    color: productCountShow > 1
+                        ? ColorRes.primaryColor
+                        : ColorRes.greyColor,
                   ),
                 ),
                 AllText(

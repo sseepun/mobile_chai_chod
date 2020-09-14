@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 
 class DebitCardScreen extends StatefulWidget {
   final int i;
+
   const DebitCardScreen({Key key, this.i}) : super(key: key);
+
   @override
   DebitCardScreenState createState() => DebitCardScreenState();
 }
@@ -36,17 +38,52 @@ class DebitCardScreenState extends State<DebitCardScreen> {
       child: SafeArea(
         bottom: false,
         child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(70), // here the desired height
+            child: AppBar(
+              leading: IconButton(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(bottom: 20, left: 5),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 25,
+                ),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+              ),
+              title: Container(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(StringRes.DebitCardTitle,
+                          style: TextStyle(color: ColorRes.blackColor)),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(StringRes.DebitCardTitle2,
+                          style: TextStyle(color: Colors.black38, fontSize: 15)),
+                    ),
+                  ],
+                ),
+              ),
+              backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+              centerTitle: true,
+            ),
+          ),
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-
                 // Heading back arrow and title
-                CommonView.backArrowAndTitle(context, StringRes.DebitCardTitle, ColorRes.blackColor),
+                // CommonView.backArrowAndTitle(context, StringRes.DebitCardTitle, ColorRes.blackColor),
 
                 //debit card screen in order id title method call
-                orderIdDesign(),
-                Divider(height: 1, color: ColorRes.greyColor),
+                // orderIdDesign(),
+                // Divider(height: 1, color: ColorRes.greyColor),
 
                 //debit card screen in payment design method call
                 paymentDesign(),
@@ -82,7 +119,7 @@ class DebitCardScreenState extends State<DebitCardScreen> {
     );
   }
 
- //debit card screen in order id title 1
+  //debit card screen in order id title 1
   orderIdDesign() {
     return Container(
       alignment: Alignment.center,
@@ -92,7 +129,7 @@ class DebitCardScreenState extends State<DebitCardScreen> {
     );
   }
 
- //debit card screen in payment design its use are product details name ane price
+  //debit card screen in payment design its use are product details name ane price
   paymentDesign() {
     return Container(
       color: Colors.white,
@@ -128,7 +165,9 @@ class DebitCardScreenState extends State<DebitCardScreen> {
   //debit card screen in barcode use
   barcode() {
     return Container(
-        child:Image.asset(Utils.getAssetsImg('barcode'),),
+      child: Image.asset(
+        Utils.getAssetsImg('barcode'),
+      ),
     );
   }
 

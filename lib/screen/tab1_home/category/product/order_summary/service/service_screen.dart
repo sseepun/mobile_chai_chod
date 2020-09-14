@@ -36,11 +36,48 @@ class _ServiceScreenState extends State<ServiceScreen> {
         child: SafeArea(
         bottom: false,
       child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(70), // here the desired height
+          child: AppBar(
+            leading: IconButton(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(bottom: 20, left: 5),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: (){
+                Navigator.of(context).pop();
+              },
+            ),
+            title: Container(
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 5,right: 10),
+                    child: Text(StringRes.serviceTitle,
+                        style: TextStyle(color: ColorRes.blackColor)),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 5,right: 25),
+                    child: Text(StringRes.serviceTitle1,
+                        style: TextStyle(color: Colors.black38, fontSize: 15)),
+                  ),
+                ],
+              ),
+            ),
+            backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+            centerTitle: true,
+          ),
+        ),
+
         backgroundColor: ColorRes.whiteColor,
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              _appBar(),
+              // _appBar(),
               SizedBox(height: 2),
               Visibility(
                 visible: true,

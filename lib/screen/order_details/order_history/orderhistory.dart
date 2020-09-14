@@ -42,7 +42,6 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 // Heading back arrow and title
                 CommonView.backArrowAndTitle(
                     context, StringRes.orderHistory, ColorRes.blackColor),
-
                 // all method are call
                 orderIdDesign(),
                 statusView(),
@@ -175,7 +174,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
   buildListChild(int index) {
     return Container(
       padding: EdgeInsets.only(top: 10, bottom: 10),
-      margin: EdgeInsets.only(top: 10, bottom: 10, right: 5, left: 5),
+      margin: EdgeInsets.only(top: 10, bottom: 10, right: 10, left:10),
       color: Colors.white,
       child: Column(
         children: <Widget>[
@@ -313,7 +312,7 @@ class OrderHistoryScreenState extends State<OrderHistoryScreen> {
     return Container(
       color: ColorRes.primaryColor,
       height: 50,
-      margin: EdgeInsets.only(left: 5, right: 5,bottom: 10),
+      margin: EdgeInsets.only(left: 10, right: 10,bottom: 10),
       width: MediaQuery.of(context).size.width,
       child: FlatButton(
         onPressed: () {

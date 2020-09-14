@@ -65,15 +65,52 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
       child: SafeArea(
         bottom: false,
         child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(70), // here the desired height
+            child: AppBar(
+              leading: IconButton(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(bottom: 20, left: 5),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 25,
+                ),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+              ),
+              title: Container(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(StringRes.paymentTitle,
+                          style: TextStyle(color: ColorRes.blackColor)),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(StringRes.paymentTitle2,
+                          style: TextStyle(color: Colors.black38, fontSize: 15)),
+                    ),
+                  ],
+                ),
+              ),
+              backgroundColor: Colors.white,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+              centerTitle: true,
+            ),
+          ),
+
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 // Heading back arrow and title
-                CommonView.backArrowAndTitle(context, StringRes.paymentTitle, ColorRes.blackColor),
+                // CommonView.backArrowAndTitle(context, StringRes.paymentTitle, ColorRes.blackColor),
 
-                orderIdDesign(),
-                Divider(height: 1, color: ColorRes.greyColor),
+                // orderIdDesign(),
+                // Divider(height: 1, color: ColorRes.greyColor),
 
                 paymentDesign(),
                 Divider(height: 1, color: ColorRes.greyColor),
@@ -327,7 +364,7 @@ class PaymentTransferScreenState extends State<PaymentTransferScreen> {
       child:Row(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(left: 10,right: 20),
+            margin: EdgeInsets.only(left: 10,right: 10),
             height: 45,
             width: 300,
             decoration: BoxDecoration(

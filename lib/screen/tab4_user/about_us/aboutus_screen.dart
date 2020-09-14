@@ -24,11 +24,11 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
+        color:ColorRes.lightWhite,
         child: SafeArea(
         bottom: false,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor:ColorRes.lightWhite,
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[

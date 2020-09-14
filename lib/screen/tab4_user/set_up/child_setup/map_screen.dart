@@ -59,9 +59,15 @@ class _MapScreenState extends State<MapScreen> {
           children: <Widget>[
             CommonView.backArrowAndTitle(
                 context, StringRes.address, ColorRes.blackColor),
-            SizedBox(height: 20),
-            searchData(),
-            map(),
+            SizedBox(height: 5),
+            Stack(
+              children: [
+                map(),
+                Container(
+                  child: searchData(),
+                ),
+              ],
+            ),
             //listData(),
           ],
         ),
@@ -85,6 +91,17 @@ class _MapScreenState extends State<MapScreen> {
   //search field
   searchData() {
     return Container(
+      decoration: new BoxDecoration(
+        boxShadow: [
+          new BoxShadow(
+            offset: Offset(0.5, 0.5),
+            color: ColorRes.whiteColor,
+            blurRadius: 0.20,
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(2)),
+      ),
       height: 50,
       width: Utils.getDeviceWidth(context),
       margin: EdgeInsets.all(15),
@@ -105,16 +122,16 @@ class _MapScreenState extends State<MapScreen> {
             fontSize: 15,
           ),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(2)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
+            borderSide: BorderSide(width: 1, color: ColorRes.whiteColor),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(2)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
+            borderSide: BorderSide(width: 1, color: ColorRes.whiteColor),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
+            borderSide: BorderSide(width: 1, color: ColorRes.whiteColor),
           ),
         ),
       ),

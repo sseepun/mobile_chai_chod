@@ -24,130 +24,139 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: ColorRes.whiteColor,
-        child: SafeArea(
+      color: ColorRes.whiteColor,
+      child: SafeArea(
         bottom: false,
-      child: Scaffold(
-        backgroundColor: ColorRes.lightWhite,
-        bottomNavigationBar: Container(
-          height: 60,
-          child: Padding(
-              padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-              child: FilledButton(
-                text: StringRes.continueText,
-                fontSize: 18,
-                onPressed: () {
-                  selectTireScreenNavigator(context);
-                },
-              )),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                height: 110,
-                color: ColorRes.whiteColor,
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        IconButton(
-                            icon: Container(
-                              padding: EdgeInsets.only(top: 10),
-                              child: Icon(
-                                Icons.arrow_back,
-                                color: Colors.black,
-                                size: 25,
-                              ),
-                            ),
-                            onPressed: () {
-                              navigatorPop(context);
-                            }),
-                        // search text filed
-                        Container(
-                          height: 50,
-                          width: Utils.getDeviceWidth(context) / 1.2,
-                          margin: EdgeInsets.only(top: 10),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              hintText: 'Search here...',
-                              filled: true,
-                              fillColor: ColorRes.whiteColor,
-                              border: UnderlineInputBorder(
-                                  borderRadius: BorderRadius.circular(2)),
-                              prefixIcon: IconButton(
-                                icon: Icon(
-                                  Icons.search,
-                                  size: 20,
+        child: Scaffold(
+          backgroundColor: ColorRes.lightWhite,
+          bottomNavigationBar: Container(
+            height: 60,
+            child: Padding(
+                padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                child: FilledButton(
+                  text: StringRes.continueText,
+                  fontSize: 18,
+                  onPressed: () {
+                    selectTireScreenNavigator(context);
+                  },
+                )),
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: 110,
+                  color: ColorRes.whiteColor,
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          IconButton(
+                              icon: Container(
+                                padding: EdgeInsets.only(top: 10),
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.black,
+                                  size: 25,
                                 ),
                               ),
-                              hintStyle: TextStyle(
-                                letterSpacing: 1.0,
-                                fontSize: 15,
-                              ),
-                              disabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(2)),
-                                borderSide: BorderSide(
-                                    width: 1, color: ColorRes.greyColor),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(2)),
-                                borderSide: BorderSide(
-                                    width: 1, color: ColorRes.greyColor),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(4)),
-                                borderSide: BorderSide(
-                                    width: 1, color: ColorRes.greyColor),
+                              onPressed: () {
+                                navigatorPop(context);
+                              }),
+                          // search text filed
+                          Container(
+                            height: 50,
+                            width: Utils.getDeviceWidth(context) / 1.2,
+                            margin: EdgeInsets.only(top: 10),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                hintText: 'Search here...',
+                                filled: true,
+                                fillColor: ColorRes.whiteColor,
+                                border: UnderlineInputBorder(
+                                    borderRadius: BorderRadius.circular(2)),
+                                prefixIcon: IconButton(
+                                  icon: Icon(
+                                    Icons.search,
+                                    size: 20,
+                                  ),
+                                ),
+                                hintStyle: TextStyle(
+                                  letterSpacing: 1.0,
+                                  fontSize: 15,
+                                ),
+                                disabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(2)),
+                                  borderSide: BorderSide(
+                                      width: 1, color: ColorRes.greyColor),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(2)),
+                                  borderSide: BorderSide(
+                                      width: 1, color: ColorRes.greyColor),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(4)),
+                                  borderSide: BorderSide(
+                                      width: 1, color: ColorRes.greyColor),
+                                ),
                               ),
                             ),
                           ),
+                        ],
+                      ),
+                      GestureDetector(
+                        // textColor: ColorRes.lightBlur,
+                        child: Align(
+                          child: Padding(
+                              padding: EdgeInsets.only(top: 20, right: 15),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  AllText("More Option",
+                                      align: TextAlign.right,
+                                      color: ColorRes.lightBlur),
+                                  Icon(Icons.keyboard_arrow_up,color: ColorRes.primaryColor,)
+                                ],
+                              ),
+                          ),
                         ),
-                      ],
-                    ),
-                    GestureDetector(
-                         // textColor: ColorRes.lightBlur,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 20,right: 15),
-                          child: AllText("More Option",align: TextAlign.right,color: ColorRes.lightBlur)),
-                        ),
-                      onTap: () {
-                        searchScreensNavigator(context);
-                      },
-                    )
-                  ],
+                        onTap: () {
+                          searchScreensNavigator(context);
+                        },
+                      )
+                    ],
+                  ),
                 ),
-              ),
 
-              Padding(
-                  padding: EdgeInsets.only(left: 10, top: 25),
-                  child: AllText(
-                    "Search results",
-                    fontSize: 17,
-                    color: ColorRes.blackColor,
-                    fontWeight: FontWeight.bold,
-                  )),
-              Padding(
-                  padding: EdgeInsets.only(left: 10, top: 5, bottom: 25),
-                  child: AllText("225/45/R17", color: ColorRes.blackColor)),
+                Padding(
+                    padding: EdgeInsets.only(left: 10, top: 25),
+                    child: AllText(
+                      "Search results",
+                      fontSize: 17,
+                      color: ColorRes.blackColor,
+                      fontWeight: FontWeight.bold,
+                    )),
+                Padding(
+                    padding: EdgeInsets.only(left: 10, top: 5, bottom: 25),
+                    child: AllText("225/45/R17", color: ColorRes.blackColor)),
 
-              gridImage(),
+                gridImage(),
 
 //          Expanded(child: )
-            ],
+              ],
+            ),
           ),
         ),
       ),
-        ),);
+    );
   }
 
   //grid image are using image and text are grid view
@@ -158,13 +167,13 @@ class _SearchScreenState extends State<SearchScreen> {
       itemCount: 6,
       padding: EdgeInsets.only(left: 10, right: 10),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 0,
-        childAspectRatio: 0.56
-        // childAspectRatio: Utils.getDeviceWidth(context) /
-        //     (Utils.getDeviceHeight(context) / 1.0),
-      ),
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 0,
+          childAspectRatio: 0.56
+          // childAspectRatio: Utils.getDeviceWidth(context) /
+          //     (Utils.getDeviceHeight(context) / 1.0),
+          ),
       itemBuilder: (context, index) {
         return Column(
           children: <Widget>[

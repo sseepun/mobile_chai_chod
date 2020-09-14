@@ -30,11 +30,11 @@ class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
+        color: ColorRes.lightWhite,
         child: SafeArea(
         bottom: false,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: ColorRes.lightWhite,
         body: Column(
           children: <Widget>[
             CommonView.titleText(StringRes.userHeading),

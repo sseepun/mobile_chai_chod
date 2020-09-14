@@ -64,43 +64,46 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
   }
 
   Widget _appBar() {
-    return Container(
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(top: 17),
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OrderSummaryScreen()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 25,
-                        color: Colors.black,
-                      )),
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 80, top: 10),
-                  child: AllText(
-                    StringRes.DeliveryAddressTitle,
-                    color: ColorRes.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Container(
+                    height: 50,
+                    alignment: Alignment.topLeft,
+                    padding: EdgeInsets.only(top: 17),
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OrderSummaryScreen()),
+                          );
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 25,
+                          color: Colors.black,
+                        )),
                   ),
-                ),
-              ],
-            ),
-          ],
-        ));
+                  Container(
+                    padding: EdgeInsets.only(left: 80, top: 10),
+                    child: AllText(
+                      StringRes.DeliveryAddressTitle,
+                      color: ColorRes.blackColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          )),
+    );
   }
 
   //list data are use in list of strings

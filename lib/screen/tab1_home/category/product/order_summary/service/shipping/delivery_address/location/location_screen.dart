@@ -16,14 +16,15 @@ class _MapScreenState extends State<LocationScreen> {
   Completer<GoogleMapController> _controller = Completer();
   BitmapDescriptor pinLocationIcon;
   final LatLng _center = const LatLng(23.022505, 72.571365);
+
   void _onMapCreated(GoogleMapController controller) {
 //    mapController = controller;
     _controller.complete(controller);
   }
+
   void initState() {
     super.initState();
   }
-
 
   //show map in screen
   map() {
@@ -52,24 +53,32 @@ class _MapScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: ColorRes.lightWhite,
-        child: SafeArea(
+      color: ColorRes.whiteColor,
+      child: SafeArea(
         bottom: false,
         child: Scaffold(
-          backgroundColor: ColorRes.lightWhite,
+          backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 CommonView.backArrowAndTitle(
                     context, StringRes.address, ColorRes.blackColor),
-                SizedBox(height: 20),
-                searchData(),
-                map(),
+                SizedBox(height: 5),
+                Stack(
+                  children: [
+                    map(),
+                    Container(
+                      child: searchData(),
+                    ),
+                  ],
+                ),
                 //listData(),
               ],
             ),
           ),
-        ),),);
+        ),
+      ),
+    );
   }
 
 //  SingleChildScrollView(
@@ -89,10 +98,23 @@ class _MapScreenState extends State<LocationScreen> {
   searchData() {
     return Container(
       height: 50,
+      decoration: new BoxDecoration(
+        boxShadow: [
+          new BoxShadow(
+            offset: Offset(0.5, 0.5),
+            color: ColorRes.whiteColor,
+            blurRadius: 0.20,
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(2)),
+      ),
+
       width: Utils.getDeviceWidth(context),
       margin: EdgeInsets.all(15),
-      child:TextFormField(
+      child: TextFormField(
         decoration: InputDecoration(
+
           hintText: 'Search here...',
           filled: true,
           fillColor: ColorRes.whiteColor,
@@ -102,10 +124,11 @@ class _MapScreenState extends State<LocationScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Search()),
-              );                  },
+              );
+            },
             icon: Icon(
               Icons.search,
-              size: 20,
+              size: 25,
             ),
           ),
           hintStyle: TextStyle(
@@ -113,16 +136,16 @@ class _MapScreenState extends State<LocationScreen> {
             fontSize: 15,
           ),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(2)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
+            borderSide: BorderSide(width: 1, color: ColorRes.whiteColor),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(2)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
+            borderSide: BorderSide(width: 1, color: ColorRes.whiteColor),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: BorderSide(width: 1, color: ColorRes.greyColor),
+            borderRadius: BorderRadius.all(Radius.circular(0)),
+            borderSide: BorderSide(width: 1, color: ColorRes.whiteColor),
           ),
         ),
       ),

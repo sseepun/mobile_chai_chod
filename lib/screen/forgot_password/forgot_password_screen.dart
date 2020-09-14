@@ -1,3 +1,4 @@
+import 'package:ChaiChod/export.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ChaiChod/config/util.dart';
@@ -34,7 +35,7 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: Color(hexColor('#FFFFFF')),
+          backgroundColor: Colors.white,
           body: Center(
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints viewportConstraints) {
@@ -65,22 +66,26 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
   // Forgot Password screen design
   forgot(){
     return Container(
-      padding: EdgeInsets.only(left: 15, right: 15),
+      padding: EdgeInsets.only(left: 10, right: 10),
       child: Column(
         children: [
-          Container(
+          Align(
+
             alignment: Alignment.centerLeft,
-            child: IconButton(
-              icon: AppTheme.btnBackIcon,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginScreen()
-                  ),
-                );
+           child: IconButton(
+             alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
+              onPressed: (){
+                Navigator.of(context).pop();
               },
+
             ),
+
           ),
           Container(
             padding: EdgeInsets.only(top: 10),
@@ -149,7 +154,7 @@ class _ForgorPasswordScreenState extends State<ForgotPasswordScreen> {
                               borderSide:
                               BorderSide(color: Colors.white70),
                             ),
-                            hintText: 'Enter your Password',
+                            hintText: 'Enter your Email Id',
                             hintStyle: AppTheme.inputHintStyle,
                             contentPadding: EdgeInsets.only(top: 13, left: 38),
                           ),

@@ -54,56 +54,82 @@ class _ShippingScreenState extends State<ShippingScreen>
   }
 
   Widget _appBar() {
-    return Container(
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(top: 17),
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OrderSummaryScreen()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 25,
-                        color: Colors.black,
-                      )),
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 50, top: 10),
-                  child: AllText(
-                    StringRes.shippingTitle,
-                    color: ColorRes.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              alignment: Alignment.topCenter,
-              padding: EdgeInsets.only(top: 10),
-              child: AllText(
-                StringRes.shippingTitle1,
-                color: ColorRes.blackColor,
-                fontSize: 15,
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 25, left: 10, right: 10),
-              child: Column(
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              Row(
                 children: <Widget>[
                   Container(
-                      padding: EdgeInsets.only(bottom: 10),
+                    height: 50,
+                    alignment: Alignment.topLeft,
+                    padding: EdgeInsets.only(top: 17),
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OrderSummaryScreen()),
+                          );
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 25,
+                          color: Colors.black,
+                        )),
+                  ),
+                  Container(
+                    alignment: Alignment.topCenter,
+                    padding: EdgeInsets.only(left: 50, top: 10),
+                    child: AllText(
+                      StringRes.shippingTitle,
+                      color: ColorRes.blackColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                alignment: Alignment.topCenter,
+                padding: EdgeInsets.only(top: 10),
+                child: AllText(
+                  StringRes.shippingTitle1,
+                  color: ColorRes.blackColor,
+                  fontSize: 15,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 25, left: 10, right: 10),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Stack(
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.only(left: 4, bottom: 30),
+                              height: 60,
+                              decoration: new BoxDecoration(
+                                border: Border.all(color: Colors.black45),
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(2)),
+                              ),
+                            ),
+                            Padding(
+
+                              padding: EdgeInsets.only(left: 10, top: 10),
+                              child:  AllText(
+                                StringRes.shippingDes1,
+                                color: ColorRes.blackColor,
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
+                        )),
+                    Container(
                       child: Stack(
                         children: <Widget>[
                           Container(
@@ -111,48 +137,26 @@ class _ShippingScreenState extends State<ShippingScreen>
                             height: 60,
                             decoration: new BoxDecoration(
                               border: Border.all(color: Colors.black45),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(2)),
+                              borderRadius: BorderRadius.all(Radius.circular(2)),
                             ),
                           ),
                           Padding(
-
                             padding: EdgeInsets.only(left: 10, top: 10),
                             child:  AllText(
-                              StringRes.shippingDes1,
+                              StringRes.shippingDes2,
                               color: ColorRes.blackColor,
                               fontSize: 13,
                             ),
                           ),
                         ],
-                      )),
-                  Container(
-                    child: Stack(
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.only(left: 4, bottom: 30),
-                          height: 60,
-                          decoration: new BoxDecoration(
-                            border: Border.all(color: Colors.black45),
-                            borderRadius: BorderRadius.all(Radius.circular(2)),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10, top: 10),
-                          child:  AllText(
-                            StringRes.shippingDes2,
-                            color: ColorRes.blackColor,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ));
+            ],
+          )),
+    );
   }
 
   // service details are use in forward arrow to the next screen

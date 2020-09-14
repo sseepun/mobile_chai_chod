@@ -93,7 +93,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
         children: <Widget>[
           Container(
             alignment: Alignment.topLeft,
-            padding: EdgeInsets.only(left:20,top: 5,bottom: 5),
+            padding: EdgeInsets.only(left:10,top: 5,bottom: 5),
             child: AllText(
               StringRes.SelectTireTitle1,
               color: ColorRes.blackColor,
@@ -139,7 +139,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
           children: <Widget>[
             Container(
               alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left:20,top: 5,bottom: 5),
+              padding: EdgeInsets.only(left:10,top: 5,bottom: 5),
               child: AllText(
                 StringRes.SelectTireTitle2,
                 color: ColorRes.blackColor,
@@ -155,6 +155,7 @@ class _SelectTireScreenState extends State<SelectTireScreen> {
         height: 50,
         color: Colors.white,
         child: Row(
+
           children: <Widget>[
             Container(
               alignment: Alignment.centerLeft,

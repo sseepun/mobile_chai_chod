@@ -36,59 +36,61 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        child: SafeArea(
+      color: Colors.white,
+      child: SafeArea(
         bottom: false,
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-              size: 25,
-            ),
-            onPressed: (){
-              Navigator.of(context).pop();
-            },
-          ),
-          backgroundColor: Colors.white,
-          title: Text(
-            StringRes.categoryTitle,
-            style: TextStyle(color: Colors.black),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.search),
-              color: ColorRes.primaryColor,
-            ),
-            IconButton(
-              icon: Icon(Icons.shopping_basket),
-              color: ColorRes.primaryColor,
+        child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 25,
+              ),
               onPressed: () {
-                cartScreenNavigator(context);
+                Navigator.of(context).pop();
               },
             ),
-          ],
-        ),
-        backgroundColor: ColorRes.lightWhite,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // appBar(),
-              SizedBox(height: 10),
-              titleText(),
-              SizedBox(height: 10),
-              categoryList(),
-              SizedBox(height: 10),
-              gridImage(),
-              SizedBox(height: 20),
+            backgroundColor: Colors.white,
+            title: Text(
+              StringRes.categoryTitle,
+              style: TextStyle(color: Colors.black),
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.search),
+                color: ColorRes.primaryColor,
+              ),
+              IconButton(
+                icon: Icon(Icons.shopping_basket),
+                color: ColorRes.primaryColor,
+                onPressed: () {
+                  cartScreenNavigator(context);
+                },
+              ),
             ],
+            centerTitle: true,
+          ),
+          backgroundColor: ColorRes.lightWhite,
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                // appBar(),
+                SizedBox(height: 10),
+                titleText(),
+                SizedBox(height: 10),
+                categoryList(),
+                SizedBox(height: 10),
+                gridImage(),
+                SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),
-        ),);
+    );
   }
 
 //   Widget appBar() {
@@ -165,34 +167,45 @@ class _CategoryScreenState extends State<CategoryScreen> {
               // physics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-
                 currentIndex = index;
-
-                return Container(
+                return InkResponse(
+                  onTap: () {
+                    if (index == 0) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => GoodYearScreen()),
+                      );
+                    } else if (index == 1) {
+                    } else if (index == 2) {
+                    } else if (index == 3) {
+                    } else if (index == 4) {}
+                  },
+                  child: Container(
 //              height: 200,
-                  width: 100,
-                  margin: EdgeInsets.only(left: 10),
+                    width: 100,
+                    margin: EdgeInsets.only(left: 10),
 //              decoration: BoxDecoration(color: ColorRes.whiteColor),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                          child: Image(
-                              image: AssetImage(images[index]),
-                              fit: BoxFit.fill)
-                      ),
-                      Container(
-                          height: 25,
-                          alignment: Alignment.bottomCenter,
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          margin: EdgeInsets.only(right: 0),
-                          child: AllText(stringList1[index],
-                              color: ColorRes.blackColor,
-                              maxLine: 1,
-                              fontSize: 12,
-                              overflow: TextOverflow.ellipsis)),
-                    ],
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                            child: Image(
+                                image: AssetImage(images[index]),
+                                fit: BoxFit.fill)),
+                        Container(
+                            height: 25,
+                            alignment: Alignment.bottomCenter,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            margin: EdgeInsets.only(right: 0),
+                            child: AllText(stringList1[index],
+                                color: ColorRes.blackColor,
+                                maxLine: 1,
+                                fontSize: 12,
+                                overflow: TextOverflow.ellipsis)),
+                      ],
+                    ),
                   ),
                 );
               }),
@@ -208,13 +221,15 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 itemCount: images.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-              return Container(
-                height: 3,
-                width: 15,
-                alignment: Alignment.center,
-                  margin: EdgeInsets.only(right: 4),
-                  color: currentIndex == index ? Colors.black.withOpacity(0.50) : Colors.grey.withOpacity(0.50));
-            }),
+                  return Container(
+                      height: 3,
+                      width: 15,
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(right: 4),
+                      color: currentIndex == index
+                          ? Colors.black.withOpacity(0.50)
+                          : Colors.grey.withOpacity(0.50));
+                }),
           ),
         )
       ],
@@ -262,7 +277,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
               ),
             );
           }),
-    )*/;
+    )*/
+    ;
   }
 
 // grid image  are using grid view image and text

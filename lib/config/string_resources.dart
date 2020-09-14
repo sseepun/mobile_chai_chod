@@ -223,7 +223,6 @@ class StringRes {
   //DebitCard Screen
   static const DebitCardTitle                  =  "Scan to pay";
   static const DebitCardTitle2                 =  "Order no.410031124 30/05/20";
-
  // Search Screen
 
  static const Searchtab1                         = "tab1";

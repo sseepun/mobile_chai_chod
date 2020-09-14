@@ -69,7 +69,7 @@ class OrderDetailsScreenState extends State<OrderDetailsScreen> {
     return Container(
 //      height: 50,
       color: ColorRes.lightWhite,
-      padding: EdgeInsets.only(left: 15, right: 10, bottom: 10, top: 10),
+      padding: EdgeInsets.only(left: 10, right: 10, bottom: 10, top: 10),
       alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
