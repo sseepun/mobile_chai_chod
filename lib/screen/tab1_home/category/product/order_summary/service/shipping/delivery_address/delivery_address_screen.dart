@@ -162,50 +162,52 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
   }
 
   serviceDetails() {
-    return Container(
-      color: Colors.white,
+    return InkResponse(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LocationScreen()),
+        );
+      },
       child: Container(
-        height: 60,
-        margin: EdgeInsets.only(top: 10, left: 10, right: 10,bottom: 10),
-        decoration: new BoxDecoration(
-          boxShadow: [
-            new BoxShadow(
-              offset: Offset(0.5, 0.5),
-              color: ColorRes.greyColor,
-              blurRadius: 0.9,
-            ),
-          ],
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-        child: Row(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topRight,
-              padding: EdgeInsets.only(left: 10, top: 20),
-              child: AllText(
-                StringRes.DeliveryAddressDescription1,
-                color: ColorRes.blackColor,
-                fontSize: 15,
+        color: Colors.white,
+        child: Container(
+          height: 60,
+          margin: EdgeInsets.only(top: 10, left: 10, right: 10,bottom: 10),
+          decoration: new BoxDecoration(
+            boxShadow: [
+              new BoxShadow(
+                offset: Offset(0.5, 0.5),
+                color: ColorRes.greyColor,
+                blurRadius: 0.9,
               ),
-            ),
-            Container(
-              height: 50,
-              padding: EdgeInsets.only(left: 160),
-              child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LocationScreen()),
-                    );
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 25,
-                    color: ColorRes.primaryColor,
-                  )),
-            ),
-          ],
+            ],
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(2)),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.topRight,
+                padding: EdgeInsets.only(left: 10, top: 20),
+                child: AllText(
+                  StringRes.DeliveryAddressDescription1,
+                  color: ColorRes.blackColor,
+                  fontSize: 15,
+                ),
+              ),
+              Container(
+                height: 50,
+                margin: EdgeInsets.only(right: 10),
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 25,
+                  color: ColorRes.primaryColor,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

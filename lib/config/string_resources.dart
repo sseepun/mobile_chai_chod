@@ -137,7 +137,7 @@ class StringRes {
   static const rubberEdge                    = "Rubber edge";
   static const sidewallTxt                   = "Sidewall";
   static const btn1details                   = "Add to cart";
-  static const DateFormat                   = "12 DEC 2019";
+  static const DateFormat                    = "12 DEC 2019";
 
   //OrderSummary
   static const OrderSummaryTitle             = "Order Summary";

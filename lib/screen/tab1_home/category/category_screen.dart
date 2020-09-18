@@ -156,7 +156,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   categoryList() {
     return Column(
-//      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
@@ -213,7 +213,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
         Container(
           height: 3,
           margin: EdgeInsets.only(top: 10),
-          width: Utils.getDeviceWidth(context) / images.length * 0.70,
+            width: Utils.getDeviceWidth(context) * 0.20,
+//            width: Utils.getDeviceWidth(context) / images.length * 0.80,
           alignment: Alignment.center,
 //          color: Colors.black,
           child: Center(

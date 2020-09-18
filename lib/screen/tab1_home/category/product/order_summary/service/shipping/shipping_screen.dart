@@ -77,11 +77,12 @@ class _ShippingScreenState extends State<ShippingScreen>
                     padding: EdgeInsets.only(top: 17,left: 10),
                     child: InkWell(
                         onTap: () {
-                          Navigator.push(
+                          Navigator.pop(context);
+                        /*  Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => OrderSummaryScreen()),
-                          );
+                          );*/
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -184,49 +185,52 @@ class _ShippingScreenState extends State<ShippingScreen>
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Container(
-              height: 60,
-              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-              decoration: new BoxDecoration(
-                boxShadow: [
-                  new BoxShadow(
-                    offset: Offset(0.5, 0.5),
-                    color: ColorRes.greyColor,
-                    blurRadius: 0.9,
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(2)),
-              ),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(left: 10, top: 20),
-                    child: AllText(
-                      StringRes.shippingDescription2,
-                      color: ColorRes.blackColor,
-                      fontSize: 15,
+            InkResponse(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DeliveryAddressScreen()),
+                );
+              },
+              child: Container(
+                height: 60,
+                margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    new BoxShadow(
+                      offset: Offset(0.5, 0.5),
+                      color: ColorRes.greyColor,
+                      blurRadius: 0.9,
                     ),
-                  ),
-                  Container(
-                    height: 50,
-                    padding: EdgeInsets.only(left: 120),
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DeliveryAddressScreen()),
-                          );
-                        },
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          size: 25,
-                          color: ColorRes.primaryColor,
-                        )),
-                  ),
-                ],
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(2)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.topRight,
+                      padding: EdgeInsets.only(left: 10, top: 20),
+                      child: AllText(
+                        StringRes.shippingDescription2,
+                        color: ColorRes.blackColor,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Container(
+                      height: 50,
+                      margin: EdgeInsets.only(right: 10),
+//                      padding: EdgeInsets.only(left: 120),
+                      child: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 25,
+                        color: ColorRes.primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

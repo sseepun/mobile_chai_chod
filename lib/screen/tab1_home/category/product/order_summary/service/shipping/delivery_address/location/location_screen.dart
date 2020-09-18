@@ -58,23 +58,23 @@ class _MapScreenState extends State<LocationScreen> {
         bottom: false,
         child: Scaffold(
           backgroundColor: ColorRes.whiteColor,
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                CommonView.backArrowAndTitle(
-                    context, StringRes.address, ColorRes.blackColor),
-                SizedBox(height: 5),
-                Stack(
+          body: Column(
+            children: <Widget>[
+              CommonView.backArrowAndTitle(context, StringRes.address, ColorRes.blackColor),
+              SizedBox(height: 5),
+              SingleChildScrollView(
+                child: Stack(
                   children: [
-                    map(),
                     Container(
-                      child: searchData(),
+                      height: Utils.getDeviceHeight(context) - 93,
+                      child: map(),
                     ),
+                    searchData(),
                   ],
                 ),
-                //listData(),
-              ],
-            ),
+              ),
+              //listData(),
+            ],
           ),
         ),
       ),

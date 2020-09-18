@@ -175,41 +175,41 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Container(
-              height: 60,
-              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-              decoration: new BoxDecoration(
-                boxShadow: [
-                  new BoxShadow(
-                    offset: Offset(0.5, 0.5),
-                    color: ColorRes.greyColor,
-                    blurRadius: 0.9,
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(2)),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.topRight,
-                    padding: EdgeInsets.only(left: 10, top: 20, right: 10),
-                    child: AllText(
-                      StringRes.serviceDes2,
-                      color: ColorRes.blackColor,
-                      fontSize: 15,
+            InkResponse(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ShippingScreen()),
+                );
+              },
+              child: Container(
+                height: 60,
+                margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    new BoxShadow(
+                      offset: Offset(0.5, 0.5),
+                      color: ColorRes.greyColor,
+                      blurRadius: 0.9,
                     ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ShippingScreen()),
-                      );
-                    },
-                    child: Container(
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(2)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.topRight,
+                      padding: EdgeInsets.only(left: 10, top: 20, right: 10),
+                      child: AllText(
+                        StringRes.serviceDes2,
+                        color: ColorRes.blackColor,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Container(
                       height: 50,
                       width: 50,
                       child: Icon(
@@ -218,8 +218,8 @@ class _ServiceScreenState extends State<ServiceScreen> {
                         color: ColorRes.primaryColor,
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Column(
@@ -451,6 +451,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
   discountDetails() {
     return Container(
         height: 110,
+        width: Utils.getDeviceWidth(context),
         color: Colors.white,
         child: Column(
           children: <Widget>[
@@ -468,26 +469,30 @@ class _ServiceScreenState extends State<ServiceScreen> {
               padding: EdgeInsets.only(top: 10, left: 10),
               child: Row(
                 children: <Widget>[
-                  Container(
-                      height: 50,
-                      width: 290,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                        color: ColorRes.primaryColor,
-                      )),
-                      child: FlatButton(
-                        padding: EdgeInsets.only(right: 80),
-                        color: ColorRes.whiteColor,
-                        child: AllText(
-                          StringRes.discountServiceBtn1,
-                          fontSize: 15,
+                  Expanded(
+                    child: Container(
+                        height: 50,
+//                      width: Utils.getDeviceWidth(context),
+                        padding: EdgeInsets.only(left: 10),
+                        alignment: Alignment.centerLeft,
+                        decoration: BoxDecoration(
+                            border: Border.all(
                           color: ColorRes.primaryColor,
-                        ),
-                        onPressed: () {},
-                      )),
+                        )),
+                        child: FlatButton(
+                          color: ColorRes.whiteColor,
+                          child: AllText(
+                            StringRes.discountServiceBtn1,
+                            fontSize: 15,
+                            color: ColorRes.primaryColor,
+                          ),
+                          onPressed: () {},
+                        )),
+                  ),
                   Container(
                       height: 50,
                       width: 50,
+                      margin: EdgeInsets.only(right: 10),
                       padding: EdgeInsets.only(),
                       child: FlatButton(
                         padding: EdgeInsets.only(right: 3),
