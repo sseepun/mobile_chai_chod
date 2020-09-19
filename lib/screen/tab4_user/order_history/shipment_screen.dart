@@ -2,14 +2,15 @@ import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:flutter/material.dart';
+
 class ShipmentScreen extends StatefulWidget {
   @override
   _ShipmentScreenState createState() => _ShipmentScreenState();
 }
 
 class _ShipmentScreenState extends State<ShipmentScreen> {
-  List<String> stringList = ['Prepare to pay,billing','Delivery of product to you..' ,'Successful delivery', 'Successful delivery', 'Successful delivery'];
 
+  List<String> stringList = ['Prepare to pay,billing','Delivery of product to you..' ,'Successful delivery', 'Successful delivery', 'Successful delivery'];
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +52,10 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
         }
       },
       child: Container(
-          height: MediaQuery.of(context).size.height*0.17,
+//          height: MediaQuery.of(context).size.height * 0.17,
+          height: 100,
           margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
-          padding: EdgeInsets.only(left: 0, bottom: 10, right: 0, top: 10),
+          padding: EdgeInsets.only(left: 0, bottom: 0, right: 0, top: 10),
 
           decoration: new BoxDecoration(
             boxShadow: [
@@ -93,12 +95,13 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(top:10,left: 15,),
+                  padding: EdgeInsets.only(top:10,left: 15, right: 15),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Column(
                         children: <Widget>[
-                          Container(
+                          Padding(
                             padding: EdgeInsets.only(bottom: 5),
                             child:
                             AllText(
@@ -110,10 +113,9 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
                               align: TextAlign.left,
                             ),
                           ),
-                          Container(
+                          Padding(
                             padding: EdgeInsets.only(bottom: 5),
-                            child:
-                            AllText(
+                            child: AllText(
                               "Order number #9138123",
                               color: Colors.black,
                               fontSize: 14,
@@ -124,36 +126,31 @@ class _ShipmentScreenState extends State<ShipmentScreen> {
                           ),
                         ],
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 100),
-                        child:Column(
-                          children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.only(bottom: 5),
-                              child:
-                              AllText(
-                                "30/05/20",
-                                color: Colors.black,
-                                fontSize: 14,
-                                maxLine: 1,
-                                overflow: TextOverflow.ellipsis,
-                                align: TextAlign.left,
-                              ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 5),
+                            child: AllText(
+                              "30/05/20",
+                              color: Colors.black,
+                              fontSize: 14,
+                              maxLine: 1,
+                              overflow: TextOverflow.ellipsis,
+                              align: TextAlign.left,
                             ),
-                            Container(
-                              padding: EdgeInsets.only(bottom: 5),
-                              child:
-                              AllText(
-                                "31/05/20",
-                                color: Colors.black,
-                                fontSize: 14,
-                                maxLine: 1,
-                                overflow: TextOverflow.ellipsis,
-                                align: TextAlign.left,
-                              ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 5),
+                            child: AllText(
+                              "31/05/20",
+                              color: Colors.black,
+                              fontSize: 14,
+                              maxLine: 1,
+                              overflow: TextOverflow.ellipsis,
+                              align: TextAlign.left,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   )
