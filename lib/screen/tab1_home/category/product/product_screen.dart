@@ -30,7 +30,7 @@ class _ProductScreenState extends State<ProductScreen>
   double rating = 3.0;
   List<String> listTitle = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
   int _n = 1;
-  int currentIndexChangeTabBar = 0;
+  int currentIndexChangeTabBar;
 
   void add() {
     setState(() {
@@ -48,8 +48,12 @@ class _ProductScreenState extends State<ProductScreen>
   void initState() {
     super.initState();
     _tabController = new TabController(length: 2, vsync: this);
+    currentIndexChangeTabBar = 0;
     showPerBottomSheetCallBack = showModalSheet1;
     showPerBottomSheetCallBack = showModalSheet2;
+
+    _studentDasboardController =
+        PageController(initialPage: tabIndex, viewportFraction: 1.0);
   }
 
   hexColor(String colorhexcode) {
@@ -304,6 +308,7 @@ class _ProductScreenState extends State<ProductScreen>
       ],
     );
   }
+
   /*tabbar(){
     return Container(
     child: Column(
@@ -336,9 +341,67 @@ class _ProductScreenState extends State<ProductScreen>
     ),
     );
 }*/
+
+  PageController _studentDasboardController;
+  int tabIndex = 0;
+
   //tab bar heading
   tabBarShow() {
-    print(currentIndexChangeTabBar);
+    return Container(
+      height: tabIndex == 0 ? 850 : 575,
+      alignment: Alignment.center,
+      child: Column(
+        children: [
+          Container(
+            height: 50,
+            alignment: Alignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                    flex: 1,
+                    child: InkResponse(
+                      onTap: () {
+                        _studentDasboardController.jumpToPage(0);
+
+                      },
+                      child: AllText(StringRes.tab1),
+                    )),
+                Expanded(
+                    flex: 1,
+                    child: InkResponse(
+                      onTap: () {
+                        _studentDasboardController.jumpToPage(1);
+
+                      },
+                      child: AllText(StringRes.tab2),
+                    ))
+              ],
+            ),
+          ),
+
+          Expanded(
+            child: PageView(
+              controller: _studentDasboardController,
+              physics: NeverScrollableScrollPhysics(),
+              onPageChanged: (t) {
+                setState(() {
+                  tabIndex = t;
+                });
+              },
+              children: <Widget>[
+                listData(),
+                reviewsTab(),
+              ],
+            ),
+          ),
+
+
+        ],
+      ),
+    );
+
+    /* print(currentIndexChangeTabBar);
     return Container(
       height: currentIndexChangeTabBar == 0 ? 850 : 575,
       color: ColorRes.lightWhite,
@@ -346,44 +409,35 @@ class _ProductScreenState extends State<ProductScreen>
         children: <Widget>[
           CommonView.titleText(StringRes.ProductTitle1),
           SizedBox(height: 5),
-          Container(
-            height: 35,
-            child: TabBarView(
-              // indicatorColor: ColorRes.primaryColor,
-              // labelColor: ColorRes.primaryColor,
-              // // isScrollable: false,
-              // labelStyle: TextStyle(color: ColorRes.primaryColor),
-              physics: NeverScrollableScrollPhysics(),
+          TabBar(
+            indicatorColor: ColorRes.primaryColor,
+            labelColor: ColorRes.primaryColor,
+            isScrollable: false,
+            physics: NeverScrollableScrollPhysics(),
+            labelStyle: TextStyle(color: ColorRes.primaryColor),
+            onTap: (indedx) {
 
-              children: [Tab(
-                child: AllText(StringRes.tab1,
-                    fontSize: 17, color: ColorRes.primaryColor),
-              ),
-                Tab(
+              if (indedx == 0) {
+                setState(() {
+                  currentIndexChangeTabBar = 0;
+                });
+              } else if (indedx == 1) {
+                setState(() {
+                  currentIndexChangeTabBar = 1;
+                });
+              }
+
+
+            },
+            tabs: <Tab>[
+              Tab(
+                  child: AllText(StringRes.tab1,
+                      fontSize: 17, color: ColorRes.primaryColor)),
+              Tab(
                   child: AllText(StringRes.tab2,
-                      fontSize: 17, color: ColorRes.primaryColor),
-                ),],
-             /* onTap: (indedx) {
-                if (indedx == 0) {
-                  setState(() {
-                    currentIndexChangeTabBar = 0;
-                  });
-                } else if (indedx == 1) {
-                  setState(() {
-                    currentIndexChangeTabBar = 1;
-                  });
-                }
-              },*/
-             /* tabs: <Tab>[
-                Tab(
-                    child: AllText(StringRes.tab1,
-                        fontSize: 17, color: ColorRes.primaryColor)),
-                Tab(
-                    child: AllText(StringRes.tab2,
-                        fontSize: 17, color: ColorRes.primaryColor)),
-              ],*/
-              controller: _tabController,
-            ),
+                      fontSize: 17, color: ColorRes.primaryColor)),
+            ],
+            controller: _tabController,
           ),
           Expanded(
             child: TabBarView(
@@ -393,17 +447,18 @@ class _ProductScreenState extends State<ProductScreen>
 //                  DetailsScreen(),
 //                ReviewScreen(),
               ],
+
               controller: _tabController,
             ),
           ),
         ],
       ),
-    );
+    );*/
   }
 
   //list data in using details tab
   listData() {
-    currentIndexChangeTabBar = 0;
+    currentIndexChangeTabBar = 1;
     return SingleChildScrollView(
       physics: NeverScrollableScrollPhysics(),
       child: Column(
