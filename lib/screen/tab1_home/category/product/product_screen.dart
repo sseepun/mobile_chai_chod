@@ -31,6 +31,7 @@ class _ProductScreenState extends State<ProductScreen>
   List<String> listTitle = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
   int _n = 1;
   int currentIndexChangeTabBar = 0;
+
   void add() {
     setState(() {
       _n++;
@@ -77,9 +78,10 @@ class _ProductScreenState extends State<ProductScreen>
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),
             centerTitle: true,
-            title: AllText(StringRes.ProductTitle, color: Colors.black,
+            title: AllText(
+              StringRes.ProductTitle,
+              color: Colors.black,
             ),
-
           ),
           backgroundColor: ColorRes.whiteColor,
           body: SingleChildScrollView(
@@ -302,7 +304,6 @@ class _ProductScreenState extends State<ProductScreen>
       ],
     );
   }
-
   /*tabbar(){
     return Container(
     child: Column(
@@ -335,7 +336,6 @@ class _ProductScreenState extends State<ProductScreen>
     ),
     );
 }*/
-
   //tab bar heading
   tabBarShow() {
     print(currentIndexChangeTabBar);
@@ -346,34 +346,44 @@ class _ProductScreenState extends State<ProductScreen>
         children: <Widget>[
           CommonView.titleText(StringRes.ProductTitle1),
           SizedBox(height: 5),
-          TabBar(
-            indicatorColor: ColorRes.primaryColor,
-            labelColor: ColorRes.primaryColor,
-            isScrollable: false,
-            labelStyle: TextStyle(color: ColorRes.primaryColor),
-            onTap: (indedx) {
+          Container(
+            height: 35,
+            child: TabBarView(
+              // indicatorColor: ColorRes.primaryColor,
+              // labelColor: ColorRes.primaryColor,
+              // // isScrollable: false,
+              // labelStyle: TextStyle(color: ColorRes.primaryColor),
+              physics: NeverScrollableScrollPhysics(),
 
-              if (indedx == 0) {
-                setState(() {
-                  currentIndexChangeTabBar = 0;
-                });
-              } else if (indedx == 1) {
-                setState(() {
-                  currentIndexChangeTabBar = 1;
-                });
-              }
-
-
-            },
-            tabs: <Tab>[
-              Tab(
-                  child: AllText(StringRes.tab1,
-                      fontSize: 17, color: ColorRes.primaryColor)),
-              Tab(
+              children: [Tab(
+                child: AllText(StringRes.tab1,
+                    fontSize: 17, color: ColorRes.primaryColor),
+              ),
+                Tab(
                   child: AllText(StringRes.tab2,
-                      fontSize: 17, color: ColorRes.primaryColor)),
-            ],
-            controller: _tabController,
+                      fontSize: 17, color: ColorRes.primaryColor),
+                ),],
+             /* onTap: (indedx) {
+                if (indedx == 0) {
+                  setState(() {
+                    currentIndexChangeTabBar = 0;
+                  });
+                } else if (indedx == 1) {
+                  setState(() {
+                    currentIndexChangeTabBar = 1;
+                  });
+                }
+              },*/
+             /* tabs: <Tab>[
+                Tab(
+                    child: AllText(StringRes.tab1,
+                        fontSize: 17, color: ColorRes.primaryColor)),
+                Tab(
+                    child: AllText(StringRes.tab2,
+                        fontSize: 17, color: ColorRes.primaryColor)),
+              ],*/
+              controller: _tabController,
+            ),
           ),
           Expanded(
             child: TabBarView(
@@ -383,7 +393,6 @@ class _ProductScreenState extends State<ProductScreen>
 //                  DetailsScreen(),
 //                ReviewScreen(),
               ],
-
               controller: _tabController,
             ),
           ),
@@ -392,10 +401,9 @@ class _ProductScreenState extends State<ProductScreen>
     );
   }
 
-
   //list data in using details tab
   listData() {
-    currentIndexChangeTabBar = 1;
+    currentIndexChangeTabBar = 0;
     return SingleChildScrollView(
       physics: NeverScrollableScrollPhysics(),
       child: Column(
@@ -423,11 +431,9 @@ class _ProductScreenState extends State<ProductScreen>
               ),
             ),
           ),
-
           qualifications(),
           qualifications(),
           qualifications(),
-
           Center(
             child: Image.asset(
               Utils.getAssetsImg('productimge2'),
@@ -454,7 +460,7 @@ class _ProductScreenState extends State<ProductScreen>
 
   //review tab in using review tab
   reviewsTab() {
-    currentIndexChangeTabBar = 2;
+    currentIndexChangeTabBar = 1;
     return Column(
       children: <Widget>[
         Container(
@@ -471,11 +477,11 @@ class _ProductScreenState extends State<ProductScreen>
             ),
           ),
         ),
-        startRatingCountShow(5, 0.8 ,"2022"),
-        startRatingCountShow(4, 0.5 ,"544"),
-        startRatingCountShow(3, 0.6 ,"122"),
-        startRatingCountShow(2, 0.7 ,"89"),
-        startRatingCountShow(1, 0.9 ,"12"),
+        startRatingCountShow(5, 0.8, "2022"),
+        startRatingCountShow(4, 0.5, "544"),
+        startRatingCountShow(3, 0.6, "122"),
+        startRatingCountShow(2, 0.7, "89"),
+        startRatingCountShow(1, 0.9, "12"),
         reviewDetails()
       ],
     );
@@ -1158,25 +1164,29 @@ class _ProductScreenState extends State<ProductScreen>
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                          padding: EdgeInsets.only(
+                              left: 10, right: 10, top: 10, bottom: 10),
                           color: ColorRes.whiteColor,
                           child: CommonView.productDetailsLeftRightData(
                               StringRes.width, "195 mm."),
                         ),
                         Container(
-                          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                          padding: EdgeInsets.only(
+                              left: 10, right: 10, top: 10, bottom: 10),
                           color: ColorRes.lightWhite,
                           child: CommonView.productDetailsLeftRightData(
                               StringRes.rubberSeries, "55"),
                         ),
                         Container(
-                          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                          padding: EdgeInsets.only(
+                              left: 10, right: 10, top: 10, bottom: 10),
                           color: ColorRes.whiteColor,
                           child: CommonView.productDetailsLeftRightData(
                               StringRes.rubberEdge, "15"),
                         ),
                         Container(
-                          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                          padding: EdgeInsets.only(
+                              left: 10, right: 10, top: 10, bottom: 10),
                           color: ColorRes.lightWhite,
                           child: CommonView.productDetailsLeftRightData(
                               StringRes.sidewallTxt, "10.72 cm."),
@@ -1227,38 +1237,39 @@ class _ProductScreenState extends State<ProductScreen>
         });
   }
 
-  startRatingCountShow(double startRating, double ratingPercent, String totalCount) {
+  startRatingCountShow(
+      double startRating, double ratingPercent, String totalCount) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-      starRating(startRating),
-      Expanded(
+          starRating(startRating),
+          Expanded(
 //        alignment: Alignment.center,
-        // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-        child: Padding(
-          padding: EdgeInsets.only(top: 5),
-          child: new LinearPercentIndicator(
+            // padding: EdgeInsets.only(top:10,left: 10, right: 10),
+            child: Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: new LinearPercentIndicator(
 //            width: 150.0,
-            lineHeight: 10.0,
-            percent: ratingPercent,
-            linearStrokeCap: LinearStrokeCap.roundAll,
-            backgroundColor: Colors.black12,
-            progressColor: Colors.blue,
+                lineHeight: 10.0,
+                percent: ratingPercent,
+                linearStrokeCap: LinearStrokeCap.roundAll,
+                backgroundColor: Colors.black12,
+                progressColor: Colors.blue,
+              ),
+            ),
           ),
-        ),
-      ),
-      Container(
-        width: 50,
-        alignment: Alignment.centerRight,
-        margin: EdgeInsets.only(right: 10, top: 5),
-        // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-        child: AllText(totalCount, align: TextAlign.right),
-      )
-    ]);
+          Container(
+            width: 50,
+            alignment: Alignment.centerRight,
+            margin: EdgeInsets.only(right: 10, top: 5),
+            // padding: EdgeInsets.only(top:10,left: 10, right: 10),
+            child: AllText(totalCount, align: TextAlign.right),
+          )
+        ]);
   }
 
   qualifications() {
-    return  Container(
+    return Container(
       margin: EdgeInsets.only(bottom: 10),
       padding: EdgeInsets.only(top: 10, left: 7),
       child: Row(

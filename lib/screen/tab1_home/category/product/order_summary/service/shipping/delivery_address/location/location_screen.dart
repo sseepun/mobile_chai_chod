@@ -56,25 +56,56 @@ class _MapScreenState extends State<LocationScreen> {
       color: ColorRes.whiteColor,
       child: SafeArea(
         bottom: false,
-        child: Scaffold(
-          backgroundColor: ColorRes.whiteColor,
-          body: Column(
-            children: <Widget>[
-              CommonView.backArrowAndTitle(context, StringRes.address, ColorRes.blackColor),
-              SizedBox(height: 5),
-              SingleChildScrollView(
-                child: Stack(
-                  children: [
-                    Container(
-                      height: Utils.getDeviceHeight(context) - 93,
-                      child: map(),
-                    ),
-                    searchData(),
-                  ],
+        child: SafeArea(
+          bottom: false,
+          child: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(70), // here the desired height
+              child: AppBar(
+                elevation: 0.0,
+                leading: IconButton(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(left: 5),
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.black,
+                    size: 25,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
                 ),
+                title: Container(
+                  margin: EdgeInsets.only(top: 5),
+                  child: Text(StringRes.address,
+                      style: TextStyle(color: ColorRes.blackColor)),
+                ),
+                backgroundColor: ColorRes.lightWhite,
+//            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
+                centerTitle: true,
               ),
-              //listData(),
-            ],
+            ),
+            backgroundColor: ColorRes.lightWhite,
+            body: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  // CommonView.backArrowAndTitle(context, StringRes.address, ColorRes.blackColor),
+                  // SizedBox(height: 5),
+                  Stack(
+                    children: [
+                      Container(
+                        height: Utils.getDeviceHeight(context) - 93,
+                        child: map(),
+                      ),
+                      Container(
+                        child: searchData(),
+                      ),
+                    ],
+                  ),
+                  //listData(),
+                ],
+             ),
+            ),
           ),
         ),
       ),
@@ -109,12 +140,10 @@ class _MapScreenState extends State<LocationScreen> {
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(2)),
       ),
-
       width: Utils.getDeviceWidth(context),
       margin: EdgeInsets.all(15),
       child: TextFormField(
         decoration: InputDecoration(
-
           hintText: 'Search here...',
           filled: true,
           fillColor: ColorRes.whiteColor,
