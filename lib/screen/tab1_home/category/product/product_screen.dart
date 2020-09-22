@@ -20,7 +20,8 @@ class ProductScreen extends StatefulWidget {
   _ProductScreenState createState() => _ProductScreenState();
 }
 
-class _ProductScreenState extends State<ProductScreen> with SingleTickerProviderStateMixin {
+class _ProductScreenState extends State<ProductScreen>
+    with SingleTickerProviderStateMixin {
   final controller = PageController();
   final scaffoldKey = new GlobalKey<ScaffoldState>();
   VoidCallback showPerBottomSheetCallBack;
@@ -28,7 +29,7 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
   double rating = 3.0;
   List<String> listTitle = ['goodyear1', 'goodyear2', 'goodyear3', 'goodyear4'];
   int _n = 1;
-  int currentIndexChangeTabBar = 0;
+  int currentIndexChangeTabBar;
 
   void add() {
     setState(() {
@@ -46,8 +47,12 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
   void initState() {
     super.initState();
     _tabController = new TabController(length: 2, vsync: this);
+    currentIndexChangeTabBar = 0;
     showPerBottomSheetCallBack = showModalSheet1;
     showPerBottomSheetCallBack = showModalSheet2;
+
+    _studentDasboardController =
+        PageController(initialPage: tabIndex, viewportFraction: 1.0);
   }
 
   hexColor(String colorhexcode) {
@@ -334,9 +339,98 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
     ),
     );
 }*/
+
+  PageController _studentDasboardController;
+  int tabIndex = 0;
+
   //tab bar heading
   tabBarShow() {
-    print(currentIndexChangeTabBar);
+    return Container(
+      height: tabIndex == 0 ? 820 : 504,
+      color: ColorRes.lightWhite,
+      child: Column(
+        children: [
+          Container(
+            height: 50,
+            color: ColorRes.whiteColor,
+            alignment: Alignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                    flex: 1,
+                    child: InkResponse(
+                      onTap: () {
+                        _studentDasboardController.jumpToPage(0);
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.only(top: 15),
+                              child: AllText(StringRes.tab1, align: TextAlign.center)),
+                          Container(
+                            height: 1,
+                            decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(
+                                  color: tabIndex == 0  ? ColorRes.primaryColor : ColorRes.whiteColor,
+                                  width: 2,
+                                ))
+                            ),
+                          )
+                        ],
+                      ),
+                    )),
+                Expanded(
+                    flex: 1,
+                    child: InkResponse(
+                      onTap: () {
+                        _studentDasboardController.jumpToPage(1);
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.only(top: 15),
+                              child: AllText(StringRes.tab2, align: TextAlign.center)),
+                          Container(
+                            height: 1,
+                            decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(
+                                  color: tabIndex == 1  ? ColorRes.primaryColor : ColorRes.whiteColor,
+                                  width: 2,
+                                ))
+                            ),
+                          )
+                        ],
+                      ),
+                    ))
+              ],
+            ),
+          ),
+
+          Expanded(
+            child: PageView(
+              controller: _studentDasboardController,
+              physics: NeverScrollableScrollPhysics(),
+              onPageChanged: (t) {
+                setState(() {
+                  tabIndex = t;
+                });
+              },
+              children: <Widget>[
+                listData(),
+                reviewsTab(),
+              ],
+            ),
+          ),
+
+
+        ],
+      ),
+    );
+
+    /* print(currentIndexChangeTabBar);
     return Container(
       height: currentIndexChangeTabBar == 0 ? 850 : 575,
       color: ColorRes.lightWhite,
@@ -344,44 +438,35 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
         children: <Widget>[
           CommonView.titleText(StringRes.ProductTitle1),
           SizedBox(height: 5),
-          Container(
-            height: 35,
-            child: TabBarView(
-              // indicatorColor: ColorRes.primaryColor,
-              // labelColor: ColorRes.primaryColor,
-              // // isScrollable: false,
-              // labelStyle: TextStyle(color: ColorRes.primaryColor),
-              physics: NeverScrollableScrollPhysics(),
+          TabBar(
+            indicatorColor: ColorRes.primaryColor,
+            labelColor: ColorRes.primaryColor,
+            isScrollable: false,
+            physics: NeverScrollableScrollPhysics(),
+            labelStyle: TextStyle(color: ColorRes.primaryColor),
+            onTap: (indedx) {
 
-              children: [Tab(
-                child: AllText(StringRes.tab1,
-                    fontSize: 17, color: ColorRes.primaryColor),
-              ),
-                Tab(
+              if (indedx == 0) {
+                setState(() {
+                  currentIndexChangeTabBar = 0;
+                });
+              } else if (indedx == 1) {
+                setState(() {
+                  currentIndexChangeTabBar = 1;
+                });
+              }
+
+
+            },
+            tabs: <Tab>[
+              Tab(
+                  child: AllText(StringRes.tab1,
+                      fontSize: 17, color: ColorRes.primaryColor)),
+              Tab(
                   child: AllText(StringRes.tab2,
-                      fontSize: 17, color: ColorRes.primaryColor),
-                ),],
-             /* onTap: (indedx) {
-                if (indedx == 0) {
-                  setState(() {
-                    currentIndexChangeTabBar = 0;
-                  });
-                } else if (indedx == 1) {
-                  setState(() {
-                    currentIndexChangeTabBar = 1;
-                  });
-                }
-              },*/
-             /* tabs: <Tab>[
-                Tab(
-                    child: AllText(StringRes.tab1,
-                        fontSize: 17, color: ColorRes.primaryColor)),
-                Tab(
-                    child: AllText(StringRes.tab2,
-                        fontSize: 17, color: ColorRes.primaryColor)),
-              ],*/
-              controller: _tabController,
-            ),
+                      fontSize: 17, color: ColorRes.primaryColor)),
+            ],
+            controller: _tabController,
           ),
           Expanded(
             child: TabBarView(
@@ -396,7 +481,7 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
           ),
         ],
       ),
-    );
+    );*/
   }
 
   //list data in using details tab
@@ -407,6 +492,7 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
       child: Column(
         children: <Widget>[
           Container(
+            color: ColorRes.whiteColor,
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(top: 20, left: 10),
             child: Text(
@@ -419,6 +505,7 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
             ),
           ),
           Container(
+            color: ColorRes.whiteColor,
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 10, left: 10, right: 10),
             child: Text(
@@ -441,8 +528,9 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
             ),
           ),
           Container(
+            color: ColorRes.whiteColor,
             alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 30),
+            padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 40),
             child: Text(
               StringRes.Description1,
               style: TextStyle(
@@ -462,10 +550,9 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
     return Column(
       children: <Widget>[
         Container(
-          color: ColorRes.lightWhite,
-//          color: ColorRes.lightWhite,
+          color: ColorRes.whiteColor,
           alignment: Alignment.centerLeft,
-          padding: EdgeInsets.only(top: 20, left: 10, bottom: 10),
+          padding: EdgeInsets.only(top: 20, left: 10),
           child: Text(
             StringRes.Title1,
             style: TextStyle(
@@ -488,6 +575,7 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
   //review tab in rate in properties
   starRating(item) {
     return Container(
+      color: ColorRes.whiteColor,
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.only(left: 10.0, right: 5.0, top: 5),
       child: SmoothStarRating(
@@ -519,11 +607,10 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
       color: ColorRes.lightWhite,
       // color: Colors.red,
       width: Utils.getDeviceWidth(context),
-      margin: EdgeInsets.only(top: 20, bottom: 20),
+      margin: EdgeInsets.only(top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 15),
           Container(
             height: 190,
             child: ListView.builder(
@@ -599,7 +686,7 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
 
   relatedProducts() {
     return Padding(
-      padding: EdgeInsets.only(top: 20, left: 15),
+      padding: EdgeInsets.only(top: 10, left: 15),
       child: AllText(
         StringRes.ProductTitle3,
         fontWeight: FontWeight.bold,
@@ -1235,39 +1322,45 @@ class _ProductScreenState extends State<ProductScreen> with SingleTickerProvider
         });
   }
 
-  startRatingCountShow(double startRating, double ratingPercent, String totalCount) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          starRating(startRating),
-          Expanded(
+  startRatingCountShow(
+      double startRating, double ratingPercent, String totalCount) {
+    return Container(
+      color: ColorRes.whiteColor,
+      padding: EdgeInsets.only(bottom: startRating == 1 ? 20 : 00),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            starRating(startRating),
+            Expanded(
 //        alignment: Alignment.center,
-            // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-            child: Padding(
-              padding: EdgeInsets.only(top: 5),
-              child: new LinearPercentIndicator(
+              // padding: EdgeInsets.only(top:10,left: 10, right: 10),
+              child: Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: new LinearPercentIndicator(
 //            width: 150.0,
-                lineHeight: 10.0,
-                percent: ratingPercent,
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                backgroundColor: Colors.black12,
-                progressColor: Colors.blue,
+                  lineHeight: 10.0,
+                  percent: ratingPercent,
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  backgroundColor: Colors.black12,
+                  progressColor: Colors.blue,
+                ),
               ),
             ),
-          ),
-          Container(
-            width: 50,
-            alignment: Alignment.centerRight,
-            margin: EdgeInsets.only(right: 10, top: 5),
-            // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-            child: AllText(totalCount, align: TextAlign.right),
-          )
-        ]);
+            Container(
+              width: 50,
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.only(right: 10, top: 5),
+              // padding: EdgeInsets.only(top:10,left: 10, right: 10),
+              child: AllText(totalCount, align: TextAlign.right),
+            )
+          ]),
+    );
   }
 
   qualifications() {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      color: ColorRes.whiteColor,
+     // margin: EdgeInsets.only(bottom: 10),
       padding: EdgeInsets.only(top: 10, left: 7),
       child: Row(
         children: <Widget>[
