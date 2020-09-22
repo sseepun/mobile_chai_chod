@@ -22,67 +22,65 @@ class _ChildAboutUsScreenState extends State<ChildAboutUsScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: ColorRes.lightBlur,
-        child: SafeArea(
+      color: ColorRes.lightBlur,
+      child: SafeArea(
         bottom: false,
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60), // here the desired height
-          child: AppBar(
-            elevation: 0.0,
-            leading: IconButton(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.only( left: 5),
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-                size: 25,
+        child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(60), // here the desired height
+            child: AppBar(
+              elevation: 0.0,
+              leading: IconButton(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 5),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 25,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            title: Container(
-              margin: EdgeInsets.only(top: 5),
-              child: Text(StringRes.aboutUs,
-                  style: TextStyle(color: ColorRes.whiteColor)),
-            ),
-            backgroundColor: ColorRes.lightBlur,
+              title: Container(
+                margin: EdgeInsets.only(top: 5),
+                child: Text(StringRes.aboutUs,
+                    style: TextStyle(color: ColorRes.whiteColor)),
+              ),
+              backgroundColor: ColorRes.lightBlur,
 //            title: CommonView.appBarTitle(context, StringRes.shoppingCart),
-            centerTitle: true,
+              centerTitle: true,
+            ),
           ),
-        ),
-
-        backgroundColor: ColorRes.lightWhite,
-        body: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
+          backgroundColor: ColorRes.lightWhite,
+          body: SingleChildScrollView(
+            child: Stack(
+              children: <Widget>[
 //                  textTitle(),
-              Container(
-                height: Utils.getDeviceHeight(context) / 3.3,
-                color: ColorRes.lightBlur,
-              ),
+                Container(
+                  height: Utils.getDeviceHeight(context) / 3.3,
+                  color: ColorRes.lightBlur,
+                ),
 
-              Column(
-                children: <Widget>[
-                  // CommonView.backArrowAndTitle(context, StringRes.aboutUs, ColorRes.whiteColor),
+                Column(
+                  children: <Widget>[
+                    // CommonView.backArrowAndTitle(context, StringRes.aboutUs, ColorRes.whiteColor),
 
-                  ListView.builder(
-                      itemCount: 2,
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return listData(index);
-                      }),
-                ],
-              )
-
-
-            ],
+                    ListView.builder(
+                        itemCount: 2,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return listData(index);
+                        }),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
-        ),);
+    );
   }
 
   textTitle() {
@@ -129,8 +127,9 @@ class _ChildAboutUsScreenState extends State<ChildAboutUsScreen> {
           children: <Widget>[
             Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 15,bottom: 10),
-              child: Image.asset(images[index], height: 200, width: 330,fit: BoxFit.fill),
+              padding: EdgeInsets.only(top: 15, bottom: 10),
+              child: Image.asset(images[index],
+                  height: 200, width: 330, fit: BoxFit.fill),
             ),
             Container(
               alignment: Alignment.center,
@@ -139,13 +138,11 @@ class _ChildAboutUsScreenState extends State<ChildAboutUsScreen> {
                 stringList1[index],
                 color: ColorRes.blackColor,
                 fontSize: 15,
-
               ),
             ),
           ],
         ),
       ],
     );
-
   }
 }

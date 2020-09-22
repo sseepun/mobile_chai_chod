@@ -6,24 +6,28 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  File _image;
-
+  File image;
+  @override
+  void initState() {
+    super.initState();
+  }
+ 
   //image picker use in get the images in gallery
-  void _openGallery() async {
+  void openGallery() async {
     var i = await ImagePicker.pickImage(source: ImageSource.gallery);
     if (i != null) {
       setState(() {
-        _image = i;
+        image = i;
       });
     }
   }
 
   //image picker use in get the images in camera
-  void _openCamera() async {
+  void openCamera() async {
     var i = await ImagePicker.pickImage(source: ImageSource.camera);
     if (i != null) {
       setState(() {
-        _image = i;
+        image = i;
       });
     }
   }
@@ -184,7 +188,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: Container(
               child: FlatButton(
                 padding: EdgeInsets.only(top: 25),
-                child: _image == null
+                child: image == null
                     ? new Container(
                   height: 150,
                   width: 150,
@@ -196,7 +200,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     borderRadius: new BorderRadius.all(const Radius.circular(100)),
                   ),
                 )
-                    : _setImageView(),
+                    : setImageView(),
               ),
             ),
           ),
@@ -205,7 +209,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: Container(
               child: FlatButton(
                 onPressed: () {
-                  _showSelectionDialog();
+                  showSelectionDialog();
                 },
                 child: Column(
                   children: <Widget>[
@@ -233,7 +237,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
   //_showSelectionDialog are use in click edit profile and show dialog
-  void _showSelectionDialog() {
+  void showSelectionDialog() {
     BuildContext dialogContext;
     showDialog(
         context: context,
@@ -247,7 +251,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     GestureDetector(
                       child: Text("Gallery"),
                       onTap: () {
-                        _openGallery();
+                        openGallery();
                         Navigator.pop(dialogContext);
                       },
                     ),
@@ -255,7 +259,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     GestureDetector(
                       child: Text("Camera"),
                       onTap: () {
-                        _openCamera();
+                        openCamera();
                         Navigator.pop(dialogContext);
                       },
                     )
@@ -265,25 +269,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         });
   }
 
-  Widget _setImageView() {
-/*
-    if (image != null) {
-*/
+ setImageView() {
       return new Container(
         height: 150,
         width: 150,
         decoration: new BoxDecoration(
           image: new DecorationImage(
-            image: new ExactAssetImage(_image.path),
+            image: new ExactAssetImage(image.path),
             fit: BoxFit.cover,
           ),
            shape: BoxShape.circle
         ),
       );
-    // }
-    // else {
-    //   return Text("Please select an image");
-    // }
   }
 
   nameTextFiled() {

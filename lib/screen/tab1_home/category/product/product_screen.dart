@@ -1,6 +1,7 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/filled_button.dart';
+import 'package:ChaiChod/common_widget/slider_plugin_custome.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
@@ -14,15 +15,12 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 class ProductScreen extends StatefulWidget {
   final int i;
-
   const ProductScreen({Key key, this.i}) : super(key: key);
-
   @override
   _ProductScreenState createState() => _ProductScreenState();
 }
 
-class _ProductScreenState extends State<ProductScreen>
-    with SingleTickerProviderStateMixin {
+class _ProductScreenState extends State<ProductScreen> with SingleTickerProviderStateMixin {
   final controller = PageController();
   final scaffoldKey = new GlobalKey<ScaffoldState>();
   VoidCallback showPerBottomSheetCallBack;
@@ -1237,8 +1235,7 @@ class _ProductScreenState extends State<ProductScreen>
         });
   }
 
-  startRatingCountShow(
-      double startRating, double ratingPercent, String totalCount) {
+  startRatingCountShow(double startRating, double ratingPercent, String totalCount) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[

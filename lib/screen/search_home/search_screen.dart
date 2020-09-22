@@ -1,26 +1,21 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
-import 'package:ChaiChod/common_widget/common_widget.dart';
 import 'package:ChaiChod/common_widget/filled_button.dart';
 import 'package:ChaiChod/common_widget/text.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
-import 'package:ChaiChod/screen/search_home/search_tabs_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
   final int i;
-
   const SearchScreen({Key key, this.i}) : super(key: key);
-
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -144,13 +139,14 @@ class _SearchScreenState extends State<SearchScreen> {
                       color: ColorRes.blackColor,
                       fontWeight: FontWeight.bold,
                     )),
+
                 Padding(
                     padding: EdgeInsets.only(left: 10, top: 5, bottom: 25),
                     child: AllText("225/45/R17", color: ColorRes.blackColor)),
 
                 gridImage(),
 
-//          Expanded(child: )
+              //Expanded(child: )
               ],
             ),
           ),
