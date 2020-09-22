@@ -348,33 +348,64 @@ class _ProductScreenState extends State<ProductScreen>
   //tab bar heading
   tabBarShow() {
     return Container(
-      height: tabIndex == 0 ? 850 : 575,
-      alignment: Alignment.center,
+      height: tabIndex == 0 ? 820 : 504,
+      color: ColorRes.lightWhite,
       child: Column(
         children: [
           Container(
             height: 50,
+            color: ColorRes.whiteColor,
             alignment: Alignment.center,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
                     flex: 1,
                     child: InkResponse(
                       onTap: () {
                         _studentDasboardController.jumpToPage(0);
-
                       },
-                      child: AllText(StringRes.tab1),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.only(top: 15),
+                              child: AllText(StringRes.tab1, align: TextAlign.center)),
+                          Container(
+                            height: 1,
+                            decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(
+                                  color: tabIndex == 0  ? ColorRes.primaryColor : ColorRes.whiteColor,
+                                  width: 2,
+                                ))
+                            ),
+                          )
+                        ],
+                      ),
                     )),
                 Expanded(
                     flex: 1,
                     child: InkResponse(
                       onTap: () {
                         _studentDasboardController.jumpToPage(1);
-
                       },
-                      child: AllText(StringRes.tab2),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.only(top: 15),
+                              child: AllText(StringRes.tab2, align: TextAlign.center)),
+                          Container(
+                            height: 1,
+                            decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(
+                                  color: tabIndex == 1  ? ColorRes.primaryColor : ColorRes.whiteColor,
+                                  width: 2,
+                                ))
+                            ),
+                          )
+                        ],
+                      ),
                     ))
               ],
             ),
@@ -458,12 +489,13 @@ class _ProductScreenState extends State<ProductScreen>
 
   //list data in using details tab
   listData() {
-    currentIndexChangeTabBar = 1;
+    currentIndexChangeTabBar = 0;
     return SingleChildScrollView(
       physics: NeverScrollableScrollPhysics(),
       child: Column(
         children: <Widget>[
           Container(
+            color: ColorRes.whiteColor,
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(top: 20, left: 10),
             child: Text(
@@ -476,6 +508,7 @@ class _ProductScreenState extends State<ProductScreen>
             ),
           ),
           Container(
+            color: ColorRes.whiteColor,
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 10, left: 10, right: 10),
             child: Text(
@@ -498,8 +531,9 @@ class _ProductScreenState extends State<ProductScreen>
             ),
           ),
           Container(
+            color: ColorRes.whiteColor,
             alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 30),
+            padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 40),
             child: Text(
               StringRes.Description1,
               style: TextStyle(
@@ -519,10 +553,9 @@ class _ProductScreenState extends State<ProductScreen>
     return Column(
       children: <Widget>[
         Container(
-          color: ColorRes.lightWhite,
-//          color: ColorRes.lightWhite,
+          color: ColorRes.whiteColor,
           alignment: Alignment.centerLeft,
-          padding: EdgeInsets.only(top: 20, left: 10, bottom: 10),
+          padding: EdgeInsets.only(top: 20, left: 10),
           child: Text(
             StringRes.Title1,
             style: TextStyle(
@@ -545,6 +578,7 @@ class _ProductScreenState extends State<ProductScreen>
   //review tab in rate in properties
   starRating(item) {
     return Container(
+      color: ColorRes.whiteColor,
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.only(left: 10.0, right: 5.0, top: 5),
       child: SmoothStarRating(
@@ -576,11 +610,10 @@ class _ProductScreenState extends State<ProductScreen>
       color: ColorRes.lightWhite,
       // color: Colors.red,
       width: Utils.getDeviceWidth(context),
-      margin: EdgeInsets.only(top: 20, bottom: 20),
+      margin: EdgeInsets.only(top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 15),
           Container(
             height: 190,
             child: ListView.builder(
@@ -656,7 +689,7 @@ class _ProductScreenState extends State<ProductScreen>
 
   relatedProducts() {
     return Padding(
-      padding: EdgeInsets.only(top: 20, left: 15),
+      padding: EdgeInsets.only(top: 10, left: 15),
       child: AllText(
         StringRes.ProductTitle3,
         fontWeight: FontWeight.bold,
@@ -1294,38 +1327,43 @@ class _ProductScreenState extends State<ProductScreen>
 
   startRatingCountShow(
       double startRating, double ratingPercent, String totalCount) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          starRating(startRating),
-          Expanded(
+    return Container(
+      color: ColorRes.whiteColor,
+      padding: EdgeInsets.only(bottom: startRating == 1 ? 20 : 00),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            starRating(startRating),
+            Expanded(
 //        alignment: Alignment.center,
-            // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-            child: Padding(
-              padding: EdgeInsets.only(top: 5),
-              child: new LinearPercentIndicator(
+              // padding: EdgeInsets.only(top:10,left: 10, right: 10),
+              child: Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: new LinearPercentIndicator(
 //            width: 150.0,
-                lineHeight: 10.0,
-                percent: ratingPercent,
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                backgroundColor: Colors.black12,
-                progressColor: Colors.blue,
+                  lineHeight: 10.0,
+                  percent: ratingPercent,
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  backgroundColor: Colors.black12,
+                  progressColor: Colors.blue,
+                ),
               ),
             ),
-          ),
-          Container(
-            width: 50,
-            alignment: Alignment.centerRight,
-            margin: EdgeInsets.only(right: 10, top: 5),
-            // padding: EdgeInsets.only(top:10,left: 10, right: 10),
-            child: AllText(totalCount, align: TextAlign.right),
-          )
-        ]);
+            Container(
+              width: 50,
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.only(right: 10, top: 5),
+              // padding: EdgeInsets.only(top:10,left: 10, right: 10),
+              child: AllText(totalCount, align: TextAlign.right),
+            )
+          ]),
+    );
   }
 
   qualifications() {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      color: ColorRes.whiteColor,
+     // margin: EdgeInsets.only(bottom: 10),
       padding: EdgeInsets.only(top: 10, left: 7),
       child: Row(
         children: <Widget>[
