@@ -7,11 +7,7 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   File image;
-  @override
-  void initState() {
-    super.initState();
-  }
- 
+
   //image picker use in get the images in gallery
   void openGallery() async {
     var i = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -52,7 +48,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   String district;
   String subDistrict;
   String postalCode;
-
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +172,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
 
-
   //upload image use in set the images are gallery and camera
   uploadImage() {
     return Container(
@@ -236,7 +230,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       ),
     );
   }
-  //_showSelectionDialog are use in click edit profile and show dialog
+
+  //showSelectionDialog are use in click edit profile and show dialog
   void showSelectionDialog() {
     BuildContext dialogContext;
     showDialog(
@@ -269,7 +264,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         });
   }
 
- setImageView() {
+  setImageView() {
       return new Container(
         height: 150,
         width: 150,
@@ -852,14 +847,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       return null;
   }
 
-
   String validateSoi(String value) {
     if (value.isEmpty)
       return 'Please enter soi';
     else
       return null;
   }
-
 
   String validateProvince(String value) {
     if (value.isEmpty)
@@ -868,7 +861,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       return null;
   }
 
-
   String validateDistrict(String value) {
     if (value.isEmpty)
       return 'Please enter district';
@@ -876,14 +868,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       return null;
   }
 
-
   String validateSubDistrict(String value) {
     if (value.isEmpty)
       return 'Please enter sub district';
     else
       return null;
   }
-
 
   String validatePostalCode(String value) {
     if (value.isEmpty)
