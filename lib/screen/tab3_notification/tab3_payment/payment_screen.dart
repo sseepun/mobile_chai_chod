@@ -12,6 +12,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return Scaffold(
       backgroundColor: ColorRes.lightWhite,
       body: Center(
+        
         child: Text("Payment"),
       ),
     );
