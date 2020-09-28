@@ -66,9 +66,9 @@ flutter:
 
   assets:
     - assets/images/
-#   - assets/img/banner/
-#   - assets/img/bg/
-#   - assets/img/icon/
+#    - assets/img/banner/
+#    - assets/img/bg/
+#    - assets/img/icon/
 
   fonts:
     - family: Kanit
