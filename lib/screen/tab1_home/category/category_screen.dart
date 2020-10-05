@@ -82,12 +82,94 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 
+  int currentIndex;
+
   categoryList() {
-    return Container(
-      height: 105,
-      padding: EdgeInsets.only(left: 10, right: 15),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          height: 120,
+          child: ListView.builder(
+              itemCount: images.length,
+              shrinkWrap: true,
+              // physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                currentIndex = index;
+                return InkResponse(
+                  onTap: () {
+                    if (index == 0) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => GoodYearScreen()),
+                      );
+                    } else if (index == 1) {
+                    } else if (index == 2) {
+                    } else if (index == 3) {
+                    } else if (index == 4) {}
+                  },
+                  child: Container(
+//              height: 200,
+                    width: 100,
+                    margin: EdgeInsets.only(left: 10),
+//              decoration: BoxDecoration(color: ColorRes.whiteColor),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                            child: Image(
+                                image: AssetImage(images[index]),
+                                fit: BoxFit.fill)),
+                        Container(
+                            height: 25,
+                            alignment: Alignment.bottomCenter,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            margin: EdgeInsets.only(right: 0),
+                            child: AllText(stringList1[index],
+                                color: ColorRes.blackColor,
+                                maxLine: 1,
+                                fontSize: 12,
+                                overflow: TextOverflow.ellipsis)),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+        ),
+        Container(
+          height: 3,
+          margin: EdgeInsets.only(top: 10),
+          width: Utils.getDeviceWidth(context) * 0.20,
+//            width: Utils.getDeviceWidth(context) / images.length * 0.80,
+          alignment: Alignment.center,
+//          color: Colors.black,
+          child: Center(
+            child: ListView.builder(
+                itemCount: images.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Container(
+                      height: 3,
+                      width: 15,
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(right: 4),
+                      color: currentIndex == index
+                          ? Colors.black.withOpacity(0.50)
+                          : Colors.grey.withOpacity(0.50));
+                }),
+          ),
+        )
+      ],
+    );
+    /*Container(
+      height: 100,
+      margin: EdgeInsets.only(bottom: 10),
       child: ListView.builder(
-          itemCount: 6,
+          itemCount: 4,
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
@@ -101,35 +183,33 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 } else if (index == 1) {
                 } else if (index == 2) {
                 } else if (index == 3) {
-                } else if (index == 4) {
-                } else if (index == 5) {
-                } else if (index == 6) {}
+                } else if (index == 4) {}
               },
               child: Padding(
-                padding: EdgeInsets.only(left: 5),
+                padding: EdgeInsets.only(
+                    right: index == images.length - 1 ? 10 : 0, left: 10),
                 child: Column(
                   children: <Widget>[
                     Expanded(
                       child: Image.asset(
-                        images[index % 4],
+                        images[index],
                         height: 80,
-                        width: 90,
+                        width: 80,
                         fit: BoxFit.fill,
                       ),
                     ),
                     SizedBox(height: 5),
-                    Text(
-                      stringList1[index % 4],
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTheme.descSmallStyle,
-                    ),
-                    SizedBox(height: 5),
+                    AllText(stringList1[index],
+                        color: ColorRes.blackColor,
+                        fontSize: 10,
+                        overflow: TextOverflow.ellipsis),
                   ],
                 ),
               ),
             );
           }),
-    );
+    )*/
+    ;
   }
 
   // grid image  are using grid view image and text

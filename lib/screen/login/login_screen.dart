@@ -165,11 +165,15 @@ class LoginScreenState extends State<LoginScreen> {
           ),
           child: Row(
             children: <Widget>[
-              Icon(
+              Image(
+                  height: 22,
+                  width: 20,
+                  image: AssetImage(Utils.getAssetsImg('user')), color: ColorRes.primaryColor),
+             /* Icon(
                 Icons.person,
                 color: ColorRes.primaryColor,
                 size: 24,
-              ),
+              ),*/
               Padding(
                 padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
                 child: Text(
@@ -220,11 +224,15 @@ class LoginScreenState extends State<LoginScreen> {
           ),
           child: Row(
             children: <Widget>[
-              Icon(
+              Image(
+                  height: 22,
+                  width: 20,
+                  image: AssetImage(Utils.getAssetsImg('lock')), color: ColorRes.primaryColor),
+              /*Icon(
                 Icons.lock,
                 color: ColorRes.primaryColor,
                 size: 24,
-              ),
+              ),*/
               Padding(
                 padding: EdgeInsets.only(top: 5, left: 7, bottom: 5),
                 child: Text(

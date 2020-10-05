@@ -1,10 +1,10 @@
 import 'package:ChaiChod/common_widget/common_route.dart';
 import 'package:ChaiChod/common_widget/common_widget.dart';
+import 'package:ChaiChod/common_widget/slider_plugin_custome.dart';
 import 'package:ChaiChod/config/color_resources.dart';
 import 'package:ChaiChod/config/string_resources.dart';
 import 'package:ChaiChod/config/util.dart';
 import 'package:ChaiChod/config/app_theme.dart';
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -128,17 +128,24 @@ class _HomeScreenState extends State<HomeScreen> {
           boxFit: BoxFit.cover,
           autoplay: false,
           animationCurve: Curves.fastOutSlowIn,
-          animationDuration: Duration(milliseconds: 1000),
+          animationDuration: Duration(milliseconds: 500),
           dotSize: 6.0,
-          dotIncreasedColor: ColorRes.primaryColor,
+          dotIncreasedColor: ColorRes.whiteColor,
+          overlayShadowColors: Colors.white.withOpacity(0.55),
           dotBgColor: Colors.transparent,
           dotPosition: DotPosition.bottomCenter,
-          dotVerticalPadding: 10.0,
+          dotVerticalPadding: 5.0,
           showIndicator: true,
+          dotColor: Colors.white.withOpacity(0.25),
+
+//          dotIncreaseSize: 15.0,
+//          radius: Radius.circular(10),
+//          noRadiusForIndicator: true,
           indicatorBgPadding: 7.0,
           images: [
             ExactAssetImage('assets/images/car_1.jpg'),
             ExactAssetImage('assets/images/car_2.jpg'),
+            ExactAssetImage('assets/images/car_3.jpg'),
             ExactAssetImage('assets/images/car_3.jpg'),
           ],
         ),
