@@ -36,8 +36,20 @@ class _MapScreenState extends State<LocationScreen> {
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                searchData(),
-                map(),
+                // CommonView.backArrowAndTitle(context, StringRes.address, ColorRes.blackColor),
+                // SizedBox(height: 5),
+                Stack(
+                  children: [
+                    Container(
+                      height: Utils.getDeviceHeight(context) - 93,
+                      child: map(),
+                    ),
+                    Container(
+                      child: searchData(),
+                    ),
+                  ],
+                ),
+                //listData(),
               ],
             ),
           ),
