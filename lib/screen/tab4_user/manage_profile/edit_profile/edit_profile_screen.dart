@@ -8,7 +8,31 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   File _image;
 
+  File image;
+
+
   //image picker use in get the images in gallery
+  void openGallery() async {
+    var i = await ImagePicker.pickImage(source: ImageSource.gallery);
+    if (i != null) {
+      setState(() {
+        image = i;
+      });
+    }
+  }
+
+  //image picker use in get the images in camera
+  void openCamera() async {
+    var i = await ImagePicker.pickImage(source: ImageSource.camera);
+    if (i != null) {
+      setState(() {
+        image = i;
+      });
+    }
+  }
+
+
+/*  //image picker use in get the images in gallery
   void _openGallery() async {
     var i = await ImagePicker.pickImage(source: ImageSource.gallery);
     if (i != null) {
@@ -26,7 +50,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         _image = i;
       });
     }
-  }
+  }*/
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
@@ -63,7 +87,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               child: Column(
                 children: <Widget>[
                   CommonView.backArrowAndTitle(
-                    context, StringRes.editProfile, 
+                    context, StringRes.editProfile,
                     ColorRes.blackColor
                   ),
                   uploadImage(),
@@ -134,6 +158,53 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
 
+  //showSelectionDialog are use in click edit profile and show dialog
+  setImageView() {
+    return new Container(
+      height: 150,
+      width: 150,
+      decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: new ExactAssetImage(image.path),
+            fit: BoxFit.cover,
+          ),
+          shape: BoxShape.circle
+      ),
+    );
+  }
+
+  //showSelectionDialog are use in click edit profile and show dialog
+  void showSelectionDialog() {
+    BuildContext dialogContext;
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          dialogContext = context;
+          return AlertDialog(
+              title: Text("From where do you want to take the photo?"),
+              content: SingleChildScrollView(
+                child: ListBody(
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Text("Gallery"),
+                      onTap: () {
+                        openGallery();
+                        Navigator.pop(dialogContext);
+                      },
+                    ),
+                    Padding(padding: EdgeInsets.all(8.0)),
+                    GestureDetector(
+                      child: Text("Camera"),
+                      onTap: () {
+                        openCamera();
+                        Navigator.pop(dialogContext);
+                      },
+                    )
+                  ],
+                ),
+              ));
+        });
+  }
 
   //upload image use in set the images are gallery and camera
   uploadImage() {
@@ -145,14 +216,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: Container(
               child: FlatButton(
                 padding: EdgeInsets.only(top: 25),
-                child: _image == null
-                    ? new Image.asset(
-                        Utils.getAssetsImg('profile'),
-                        width: 150,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      )
-                    : _setImageView(),
+                child: image == null
+                    ? new Container(
+                  height: 150,
+                  width: 150,
+                  decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                      image: new AssetImage(Utils.getAssetsImg('profile')),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: new BorderRadius.all(const Radius.circular(100)),
+                  ),
+                )
+                    : setImageView(),
               ),
             ),
           ),
@@ -161,7 +237,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: Container(
               child: FlatButton(
                 onPressed: () {
-                  _showSelectionDialog();
+                  showSelectionDialog();
                 },
                 child: Column(
                   children: <Widget>[
@@ -188,7 +264,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       ),
     );
   }
-  //_showSelectionDialog are use in click edit profile and show dialog
+
+/*  //_showSelectionDialog are use in click edit profile and show dialog
   void _showSelectionDialog() {
     BuildContext dialogContext;
     showDialog(
@@ -219,7 +296,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ),
               ));
         });
-  }
+  }*/
 
   Widget _setImageView() {
     if (_image != null) {

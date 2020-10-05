@@ -17,6 +17,7 @@ class OrderSummaryScreen extends StatefulWidget {
 
 class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTickerProviderStateMixin {
   final controller = PageController();
+  bool monVal = true;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
       child: SafeArea(
         child: Scaffold(
           appBar: CommonView.appBarTitleWithDesc(
-            context, StringRes.OrderSummaryTitle, 
+            context, StringRes.OrderSummaryTitle,
             StringRes.OrderSummaryDescription
           ),
           bottomNavigationBar: bottomBar(),
@@ -68,7 +69,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
           Padding(
             padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
             child: FilledButton(
-              text: 'เลือกช่องทางการชำระเงิน', 
+              text: 'เลือกช่องทางการชำระเงิน',
               fontSize: 20,
               height: 58,
               onPressed: (){
@@ -172,12 +173,13 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
 
   discountDetails(){
     return Container(
-      padding: EdgeInsets.fromLTRB(15, 12, 15, 20),
+      padding: EdgeInsets.fromLTRB(5, 12, 15, 10),
       color: Colors.white,
       child: Column(
         children: <Widget>[
           Container(
             alignment: Alignment.topLeft,
+            margin: EdgeInsets.only(left: 10),
             child: Text(
               StringRes.discountDetails,
               style: AppTheme.subHeaderSmallStyle,
@@ -185,6 +187,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
           ),
           Container(
             padding: EdgeInsets.only(top: 8),
+            margin: EdgeInsets.only(left: 10),
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -207,6 +210,30 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
             ),
           ),
           Container(
+            padding: EdgeInsets.only(top: 5, left: 0),
+            child: Row(
+              children: <Widget>[
+                Checkbox(
+                  value: monVal,
+                  onChanged: (bool value) {
+                    setState(() {
+                      monVal = value;
+                    });
+                  },
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 5),
+                  child: AllText(
+                    "ขอใบกำกับภาษี",
+                    color: Colors.black,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
+      /*    Container(
             padding: EdgeInsets.only(top: 10),
             child: Row(
               children: <Widget>[
@@ -225,7 +252,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> with SingleTick
                 ),
               ],
             ),
-          ),
+          ),*/
         ],
       )
     );
